@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('��������������') !== ''){
+                alert('�������');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="网络原理,TCP,UDP," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="小鹿的博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="网络协议是每个工程师必须要掌握的知识。">
+<meta name="keywords" content="网络原理,TCP,UDP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="必会的网络原理之【UDP-TCP】">
+<meta property="og:url" content="http://yoursite.com/2019/03/25/必会的网络原理之【UDP-TCP】/index.html">
+<meta property="og:site_name" content="小鹿的博客">
+<meta property="og:description" content="网络协议是每个工程师必须要掌握的知识。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/网络中五层协议.png">
+<meta property="og:image" content="http://yoursite.com/imaged/实体层.png">
+<meta property="og:image" content="http://yoursite.com/images/IP数据包.png">
+<meta property="og:image" content="http://yoursite.com/images/以太网数据包.png">
+<meta property="og:updated_time" content="2019-03-25T08:25:26.763Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="必会的网络原理之【UDP-TCP】">
+<meta name="twitter:description" content="网络协议是每个工程师必须要掌握的知识。">
+<meta name="twitter:image" content="http://yoursite.com/images/网络中五层协议.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/25/必会的网络原理之【UDP-TCP】/"/>
+
+
+
+
+
+  <title>必会的网络原理之【UDP-TCP】 | 小鹿的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+
+  <div class="container  page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/luxiangqiang"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小鹿的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Ordinary life , Unwilling to be ordinary code farmers</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="https://luxiangqiang.github.io/2018/08/16/%E5%85%B3%E4%BA%8E%E6%88%91/#more" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/必会的网络原理之【UDP-TCP】/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小鹿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小鹿的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">必会的网络原理之【UDP-TCP】</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T07:50:58+08:00">
+                2019-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络原理/" itemprop="url" rel="index">
+                    <span itemprop="name">网络原理</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络原理/TCP/" itemprop="url" rel="index">
+                    <span itemprop="name">TCP</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络原理/TCP/UDP/" itemprop="url" rel="index">
+                    <span itemprop="name">UDP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/25/必会的网络原理之【UDP-TCP】/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/03/25/必会的网络原理之【UDP-TCP】/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,716
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/images/网络中五层协议.png" alt=""></p>
+<p>网络协议是每个工程师必须要掌握的知识。</p>
+<a id="more"></a>
+<h3 id="一、网络层中协议"><a href="#一、网络层中协议" class="headerlink" title="一、网络层中协议"></a>一、网络层中协议</h3><h4 id="1、五层模型"><a href="#1、五层模型" class="headerlink" title="1、五层模型"></a>1、五层模型</h4><blockquote>
+<p>越最下层越靠近硬件，越最上方的层，越靠近用户。</p>
+</blockquote>
+<ul>
+<li>应用层</li>
+<li>传输层</li>
+<li>网络层</li>
+<li>连接层</li>
+<li>实体层</li>
+</ul>
+<h4 id="2、层与协议"><a href="#2、层与协议" class="headerlink" title="2、层与协议"></a>2、层与协议</h4><blockquote>
+<p>互联网分为若干层，每一层都有特定的功能和规则。大家都要遵守的规则叫做 “协议”。</p>
+</blockquote>
+<h4 id="3、实体层"><a href="#3、实体层" class="headerlink" title="3、实体层"></a>3、实体层</h4><blockquote>
+<p>电脑要组网，第一件事要干什么？当然是先把电脑连起来，可以用光缆、电缆、双绞线、无线电波等方式。</p>
+</blockquote>
+<p><img src="/imaged/实体层.png" alt=""></p>
+<blockquote>
+<p><strong>它就是把电脑连接起来的物理手段。它主要规定了网络的一些电气特性，作用是负责传送0和1的电信号。</strong>  </p>
+</blockquote>
+<h4 id="4、链路层"><a href="#4、链路层" class="headerlink" title="4、链路层"></a>4、链路层</h4><h6 id="▉-定义"><a href="#▉-定义" class="headerlink" title="▉ 定义"></a>▉ 定义</h6><blockquote>
+<p><strong>问题</strong>：单纯的0和1没有任何意义，必须规定解读方式：多少个电信号算一组？每个信号位有何意义？</p>
+<p><strong>解决：</strong>这就是”链接层”的功能，它在”实体层”的上方，确定了0和1的分组方式。</p>
+</blockquote>
+<h6 id="▉以太网协议（数据包的定义）"><a href="#▉以太网协议（数据包的定义）" class="headerlink" title="▉以太网协议（数据包的定义）"></a>▉以太网协议（数据包的定义）</h6><blockquote>
+<p>一组电信号构成一个数据包，叫做”帧”（Frame）。每一帧分成两个部分：标头（Head）和数据（Data）。 </p>
+</blockquote>
+<ul>
+<li><strong>标头：</strong>包含数据包的一些说明项，比如发送者、接受者、数据类型等等 </li>
+<li><strong>数据： </strong>数据包的具体内容 </li>
+</ul>
+<h6 id="▉MAC地址"><a href="#▉MAC地址" class="headerlink" title="▉MAC地址"></a>▉MAC地址</h6><blockquote>
+<p><strong>问题</strong>：发送者和接受者是如何标识呢？</p>
+<p><strong>解决：</strong>以太网规定，连入网络的所有设备，都必须具有”网卡”接口。数据包必须是从一块网卡，传送到另一块网卡。网卡的地址，就是数据包的发送地址和接收地址，这叫做MAC地址。 </p>
+</blockquote>
+<h6 id="▉广播"><a href="#▉广播" class="headerlink" title="▉广播"></a>▉广播</h6><blockquote>
+<p><strong>问题：</strong>一块网卡怎么会知道另一块网卡的MAC地址？以太网数据包必须知道接收方的MAC地址，然后才能发送。 （<strong>ARP协议</strong>）</p>
+<p><strong>问题：</strong>知道MAC地址了，系统怎样才能把数据包准确送到接收方 ？</p>
+<p><strong>解决：</strong></p>
+<p>发送方并不是准确的发送到接受方，而是向本网络内所有计算机发送，每台计算机判断是否接收？它们读取这个包的”标头”，找到接收方的 MAC 地址，然后与自身的 MAC 地址相比较，如果两者相同，就接受这个包，做进一步处理，否则就丢弃这个包。这种发送方式就叫做”广播”（broadcasting）。 </p>
+</blockquote>
+<h3 id="5、网络层"><a href="#5、网络层" class="headerlink" title="5、网络层"></a>5、网络层</h3><h6 id="▉-由来"><a href="#▉-由来" class="headerlink" title="▉ 由来"></a>▉ 由来</h6><blockquote>
+<p>上述虽然可以实现通信，存在一下弊端：</p>
+<p>1）局限在发送者所在的子网络 。</p>
+<p>2）以广播发送效率低下。</p>
+<p>3）两台机器不在子网络。广播是传不过去的。</p>
+</blockquote>
+<h6 id="▉-网络层的定义"><a href="#▉-网络层的定义" class="headerlink" title="▉ 网络层的定义"></a>▉ 网络层的定义</h6><blockquote>
+<p><strong>问题：</strong>怎么做到如果是同一个子网络，就采用广播方式发送，否则就采用”路由”方式发送。？</p>
+<p><strong>解决:</strong> 这就导致了”网络层”的诞生。它的作用是引进一套新的地址，使得我们能够区分不同的计算机是否属于同一个子网络。<strong>这套地址就叫做”网络地址”，简称”网址”</strong>。</p>
+</blockquote>
+<h6 id="▉-网络地址和MAC地址的区别？"><a href="#▉-网络地址和MAC地址的区别？" class="headerlink" title="▉ 网络地址和MAC地址的区别？"></a>▉ 网络地址和MAC地址的区别？</h6><blockquote>
+<p>1、两种地址之间没有任何联系，MAC地址是绑定在网卡上的，网络地址则是管理员分配的，它们只是随机组合在一起。</p>
+<p>2、网络在确定所在子网络的时候，先处理网络地址，然后在处理MAC地址。 </p>
+</blockquote>
+<h6 id="▉-IP-协议"><a href="#▉-IP-协议" class="headerlink" title="▉ IP 协议"></a>▉ IP 协议</h6><blockquote>
+<p><strong>作用： </strong>一个是为每一台计算机分配IP地址，另一个是确定哪些地址在同一个子网络。 </p>
+<p><strong>定义：</strong>规定网络地址的协议，叫做IP协议。它所定义的地址，就被称 为IP地址。 </p>
+<p><strong>组成： </strong>地址分成两个部分，前一部分代表<strong>网络</strong>，后一部分代表<strong>主机 </strong>。可以判断两台计算机是否处于同一网络中。</p>
+</blockquote>
+<h6 id="▉-子网掩码"><a href="#▉-子网掩码" class="headerlink" title="▉ 子网掩码"></a>▉ 子网掩码</h6><blockquote>
+<p><strong>问题： </strong>对于 IP 地址无法判断网络部分，到底是前16位还是前24位代表网络地址？</p>
+<p><strong>解决：</strong>子网掩码</p>
+<p><strong>组成: </strong> 它的网络部分全部为1，主机部分全部为0。 </p>
+<p>比如，比如，IP地址172.16.254.1，如果已知网络部分是前24位，主机部分是后8位，那么子网络掩码就是11111111.11111111.11111111.00000000，写成十进制就是255.255.255.0。 </p>
+</blockquote>
+<h6 id="▉-判断是否处于同一网络"><a href="#▉-判断是否处于同一网络" class="headerlink" title="▉ 判断是否处于同一网络"></a>▉ 判断是否处于同一网络</h6><blockquote>
+<p>将两个IP地址与子网掩码分别进行<strong>AND运算（</strong>两个数位都为1，运算结果为1，否则为0），然后比较结果是否相同，如果是的话，就表明它们在同一个子网络中，否则就不是。 </p>
+</blockquote>
+<h6 id="▉-IP-数据包"><a href="#▉-IP-数据包" class="headerlink" title="▉ IP 数据包"></a>▉ IP 数据包</h6><blockquote>
+<p>之前的以太网数据包只包含 MAC 地址，没有 IP 地址的栏位。并不需要添加 IP 栏位，我们直接将 IP 数据包添加到以太网数据包的数据部分。这就是互联网分层的好处，上层的变动完全不涉及下层的结构。</p>
+</blockquote>
+<p><img src="/images/IP数据包.png" alt=""></p>
+<p><strong>IP 数据包：</strong></p>
+<ul>
+<li>标头：包括版本、长度、IP地址等信息。</li>
+<li>数据：IP 数据包的具体内容。</li>
+</ul>
+<p><strong>包装后的以太网数据包：</strong></p>
+<p><img src="/images/以太网数据包.png" alt=""></p>
+<h6 id="▉-ARP-协议"><a href="#▉-ARP-协议" class="headerlink" title="▉ ARP 协议"></a>▉ ARP 协议</h6><blockquote>
+<p><strong>问题：</strong>IP 数据包是放在以太网数据包里发送的，所以同时知道 IP 地址和 MAC 地址，IP 地址是已知的，但是不知道 MAC 地址。我们需要从 IP 地址中的到 MAC 地址。</p>
+<p><strong>解决：</strong></p>
+<p>两种情况：是否在同一子网络。</p>
+<p>第一种情况，不在同一子网络，将数据包扔给两个子网络连接处网关处理。</p>
+<p>第二种情况，同一子网络中，通过 ARP协议。ARP协议也是发出一个数据包（包含在以太网数据包中），其中包含它所要查询主机的IP地址，在对方的MAC地址这一栏，填的是FF:FF:FF:FF:FF:FF，表示这是一个”广播”地址。它所在子网络的每一台主机，都会收到这个数据包，从中取出IP地址，与自身的IP地址进行比较。如果两者相同，都做出回复，向对方报告自己的MAC地址，否则就丢弃这个包 </p>
+</blockquote>
+<h3 id="二、UDP-与-TCP-的区别是什么？"><a href="#二、UDP-与-TCP-的区别是什么？" class="headerlink" title="二、UDP 与 TCP 的区别是什么？"></a>二、UDP 与 TCP 的区别是什么？</h3><h4 id="1、面向无连接"><a href="#1、面向无连接" class="headerlink" title="1、面向无连接"></a>1、面向无连接</h4><blockquote>
+<p>UDP 发送数据不需要提前进行连接，想发直接发送就可以了，并且知识数据报文的搬运工，不会对报文有任何拆分和拼接操作。</p>
+</blockquote>
+<ul>
+<li>在发送端，应用层将数据传递给传输层的 UDP 协议，UDP 只会给数据增加一个 UDP 头标识下是 UDP 协议，然后就传递给网络层了</li>
+<li>在接收端，网络层将数据传递给传输层，UDP 只去除 IP 报文头就传递给应用层，不会任何拼接操作</li>
+</ul>
+<h4 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h4><h4 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h4>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网络原理/" rel="tag"># 网络原理</a>
+          
+            <a href="/tags/TCP/" rel="tag"># TCP</a>
+          
+            <a href="/tags/UDP/" rel="tag"># UDP</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/23/数据分析之 Python 【NumPy库】/" rel="next" title="数据分析之 Python 【NumPy库】">
+                <i class="fa fa-chevron-left"></i> 数据分析之 Python 【NumPy库】
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/25/前端 CSS3 之基础篇【边框与阴影】/" rel="prev" title="前端 CSS3 之基础篇【选择器】">
+                前端 CSS3 之基础篇【选择器】 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="小鹿" />
+            
+              <p class="site-author-name" itemprop="name">小鹿</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">106</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/luxiangqiang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/5667224360/home?wvr=5&sudaref=graph.qq.com" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_36903042" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="tencent://message/?Menu=yes&uin=1040500646&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-globe"></i>QQ</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、网络层中协议"><span class="nav-number">1.</span> <span class="nav-text">一、网络层中协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、五层模型"><span class="nav-number">1.1.</span> <span class="nav-text">1、五层模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、层与协议"><span class="nav-number">1.2.</span> <span class="nav-text">2、层与协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、实体层"><span class="nav-number">1.3.</span> <span class="nav-text">3、实体层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、链路层"><span class="nav-number">1.4.</span> <span class="nav-text">4、链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-定义"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">▉ 定义</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉以太网协议（数据包的定义）"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">▉以太网协议（数据包的定义）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉MAC地址"><span class="nav-number">1.4.0.3.</span> <span class="nav-text">▉MAC地址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉广播"><span class="nav-number">1.4.0.4.</span> <span class="nav-text">▉广播</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、网络层"><span class="nav-number">2.</span> <span class="nav-text">5、网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-由来"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">▉ 由来</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-网络层的定义"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">▉ 网络层的定义</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-网络地址和MAC地址的区别？"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">▉ 网络地址和MAC地址的区别？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-IP-协议"><span class="nav-number">2.0.0.4.</span> <span class="nav-text">▉ IP 协议</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-子网掩码"><span class="nav-number">2.0.0.5.</span> <span class="nav-text">▉ 子网掩码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-判断是否处于同一网络"><span class="nav-number">2.0.0.6.</span> <span class="nav-text">▉ 判断是否处于同一网络</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-IP-数据包"><span class="nav-number">2.0.0.7.</span> <span class="nav-text">▉ IP 数据包</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-ARP-协议"><span class="nav-number">2.0.0.8.</span> <span class="nav-text">▉ ARP 协议</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、UDP-与-TCP-的区别是什么？"><span class="nav-number">3.</span> <span class="nav-text">二、UDP 与 TCP 的区别是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、面向无连接"><span class="nav-number">3.1.</span> <span class="nav-text">1、面向无连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、"><span class="nav-number">3.2.</span> <span class="nav-text">2、</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、"><span class="nav-number">3.3.</span> <span class="nav-text">3、</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fab fa-android"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小鹿</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>-->
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共155.7k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/03/25/必会的网络原理之【UDP-TCP】/';
+          this.page.identifier = '2019/03/25/必会的网络原理之【UDP-TCP】/';
+          this.page.title = '必会的网络原理之【UDP-TCP】';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'm76p6ARzXTmtu8Rr0OHb1xXF-gzGzoHsz',
+        appKey: 'R6Ph6fuUQ3tXXodI0w6Qa3fc',
+        placeholder: 'Just go go',
+        avatar:'��������!',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 13176,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>

@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+
+<script>
+    (function(){
+        if('lxqwan915816816'){
+            if (prompt('��������������') !== 'lxqwan915816816'){
+                alert('�������');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据结构," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="小鹿的博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="小鹿带你走进数据结构与算法中的字符串匹配。">
+<meta name="keywords" content="数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构与算法之美【字符串匹配】">
+<meta property="og:url" content="http://yoursite.com/2019/01/16/数据结构与算法之美【字符串匹配】/index.html">
+<meta property="og:site_name" content="小鹿的博客">
+<meta property="og:description" content="小鹿带你走进数据结构与算法中的字符串匹配。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/字符串匹配.png">
+<meta property="og:image" content="http://yoursite.com/images/BF算法.png">
+<meta property="og:image" content="http://yoursite.com/images/RK算法.png">
+<meta property="og:image" content="http://yoursite.com/images/计算哈希改进.png">
+<meta property="og:image" content="http://yoursite.com/images/哈希值求规律.png">
+<meta property="og:image" content="http://yoursite.com/images/计算子串的哈希值.png">
+<meta property="og:image" content="http://yoursite.com/images/数组存储次方.png">
+<meta property="og:image" content="http://yoursite.com/images/字符串匹配中.png">
+<meta property="og:image" content="http://yoursite.com/images/BM倒匹配字符串.png">
+<meta property="og:image" content="http://yoursite.com/images/BM分析.png">
+<meta property="og:image" content="http://yoursite.com/images/好后缀规则.png">
+<meta property="og:image" content="http://yoursite.com/images/好后缀问题.png">
+<meta property="og:image" content="http://yoursite.com/images/好前缀和坏字符.png">
+<meta property="og:image" content="http://yoursite.com/images/最长匹配字符串.png">
+<meta property="og:image" content="http://yoursite.com/images/查找最长匹配.png">
+<meta property="og:image" content="http://yoursite.com/images/失效函数.png">
+<meta property="og:updated_time" content="2019-01-17T09:21:06.914Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构与算法之美【字符串匹配】">
+<meta name="twitter:description" content="小鹿带你走进数据结构与算法中的字符串匹配。">
+<meta name="twitter:image" content="http://yoursite.com/images/字符串匹配.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/16/数据结构与算法之美【字符串匹配】/"/>
+
+
+
+
+
+  <title>数据结构与算法之美【字符串匹配】 | 小鹿的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+
+  <div class="container  page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/luxiangqiang"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小鹿的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Ordinary life , Unwilling to be ordinary code farmers</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="https://luxiangqiang.github.io/2018/08/16/%E5%85%B3%E4%BA%8E%E6%88%91/#more" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/16/数据结构与算法之美【字符串匹配】/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小鹿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小鹿的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据结构与算法之美【字符串匹配】</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-16T09:05:04+08:00">
+                2019-01-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/16/数据结构与算法之美【字符串匹配】/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/16/数据结构与算法之美【字符串匹配】/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,816
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/images/字符串匹配.png" alt=""></p>
+<p>小鹿带你走进数据结构与算法中的字符串匹配。</p>
+<a id="more"></a>
+<h2 id="数据结构与算法之美【字符串匹配】"><a href="#数据结构与算法之美【字符串匹配】" class="headerlink" title="数据结构与算法之美【字符串匹配】"></a>数据结构与算法之美【字符串匹配】</h2><h2 id="01-字符串匹配基础（上）：借助哈希算法实现高效字符串匹配"><a href="#01-字符串匹配基础（上）：借助哈希算法实现高效字符串匹配" class="headerlink" title="01|字符串匹配基础（上）：借助哈希算法实现高效字符串匹配"></a>01|字符串匹配基础（上）：借助哈希算法实现高效字符串匹配</h2><blockquote>
+<p><strong>一串匹配一串：</strong></p>
+<p>1、简单的两种字符串匹配算法，BF算法、RK算法。</p>
+<p>2、难理解、但是更加高效的算法，BM算法、KMP算法。</p>
+<p><strong>一串匹配多串：</strong></p>
+<p>1、一串匹配多串的时候使用 Trie 树和 AC 自动机。</p>
+</blockquote>
+<h3 id="BF-算法（Brute-Force）"><a href="#BF-算法（Brute-Force）" class="headerlink" title="BF 算法（Brute Force）"></a>BF 算法（Brute Force）</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><blockquote>
+<p>BF（Brute Force） 算法也叫<strong>暴力匹配算法</strong>，也叫做<strong>朴素匹配算法</strong>。</p>
+</blockquote>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><blockquote>
+<p>简单、好懂。</p>
+</blockquote>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
+<p>性能差。</p>
+</blockquote>
+<h4 id="主串和模式串-n-gt-m"><a href="#主串和模式串-n-gt-m" class="headerlink" title="主串和模式串(n&gt;m)"></a>主串和模式串(n&gt;m)</h4><blockquote>
+<p>主串（n）：被查找的字符串。</p>
+<p>模式串（m）：要查找的字符串。</p>
+</blockquote>
+<h4 id="BF-算法思路"><a href="#BF-算法思路" class="headerlink" title="BF 算法思路"></a>BF 算法思路</h4><blockquote>
+<p>我们在主串中，从起始位置到 0、1、2、 … m-n 开始检查能否和长度为 m 的字符串匹配。最多需要比较 n-m+1 次。</p>
+</blockquote>
+<p><img src="/images/BF算法.png" alt=""></p>
+<h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><blockquote>
+<p><strong>最坏时间复杂度O(m*n)</strong>: 当主串为 aaa…aaa 时，模式串为 aaaaab 时，每次对比 m 个字符串，要比对 n-m+1 次。时间复杂度为 <strong>m*n+m²+1 。</strong></p>
+</blockquote>
+<h4 id="适用情况"><a href="#适用情况" class="headerlink" title="适用情况"></a>适用情况</h4><blockquote>
+<p>虽然 BF 的时间复杂度非常高了，但是在我们实际开发中经常用到。在实际的软件开发中，绝大部分情况下，朴素的字符串匹配算法就够用了。</p>
+</blockquote>
+<p><strong>1、大部分情况下，模式串和主串的长度不会太长。 </strong></p>
+<blockquote>
+<p>每次进行字符串匹配的时候，当中途不能匹配的时候就会停止，不需要把所有的 m 个字符串都进行对比。所以理论上最坏时间复杂度为 O(n*m),但是，统计意义上，大部分的情况下的效率还是比较高的。</p>
+</blockquote>
+<p><strong>2、代码简单易实现</strong></p>
+<blockquote>
+<p>朴素字符串匹配算法思想简单，代码实现简单，简单意味着不容易出错，如果有 bug 也容易暴露和修复。在实际项目中，在满足性能的要求前提下，简单是首选，这也是我们常说的。<strong>符合 kiss 原则 </strong>。</p>
+</blockquote>
+<p><strong>KISS原则</strong>是英语 <strong>K</strong>eep <strong>I</strong>t <strong>S</strong>imple, <strong>S</strong>tupid 的首字母缩略字，是一种归纳过的经验原则。KISS 原则是指在设计当中应当<strong>注重简约</strong>的原则。总结工程専业人员在设计过程中的经验，大多数系统的设计应保持简洁和单纯，而不掺入非必要的复杂性，这样的系统运作成效会取得最优；因此简单性应该是设计中的关键目标，尽量回避免不必要的复杂性。</p>
+<h3 id="RK-算法-Rabin-Karp"><a href="#RK-算法-Rabin-Karp" class="headerlink" title="RK 算法(Rabin-Karp)"></a>RK 算法(Rabin-Karp)</h3><p><img src="/images/RK算法.png" alt=""></p>
+<h4 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h4><blockquote>
+<p>它是由 Rabin 和 Karp 两位发明者来命名的。</p>
+</blockquote>
+<h4 id="BF-算法的不足"><a href="#BF-算法的不足" class="headerlink" title="BF 算法的不足"></a>BF 算法的不足</h4><blockquote>
+<p>上边也讲到了，在匹配字符串的时候，需要一个字符一个字符的比较，最坏情况下的时间复杂度为 O（m*n），我们引入哈希算法。</p>
+</blockquote>
+<h4 id="RK-算法思路"><a href="#RK-算法思路" class="headerlink" title="RK 算法思路"></a>RK 算法思路</h4><blockquote>
+<p>利用哈希算法，对剩余的 n-m+1 个子串进行求哈希值，然后逐个与模式串进行对比，我们世道哈希值是一个数字，比较起来很多，我们先不考虑哈希冲突，这样效率提高了很多。</p>
+</blockquote>
+<h4 id="RK-计算哈希值不足"><a href="#RK-计算哈希值不足" class="headerlink" title="RK 计算哈希值不足"></a>RK 计算哈希值不足</h4><blockquote>
+<p>你可能会说，字符串计算哈希值的时候，我们需要遍历字符串，总体的时间复杂度并没有降低。</p>
+</blockquote>
+<h4 id="计算哈希值改进"><a href="#计算哈希值改进" class="headerlink" title="计算哈希值改进"></a>计算哈希值改进</h4><blockquote>
+<p>将包含 K 的字符串用 K 进制来表示，比如 a~z , 26 个字母，计算哈希值的时候我们改为 26 进制就可以了。然后将 26 进制改为 10 进制。</p>
+</blockquote>
+<p><img src="/images/计算哈希改进.png" alt=""></p>
+<p>这种哈希算法有个特点就是相邻的两个子串的哈希值的计算公式有一定的关系。</p>
+<p><img src="/images/哈希值求规律.png" alt=""></p>
+<p>两者之间的关系满足的公式：</p>
+<p><img src="/images/计算子串的哈希值.png" alt=""></p>
+<p>关于26^(m-1) 这部分的计算，我们通过数组的方式来计算更加快速。</p>
+<p><img src="/images/数组存储次方.png" alt=""></p>
+<h4 id="RK-算法的时间复杂度"><a href="#RK-算法的时间复杂度" class="headerlink" title="RK 算法的时间复杂度"></a>RK 算法的时间复杂度</h4><blockquote>
+<p>RK 算法包括两部分，一部分是计算子串的哈希值，另一部分是与子串的哈希值进行比较。</p>
+<p>1、计算子串的哈希值是遍历一遍字符串就可以，时间复杂度是 O(n)。</p>
+<p>2、比较哈希值需要比较 n-m+1 次，所以时间复杂度为 O(n)。、、</p>
+<p>3、所以 RK 算法的总体的时间复杂度为 O(n)。</p>
+</blockquote>
+<h4 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h4><blockquote>
+<p>1、如果模式串很长，计算哈希值的长度超过计算机的存储的整数范围的话，我们应该怎么办？</p>
+<p>2、计算哈希值存在哈希冲突怎么办？</p>
+</blockquote>
+<h4 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h4><blockquote>
+<p><strong>解决一：</strong>对于问题一，我们可以优化一下计算哈希值的算法就可以，如:字符串对应素数一次类推等。</p>
+<p><strong>解决二：</strong>对于问题二，就让他存在哈希冲突，当我们遇到哈希冲突的时候，我们再对应模式串和子串的本身。</p>
+</blockquote>
+<h4 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h4><blockquote>
+<p>我们还是要尽量将冲突的概率控制的较低，否则RK 算法的时间复杂度就会推化为 O(n*m)。总的来说，RK 算法的时间复杂度相对于 BF 算法效率还是很高的。</p>
+</blockquote>
+<p><img src="/images/字符串匹配中.png" alt=""></p>
+<h2 id="02-字符串匹配基础（中）：实现文本编辑器的查找功能"><a href="#02-字符串匹配基础（中）：实现文本编辑器的查找功能" class="headerlink" title="02|字符串匹配基础（中）：实现文本编辑器的查找功能"></a>02|字符串匹配基础（中）：实现文本编辑器的查找功能</h2><h3 id="BM-算法的核心思想"><a href="#BM-算法的核心思想" class="headerlink" title="BM 算法的核心思想"></a>BM 算法的核心思想</h3><h4 id="BM-算法（Boyer-Moore）"><a href="#BM-算法（Boyer-Moore）" class="headerlink" title="BM 算法（Boyer-Moore）"></a>BM 算法（Boyer-Moore）</h4><blockquote>
+<p>字符串匹配中，BF 算法和 RK 算法的做法就是每比较一个模式串，就向后滑动一个，那么为了提高效率，我们什么情况下直接跳过不可能匹配的模式串，向后滑动多个字符呢？这就是 BM 算法解决的问题。</p>
+</blockquote>
+<h4 id="BM-算法原理分析"><a href="#BM-算法原理分析" class="headerlink" title="BM 算法原理分析"></a>BM 算法原理分析</h4><blockquote>
+<p>BM 算法包括两个部分，分别是<strong>坏字符串（bad character rule）</strong>规则和<strong>好后缀（good suffix shift）</strong>规则。</p>
+</blockquote>
+<h4 id="1、坏字符串规则"><a href="#1、坏字符串规则" class="headerlink" title="1、坏字符串规则"></a>1、坏字符串规则</h4><p><strong>定义</strong></p>
+<blockquote>
+<p>我们在子串中匹配模式串的时候通常是顺序匹配的，但是 BM 不同的是从后向前匹配，倒着匹配。</p>
+</blockquote>
+<p><strong>过程</strong></p>
+<p><img src="/images/BM倒匹配字符串.png" alt=""></p>
+<p>① 当我们在匹配字符串的时候，当遇到没法匹配的字符的时候，我们将此字符叫做<strong>坏字符。</strong></p>
+<p>② 当我们发现字符串不匹配的时候，我们将字符串对应的<strong>模式串中</strong>的下标记做为 <strong>si</strong>。如果模式串中存在坏字符串，我们就将在模式串中标记为 <strong>xi</strong>。如果不存在，我们就将 xi 标记为 -1。那模式串往后移动的位数就等于 <strong>si-xi</strong> </p>
+<p><img src="/images/BM分析.png" alt=""></p>
+<blockquote>
+<p>这样做的目的就是防止防止一次性移动过多，导致本来匹配的情况被略过<strong>。</strong></p>
+</blockquote>
+<p><strong>时间复杂度</strong></p>
+<blockquote>
+<p>BM 最好时间复杂度为 O（n/m）</p>
+</blockquote>
+<p><strong>坏字符串规则不足</strong></p>
+<blockquote>
+<p>如果坏字符串在模式串中存在，假如我们在主串 aaaaaaaa 中匹配 baaa 。不但不会向后滑动，还有可能会出现向前滑动的现象。</p>
+</blockquote>
+<h4 id="2、好后缀规则"><a href="#2、好后缀规则" class="headerlink" title="2、好后缀规则"></a>2、好后缀规则</h4><blockquote>
+<p>坏字符串中的不足点，下方的情况我们会怎么滑动模式串？我么能使用好后缀匹配规则。</p>
+</blockquote>
+<p><img src="/images/好后缀规则.png" alt=""></p>
+<p>① <strong>A、</strong>我们将从后往前已经匹配好的字符串记做 <strong>{u}</strong> ，我们就拿它在模式串中查找，如果找到了跟 <strong>{u}</strong> 相同的匹配的字符串，那我们就将模式串滑动到子串 <strong>{u*}</strong> 与模式串中对其的位置。</p>
+<p><strong>B、</strong>如果我们没有在模式串中找到该字符串，我们就将向后移动整个模式串（<strong>会出现问题</strong>）。我们在移动的同时需要判断子串后缀的字符串是否和模式串的头字符串是否匹配,如果匹配我们就移动到重合位置，否则直接移动模式串长度的位置。</p>
+<p><img src="/images/好后缀问题.png" alt=""></p>
+<h4 id="3、两如何个规则"><a href="#3、两如何个规则" class="headerlink" title="3、两如何个规则"></a>3、两如何个规则</h4><blockquote>
+<p>我们分别计算好后缀和坏字符串往后滑动的位数，然后取两个数中最大的作为字符串向后滑动的位数。（避免了向后滑动位数问题，又解决了滑动负数的问题）</p>
+</blockquote>
+<h3 id="BM-算法的实现"><a href="#BM-算法的实现" class="headerlink" title="BM 算法的实现"></a>BM 算法的实现</h3><p>略</p>
+<p>…</p>
+<h3 id="BM-算法的性能分析及优化"><a href="#BM-算法的性能分析及优化" class="headerlink" title="BM 算法的性能分析及优化"></a>BM 算法的性能分析及优化</h3><h3 id="思考：BM-算法通常用在文本编辑器中。"><a href="#思考：BM-算法通常用在文本编辑器中。" class="headerlink" title="思考：BM 算法通常用在文本编辑器中。"></a>思考：BM 算法通常用在文本编辑器中。</h3><h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><blockquote>
+<p>1、主要目的我们学习算法的思想，需要的时候加以应用就好。</p>
+<p>2、要有优化意识。前边的 BF 算法和 RK 算法在实际中已经够用了。</p>
+<p>3、算法的优化就是为了减少时间复杂度，但是带来的弊端就是优化代码带来复杂，维护成本变的很高。</p>
+</blockquote>
+<h2 id="字符串匹配基础（下）：理解KMP-算法"><a href="#字符串匹配基础（下）：理解KMP-算法" class="headerlink" title="字符串匹配基础（下）：理解KMP 算法"></a>字符串匹配基础（下）：理解KMP 算法</h2><blockquote>
+<p>虽然我们学到的 BM 算法是日常中最高效、最常用的字符串匹配方法。那 KMP 算法是最知名的一句话，放我们提到字符串匹配最先想到 KMP 算法。</p>
+</blockquote>
+<h3 id="一、KMP-算法的基本原理"><a href="#一、KMP-算法的基本原理" class="headerlink" title="一、KMP 算法的基本原理"></a>一、KMP 算法的基本原理</h3><h4 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h4><blockquote>
+<p><strong>KMP（D.E.Knuth，J.H.Morris 和 V.R.Pratt）</strong>,算法的全称为 Knuth Morris Pratt 算法，简称为 KMP 算法。</p>
+</blockquote>
+<h4 id="2、KMP-核心思想"><a href="#2、KMP-核心思想" class="headerlink" title="2、KMP 核心思想"></a>2、KMP 核心思想</h4><blockquote>
+<p>KMP 主要解决的就是模式串在主串进行匹配的时候，我们希望找到一定的规律，直接跳过那些不会匹配的情况。</p>
+</blockquote>
+<h4 id="3、KMP-实现原理"><a href="#3、KMP-实现原理" class="headerlink" title="3、KMP 实现原理"></a>3、KMP 实现原理</h4><blockquote>
+<p>我们类比 BM 算法，KMP 分为<strong>好前缀</strong>和<strong>坏字符</strong>两部分。</p>
+</blockquote>
+<p><img src="/images/好前缀和坏字符.png" alt=""></p>
+<p><strong>①</strong> 当我们遇到坏字符时，我们就将模式串向后移动，在滑动过程中，我们将模式串中的前缀子串和好前缀中的字符判断上下是否存在重合。</p>
+<p><strong>②</strong> 我们只需在好前缀的后缀子串中，查找模式串中前缀子串中<strong>最长</strong>匹配的字符串。设定模式串中的前缀子串是 <strong>{v}</strong>，长度为 K，我们一次性往后滑动 j-k 位，相当于遇到坏字符时，我们就把 j 更新为 k，i 不变，然后继续比较。</p>
+<p><img src="/images/最长匹配字符串.png" alt=""></p>
+<p><strong>③ 那我们的最长匹配字符串是怎么查找的那呢？</strong></p>
+<blockquote>
+<p>把好前缀的所有后缀子串中，最长的可匹配前缀子串的那个后缀子串，叫作最长可匹配后缀子串；对应的前缀子串，叫作最长可匹配前缀子串，叫作最长可匹配前缀子串。</p>
+</blockquote>
+<p><img src="/images/查找最长匹配.png" alt=""></p>
+<p><strong>④ 如何来求好前缀的最长可匹配前缀和后缀子串呢？</strong></p>
+<blockquote>
+<p>我们将有可能为最前缀的字符串最后字符的下标存储到数组中，我们将这个数组叫做 <strong>next 数组。</strong>也叫做 <strong>失效函数。</strong></p>
+</blockquote>
+<p><img src="/images/失效函数.png" alt=""></p>
+<p><strong>⑤ KMP 的框架代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a, b 分别是主串和模式串；n, m 分别是主串和模式串的长度。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">kmp</span><span class="params">(<span class="keyword">char</span>[] a, <span class="keyword">int</span> n, <span class="keyword">char</span>[] b, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 模式串中的 next 数组</span></span><br><span class="line">  <span class="keyword">int</span>[] next = getNexts(b, m);</span><br><span class="line">  <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">// </span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">    <span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; a[i] != b[j]) &#123; <span class="comment">// 一直找到 a[i] 和 b[j]</span></span><br><span class="line">      j = next[j - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (a[i] == b[j]) &#123;</span><br><span class="line">      ++j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (j == m) &#123; <span class="comment">// 找到匹配模式串的了</span></span><br><span class="line">      <span class="keyword">return</span> i - m + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二、失效函数计算方法"><a href="#二、失效函数计算方法" class="headerlink" title="二、失效函数计算方法"></a>二、失效函数计算方法</h3><h3 id="三、KMP-算法复杂度分析"><a href="#三、KMP-算法复杂度分析" class="headerlink" title="三、KMP 算法复杂度分析"></a>三、KMP 算法复杂度分析</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/14/数据结构与算法之美【深度广度优先搜索】/" rel="next" title="数据结构与算法之美【深度和广度优先搜索】">
+                <i class="fa fa-chevron-left"></i> 数据结构与算法之美【深度和广度优先搜索】
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/19/数据结构与算法之美【AC 自动机】/" rel="prev" title="数据结构与算法之美【AC 自动机】">
+                数据结构与算法之美【AC 自动机】 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="小鹿" />
+            
+              <p class="site-author-name" itemprop="name">小鹿</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">106</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/luxiangqiang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/5667224360/home?wvr=5&sudaref=graph.qq.com" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_36903042" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="tencent://message/?Menu=yes&uin=1040500646&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-globe"></i>QQ</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构与算法之美【字符串匹配】"><span class="nav-number">1.</span> <span class="nav-text">数据结构与算法之美【字符串匹配】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#01-字符串匹配基础（上）：借助哈希算法实现高效字符串匹配"><span class="nav-number">2.</span> <span class="nav-text">01|字符串匹配基础（上）：借助哈希算法实现高效字符串匹配</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BF-算法（Brute-Force）"><span class="nav-number">2.1.</span> <span class="nav-text">BF 算法（Brute Force）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">2.1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">2.1.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">2.1.3.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主串和模式串-n-gt-m"><span class="nav-number">2.1.4.</span> <span class="nav-text">主串和模式串(n&gt;m)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BF-算法思路"><span class="nav-number">2.1.5.</span> <span class="nav-text">BF 算法思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间复杂度"><span class="nav-number">2.1.6.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#适用情况"><span class="nav-number">2.1.7.</span> <span class="nav-text">适用情况</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RK-算法-Rabin-Karp"><span class="nav-number">2.2.</span> <span class="nav-text">RK 算法(Rabin-Karp)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#由来"><span class="nav-number">2.2.1.</span> <span class="nav-text">由来</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BF-算法的不足"><span class="nav-number">2.2.2.</span> <span class="nav-text">BF 算法的不足</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RK-算法思路"><span class="nav-number">2.2.3.</span> <span class="nav-text">RK 算法思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RK-计算哈希值不足"><span class="nav-number">2.2.4.</span> <span class="nav-text">RK 计算哈希值不足</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算哈希值改进"><span class="nav-number">2.2.5.</span> <span class="nav-text">计算哈希值改进</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RK-算法的时间复杂度"><span class="nav-number">2.2.6.</span> <span class="nav-text">RK 算法的时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存在的问题"><span class="nav-number">2.2.7.</span> <span class="nav-text">存在的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题解决"><span class="nav-number">2.2.8.</span> <span class="nav-text">问题解决</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#补充："><span class="nav-number">2.2.9.</span> <span class="nav-text">补充：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-字符串匹配基础（中）：实现文本编辑器的查找功能"><span class="nav-number">3.</span> <span class="nav-text">02|字符串匹配基础（中）：实现文本编辑器的查找功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BM-算法的核心思想"><span class="nav-number">3.1.</span> <span class="nav-text">BM 算法的核心思想</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#BM-算法（Boyer-Moore）"><span class="nav-number">3.1.1.</span> <span class="nav-text">BM 算法（Boyer-Moore）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BM-算法原理分析"><span class="nav-number">3.1.2.</span> <span class="nav-text">BM 算法原理分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1、坏字符串规则"><span class="nav-number">3.1.3.</span> <span class="nav-text">1、坏字符串规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、好后缀规则"><span class="nav-number">3.1.4.</span> <span class="nav-text">2、好后缀规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、两如何个规则"><span class="nav-number">3.1.5.</span> <span class="nav-text">3、两如何个规则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BM-算法的实现"><span class="nav-number">3.2.</span> <span class="nav-text">BM 算法的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BM-算法的性能分析及优化"><span class="nav-number">3.3.</span> <span class="nav-text">BM 算法的性能分析及优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思考：BM-算法通常用在文本编辑器中。"><span class="nav-number">3.4.</span> <span class="nav-text">思考：BM 算法通常用在文本编辑器中。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">3.5.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串匹配基础（下）：理解KMP-算法"><span class="nav-number">4.</span> <span class="nav-text">字符串匹配基础（下）：理解KMP 算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、KMP-算法的基本原理"><span class="nav-number">4.1.</span> <span class="nav-text">一、KMP 算法的基本原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、定义"><span class="nav-number">4.1.1.</span> <span class="nav-text">1、定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、KMP-核心思想"><span class="nav-number">4.1.2.</span> <span class="nav-text">2、KMP 核心思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、KMP-实现原理"><span class="nav-number">4.1.3.</span> <span class="nav-text">3、KMP 实现原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、失效函数计算方法"><span class="nav-number">4.2.</span> <span class="nav-text">二、失效函数计算方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、KMP-算法复杂度分析"><span class="nav-number">4.3.</span> <span class="nav-text">三、KMP 算法复杂度分析</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fab fa-android"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小鹿</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>-->
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共155.7k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/01/16/数据结构与算法之美【字符串匹配】/';
+          this.page.identifier = '2019/01/16/数据结构与算法之美【字符串匹配】/';
+          this.page.title = '数据结构与算法之美【字符串匹配】';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'm76p6ARzXTmtu8Rr0OHb1xXF-gzGzoHsz',
+        appKey: 'R6Ph6fuUQ3tXXodI0w6Qa3fc',
+        placeholder: 'Just go go',
+        avatar:'��������!',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 13176,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
