@@ -126,7 +126,7 @@
 <meta property="og:site_name" content="小鹿的博客">
 <meta property="og:description" content="有关链表的所有操作和题型的详细解析和扩展。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-13T11:34:09.941Z">
+<meta property="og:updated_time" content="2019-04-16T03:19:56.707Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构与算法之题型篇【链表】">
 <meta name="twitter:description" content="有关链表的所有操作和题型的详细解析和扩展。">
@@ -441,7 +441,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,749
+                  2,584
                 </span>
               
 
@@ -457,7 +457,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  10
                 </span>
               
             </div>
@@ -481,29 +481,32 @@
         <p>有关链表的所有操作和题型的详细解析和扩展。</p>
 <a id="more"></a>
 <p>[TOC]</p>
-<h2 id="一、链表相关题目"><a href="#一、链表相关题目" class="headerlink" title="一、链表相关题目"></a>一、链表相关题目</h2><h3 id="1、单链表从头到尾打印"><a href="#1、单链表从头到尾打印" class="headerlink" title="1、单链表从头到尾打印"></a>1、单链表从头到尾打印</h3><h4 id="1-1-问题分析与解决"><a href="#1-1-问题分析与解决" class="headerlink" title="1.1 问题分析与解决"></a>1.1 问题分析与解决</h4><h6 id="▉-问题分析"><a href="#▉-问题分析" class="headerlink" title="▉ 问题分析"></a>▉ 问题分析</h6><blockquote>
+<h2 id="一、链表相关题目"><a href="#一、链表相关题目" class="headerlink" title="一、链表相关题目"></a>一、链表相关题目</h2><h3 id="1、单链表从头到尾打印"><a href="#1、单链表从头到尾打印" class="headerlink" title="1、单链表从头到尾打印"></a>1、单链表从头到尾打印</h3><blockquote>
+<p>题目：输入一个链表的头结点，从尾到头反过来打印出每个节点的值。</p>
+</blockquote>
+<h4 id="1-1-问题分析与解决"><a href="#1-1-问题分析与解决" class="headerlink" title="1.1 问题分析与解决"></a>1.1 问题分析与解决</h4><h6 id="▉-问题分析"><a href="#▉-问题分析" class="headerlink" title="▉ 问题分析"></a>▉ 问题分析</h6><blockquote>
 <p>1）看到题目第一想到的就是反转链表在打印输出，一种反转链表的方法，但是这种方法改变了原有的链表结构。</p>
+<p>缺点：使得链表的结构发生改变了。如果不改变链表结构应该怎么解决？</p>
 <p>2）从问题中可以得出，我们想要从尾到头打印链表，正常情况下是从头到尾打印的，我们就会想到最后的数据先打印，开始的数据最后打印，有种“先进后出”的特点，我们就能想到用“栈”这种结构，用栈来实现。</p>
+<p>缺点：代码不够简洁。</p>
+<p>优点：鲁棒性好（在不确定的情况下，程序仍然可以正确的执行）。</p>
 <p>3）提到栈这种数据结构，我们就会想到“递归”的实现就是用栈这种数据结构实现的。既然栈能实现，那么递归也能实现。</p>
-<p>实现方式：</p>
+<p>缺点：如果链表很长，递归深度很深，导致堆栈溢出。</p>
+<p>优点：代码简洁、明了。</p>
+</blockquote>
+<h6 id="▉-算法思路"><a href="#▉-算法思路" class="headerlink" title="▉ 算法思路"></a>▉ 算法思路</h6><blockquote>
+<p>得出以下几种实现方式：</p>
 <ul>
 <li>反转链表法</li>
 <li>栈实现</li>
 <li>递归实现</li>
 </ul>
-</blockquote>
-<h6 id="▉-算法思路"><a href="#▉-算法思路" class="headerlink" title="▉ 算法思路"></a>▉ 算法思路</h6><blockquote>
 <p>1）反转链表实现：</p>
 <p>从尾到头输出链表的内容，一般的思路就是将链表反转过来，然后从头到尾输出数据。</p>
-<p>缺点：使得链表的结构发生改变了。如果不改变链表结构应该怎么解决？</p>
 <p>2）栈实现</p>
 <p>从头到尾遍历单链表，将数据存储按照顺序存储到栈中。然后遍历整个栈，打印输出数据。</p>
-<p>缺点：代码不够简洁。</p>
-<p>优点：鲁棒性好（在不确定的情况下，程序仍然可以正确的执行）。</p>
 <p>2）递归实现：</p>
 <p>可以通过递归的方式来实现单链表从尾到头依次输出，递归过程涉及到“递”和“归”，反转链表输出数据，正式利用了循环“递”的过程，所以数据先从头部输出，那么递归采用的是“归”的过程来输出内容，输出当前结点先要输出当前节点的下一节点。</p>
-<p>缺点：如果链表很长，递归深度很深，导致堆栈溢出。</p>
-<p>优点：代码简洁、明了。</p>
 </blockquote>
 <h6 id="▉-测试用例"><a href="#▉-测试用例" class="headerlink" title="▉ 测试用例"></a>▉ 测试用例</h6><blockquote>
 <p>在写代码之前，要想好测试用例才能写出健全、鲁棒性的代码，也是为了考虑到边界情况，往往也是整个程序最致命的地方，如果考虑不全面，就会出现 bug，导致程序崩溃。</p>
@@ -553,6 +556,37 @@
 <p>2）用递归解决一定要铭记递归的缺点带来的性能问题。</p>
 <p>3）递归解决的问题，能不能用动态规划来解决，使得性能更高。</p>
 <p>4）用到栈这种数据结构，想一想递归是否可以实现呢。</p>
+</blockquote>
+<h3 id="2、删除链表结点"><a href="#2、删除链表结点" class="headerlink" title="2、删除链表结点"></a>2、删除链表结点</h3><blockquote>
+<p>题目：在 O（1）的时间复杂度内删除链表节点。</p>
+<p>给定单向链表的头指针和一个节点指针，定义一个函数在 O（1）时间内删除该节点。</p>
+</blockquote>
+<h4 id="2-1-问题分析与解决"><a href="#2-1-问题分析与解决" class="headerlink" title="2.1 问题分析与解决"></a>2.1 问题分析与解决</h4><h6 id="▉-问题分析-1"><a href="#▉-问题分析-1" class="headerlink" title="▉ 问题分析"></a>▉ 问题分析</h6><blockquote>
+<p>1）想必看到单链表删除节点的题，第一想到的就是删除链表结点需要以 O（n）时间复杂度遍历链表找到该结点的前结点，然后以 O（1）时间复杂度进行删除，时间复杂度为O（n）。而题目中的确实整体要求时间复杂度为 O（1）。</p>
+<p>2）怎么才能达到 O（1）的时间复杂度删除链表？如果不遍历不就可以了？如果直接删除的时间复杂度为 O（1），前提是我们需要知道前结点才能做到。我们就会想怎么做到不用遍历数据才能获取到前结点呢？而且必须保证时间复杂度为 O（1）。</p>
+<p>3）但是必须让自己多想一步就是如果删除的结点是尾结点怎么操作，如果删除的链表结点只有一个结点，即是尾结点又是头结点怎么办？</p>
+</blockquote>
+<h6 id="▉-算法思路-1"><a href="#▉-算法思路-1" class="headerlink" title="▉ 算法思路"></a>▉ 算法思路</h6><blockquote>
+<p>1）这一有种技巧很难想到，就是我把当前结点的数据与下一结点的数据进行交换，删除下一结点不就可以达到时间复杂度为O（1）了吗。而且我们知道当前结点就是下一结点的前节点，perfect。</p>
+<p>2）针对以上两种特殊情况，如果是尾结点，没有下一结点，我们就从头遍历链表删除节点；如果即是尾结点又是头结点，那么删除头结点，并置于 null。</p>
+</blockquote>
+<h6 id="▉-测试用例-1"><a href="#▉-测试用例-1" class="headerlink" title="▉ 测试用例"></a>▉ 测试用例</h6><blockquote>
+<p>1)  输入空链表；</p>
+<p>2）在多个结点链表中删除中间结点；</p>
+<p>3）在多个链表中删除头结点；</p>
+<p>4）在多个链表总删除尾结点；</p>
+<p>5）在只有一个结点链表中删除唯一结点；</p>
+</blockquote>
+<h6 id="▉-代码实现"><a href="#▉-代码实现" class="headerlink" title="▉ 代码实现"></a>▉ 代码实现</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h6 id="▉-性能分析-1"><a href="#▉-性能分析-1" class="headerlink" title="▉ 性能分析"></a>▉ 性能分析</h6><blockquote>
+<p>时间复杂度：O（1）。</p>
+<p>经过上述的方法，删除一个链表的结点，除了删除一个链表的尾结点之外，其他删除节点的时间复杂度为 O（1），获取删除的结点的前一结点，时间复杂度为 O（1），删除节点的时间复杂度为 O（1）。只有删除尾结点才需要遍历整个链表，但大部分删除节点是 O（1）的。使用分析时间复杂度的一个方法摊还分析，将删除节点的时间复杂度平均分到其他大部分情况下，所以平均时间复杂度为 O（1）。</p>
+<p>空间复杂度：O（1）。不需要额外的内存空间。</p>
+</blockquote>
+<h4 id="2-2-小结-1"><a href="#2-2-小结-1" class="headerlink" title="2.2 小结"></a>2.2 小结</h4><h6 id="▉-内容考察"><a href="#▉-内容考察" class="headerlink" title="▉ 内容考察"></a>▉ 内容考察</h6><blockquote>
+<p>1）对单链表的删除基本操作。</p>
+<p>2）对问题的有创新思维的解决能力：能不能将复杂问题的根源用另一种思维去优化。</p>
+<p>3）问题考虑的全面性：考虑到问题出现的各种特殊情况，以及边界问题。</p>
 </blockquote>
 <h2 id="二、链表使用总结"><a href="#二、链表使用总结" class="headerlink" title="二、链表使用总结"></a>二、链表使用总结</h2>
       
@@ -819,7 +853,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、链表相关题目"><span class="nav-number">1.</span> <span class="nav-text">一、链表相关题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、单链表从头到尾打印"><span class="nav-number">1.1.</span> <span class="nav-text">1、单链表从头到尾打印</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-问题分析与解决"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 问题分析与解决</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-问题分析"><span class="nav-number">1.1.1.0.1.</span> <span class="nav-text">▉ 问题分析</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-算法思路"><span class="nav-number">1.1.1.0.2.</span> <span class="nav-text">▉ 算法思路</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-测试用例"><span class="nav-number">1.1.1.0.3.</span> <span class="nav-text">▉ 测试用例</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-代码实现：反转链表法"><span class="nav-number">1.1.1.0.4.</span> <span class="nav-text">▉ 代码实现：反转链表法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-代码实现：循环栈"><span class="nav-number">1.1.1.0.5.</span> <span class="nav-text">▉ 代码实现：循环栈</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-代码实现：递归"><span class="nav-number">1.1.1.0.6.</span> <span class="nav-text">▉ 代码实现：递归</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-性能分析"><span class="nav-number">1.1.1.0.7.</span> <span class="nav-text">▉ 性能分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-小结"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.2 小结</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-考察内容"><span class="nav-number">1.1.2.0.1.</span> <span class="nav-text">▉ 考察内容</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-扩展思考：循环和递归"><span class="nav-number">1.1.2.0.2.</span> <span class="nav-text">▉ 扩展思考：循环和递归</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-注意事项："><span class="nav-number">1.1.2.0.3.</span> <span class="nav-text">▉ 注意事项：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、链表使用总结"><span class="nav-number">2.</span> <span class="nav-text">二、链表使用总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、链表相关题目"><span class="nav-number">1.</span> <span class="nav-text">一、链表相关题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、单链表从头到尾打印"><span class="nav-number">1.1.</span> <span class="nav-text">1、单链表从头到尾打印</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-问题分析与解决"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 问题分析与解决</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-问题分析"><span class="nav-number">1.1.1.0.1.</span> <span class="nav-text">▉ 问题分析</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-算法思路"><span class="nav-number">1.1.1.0.2.</span> <span class="nav-text">▉ 算法思路</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-测试用例"><span class="nav-number">1.1.1.0.3.</span> <span class="nav-text">▉ 测试用例</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-代码实现：反转链表法"><span class="nav-number">1.1.1.0.4.</span> <span class="nav-text">▉ 代码实现：反转链表法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-代码实现：循环栈"><span class="nav-number">1.1.1.0.5.</span> <span class="nav-text">▉ 代码实现：循环栈</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-代码实现：递归"><span class="nav-number">1.1.1.0.6.</span> <span class="nav-text">▉ 代码实现：递归</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-性能分析"><span class="nav-number">1.1.1.0.7.</span> <span class="nav-text">▉ 性能分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-小结"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.2 小结</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-考察内容"><span class="nav-number">1.1.2.0.1.</span> <span class="nav-text">▉ 考察内容</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-扩展思考：循环和递归"><span class="nav-number">1.1.2.0.2.</span> <span class="nav-text">▉ 扩展思考：循环和递归</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-注意事项："><span class="nav-number">1.1.2.0.3.</span> <span class="nav-text">▉ 注意事项：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、删除链表结点"><span class="nav-number">1.2.</span> <span class="nav-text">2、删除链表结点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-问题分析与解决"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 问题分析与解决</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-问题分析-1"><span class="nav-number">1.2.1.0.1.</span> <span class="nav-text">▉ 问题分析</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-算法思路-1"><span class="nav-number">1.2.1.0.2.</span> <span class="nav-text">▉ 算法思路</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-测试用例-1"><span class="nav-number">1.2.1.0.3.</span> <span class="nav-text">▉ 测试用例</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-代码实现"><span class="nav-number">1.2.1.0.4.</span> <span class="nav-text">▉ 代码实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-性能分析-1"><span class="nav-number">1.2.1.0.5.</span> <span class="nav-text">▉ 性能分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-小结-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 小结</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-内容考察"><span class="nav-number">1.2.2.0.1.</span> <span class="nav-text">▉ 内容考察</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、链表使用总结"><span class="nav-number">2.</span> <span class="nav-text">二、链表使用总结</span></a></li></ol></div>
             
 
           </div>
@@ -874,7 +908,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共156.8k字</span>
+  <span class="post-count">博客全站共158.1k字</span>
 </div>
         
 
