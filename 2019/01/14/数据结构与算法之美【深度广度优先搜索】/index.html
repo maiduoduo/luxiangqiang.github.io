@@ -17,8 +17,8 @@
 
 <script>
     (function(){
-        if('lxqwan915816816'){
-            if (prompt('��������������') !== 'lxqwan915816816'){
+        if('小鹿'){
+            if (prompt('��������������') !== '小鹿'){
                 alert('�������');
                 history.back();
             }
@@ -118,24 +118,19 @@
 
 
 
-<meta name="description" content="小鹿带你走进数据结构与算法之美深度优先和广度优先算法。">
+<meta name="description" content="广度优先遍历算法和深度优先遍历算法！">
 <meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构与算法之美【深度和广度优先搜索】">
 <meta property="og:url" content="http://yoursite.com/2019/01/14/数据结构与算法之美【深度广度优先搜索】/index.html">
 <meta property="og:site_name" content="小鹿的博客">
-<meta property="og:description" content="小鹿带你走进数据结构与算法之美深度优先和广度优先算法。">
+<meta property="og:description" content="广度优先遍历算法和深度优先遍历算法！">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/深度广度优先算法.png">
-<meta property="og:image" content="http://yoursite.com/images/广度优先搜索.png">
-<meta property="og:image" content="http://yoursite.com/images/广度优先搜索1.png">
-<meta property="og:image" content="http://yoursite.com/images/广度优先搜索2.png">
-<meta property="og:image" content="http://yoursite.com/images/广度优先搜索3.png">
-<meta property="og:image" content="http://yoursite.com/images/深度优先搜索.png">
-<meta property="og:updated_time" content="2019-01-15T02:18:08.383Z">
+<meta property="og:updated_time" content="2019-04-24T12:27:38.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构与算法之美【深度和广度优先搜索】">
-<meta name="twitter:description" content="小鹿带你走进数据结构与算法之美深度优先和广度优先算法。">
+<meta name="twitter:description" content="广度优先遍历算法和深度优先遍历算法！">
 <meta name="twitter:image" content="http://yoursite.com/images/深度广度优先算法.png">
 
 
@@ -437,7 +432,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,354
+                  1,850
                 </span>
               
 
@@ -453,7 +448,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  7
                 </span>
               
             </div>
@@ -475,53 +470,99 @@
 
       
         <p><img src="/images/深度广度优先算法.png" alt=""></p>
-<p>小鹿带你走进数据结构与算法之美深度优先和广度优先算法。</p>
+<p>广度优先遍历算法和深度优先遍历算法！</p>
 <a id="more"></a>
-<h3 id="社交网络中的六度分割理论"><a href="#社交网络中的六度分割理论" class="headerlink" title="社交网络中的六度分割理论"></a>社交网络中的六度分割理论</h3><blockquote>
-<p>就是说你与世界上的另一个人关系不会超过六度，平均只需要六步就可以联系到任何两个互不相识的人。</p>
+<h3 id="一、搜索算法"><a href="#一、搜索算法" class="headerlink" title="一、搜索算法"></a>一、搜索算法</h3><h4 id="1、关于搜索算法"><a href="#1、关于搜索算法" class="headerlink" title="1、关于搜索算法"></a>1、关于搜索算法</h4><blockquote>
+<p>1）所谓的算法都是基于数据结构之上的，因为图这种数据结构表达能力极强，所以像搜素算法，如：广度优先遍历和深度优先遍历都是<strong>基于图</strong>来实现的。</p>
+<p>2）大部分的搜索的场景都可以抽象成<strong>图 </strong>。</p>
+<p>3）广度和深度优先既可以对<strong>无向图</strong>也可以对<strong>有向图</strong>。</p>
 </blockquote>
-<h3 id="什么是“搜索”算法？"><a href="#什么是“搜索”算法？" class="headerlink" title="什么是“搜索”算法？"></a>什么是“搜索”算法？</h3><blockquote>
-<p>深度优先搜索算法和广度优先搜索算法都是基于“图”这种数据结构的。所谓的深度和广度优先算法就是在图中找到从一个顶点到另一个顶点的路<strong>径。</strong></p>
+<h4 id="2、搜索算法的基础（图）"><a href="#2、搜索算法的基础（图）" class="headerlink" title="2、搜索算法的基础（图）"></a>2、搜索算法的基础（图）</h4><blockquote>
+<p>图有两种存储方法，下面是用<strong>邻接表</strong>的方法存储实现<strong>无向图</strong>的代码。</p>
 </blockquote>
-<p><strong>图的实现代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 无向图</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Graph</span> </span>&#123; </span><br><span class="line">  <span class="comment">// 顶点的个数</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> v;</span><br><span class="line">  <span class="comment">// 邻接表</span></span><br><span class="line">  <span class="keyword">private</span> LinkedList&lt;Integer&gt; adj[];</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Graph</span><span class="params">(<span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.v = v;</span><br><span class="line">    adj = <span class="keyword">new</span> LinkedList[v];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;v; ++i) &#123;</span><br><span class="line">      adj[i] = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 无向图一条边存两次</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addEdge</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> t)</span> </span>&#123; </span><br><span class="line">    adj[s].add(t);</span><br><span class="line">    adj[t].add(s);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="广度优先搜索（BFS）"><a href="#广度优先搜索（BFS）" class="headerlink" title="广度优先搜索（BFS）"></a>广度优先搜索（BFS）</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><blockquote>
-<p>广度优先搜索（Breadth-First-Search），我们平常都把简称为 BFS。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 无向图</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Graph</span> </span>&#123; </span><br><span class="line">  <span class="comment">// 顶点的个数</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> v;</span><br><span class="line">  <span class="comment">// 邻接表中的散列表部分</span></span><br><span class="line">  <span class="keyword">private</span> LinkedList&lt;Integer&gt; adj[];</span><br><span class="line">  <span class="comment">// 初始化</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Graph</span><span class="params">(<span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.v = v;</span><br><span class="line">    adj = <span class="keyword">new</span> LinkedList[v];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;v; ++i) &#123;</span><br><span class="line">        <span class="comment">// 为每个邻接表添加链表</span></span><br><span class="line">        adj[i] = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 无向图一条边存两次</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addEdge</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> t)</span> </span>&#123; </span><br><span class="line">    adj[s].add(t);</span><br><span class="line">    adj[t].add(s);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二、搜索算法"><a href="#二、搜索算法" class="headerlink" title="二、搜索算法"></a>二、搜索算法</h3><h4 id="※-适用条件"><a href="#※-适用条件" class="headerlink" title="※ 适用条件"></a>※ 适用条件</h4><blockquote>
+<p>广度深度优先搜索算法属于暴力破解法，没有什么可以优化的。比其他的搜索算法 A<em>、IDE\</em> 要简单粗暴。‘</p>
+<p><strong>适用条件：</strong>适合于状态空间不大（图不大）的情况下。</p>
 </blockquote>
-<p><img src="/images/广度优先搜索.png" alt=""></p>
-<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//广度优先搜索</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> t)</span> </span>&#123;</span><br><span class="line">  <span class="comment">//如果两顶点为同一个顶点，则返回</span></span><br><span class="line">  <span class="keyword">if</span> (s == t) <span class="keyword">return</span>;</span><br><span class="line">  <span class="comment">//用来存储已访问的顶点（v为图的顶点个数）</span></span><br><span class="line">  <span class="keyword">boolean</span>[] visited = <span class="keyword">new</span> <span class="keyword">boolean</span>[v];</span><br><span class="line">  <span class="comment">//将第一个顶点置为true</span></span><br><span class="line">  visited[s]=<span class="keyword">true</span>;</span><br><span class="line">  <span class="comment">//定义一个队列，用来存储已经被访问但相连的顶点还没有被访问的顶点</span></span><br><span class="line">  Queue&lt;Integer&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">  <span class="comment">//现将第一个节点存储</span></span><br><span class="line">  queue.add(s);</span><br><span class="line">  <span class="comment">//用来存储搜索路径（v为图的顶点个数）</span></span><br><span class="line">  <span class="comment">//将数组prev全部置为 -1</span></span><br><span class="line">  <span class="keyword">int</span>[] prev = <span class="keyword">new</span> <span class="keyword">int</span>[v];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v; ++i) &#123;</span><br><span class="line">    prev[i] = -<span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//当队列中已有存储的结点的时候</span></span><br><span class="line">  <span class="keyword">while</span> (queue.size() != <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="comment">// 队列中第一个元素出队</span></span><br><span class="line">    <span class="keyword">int</span> w = queue.poll();</span><br><span class="line">    <span class="comment">// </span></span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; adj[w].size(); ++i) &#123;</span><br><span class="line">      <span class="keyword">int</span> q = adj[w].get(i);</span><br><span class="line">      <span class="keyword">if</span> (!visited[q]) &#123;</span><br><span class="line">        prev[q] = w;</span><br><span class="line">        <span class="keyword">if</span> (q == t) &#123;</span><br><span class="line">          print(prev, s, t);</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        visited[q] = <span class="keyword">true</span>;</span><br><span class="line">        queue.add(q);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 递归打印 s-&gt;t 的路径</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span>[] prev, <span class="keyword">int</span> s, <span class="keyword">int</span> t)</span> </span>&#123; </span><br><span class="line">  <span class="keyword">if</span> (prev[t] != -<span class="number">1</span> &amp;&amp; t != s) &#123;</span><br><span class="line">    print(prev, s, prev[t]);</span><br><span class="line">  &#125;</span><br><span class="line">  System.out.print(t + <span class="string">" "</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="1、广度优先搜索"><a href="#1、广度优先搜索" class="headerlink" title="1、广度优先搜索"></a>1、广度优先搜索</h4><h6 id="▉-定义"><a href="#▉-定义" class="headerlink" title="▉ 定义"></a>▉ 定义</h6><blockquote>
+<p>广度优先搜索（Breadth-First-Search），简称 BFS。可以简单理解为以一点为中心，逐渐层层向外搜索，形如雷达。</p>
+</blockquote>
+<h6 id="▉-算法思路"><a href="#▉-算法思路" class="headerlink" title="▉ 算法思路"></a>▉ 算法思路</h6><blockquote>
+<p>1）判断起止点位置是否为同一位置（s == t）;</p>
+<p>2）初始化变量  <code>visited（初始化为 0）</code>、<code>queue</code>、<code>prev（初始化 -1 ）</code>，并将起始点也进行初始化;</p>
 <ul>
-<li><strong>visited :</strong>用来记录已经被访问的顶点，如果顶点q被访问，那相应的 visited[q] 会被设置为 ture 用来避免顶点被重复访问。</li>
-<li><strong>queue :</strong>是一个队列，用来存储已经被访问但相连的顶点还没有被访问的顶点。确保每一层访问完 k 层再访问 k+1 层的顶点。</li>
-<li><strong>prev :</strong>用来记录搜索路径（路径是反向存储的）。</li>
+<li>起始点在 <code>visited[0]</code> 为 <code>true</code>。</li>
+<li>起始点入栈 <code>queue</code>。</li>
 </ul>
-<h4 id="图示图解"><a href="#图示图解" class="headerlink" title="图示图解"></a>图示图解</h4><p><img src="/images/广度优先搜索1.png" alt=""></p>
-<p><img src="/images/广度优先搜索2.png" alt=""></p>
-<p><img src="/images/广度优先搜索3.png" alt=""></p>
-<h4 id="广度优先搜索的时间复杂度"><a href="#广度优先搜索的时间复杂度" class="headerlink" title="广度优先搜索的时间复杂度"></a>广度优先搜索的时间复杂度</h4><p>1、最糟糕的情况下</p>
-<blockquote>
-<p>① 终止顶点 t 离起始顶点 s 很远，需要遍历完整个图才能找到。每个顶点都需要进出一遍队列，每个边也会被访问一次，所以<strong>时间复杂度为O(V+E)</strong>。V 表示顶点个数，E 表示边的个数。</p>
-<p>② 对于一个连通图来说的是，也就是说一个图中的所有顶点都是连通的，E 肯定要大于等于 V-1，所以，广度优先搜索的<strong>时间复杂度也可以简写为O(E)</strong>。</p>
+<p>3）先对第一层进行搜索终点顶点，出栈（上一层的顶点），遍历与上一层顶点相连接的顶点是否有我们要搜索的顶点 t。</p>
+<ul>
+<li>出栈</li>
+<li>根据邻接表遍历相邻顶点；</li>
+<li>判断该顶点是否访问过；</li>
+<li>如果没有法访问，记录路径；</li>
+<li>判断当前顶点是否为终止点（如果是，递归遍历路径）。</li>
+<li>否则，该节点标记为已经访问过，<code>visited[q] = true</code>。</li>
+<li>该顶点入栈（queue）                                                                                        </li>
+</ul>
 </blockquote>
-<h4 id="广度优先搜索的空间复杂度"><a href="#广度优先搜索的空间复杂度" class="headerlink" title="广度优先搜索的空间复杂度"></a>广度优先搜索的空间复杂度</h4><blockquote>
-<p>广度优先搜索空间消耗主要在几个辅助变量 visited 数组、queue 队列、prev 数组上。这三个存储空间的大小个数不会超过顶点的个数，所以<strong>空间复杂度为 O(V)。</strong></p>
+<p>​        </p>
+<h6 id="▉-代码实现"><a href="#▉-代码实现" class="headerlink" title="▉ 代码实现"></a>▉ 代码实现</h6><blockquote>
+<p>相关变量：</p>
+<ul>
+<li>s：起始点。</li>
+<li>t：终止点。</li>
+<li>visited：存储所有访问过的顶点（初始化为 0，访问过的顶点为 1 ）。</li>
+<li>queue：存储每一层的顶点（依次出队进行判断来自哪一个顶点）。</li>
+<li>prev：存储搜索路径（下标为当前顶点，存储的元素为当前下标顶点来自哪一顶点）。</li>
+</ul>
 </blockquote>
-<h3 id="深度优先搜索（DFS）"><a href="#深度优先搜索（DFS）" class="headerlink" title="深度优先搜索（DFS）"></a>深度优先搜索（DFS）</h3><blockquote>
-<p>深度优先搜索（Depth-First-Search），简称DFS。最直观的例子就是“走迷宫”。就像是走迷宫，如果遇到走不通了，然后退回来，重新找另一条路，直到到达终点为止。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//广度优先搜索</span></span><br><span class="line">public <span class="keyword">void</span> bfs(int s, int t) &#123;</span><br><span class="line">  <span class="comment">//判断起止点位置是否为同一位置（s == t）;</span></span><br><span class="line">  <span class="keyword">if</span> (s == t) <span class="keyword">return</span>;</span><br><span class="line">  <span class="comment">//用来存储已访问的顶点（v为图的顶点个数）</span></span><br><span class="line">  boolean[] visited = <span class="keyword">new</span> boolean[v];</span><br><span class="line">  <span class="comment">//将第一个顶点置为true</span></span><br><span class="line">  visited[s]=<span class="literal">true</span>;</span><br><span class="line">  <span class="comment">//定义一个队列，用来存储已经被访问但相连的顶点还没有被访问的顶点</span></span><br><span class="line">  Queue&lt;Integer&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">  <span class="comment">//现将第一个节点存储</span></span><br><span class="line">  queue.add(s);</span><br><span class="line">  <span class="comment">//用来存储搜索路径（v为图的顶点个数）</span></span><br><span class="line">  <span class="comment">//将数组 prev 全部置为 -1</span></span><br><span class="line">  int[] prev = <span class="keyword">new</span> int[v];</span><br><span class="line">  <span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; v; ++i) &#123;</span><br><span class="line">    prev[i] = <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 出栈（上一层的顶点），遍历与上一层顶点相连接的顶点是否有我们要搜索的顶点 t。</span></span><br><span class="line">  <span class="keyword">while</span> (queue.size() != <span class="number">0</span>) &#123;</span><br><span class="line">   <span class="comment">// 出栈</span></span><br><span class="line">   int w = queue.poll();</span><br><span class="line">   <span class="comment">// 根据邻接表遍历相邻顶点</span></span><br><span class="line">   <span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; adj[w].size(); ++i) &#123;</span><br><span class="line">      <span class="comment">// 邻接表第 i 个元素</span></span><br><span class="line">      int q = adj[w].get(i);</span><br><span class="line">      <span class="comment">// 判断当前顶点是否为终止点</span></span><br><span class="line">      <span class="keyword">if</span> (!visited[q]) &#123;</span><br><span class="line">        <span class="comment">// 如果没有法访问，记录路径；</span></span><br><span class="line">        prev[q] = w;</span><br><span class="line">        <span class="comment">//判断当前顶点是否为终止点（如果是，递归遍历路径）。</span></span><br><span class="line">        <span class="keyword">if</span> (q == t) &#123;</span><br><span class="line">          print(prev, s, t);</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//否则，该节点标记为已经访问过</span></span><br><span class="line">        visited[q] = <span class="literal">true</span>;</span><br><span class="line">        <span class="comment">//该顶点入栈（queue）                                     </span></span><br><span class="line">        queue.add(q);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 递归打印 s-&gt;t 的路径</span></span><br><span class="line">private <span class="keyword">void</span> print(int[] prev, int s, int t) &#123; </span><br><span class="line">  <span class="keyword">if</span> (prev[t] != <span class="number">-1</span> &amp;&amp; t != s) &#123;</span><br><span class="line">    print(prev, s, prev[t]);</span><br><span class="line">  &#125;</span><br><span class="line">  System.out.print(t + <span class="string">" "</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="▉-性能分析"><a href="#▉-性能分析" class="headerlink" title="▉ 性能分析"></a>▉ 性能分析</h6><blockquote>
+<ul>
+<li><strong>时间复杂度：</strong>O（E）。最坏的情况就是图为连通图，且终止顶点距离起始点很远，需要遍历整个图，每个顶点和边都要至少访问一次，所以时间复杂度为 O(E + V)。因为连通图的边数一定大于等于顶点 V 。所以时间复杂度为 O（V）。</li>
+<li><strong>空间复杂度： </strong>O（V）。三个变量 visited、queue、prev 的空间永远超不出所有顶点的个数，所以空间复杂度为O（V）。</li>
+</ul>
 </blockquote>
-<p><img src="/images/深度优先搜索.png" alt=""></p>
-<h4 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//深度优先搜索</span></span><br><span class="line"><span class="keyword">boolean</span> found = <span class="keyword">false</span>; <span class="comment">// 全局变量或者类成员变量</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> t)</span> </span>&#123;</span><br><span class="line">  found = <span class="keyword">false</span>;</span><br><span class="line">  <span class="keyword">boolean</span>[] visited = <span class="keyword">new</span> <span class="keyword">boolean</span>[v];</span><br><span class="line">  <span class="keyword">int</span>[] prev = <span class="keyword">new</span> <span class="keyword">int</span>[v];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v; ++i) &#123;</span><br><span class="line">    prev[i] = -<span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  recurDfs(s, t, visited, prev);</span><br><span class="line">  print(prev, s, t);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">recurDfs</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> t, <span class="keyword">boolean</span>[] visited, <span class="keyword">int</span>[] prev)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (found == <span class="keyword">true</span>) <span class="keyword">return</span>;</span><br><span class="line">  visited[w] = <span class="keyword">true</span>;</span><br><span class="line">  <span class="keyword">if</span> (w == t) &#123;</span><br><span class="line">    found = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; adj[w].size(); ++i) &#123;</span><br><span class="line">    <span class="keyword">int</span> q = adj[w].get(i);</span><br><span class="line">    <span class="keyword">if</span> (!visited[q]) &#123;</span><br><span class="line">      prev[q] = w;</span><br><span class="line">      recurDfs(q, t, visited, prev);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>上述代码和广度优先搜索差不多相同的，但是有个地方不同的是，变量found,它的作用是，已经找到终止t之后，我们就不再递归地继续查找了。</p>
+<h4 id="2、深度优先搜索"><a href="#2、深度优先搜索" class="headerlink" title="2、深度优先搜索"></a>2、深度优先搜索</h4><h6 id="▉-定义-1"><a href="#▉-定义-1" class="headerlink" title="▉ 定义"></a>▉ 定义</h6><blockquote>
+<p>深度优先搜索（Depth-First-Search），简称 DFS。所用到的算法为回溯算法，就像走迷宫， 每当发现前方的道路不通时，就会回到上一岔路口走另一条路。</p>
 </blockquote>
-<h4 id="深度优先搜索的时间复杂度"><a href="#深度优先搜索的时间复杂度" class="headerlink" title="深度优先搜索的时间复杂度"></a>深度优先搜索的时间复杂度</h4><blockquote>
-<p>每条边最多访问两次，一次是遍历，另一次是回退，所以图上的深度优先搜索算法的<strong>时间复杂度为O(E)</strong>。</p>
+<h6 id="▉-算法思路-1"><a href="#▉-算法思路-1" class="headerlink" title="▉ 算法思路"></a>▉ 算法思路</h6><blockquote>
+<p>1）初始化变量，初始化变量  <code>visited（初始化为 0）</code>、<code>prev（初始化 -1 ）</code> <code>found：默认为 false</code>。，并将起始点也进行初始化。</p>
+<ul>
+<li>起始点在 <code>visited[0]</code> 为 <code>true</code>。</li>
+</ul>
+<p>2）判断 <code>found</code> 是否为 <code>true</code> （终止条件）。</p>
+<p>3）判断起始顶点和终止顶点是否相等，如果相等，将 <code>found</code> 置为 <code>true</code> ，<code>return</code> 返回。</p>
+<p>4）遍历邻接表，判断当前的顶点是否访问过。</p>
+<p>5）如果未访问过，记录当前顶点。</p>
+<p>6）以当前顶点为起点，继续递归调用。</p>
 </blockquote>
-<h4 id="深度优先搜索的空间复杂度"><a href="#深度优先搜索的空间复杂度" class="headerlink" title="深度优先搜索的空间复杂度"></a>深度优先搜索的空间复杂度</h4><blockquote>
-<p>深度优先搜索的消耗内存主要是 visited、prev 数组和递归调用栈。数组的大小不会超过顶点 V，所以空间复杂度为O(V)。</p>
+<h6 id="▉-代码实现-1"><a href="#▉-代码实现-1" class="headerlink" title="▉ 代码实现"></a>▉ 代码实现</h6><blockquote>
+<p>相关变量：</p>
+<ul>
+<li>s：起始点。</li>
+<li>t：终止点。</li>
+<li>found：标识已经找到终点顶点，不再继续递归。</li>
+<li>visited：存储所有访问过的顶点（初始化为 0，访问过的顶点为 1 ）。</li>
+<li>queue：存储每一层的顶点（依次出队进行判断来自哪一个顶点）。</li>
+<li>prev：存储搜索路径（下标为当前顶点，存储的元素为当前下标顶点来自哪一顶点）。</li>
+</ul>
 </blockquote>
-<h3 id="思考：如何找出社交网络中的三度好友关系？"><a href="#思考：如何找出社交网络中的三度好友关系？" class="headerlink" title="思考：如何找出社交网络中的三度好友关系？"></a>思考：如何找出社交网络中的三度好友关系？</h3><blockquote>
-<p>借助广度优先搜索，每一层是一度关系好友，用一个数组来记录每个顶点与起始顶点的距离，就可以找出三都好友。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 深度优先搜索</span></span><br><span class="line"><span class="keyword">boolean</span> found = <span class="keyword">false</span>; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> t)</span> </span>&#123;</span><br><span class="line">  found = <span class="keyword">false</span>;</span><br><span class="line">  <span class="keyword">boolean</span>[] visited = <span class="keyword">new</span> <span class="keyword">boolean</span>[v];</span><br><span class="line">  <span class="keyword">int</span>[] prev = <span class="keyword">new</span> <span class="keyword">int</span>[v];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v; ++i) &#123;</span><br><span class="line">    prev[i] = -<span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  recurDfs(s, t, visited, prev);</span><br><span class="line">  print(prev, s, t);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">recurDfs</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> t, <span class="keyword">boolean</span>[] visited, <span class="keyword">int</span>[] prev)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (found == <span class="keyword">true</span>) <span class="keyword">return</span>;</span><br><span class="line">  visited[w] = <span class="keyword">true</span>;</span><br><span class="line">  <span class="keyword">if</span> (w == t) &#123;</span><br><span class="line">    found = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; adj[w].size(); ++i) &#123;</span><br><span class="line">    <span class="keyword">int</span> q = adj[w].get(i);</span><br><span class="line">    <span class="keyword">if</span> (!visited[q]) &#123;</span><br><span class="line">      prev[q] = w;</span><br><span class="line">      recurDfs(q, t, visited, prev);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="▉-性能分析-1"><a href="#▉-性能分析-1" class="headerlink" title="▉ 性能分析"></a>▉ 性能分析</h6><blockquote>
+<ul>
+<li>时间复杂度：O（E）。每条边最多访问两次，一次遍历，另一次回退。所以时间复杂度为 O（E）E：边。</li>
+<li>空间复杂度：O（V）。根据变量存储额外的空间大小为顶点的个数，所以空间复杂度为O（V）。</li>
+</ul>
+</blockquote>
+<h3 id="三、思考：如何找出社交网络中的三度好友关系？"><a href="#三、思考：如何找出社交网络中的三度好友关系？" class="headerlink" title="三、思考：如何找出社交网络中的三度好友关系？"></a>三、思考：如何找出社交网络中的三度好友关系？</h3><blockquote>
+<p><strong>答：</strong>借助广度优先搜索，每一层是一度关系好友，用一个数组来记录每个顶点与起始顶点的距离，就可以找出三都好友。</p>
+</blockquote>
+<h3 id="四、实际运用"><a href="#四、实际运用" class="headerlink" title="四、实际运用"></a>四、实际运用</h3><blockquote>
+<p>数据结构最难的不是掌握其原理，而是能够将实际问题和抽象问题转成成数据结构与算法。</p>
+<p><strong>举例：怎么将迷宫存储到计算机呢？ </strong></p>
+<p>答：</p>
 </blockquote>
 
       
@@ -786,7 +827,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#社交网络中的六度分割理论"><span class="nav-number">1.</span> <span class="nav-text">社交网络中的六度分割理论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是“搜索”算法？"><span class="nav-number">2.</span> <span class="nav-text">什么是“搜索”算法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#广度优先搜索（BFS）"><span class="nav-number">3.</span> <span class="nav-text">广度优先搜索（BFS）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">3.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">3.2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图示图解"><span class="nav-number">3.3.</span> <span class="nav-text">图示图解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#广度优先搜索的时间复杂度"><span class="nav-number">3.4.</span> <span class="nav-text">广度优先搜索的时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#广度优先搜索的空间复杂度"><span class="nav-number">3.5.</span> <span class="nav-text">广度优先搜索的空间复杂度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度优先搜索（DFS）"><span class="nav-number">4.</span> <span class="nav-text">深度优先搜索（DFS）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-1"><span class="nav-number">4.1.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深度优先搜索的时间复杂度"><span class="nav-number">4.2.</span> <span class="nav-text">深度优先搜索的时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深度优先搜索的空间复杂度"><span class="nav-number">4.3.</span> <span class="nav-text">深度优先搜索的空间复杂度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思考：如何找出社交网络中的三度好友关系？"><span class="nav-number">5.</span> <span class="nav-text">思考：如何找出社交网络中的三度好友关系？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、搜索算法"><span class="nav-number">1.</span> <span class="nav-text">一、搜索算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、关于搜索算法"><span class="nav-number">1.1.</span> <span class="nav-text">1、关于搜索算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、搜索算法的基础（图）"><span class="nav-number">1.2.</span> <span class="nav-text">2、搜索算法的基础（图）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、搜索算法"><span class="nav-number">2.</span> <span class="nav-text">二、搜索算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#※-适用条件"><span class="nav-number">2.1.</span> <span class="nav-text">※ 适用条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1、广度优先搜索"><span class="nav-number">2.2.</span> <span class="nav-text">1、广度优先搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-定义"><span class="nav-number">2.2.0.1.</span> <span class="nav-text">▉ 定义</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-算法思路"><span class="nav-number">2.2.0.2.</span> <span class="nav-text">▉ 算法思路</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-代码实现"><span class="nav-number">2.2.0.3.</span> <span class="nav-text">▉ 代码实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-性能分析"><span class="nav-number">2.2.0.4.</span> <span class="nav-text">▉ 性能分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、深度优先搜索"><span class="nav-number">2.3.</span> <span class="nav-text">2、深度优先搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-定义-1"><span class="nav-number">2.3.0.1.</span> <span class="nav-text">▉ 定义</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-算法思路-1"><span class="nav-number">2.3.0.2.</span> <span class="nav-text">▉ 算法思路</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-代码实现-1"><span class="nav-number">2.3.0.3.</span> <span class="nav-text">▉ 代码实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-性能分析-1"><span class="nav-number">2.3.0.4.</span> <span class="nav-text">▉ 性能分析</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、思考：如何找出社交网络中的三度好友关系？"><span class="nav-number">3.</span> <span class="nav-text">三、思考：如何找出社交网络中的三度好友关系？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、实际运用"><span class="nav-number">4.</span> <span class="nav-text">四、实际运用</span></a></li></ol></div>
             
 
           </div>
@@ -841,7 +882,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共166.6k字</span>
+  <span class="post-count">博客全站共167.1k字</span>
 </div>
         
 
