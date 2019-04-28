@@ -17,8 +17,8 @@
 
 <script>
     (function(){
-        if('lxqwan915816816'){
-            if (prompt('��������������') !== 'lxqwan915816816'){
+        if('小鹿'){
+            if (prompt('��������������') !== '小鹿'){
                 alert('�������');
                 history.back();
             }
@@ -127,12 +127,11 @@
 <meta property="og:description" content="小鹿带你走进数据结构与算法之美中的10大算法之一贪心算法。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/贪心算法.png">
-<meta property="og:image" content="http://yoursite.com/images/有权图求最短路径.png">
 <meta property="og:image" content="http://yoursite.com/images/区间贪心算法.png">
 <meta property="og:image" content="http://yoursite.com/images/霍夫曼编码.png">
 <meta property="og:image" content="http://yoursite.com/images/霍夫曼编码构建优先队列.png">
 <meta property="og:image" content="http://yoursite.com/images/霍夫曼编码加权.png">
-<meta property="og:updated_time" content="2019-01-21T12:11:03.663Z">
+<meta property="og:updated_time" content="2019-04-27T07:13:58.158Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构与算法之美【贪心算法】">
 <meta name="twitter:description" content="小鹿带你走进数据结构与算法之美中的10大算法之一贪心算法。">
@@ -437,7 +436,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,443
+                  1,580
                 </span>
               
 
@@ -453,7 +452,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  6
                 </span>
               
             </div>
@@ -477,86 +476,81 @@
         <p><img src="/images/贪心算法.png" alt=""></p>
 <p>小鹿带你走进数据结构与算法之美中的10大算法之一贪心算法。</p>
 <a id="more"></a>
-<h3 id="一、如何理解“贪心算法”？"><a href="#一、如何理解“贪心算法”？" class="headerlink" title="一、如何理解“贪心算法”？"></a>一、如何理解“贪心算法”？</h3><h4 id="1、联想到贪心算法。"><a href="#1、联想到贪心算法。" class="headerlink" title="1、联想到贪心算法。"></a>1、联想到贪心算法。</h4><blockquote>
-<p>针对一组数据，我们定义了限制值和期望值，希望从中选出几个数据，在满足限制值的条件下，期望值得到最大。</p>
+<h3 id="一、如何使用“贪心算法”？"><a href="#一、如何使用“贪心算法”？" class="headerlink" title="一、如何使用“贪心算法”？"></a>一、如何使用“贪心算法”？</h3><h4 id="1、联想到贪心算法"><a href="#1、联想到贪心算法" class="headerlink" title="1、联想到贪心算法"></a>1、联想到贪心算法</h4><blockquote>
+<p>针对一组数据，定义了限制值和期望值，希望从中选出几个数据，在满足「限制值」的条件下，「期望值」得到最大。</p>
 </blockquote>
-<h4 id="2、是否用贪心算法解决。"><a href="#2、是否用贪心算法解决。" class="headerlink" title="2、是否用贪心算法解决。"></a>2、是否用贪心算法解决。</h4><blockquote>
+<h4 id="2、是否用贪心算法解决"><a href="#2、是否用贪心算法解决" class="headerlink" title="2、是否用贪心算法解决"></a>2、是否用贪心算法解决</h4><blockquote>
 <p>每次选择当前情况下，在对限制值同等贡献量的情况下，对期望值贡献最大的数据。</p>
 </blockquote>
-<h4 id="3、贪心算法产生的结果是否最优。"><a href="#3、贪心算法产生的结果是否最优。" class="headerlink" title="3、贪心算法产生的结果是否最优。"></a>3、贪心算法产生的结果是否最优。</h4><blockquote>
+<h4 id="3、贪心算法产生的结果是否最优"><a href="#3、贪心算法产生的结果是否最优" class="headerlink" title="3、贪心算法产生的结果是否最优"></a>3、贪心算法产生的结果是否最优</h4><blockquote>
 <p>举例进行验证，严格地验证贪心算法的正确性，使用复杂的数学推理。</p>
 </blockquote>
 <h4 id="4、贪心算法不是最优解"><a href="#4、贪心算法不是最优解" class="headerlink" title="4、贪心算法不是最优解"></a>4、贪心算法不是最优解</h4><blockquote>
 <p>很多时候贪心算法并不是最优解，比如有权图，求最短路径问题。</p>
-</blockquote>
-<p><img src="/images/有权图求最短路径.png" alt=""></p>
-<p>1、我们使用贪心算法求得最短路径为 S-&gt;A-&gt;E-&gt;T，路径长度是 1+4+4=9。</p>
-<p>2、然而我们的最短路径为 S-&gt;B-&gt;D-&gt;T，路径的长度是 2+2+2=6。</p>
-<p><strong>为什么？</strong></p>
-<blockquote>
-<p>贪心算法不能正常工作的主要原因就是，前面的选择会影响后边的选择。</p>
+<p><strong>主要原因</strong>：贪心算法不能正常工作的主要原因就是，前面的选择会影响后边的选择。</p>
 </blockquote>
 <h3 id="二、贪心算法实战分析"><a href="#二、贪心算法实战分析" class="headerlink" title="二、贪心算法实战分析"></a>二、贪心算法实战分析</h3><h4 id="1、分糖果"><a href="#1、分糖果" class="headerlink" title="1、分糖果"></a>1、分糖果</h4><p><strong>问题：</strong></p>
-<p>我们有 m 个糖果和 n 个孩子。我们现在要把糖果分给这些孩子吃，但是糖果少，孩子多（m&lt;n），所以糖果只能分配给一部分孩子。</p>
+<p>有 m 个糖果和 n 个孩子。现在要把糖果分给这些孩子吃，但是糖果少，孩子多（m&lt;n），所以糖果只能分配给一部分孩子。</p>
 <p>每个糖果的大小不等，这 m 个糖果的大小分别是 s1，s2，s3，……，sm。除此之外，每个孩子对糖果大小的需求也是不一样的，只有糖果的大小大于等于孩子的对糖果大小的需求的时候，孩子才得到满足。假设这 n 个孩子对糖果大小的需求分别是 g1，g2，g3，……，gn。</p>
-<p>我的问题是，如何分配糖果，能尽可能满足最多数量的孩子？</p>
+<p>如何分配糖果，能尽可能满足最多数量的孩子？</p>
 <p><strong>分析：</strong></p>
 <blockquote>
 <p>我们起初用最小的糖去满足对糖最小的需求，然后不断用其中最小的糖满足需求最小的孩子。</p>
 </blockquote>
 <h4 id="2、钱币找零"><a href="#2、钱币找零" class="headerlink" title="2、钱币找零"></a>2、钱币找零</h4><p><strong>问题：</strong></p>
-<p>假设我们有 1 元、2 元、5 元、10 元、20 元、50 元、100 元这些面额的纸币，它们的张数分别是 c1、c2、c5、c10、c20、c50、c100。我们现在要用这些钱来支付 K 元，最少要用多少张纸币呢？</p>
+<p>假设我们有 1 元、2 元、5 元、10 元、20 元、50 元、100 元这些面额的纸币，它们的张数分别是 c1、c2、c5、c10、c20、c50、c100。现在要用这些钱来支付 K 元，最少要用多少张纸币呢？</p>
 <p><strong>分析：</strong></p>
 <blockquote>
 <p>先用面值最大的来支付，如果不够，就继续用更小一点面值的，以此类推。</p>
+<p><strong>优化：</strong>动态规划可以进行优化。</p>
+<p>比如：面额有 100 、99、1 元的，找 396 ，贪心算法，只能用三张 100 和 96 张 1 元。贪心算法可以找出四张 99 元，完全用的钱币少。</p>
 </blockquote>
-<h4 id="3、区间覆盖"><a href="#3、区间覆盖" class="headerlink" title="3、区间覆盖"></a>3、区间覆盖</h4><p><strong>问题：</strong></p>
+<h4 id="3、区间覆盖"><a href="#3、区间覆盖" class="headerlink" title="3、区间覆盖"></a>3、区间覆盖</h4><blockquote>
+<p>区间的处理思想很多算法中会涉及到，比如任务调度、教师排课等，比较重要。</p>
+</blockquote>
+<p><strong>问题：</strong></p>
 <p>假设我们有 n 个区间，区间的起始端点和结束端点分别是 [l1, r1]，[l2, r2]，[l3, r3]，……，[ln, rn]。我们从这 n 个区间中选出一部分区间，这部分区间满足两两不相交（端点相交的情况不算相交），最多能选出多少个区间呢？</p>
 <p><strong>分析：</strong></p>
 <blockquote>
-<p>1、首先我们找到取件中最左边的点和最右边的点。</p>
+<p>1、首先找到取件中最左边的点和最右边的点。</p>
 <p>2、要想满足最多区间，左端点和前边已经覆盖的区域不重合，右端点尽可能的小，这样才能让剩下的未覆盖区间尽可能的大，可以放置更多的区域。</p>
 </blockquote>
 <p><img src="/images/区间贪心算法.png" alt=""></p>
 <h3 id="三、思考：如何用贪心算法解决霍夫曼编码？"><a href="#三、思考：如何用贪心算法解决霍夫曼编码？" class="headerlink" title="三、思考：如何用贪心算法解决霍夫曼编码？"></a>三、思考：如何用贪心算法解决霍夫曼编码？</h3><h4 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h4><blockquote>
-<p>假设我有一个包含 1000 个字符的文件，每个字符占 1 个byte（1byte=8bits），存储这 1000 个字符就一共需要 8000bits，那有没有更加节省空间的存储方式呢？假设1000个字符中只含 6 中不同的字符，a、b、c、e、f。</p>
+<p>假设有一个包含 <code>1000</code> 个字符的文件，每个字符占 <code>1</code>个 <code>byte（1byte = 8bits）</code>，存储这  <code>1000</code>  个字符就一共需要 <code>8000bits</code>，那有没有更加节省空间的存储方式呢？假设 <code>1000</code> 个字符中只含  <code>6</code>  中不同的字符，<code>a、b、c、e、f</code>。</p>
 </blockquote>
-<h4 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h4><p><strong>①</strong> <strong>改变存储方式。</strong></p>
+<h4 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h4><p><strong>1、改变存储方式。</strong></p>
 <blockquote>
 <p>3 位二进制表示 8 个不同的字符，6 个字符我们就用 3 个二进制位（bit）来表示，那存储 1000 个字符只需 3000 bits 就可以了，比原来的存储方式节省了很多空间。</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a(<span class="number">000</span>)、b(<span class="number">001</span>)、c(<span class="number">010</span>)、d(<span class="number">011</span>)、e(<span class="number">100</span>)、f(<span class="number">101</span>)</span><br></pre></td></tr></table></figure>
-<p><strong>② 利用霍夫曼编码。</strong></p>
-<p>定义：</p>
-<blockquote>
+<p><strong>2、 利用霍夫曼编码。</strong></p>
+<h6 id="▉-定义："><a href="#▉-定义：" class="headerlink" title="▉ 定义："></a>▉ 定义：</h6><blockquote>
 <p>霍夫曼编码是一种非常有效的编码方式，广泛应用于数据压缩中，其压缩率通常在 20%~90% 之间。</p>
 </blockquote>
-<p>原理:</p>
-<blockquote>
+<h6 id="▉-原理"><a href="#▉-原理" class="headerlink" title="▉ 原理:"></a>▉ 原理:</h6><blockquote>
 <p>霍夫曼编码采用不同的字符出现的频率采用不同的编码长度来存储。</p>
 </blockquote>
-<p>贪心算法：</p>
-<blockquote>
-<p>把出现频率最多的字符，用稍微短一些的编码进行解释；出现频率最多的字符用稍微长一些的编码。</p>
+<h6 id="▉-贪心算法："><a href="#▉-贪心算法：" class="headerlink" title="▉ 贪心算法："></a>▉ 贪心算法：</h6><blockquote>
+<p>把出现频率最多的字符，用稍微短一些的编码进行解释；出现频率最少的字符用稍微长一些的编码。</p>
 </blockquote>
-<p>思路：</p>
-<blockquote>
-<p>我们将 6 个字符从上到下出现的频率以此排序，a、b、c、e、f，任何一个字符的编码都不是另一个的前缀，在解压缩的时候，我们每次会读取尽可能长的可解压的二进制串，所以在解压缩的时候也不会有歧义。在每次解压的时候尽可能的解压二进制串，霍夫曼编码压缩之后，1000 个字符只需要 2100 bits 就可以了。</p>
+<h6 id="▉-思路："><a href="#▉-思路：" class="headerlink" title="▉ 思路："></a>▉ 思路：</h6><blockquote>
+<p>我们将 6 个字符从上到下出现的频率以此排序，a、b、c、e、f，<strong>任何一个字符的编码都不是另一个的前缀</strong>，在解压缩的时候，每次会读取尽可能长的可解压的二进制串，所以在解压缩的时候也不会有歧义。在每次解压的时候尽可能的解压二进制串，霍夫曼编码压缩之后，1000 个字符只需要 2100 bits 就可以了。</p>
 </blockquote>
 <p><img src="/images/霍夫曼编码.png" alt=""></p>
-<p><strong>如何对不同的字符进行不同长度的编码？ </strong></p>
-<blockquote>
-<p>1、构建优先队列。</p>
+<h6 id="▉-编码："><a href="#▉-编码：" class="headerlink" title="▉ 编码："></a>▉ 编码：</h6><blockquote>
+<p>如何对出现不同频率的字符进行编码呢？</p>
+<p>1）首先将字符出现的不同频率，从小到大存储到一个优先级队列中，在队列的头部取出两个数据，进行合并求和，作为两个数据的父节点放到优先级队列中去。不断重复这个过程，直到队列中没有数据为止。</p>
 </blockquote>
 <p><img src="/images/霍夫曼编码构建优先队列.png" alt=""></p>
 <blockquote>
-<p>2、画权值。</p>
+<p>2）然后给每一条边加上画一个权值，指向左子节点的边标记 0，右子树的边标记为 1，从「根结点」到「叶子结点」的路径就是对应字符的霍夫曼编码。</p>
 </blockquote>
-<p>，我们给每一条边加上画一个权值，指向左子节点的边标记 0，右子树的边标记为 1，从根结点到叶子结点的路径就是对应字符的霍夫曼编码。</p>
 <p><img src="/images/霍夫曼编码加权.png" alt=""></p>
-<h3 id="课后思考"><a href="#课后思考" class="headerlink" title="课后思考"></a>课后思考</h3><h4 id="1、在一个非负整数-a-中，我们希望从中移除-k-个数字，让剩下的数字值最小，如何选择移除哪-k-个数字呢？"><a href="#1、在一个非负整数-a-中，我们希望从中移除-k-个数字，让剩下的数字值最小，如何选择移除哪-k-个数字呢？" class="headerlink" title="1、在一个非负整数 a 中，我们希望从中移除 k 个数字，让剩下的数字值最小，如何选择移除哪 k 个数字呢？"></a>1、在一个非负整数 a 中，我们希望从中移除 k 个数字，让剩下的数字值最小，如何选择移除哪 k 个数字呢？</h4><blockquote>
+<h3 id="四、扩展思考"><a href="#四、扩展思考" class="headerlink" title="四、扩展思考"></a>四、扩展思考</h3><h5 id="1、在一个非负整数-a-中，我们希望从中移除-k-个数字，让剩下的数字值最小，如何选择移除哪-k-个数字呢？"><a href="#1、在一个非负整数-a-中，我们希望从中移除-k-个数字，让剩下的数字值最小，如何选择移除哪-k-个数字呢？" class="headerlink" title="1、在一个非负整数 a 中，我们希望从中移除 k 个数字，让剩下的数字值最小，如何选择移除哪 k 个数字呢？"></a>1、在一个非负整数 a 中，我们希望从中移除 k 个数字，让剩下的数字值最小，如何选择移除哪 k 个数字呢？</h5><blockquote>
+<p>从高位开始向低位比较，如果高位大于第二个低位，就去除高位，继续向下比较，直到去除 k 个数字。</p>
 </blockquote>
-<h4 id="2、假设有-n-个人等待被服务，但是服务窗口只有一个，每个人需要被服务的时间长度是不同的，如何安排被服务的先后顺序，才能让这这-n-个人总的等待时间最短？"><a href="#2、假设有-n-个人等待被服务，但是服务窗口只有一个，每个人需要被服务的时间长度是不同的，如何安排被服务的先后顺序，才能让这这-n-个人总的等待时间最短？" class="headerlink" title="2、假设有 n 个人等待被服务，但是服务窗口只有一个，每个人需要被服务的时间长度是不同的，如何安排被服务的先后顺序，才能让这这 n 个人总的等待时间最短？"></a>2、假设有 n 个人等待被服务，但是服务窗口只有一个，每个人需要被服务的时间长度是不同的，如何安排被服务的先后顺序，才能让这这 n 个人总的等待时间最短？</h4><blockquote>
+<h5 id="2、假设有-n-个人等待被服务，但是服务窗口只有一个，每个人需要被服务的时间长度是不同的，如何安排被服务的先后顺序，才能让这这-n-个人总的等待时间最短？"><a href="#2、假设有-n-个人等待被服务，但是服务窗口只有一个，每个人需要被服务的时间长度是不同的，如何安排被服务的先后顺序，才能让这这-n-个人总的等待时间最短？" class="headerlink" title="2、假设有 n 个人等待被服务，但是服务窗口只有一个，每个人需要被服务的时间长度是不同的，如何安排被服务的先后顺序，才能让这这 n 个人总的等待时间最短？"></a>2、假设有 n 个人等待被服务，但是服务窗口只有一个，每个人需要被服务的时间长度是不同的，如何安排被服务的先后顺序，才能让这这 n 个人总的等待时间最短？</h5><blockquote>
 <p>被服务时间短的用户先服务。</p>
 </blockquote>
 
@@ -822,7 +816,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、如何理解“贪心算法”？"><span class="nav-number">1.</span> <span class="nav-text">一、如何理解“贪心算法”？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、联想到贪心算法。"><span class="nav-number">1.1.</span> <span class="nav-text">1、联想到贪心算法。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、是否用贪心算法解决。"><span class="nav-number">1.2.</span> <span class="nav-text">2、是否用贪心算法解决。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、贪心算法产生的结果是否最优。"><span class="nav-number">1.3.</span> <span class="nav-text">3、贪心算法产生的结果是否最优。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、贪心算法不是最优解"><span class="nav-number">1.4.</span> <span class="nav-text">4、贪心算法不是最优解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、贪心算法实战分析"><span class="nav-number">2.</span> <span class="nav-text">二、贪心算法实战分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、分糖果"><span class="nav-number">2.1.</span> <span class="nav-text">1、分糖果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、钱币找零"><span class="nav-number">2.2.</span> <span class="nav-text">2、钱币找零</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、区间覆盖"><span class="nav-number">2.3.</span> <span class="nav-text">3、区间覆盖</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、思考：如何用贪心算法解决霍夫曼编码？"><span class="nav-number">3.</span> <span class="nav-text">三、思考：如何用贪心算法解决霍夫曼编码？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题："><span class="nav-number">3.1.</span> <span class="nav-text">问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决："><span class="nav-number">3.2.</span> <span class="nav-text">解决：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#课后思考"><span class="nav-number">4.</span> <span class="nav-text">课后思考</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、在一个非负整数-a-中，我们希望从中移除-k-个数字，让剩下的数字值最小，如何选择移除哪-k-个数字呢？"><span class="nav-number">4.1.</span> <span class="nav-text">1、在一个非负整数 a 中，我们希望从中移除 k 个数字，让剩下的数字值最小，如何选择移除哪 k 个数字呢？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、假设有-n-个人等待被服务，但是服务窗口只有一个，每个人需要被服务的时间长度是不同的，如何安排被服务的先后顺序，才能让这这-n-个人总的等待时间最短？"><span class="nav-number">4.2.</span> <span class="nav-text">2、假设有 n 个人等待被服务，但是服务窗口只有一个，每个人需要被服务的时间长度是不同的，如何安排被服务的先后顺序，才能让这这 n 个人总的等待时间最短？</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、如何使用“贪心算法”？"><span class="nav-number">1.</span> <span class="nav-text">一、如何使用“贪心算法”？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、联想到贪心算法"><span class="nav-number">1.1.</span> <span class="nav-text">1、联想到贪心算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、是否用贪心算法解决"><span class="nav-number">1.2.</span> <span class="nav-text">2、是否用贪心算法解决</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、贪心算法产生的结果是否最优"><span class="nav-number">1.3.</span> <span class="nav-text">3、贪心算法产生的结果是否最优</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、贪心算法不是最优解"><span class="nav-number">1.4.</span> <span class="nav-text">4、贪心算法不是最优解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、贪心算法实战分析"><span class="nav-number">2.</span> <span class="nav-text">二、贪心算法实战分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、分糖果"><span class="nav-number">2.1.</span> <span class="nav-text">1、分糖果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、钱币找零"><span class="nav-number">2.2.</span> <span class="nav-text">2、钱币找零</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、区间覆盖"><span class="nav-number">2.3.</span> <span class="nav-text">3、区间覆盖</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、思考：如何用贪心算法解决霍夫曼编码？"><span class="nav-number">3.</span> <span class="nav-text">三、思考：如何用贪心算法解决霍夫曼编码？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题："><span class="nav-number">3.1.</span> <span class="nav-text">问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决："><span class="nav-number">3.2.</span> <span class="nav-text">解决：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-定义："><span class="nav-number">3.2.0.1.</span> <span class="nav-text">▉ 定义：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-原理"><span class="nav-number">3.2.0.2.</span> <span class="nav-text">▉ 原理:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-贪心算法："><span class="nav-number">3.2.0.3.</span> <span class="nav-text">▉ 贪心算法：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-思路："><span class="nav-number">3.2.0.4.</span> <span class="nav-text">▉ 思路：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-编码："><span class="nav-number">3.2.0.5.</span> <span class="nav-text">▉ 编码：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、扩展思考"><span class="nav-number">4.</span> <span class="nav-text">四、扩展思考</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、在一个非负整数-a-中，我们希望从中移除-k-个数字，让剩下的数字值最小，如何选择移除哪-k-个数字呢？"><span class="nav-number">4.0.1.</span> <span class="nav-text">1、在一个非负整数 a 中，我们希望从中移除 k 个数字，让剩下的数字值最小，如何选择移除哪 k 个数字呢？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、假设有-n-个人等待被服务，但是服务窗口只有一个，每个人需要被服务的时间长度是不同的，如何安排被服务的先后顺序，才能让这这-n-个人总的等待时间最短？"><span class="nav-number">4.0.2.</span> <span class="nav-text">2、假设有 n 个人等待被服务，但是服务窗口只有一个，每个人需要被服务的时间长度是不同的，如何安排被服务的先后顺序，才能让这这 n 个人总的等待时间最短？</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -877,7 +871,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共163.2k字</span>
+  <span class="post-count">博客全站共165.9k字</span>
 </div>
         
 
