@@ -126,7 +126,7 @@
 <meta property="og:site_name" content="小鹿的博客">
 <meta property="og:description" content="数据结构与算法中所必会的查找和排序算法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-03T01:07:22.459Z">
+<meta property="og:updated_time" content="2019-05-04T08:37:35.439Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构与算法之题型篇【查找和排序】">
 <meta name="twitter:description" content="数据结构与算法中所必会的查找和排序算法。">
@@ -441,7 +441,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,096
+                  1,559
                 </span>
               
 
@@ -457,7 +457,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  5
                 </span>
               
             </div>
@@ -522,13 +522,44 @@
 <li>空间复杂度：不需要额外的内存空间 O(1)。</li>
 </ul>
 </blockquote>
-<h4 id="2-2-小结"><a href="#2-2-小结" class="headerlink" title="2.2 小结"></a>2.2 小结</h4><h6 id="▉-考查内容"><a href="#▉-考查内容" class="headerlink" title="▉ 考查内容"></a>▉ 考查内容</h6><blockquote>
+<h4 id="1-2-小结"><a href="#1-2-小结" class="headerlink" title="1.2 小结"></a>1.2 小结</h4><h6 id="▉-考查内容"><a href="#▉-考查内容" class="headerlink" title="▉ 考查内容"></a>▉ 考查内容</h6><blockquote>
 <p>1）对二分查找的充分理解。</p>
 <p>2）能在短时间内了解旋转数组这种新的概念。</p>
 <p>3）问题的全面性。（重复元素以及向后移动 0 个元素）</p>
 </blockquote>
 <h6 id="▉-扩展思考"><a href="#▉-扩展思考" class="headerlink" title="▉ 扩展思考"></a>▉ 扩展思考</h6><blockquote>
 <p>1）对二分查找条件的变换，使得问题可以举一反三。</p>
+</blockquote>
+<h3 id="2、二叉查找树的后续序列"><a href="#2、二叉查找树的后续序列" class="headerlink" title="2、二叉查找树的后续序列"></a>2、二叉查找树的后续序列</h3><blockquote>
+<p>题目：给你一个整型数组，判断该数组是否为二叉查找树的后序遍历。如果是返回 true，如果不是返回 false。</p>
+</blockquote>
+<h4 id="2-1-问题分析与解决"><a href="#2-1-问题分析与解决" class="headerlink" title="2.1 问题分析与解决"></a>2.1 问题分析与解决</h4><h6 id="▉-问题分析-1"><a href="#▉-问题分析-1" class="headerlink" title="▉ 问题分析"></a>▉ 问题分析</h6><blockquote>
+<p>1）根据二叉查找树后续遍历的特点，先遍历左子树，然后遍历右子树，最后遍历根节点。存储在数组中的二叉查找树是有规律的，所以观察数组中的数据，与后序遍历是否存在一些规律和关系呢？</p>
+<p>2）二叉查找树的后序遍可以用递归实现遍历的，如果判断一组数据是否为后序遍历是否也可以通过递归来进行判断呢？</p>
+</blockquote>
+<h6 id="▉-算法思路-1"><a href="#▉-算法思路-1" class="headerlink" title="▉ 算法思路"></a>▉ 算法思路</h6><blockquote>
+<p>1）数组中的数据最后一个数据一定是树的根节点。</p>
+<p>2）如果为一棵二叉查找树，除最后一个根节结点外，数组分为两份数据，我们发现前一份数据小于根节点，后一份数据大于根节点。也就是说，前一半数据为树的左子节点，后一半数据为树的右子节点。</p>
+<p>3）然后对左右两部分的数据分别递归按照上述的方法进行判断。</p>
+</blockquote>
+<h6 id="▉-测试用例-1"><a href="#▉-测试用例-1" class="headerlink" title="▉ 测试用例"></a>▉ 测试用例</h6><blockquote>
+<p>1）空树</p>
+<p>2）非二叉查找树</p>
+<p>3）只有一个结点的二叉查找树。</p>
+<p>4）只有右/左子树的二叉查找树。</p>
+</blockquote>
+<h6 id="▉-代码实现-1"><a href="#▉-代码实现-1" class="headerlink" title="▉ 代码实现"></a>▉ 代码实现</h6><blockquote>
+</blockquote>
+<h6 id="▉-性能分析-1"><a href="#▉-性能分析-1" class="headerlink" title="▉ 性能分析"></a>▉ 性能分析</h6><blockquote>
+</blockquote>
+<h4 id="2-2-小结"><a href="#2-2-小结" class="headerlink" title="2.2 小结"></a>2.2 小结</h4><h6 id="▉-考查内容-1"><a href="#▉-考查内容-1" class="headerlink" title="▉ 考查内容"></a>▉ 考查内容</h6><blockquote>
+<p>1）对问题的分析能力，能否找到解题问题的规律。</p>
+<p>2）对二叉查找树遍历的理解。</p>
+<p>3）递归的灵活运用。</p>
+</blockquote>
+<h6 id="▉-扩展思考-1"><a href="#▉-扩展思考-1" class="headerlink" title="▉ 扩展思考"></a>▉ 扩展思考</h6><blockquote>
+<p>1）判断一个数组是否为树的前序遍历或中序遍历？</p>
+<p>2）”重建二叉树“ 也是同样的解题思路。</p>
 </blockquote>
 <h2 id="三、查找和排序的高级练习（阶段三）"><a href="#三、查找和排序的高级练习（阶段三）" class="headerlink" title="三、查找和排序的高级练习（阶段三）"></a>三、查找和排序的高级练习（阶段三）</h2><h2 id="四、查找和排序的总结"><a href="#四、查找和排序的总结" class="headerlink" title="四、查找和排序的总结"></a>四、查找和排序的总结</h2>
       
@@ -705,7 +736,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">117</span>
+                  <span class="site-state-item-count">119</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -795,7 +826,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前边"><span class="nav-number">1.</span> <span class="nav-text">写在前边</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、查找和排序的基础练习（阶段一）"><span class="nav-number">2.</span> <span class="nav-text">一、查找和排序的基础练习（阶段一）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、查找和排序的进阶练习（阶段二）"><span class="nav-number">3.</span> <span class="nav-text">二、查找和排序的进阶练习（阶段二）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、旋转数组的最小数字"><span class="nav-number">3.1.</span> <span class="nav-text">1、旋转数组的最小数字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-问题分析与解决"><span class="nav-number">3.1.1.</span> <span class="nav-text">1.1 问题分析与解决</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-问题分析"><span class="nav-number">3.1.1.0.1.</span> <span class="nav-text">▉ 问题分析</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-算法思路"><span class="nav-number">3.1.1.0.2.</span> <span class="nav-text">▉ 算法思路</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-边界条件"><span class="nav-number">3.1.1.0.3.</span> <span class="nav-text">▉ 边界条件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-测试用例"><span class="nav-number">3.1.1.0.4.</span> <span class="nav-text">▉ 测试用例</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-代码实现"><span class="nav-number">3.1.1.0.5.</span> <span class="nav-text">▉ 代码实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-性能分析"><span class="nav-number">3.1.1.0.6.</span> <span class="nav-text">▉ 性能分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-小结"><span class="nav-number">3.1.2.</span> <span class="nav-text">2.2 小结</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-考查内容"><span class="nav-number">3.1.2.0.1.</span> <span class="nav-text">▉ 考查内容</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-扩展思考"><span class="nav-number">3.1.2.0.2.</span> <span class="nav-text">▉ 扩展思考</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、查找和排序的高级练习（阶段三）"><span class="nav-number">4.</span> <span class="nav-text">三、查找和排序的高级练习（阶段三）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、查找和排序的总结"><span class="nav-number">5.</span> <span class="nav-text">四、查找和排序的总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前边"><span class="nav-number">1.</span> <span class="nav-text">写在前边</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、查找和排序的基础练习（阶段一）"><span class="nav-number">2.</span> <span class="nav-text">一、查找和排序的基础练习（阶段一）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、查找和排序的进阶练习（阶段二）"><span class="nav-number">3.</span> <span class="nav-text">二、查找和排序的进阶练习（阶段二）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、旋转数组的最小数字"><span class="nav-number">3.1.</span> <span class="nav-text">1、旋转数组的最小数字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-问题分析与解决"><span class="nav-number">3.1.1.</span> <span class="nav-text">1.1 问题分析与解决</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-问题分析"><span class="nav-number">3.1.1.0.1.</span> <span class="nav-text">▉ 问题分析</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-算法思路"><span class="nav-number">3.1.1.0.2.</span> <span class="nav-text">▉ 算法思路</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-边界条件"><span class="nav-number">3.1.1.0.3.</span> <span class="nav-text">▉ 边界条件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-测试用例"><span class="nav-number">3.1.1.0.4.</span> <span class="nav-text">▉ 测试用例</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-代码实现"><span class="nav-number">3.1.1.0.5.</span> <span class="nav-text">▉ 代码实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-性能分析"><span class="nav-number">3.1.1.0.6.</span> <span class="nav-text">▉ 性能分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-小结"><span class="nav-number">3.1.2.</span> <span class="nav-text">1.2 小结</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-考查内容"><span class="nav-number">3.1.2.0.1.</span> <span class="nav-text">▉ 考查内容</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-扩展思考"><span class="nav-number">3.1.2.0.2.</span> <span class="nav-text">▉ 扩展思考</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、二叉查找树的后续序列"><span class="nav-number">3.2.</span> <span class="nav-text">2、二叉查找树的后续序列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-问题分析与解决"><span class="nav-number">3.2.1.</span> <span class="nav-text">2.1 问题分析与解决</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-问题分析-1"><span class="nav-number">3.2.1.0.1.</span> <span class="nav-text">▉ 问题分析</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-算法思路-1"><span class="nav-number">3.2.1.0.2.</span> <span class="nav-text">▉ 算法思路</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-测试用例-1"><span class="nav-number">3.2.1.0.3.</span> <span class="nav-text">▉ 测试用例</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-代码实现-1"><span class="nav-number">3.2.1.0.4.</span> <span class="nav-text">▉ 代码实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-性能分析-1"><span class="nav-number">3.2.1.0.5.</span> <span class="nav-text">▉ 性能分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-小结"><span class="nav-number">3.2.2.</span> <span class="nav-text">2.2 小结</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-考查内容-1"><span class="nav-number">3.2.2.0.1.</span> <span class="nav-text">▉ 考查内容</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-扩展思考-1"><span class="nav-number">3.2.2.0.2.</span> <span class="nav-text">▉ 扩展思考</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、查找和排序的高级练习（阶段三）"><span class="nav-number">4.</span> <span class="nav-text">三、查找和排序的高级练习（阶段三）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、查找和排序的总结"><span class="nav-number">5.</span> <span class="nav-text">四、查找和排序的总结</span></a></li></ol></div>
             
 
           </div>
@@ -850,7 +881,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共177.9k字</span>
+  <span class="post-count">博客全站共179.3k字</span>
 </div>
         
 

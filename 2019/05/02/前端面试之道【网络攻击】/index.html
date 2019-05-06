@@ -126,7 +126,7 @@
 <meta property="og:site_name" content="小鹿的博客">
 <meta property="og:description" content="常见的网络攻击！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-03T03:39:06.997Z">
+<meta property="og:updated_time" content="2019-05-04T03:09:38.879Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试之道【网络攻击】">
 <meta name="twitter:description" content="常见的网络攻击！">
@@ -441,7 +441,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,956
+                  2,352
                 </span>
               
 
@@ -457,7 +457,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  9
                 </span>
               
             </div>
@@ -555,7 +555,7 @@
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 内联事件监听器中包含恶意代码 --&gt;</span><br><span class="line">&lt;img onclick=<span class="string">"UNTRUSTED"</span> onerror=<span class="string">"UNTRUSTED"</span> src=<span class="string">"data:image/png,"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 链接内包含恶意代码 --&gt;</span><br><span class="line">&lt;a href=<span class="string">"UNTRUSTED"</span>&gt;<span class="number">1</span>&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ setTimeout()/</span>setInterval() 中调用恶意代码</span><br><span class="line">setTimeout(<span class="string">"UNTRUSTED"</span>)</span><br><span class="line">setInterval(<span class="string">"UNTRUSTED"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// location 调用恶意代码</span></span><br><span class="line">location.href = <span class="string">'UNTRUSTED'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// eval() 中调用恶意代码</span></span><br><span class="line"><span class="built_in">eval</span>(<span class="string">"UNTRUSTED"</span>)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="二、CSRF-跨站请求伪造"><a href="#二、CSRF-跨站请求伪造" class="headerlink" title="二、CSRF 跨站请求伪造"></a>二、CSRF 跨站请求伪造</h2><h3 id="2-1-跨站请求伪造（CSRF）"><a href="#2-1-跨站请求伪造（CSRF）" class="headerlink" title="2.1 跨站请求伪造（CSRF）"></a>2.1 跨站请求伪造（CSRF）</h3><blockquote>
-<p>跨站伪造请求（Cross-site request forgery ），缩写为 CSRF。CSRF 利用的是网站对用户网页浏览器的信任来进行恶意攻击的。</p>
+<p>跨站伪造请求（Cross-site request forgery ），缩写为 CSRF。冒充用户发起请求（在用户不知情的情况下）， 完成一些违背用户意愿的事情（如修改用户信息，删初评论等）。 </p>
 </blockquote>
 <h4 id="1、攻击原理"><a href="#1、攻击原理" class="headerlink" title="1、攻击原理"></a>1、攻击原理</h4><blockquote>
 <p>攻击者通过技术手段欺骗用户的浏览器去访问一个曾经认证过的网站，所以用户不用进行重新认证，这是一个用户身份验证的一个漏洞：<strong>简单身份认证只保证请求来自某个用户的浏览器，确不能保证请求的本身是用户自愿发出的。</strong>攻击者诱导用户在刚访问不久的网站中点击设定的链接（本页的论坛、博客等自动生成的链接内容）。</p>
@@ -564,17 +564,39 @@
 <p>HTTP 头有一个 <code>Referer</code> 字段，用来标记请求来源于哪个地址。<code>Referer</code> 字段应和请求的地址位于同一域名下。 服务器在处理请求的时候，可以判断该字段是否位于正确的源地址下发送的请求。如果是 CSRF 攻击，该字段会包含恶意的网址。</p>
 <p><strong>局限性：</strong>设置 <code>Referer</code> 有本身的局限性，攻击者可以篡改 <code>Referer</code> 字段来达到攻击的目的。</p>
 </blockquote>
-<h6 id="▉-添加校验-token"><a href="#▉-添加校验-token" class="headerlink" title="▉ 添加校验 token"></a>▉ 添加校验 token</h6><blockquote>
-<p><strong>本质</strong>：CSRF 的本质是在于攻击者欺骗自己去访问设置的地址，如果在请求数据的时候，用户不把信息保存到浏览器的 <code>Cookie</code> 中，那么攻击者无法获取数据校验，从而不能进行 CSRF 攻击。</p>
-<p><strong>随机校验：</strong>服务器为客户端的窗体设置一个伪随机数，客户端在提交请求的时候，将随机数与请求内容一并提交服务器，正常访问时，客户端将会收到正确得到并传回这个伪随机数。CSRF 攻击无从事先知道这个伪随机数，所以导致 <code>token</code> 值为空，拒绝请求。</p>
+<h6 id="▉-Token-验证"><a href="#▉-Token-验证" class="headerlink" title="▉  Token 验证"></a>▉  Token 验证</h6><blockquote>
+<p>CSRF 的本质是在于攻击者欺骗自己去访问设置的地址，如果在请求数据的时候，用户不把信息保存到浏览器的 <code>Cookie</code> 中，那么攻击者无法获取数据校验，从而不能进行 CSRF 攻击。</p>
 </blockquote>
-<h6 id="▉-JSONP-劫持漏洞"><a href="#▉-JSONP-劫持漏洞" class="headerlink" title="▉ JSONP 劫持漏洞"></a>▉ JSONP 劫持漏洞</h6><blockquote>
-<p>如果 <code>JSONP</code> 没有验证 <code>Referer</code> 头的时候,就存在 <code>JSONP</code> 劫持漏洞,即在任何域下都能窃取到传输的数据。 </p>
+<ul>
+<li><strong>第一步：</strong>后端随机产生一个 <code>token</code>，把这个 <code>token</code> 保存到 <code>session</code> 状态中；同时后端把这个 <code>token</code> 交给前端页面；</li>
+<li><strong>第二步：</strong>前端页面提交请求时，把 <code>token</code> 加入到请求数据或者头信息中，一起传给后端；</li>
+<li><strong>第三步：</strong>端验证前端传来的 <code>token</code> 与 <code>session</code> 是否一致，一致则合法，否则是非法请求。</li>
+</ul>
+<h2 id="四、DNS-攻击"><a href="#四、DNS-攻击" class="headerlink" title="四、DNS 攻击"></a>四、DNS 攻击</h2><h4 id="1、什么是-DNS-攻击？"><a href="#1、什么是-DNS-攻击？" class="headerlink" title="1、什么是 DNS 攻击？"></a>1、什么是 DNS 攻击？</h4><blockquote>
+<p>利用 DNS（域名系统）中的漏洞，发起 DNS 攻击。</p>
 </blockquote>
-<h2 id="三、SYN-Flooding-攻击"><a href="#三、SYN-Flooding-攻击" class="headerlink" title="三、SYN Flooding 攻击"></a>三、SYN Flooding 攻击</h2><blockquote>
-<p>SYN Flood (SYN洪水) 是种典型的DoS (Denial of Service，拒绝服务) 攻击。效果就是服务器TCP连接资源耗尽，停止响应正常的TCP连接请求 。</p>
+<h6 id="▉-DNS-的工作原理"><a href="#▉-DNS-的工作原理" class="headerlink" title="▉ DNS 的工作原理"></a>▉ DNS 的工作原理</h6><blockquote>
+<p>将用户输入的域名转换成相对应的 IP 地址。</p>
 </blockquote>
-<h2 id="四、DNS-欺骗攻击"><a href="#四、DNS-欺骗攻击" class="headerlink" title="四、DNS 欺骗攻击"></a>四、DNS 欺骗攻击</h2><h2 id="五、DDOS-攻击"><a href="#五、DDOS-攻击" class="headerlink" title="五、DDOS 攻击"></a>五、DDOS 攻击</h2>
+<ul>
+<li>DNS 首先搜索缓存中是否存在该域名的 IP 地址。</li>
+<li>如果找不到该域名的地址，就到 DNS 服务器查找该域名准确的 IP 地址。</li>
+<li>DNS 一直循环工作，DNS 服务器之间可以相互查询到域名的 IP 地址的DNS 服务器。</li>
+<li>DNS 一旦找到 IP 地址，就将当前的 IP 地址返回给请求的程序，将其存储缓存中。</li>
+</ul>
+<h6 id="▉-如何利用-DNS-攻击"><a href="#▉-如何利用-DNS-攻击" class="headerlink" title="▉ 如何利用 DNS 攻击"></a>▉ 如何利用 DNS 攻击</h6><blockquote>
+<p>1）DNS 不太注重安全问题，所以容易被攻击者发起 DNS 攻击。攻击者利用一种方式来用恶意的 IP 地址替换 DNS 解析的域名的 IP 地址，那么用户发送的数据发送到这个攻击者替换的 IP 假地址中去。</p>
+<p>2）DNS 服务器配置不记得它的默认配置，所以利用这一漏洞进行攻击。</p>
+</blockquote>
+<h6 id="▉-DNS-的攻击类型"><a href="#▉-DNS-的攻击类型" class="headerlink" title="▉ DNS 的攻击类型"></a>▉ DNS 的攻击类型</h6><ul>
+<li><strong>零日攻击：</strong>利用 DNS 服务器软件和协议堆栈中未知的漏洞。</li>
+<li><strong>Fast Flux DNS ： </strong>以高频率交换 DNS 记录以重定向 DNS 请求，也有利于攻击者避免检测。</li>
+<li><strong>DNS 欺骗：</strong>攻击者通过用服务器缓存中的伪造 IP 地址替换授权的 IP 地址来破坏整个DNS服务器。通过这种方式，他们将整个流量重定向到恶意网站并收集重要信息。 </li>
+</ul>
+<h2 id="五、DDOS-攻击"><a href="#五、DDOS-攻击" class="headerlink" title="五、DDOS 攻击"></a>五、DDOS 攻击</h2><blockquote>
+<p>DDoS 攻击称为<strong>分布式拒绝服务攻击</strong>。 通过多台计算机对 DNS 服务器发送大量的请求，达到目标的 DNS 服务器无法进行正常队请求进行解析回应的目的。DDoS 攻击可能导致整个 DNS 服务器崩溃并使用户无法访问 Web。</p>
+</blockquote>
+
       
     </div>
     
@@ -627,6 +649,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/06/前端面试之道【盒模型】/" rel="prev" title="前端面试之【盒模型】">
+                前端面试之【盒模型】 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -745,7 +771,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">117</span>
+                  <span class="site-state-item-count">119</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -835,7 +861,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、XSS-攻击"><span class="nav-number">1.</span> <span class="nav-text">一、XSS 攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、XSS-是什么"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、XSS 是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、XSS-攻击的分类"><span class="nav-number">1.0.2.</span> <span class="nav-text">2、XSS 攻击的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#▉-存储型-XSS"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">▉ 存储型 XSS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#▉-反射型-XSS"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">▉ 反射型 XSS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#▉DOM-型-XSS"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">▉DOM 型 XSS</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、防御-XSS"><span class="nav-number">1.0.3.</span> <span class="nav-text">3、防御 XSS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#▉-常用的防御方法"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">▉ 常用的防御方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#▉-预防存储型和反射性-XSS-攻击"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">▉ 预防存储型和反射性 XSS 攻击</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#▉-预防-DOM-型-XSS-攻击"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">▉ 预防 DOM 型 XSS 攻击</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、CSRF-跨站请求伪造"><span class="nav-number">2.</span> <span class="nav-text">二、CSRF 跨站请求伪造</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-跨站请求伪造（CSRF）"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 跨站请求伪造（CSRF）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、攻击原理"><span class="nav-number">2.1.1.</span> <span class="nav-text">1、攻击原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、防御措施"><span class="nav-number">2.1.2.</span> <span class="nav-text">2、防御措施</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-检查-Referer-字段"><span class="nav-number">2.1.2.0.1.</span> <span class="nav-text">▉ 检查 Referer 字段</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-添加校验-token"><span class="nav-number">2.1.2.0.2.</span> <span class="nav-text">▉ 添加校验 token</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-JSONP-劫持漏洞"><span class="nav-number">2.1.2.0.3.</span> <span class="nav-text">▉ JSONP 劫持漏洞</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、SYN-Flooding-攻击"><span class="nav-number">3.</span> <span class="nav-text">三、SYN Flooding 攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、DNS-欺骗攻击"><span class="nav-number">4.</span> <span class="nav-text">四、DNS 欺骗攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、DDOS-攻击"><span class="nav-number">5.</span> <span class="nav-text">五、DDOS 攻击</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、XSS-攻击"><span class="nav-number">1.</span> <span class="nav-text">一、XSS 攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、XSS-是什么"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、XSS 是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、XSS-攻击的分类"><span class="nav-number">1.0.2.</span> <span class="nav-text">2、XSS 攻击的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#▉-存储型-XSS"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">▉ 存储型 XSS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#▉-反射型-XSS"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">▉ 反射型 XSS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#▉DOM-型-XSS"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">▉DOM 型 XSS</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、防御-XSS"><span class="nav-number">1.0.3.</span> <span class="nav-text">3、防御 XSS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#▉-常用的防御方法"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">▉ 常用的防御方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#▉-预防存储型和反射性-XSS-攻击"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">▉ 预防存储型和反射性 XSS 攻击</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#▉-预防-DOM-型-XSS-攻击"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">▉ 预防 DOM 型 XSS 攻击</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、CSRF-跨站请求伪造"><span class="nav-number">2.</span> <span class="nav-text">二、CSRF 跨站请求伪造</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-跨站请求伪造（CSRF）"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 跨站请求伪造（CSRF）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、攻击原理"><span class="nav-number">2.1.1.</span> <span class="nav-text">1、攻击原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、防御措施"><span class="nav-number">2.1.2.</span> <span class="nav-text">2、防御措施</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-检查-Referer-字段"><span class="nav-number">2.1.2.0.1.</span> <span class="nav-text">▉ 检查 Referer 字段</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-Token-验证"><span class="nav-number">2.1.2.0.2.</span> <span class="nav-text">▉  Token 验证</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、DNS-攻击"><span class="nav-number">3.</span> <span class="nav-text">四、DNS 攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、什么是-DNS-攻击？"><span class="nav-number">3.0.1.</span> <span class="nav-text">1、什么是 DNS 攻击？</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-DNS-的工作原理"><span class="nav-number">3.0.1.0.1.</span> <span class="nav-text">▉ DNS 的工作原理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-如何利用-DNS-攻击"><span class="nav-number">3.0.1.0.2.</span> <span class="nav-text">▉ 如何利用 DNS 攻击</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-DNS-的攻击类型"><span class="nav-number">3.0.1.0.3.</span> <span class="nav-text">▉ DNS 的攻击类型</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、DDOS-攻击"><span class="nav-number">4.</span> <span class="nav-text">五、DDOS 攻击</span></a></li></ol></div>
             
 
           </div>
@@ -890,7 +916,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共177.9k字</span>
+  <span class="post-count">博客全站共179.3k字</span>
 </div>
         
 
