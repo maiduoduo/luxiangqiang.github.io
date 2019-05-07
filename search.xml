@@ -134,8 +134,8 @@
         <category>前端深入系列</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>前端</tag>
+        <tag>javascript</tag>
         <tag>前端深入系列</tag>
       </tags>
   </entry>
@@ -149,15 +149,15 @@
         <category>前端深入系列</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>前端</tag>
+        <tag>javascript</tag>
         <tag>前端深入系列</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[前端面试之【ES6 常考点】]]></title>
     <url>%2F2019%2F04%2F17%2F%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E4%B9%8B%E9%81%93%E3%80%90ES6%E5%B8%B8%E8%80%83%E7%82%B9%E3%80%91%2F</url>
-    <content type="text"><![CDATA[ES6 面试常考的知识点！ 一、var、let、const区别 面试题一：1、什么是提升？2、什么是暂时性死区？3、var、let 及 const 区别？ ※ 答✔：什么是提升？ 1）所谓的提升就是虽然变量没有声明，但是可以使用这个未声明的变量。 2）函数也有提升并且优先于变量的提升。函数提升会把整个函数挪到作用域顶部。 3）var 的变量会被提升到作用域的顶部。 ※ 答✔：什么是暂时性死区？ 1）如果使用 let、const 声明变量，在声明之前就是用了变量就会报错，报错的原因就是暂时性死区。这里的提升和 var 是有区别的，，虽然变量在编译的环节中被告知在这块作用域中可以访问，但是访问是受限制的。 ※ 答✔：var、let 及 const 区别？ 1）var 在全局作用域下声明变量会导致变量挂载在 window 上，其他两者不会 2）let 和 const 作用基本一致，但是后者声明的变量不能再次赋值。 ※ 扩展✔：为什么或存在提升？ 1）根本原因就是为了解决函数间互相调用的情况。 二、原型继承和 Class 继承 面试题二：原型如何实现继承？Class 如何实现继承？Class 本质是什么？ ※ 答✔：原型如何实现继承？ 1）组合继承、寄生组合继承、Class 继承 原文链接：JavaScript 中的原型链和继承 ※ 答✔：Class 如何实现继承？ 1）Class 实现继承主要使用 extends 来明确继承自哪个父类，并且再子类中调用 super，可以将这段代码看做 Parent.call(this,value)。 12345678910111213141516class Parent &#123; constructor(value) &#123; this.val = value &#125; getValue() &#123; console.log(this.val) &#125;&#125;class Child extends Parent &#123; constructor(value) &#123; super(value) &#125;&#125;let child = new Child(1)child.getValue() // 1child instanceof Parent // true ※ 答✔：Class 本质是什么？ 1）js 中并不存在类，Class 只是语法糖，Class 的本质还是函数。 三、模块化 面试题三：为什么使用模块化？都有哪几种方式可以实现模块化，各有什么特点？ ※ 答✔：为什么使用模块化？ 通常一个文件就是一个模块，有自己的作用域，只向外暴露特定的变量和函数。 解决命名冲突 提供复用性 提高代码可维护性 ※ 答✔：都有哪几种方式可以实现模块化？ 1）立即执行函数（IIFE） 立即执行函数中的匿名函数中有独立的 词法作用域，避免了外界访问此作用域的变量。通过函数作用域解决了命名冲突、污染全局作用域的问题 。 123456var result = (function () &#123; var name = "Barry"; return name; &#125;)(); // IIFE 执行后返回的结果：result; // "Barry" 2）AMD 和 CMD 目前很少见，只需了解即可。 AMD AMD 采用异步的加载方式，加载之后不影响它后面语句的运行。require.js 实现 AMD 规范的模块化 ， require.config() 指定引用路径等，用 define() 定义模块，用 require() 加载模块。 123456789101112/** 网页中引入require.js及main.js **/&lt;script src="js/require.js" data-main="js/main"&gt;&lt;/script&gt;/** main.js 入口文件/主模块 **/// 首先用config()指定各模块路径和引用名require.config(&#123; baseUrl: "js/lib", paths: &#123; "jquery": "jquery.min", //实际路径为js/lib/jquery.min.js "underscore": "underscore.min", &#125;&#125;); 12345678910111213141516171819202122232425262728// 定义math.js模块define(function () &#123; var basicNum = 0; var add = function (x, y) &#123; return x + y; &#125;; return &#123; add: add, basicNum :basicNum &#125;;&#125;);// 定义一个依赖underscore.js的模块define(['underscore'],function(_)&#123; var classify = function(list)&#123; _.countBy(list,function(num)&#123; return num &gt; 30 ? 'old' : 'young'; &#125;) &#125;; return &#123; classify :classify &#125;;&#125;)// 引用模块，将模块放在[]内require(['jquery', 'math'],function($, math)&#123; var sum = math.add(10,20); $("#sum").html(sum);&#125;); CMD CMD 的不同点在于推崇依赖前置、提前执行，CDM 推崇依赖就近、延迟执行。 12345678910111213141516171819/** AMD写法 **/define(["a", "b", "c", "d", "e", "f"], function(a, b, c, d, e, f) &#123; // 等于在最前面声明并初始化了要用到的所有模块 a.doSomething(); if (false) &#123; // 即便没用到某个模块 b，但 b 还是提前执行了 b.doSomething() &#125; &#125;);/** CMD写法 **/define(function(require, exports, module) &#123; var a = require('./a'); //在需要时申明 a.doSomething(); if (false) &#123; var b = require('./b'); b.doSomething(); &#125;&#125;); 3）CommonJS ① CommonJS 的规范主要用在 Node.js 中，为模块提供了四个接口：module、exports、require、global。 ② CommonJS 用同步的方式加载模块（服务器端），在浏览器端使用的是异步加载模块。 12345678910// lib.jsvar counter = 3;function incCounter() &#123; counter++;&#125;// 对外暴露接口module.exports = &#123; counter: counter, incCounter: incCounter,&#125;; 1234567// 加载外部模块var mod = require('./lib');console.log(mod.counter); // 3mod.incCounter();// 原始类型的值被缓存，所以就没有被改变（commonJS 不会随着执行而去模块随时调用）console.log(mod.counter); // 3 4）ES6 Module ES6 实现的模块非常简单，用于浏览器和服务器端。mport命令会被 JavaScript 引擎静态分析，在编译时就引入模块代码 .主要有两个命令组成：export和import: export命令用于规定模块的对外接口。 import命令引入其他模块的功能。 123456789101112// 指定指定的值暴露对外的接口export let counter = 3;export function incCounter() &#123; counter++;&#125;// 加载模块中的某个值import &#123; counter, incCounter &#125; from './lib';console.log(counter); // 3incCounter();// ES6 模块不同的是，静态加载完毕之后，每执行到模块中的方法，就去模块内调用（外部的变量总是与模块进行绑定的），而且值不会被缓存。console.log(counter); // 4 5）ES6 模块与 CommonJS 模块的区别 1、CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。 所谓值的拷贝，原始类型的值被缓存，不随模块内部的改变而改变。 ES6 模块是动态引用，不缓存值，模块内外是绑定的，而且是只读引用，不能修改值。ES6 的 js 引擎对脚本静态分析的时候，遇到加载命令模块 import ，就会生成一个只读引用，当真正用到模块里边的值的时候，就会去模块内部去取。 2、CommonJS 模块是运行时加载，ES6 模块是编译时加载输出接口。 运行时加载：CommonJS 模块就是对象；是先加载整个模块，生成一个对象，然后再从这个对象上面读取方法，这种加载称为“运行时加载”。 编译时加载：ES6 模块不是对象，而是通过 export 命令「显式指定输出的代码」。import 时采用静态命令的形式，即在import指定「加载某个输出值」，而「不是加载整个模块」，这种加载称为“编译时加载”。 四、Proxy五、map,filter,reduce 面试题：map,filter,reduce 各自有什么作用？ ※ map 有什么作用？ map 的作用是 map 中传入一个函数，该函数会遍历该数组，对每一个元素做变换之后返回新数组。 1）该函数存在三个参数： element : 对应数组的每个元素。 index : 数组元素的下标。 arr : 原数组。 2）代码实现1234let arr = [2,3,4]arr = arr.map(function(element,index,arr)&#123; return arr[index]+1;&#125;) // [3,4,5] ※ filter 有什么作用？ filter 的作用是也是生成一个数组，传入的函数返回值确实布尔类型，返回值为 true 的元素放入新数组，通常来筛选删除不需要的元素。 1）该函数存在三个参数： element : 对应数组的每个元素。 index : 数组元素的下标。 arr : 原数组。 2）代码实现1234let array = [1, 2, 4, 6]let arr = array.filter(function(element)&#123; return element != 6;&#125;)// [1,2,4] ※ reduce 有什么作用？ reduce 可以将数组中的元素通过回调函数最终转换为一个值。 1）传入 reduce 两个参数： 回调函数 accum：累计值(第一次的值代表初始化的值)。 element：当前元素。 index：当前索引。 arr：原数组。 初始值 2）代码实现1234let arr = [1,2,3]let sum = arr.reduce(function(acc,element)&#123; return acc + element;&#125;,0) // 6 2）reduce 的执行过程 初始值为 0 ，该值会传入第一次回调函数。 回到函数接收四个值，第一个值是累计值。 第一次执行回调函数将「初始值」和「当前值」做运算。 然后将结果值传入第二次执行的回调函数。 第二次回调函数会和当前值再做运算。]]></content>
+    <content type="text"><![CDATA[ES6 面试常考的知识点！ 一、var、let、const区别 面试题一：1、什么是提升？2、什么是暂时性死区？3、var、let 及 const 区别？ ※ 答✔：什么是提升？ 1）所谓的提升就是虽然变量没有声明，但是可以使用这个未声明的变量。 2）函数也有提升并且优先于变量的提升。函数提升会把整个函数挪到作用域顶部。 3）var 的变量会被提升到作用域的顶部。 ※ 答✔：什么是暂时性死区？ 1）如果使用 let、const 声明变量，在声明之前就是用了变量就会报错，报错的原因就是暂时性死区。这里的提升和 var 是有区别的，，虽然变量在编译的环节中被告知在这块作用域中可以访问，但是访问是受限制的。 ※ 答✔：var、let 及 const 区别？ 1）var 在全局作用域下声明变量会导致变量挂载在 window 上，其他两者不会 2）let 和 const 作用基本一致，但是后者声明的变量不能再次赋值。 ※ 扩展✔：为什么或存在提升？ 1）根本原因就是为了解决函数间互相调用的情况。 二、原型继承和 Class 继承 面试题二：原型如何实现继承？Class 如何实现继承？Class 本质是什么？ ※ 答✔：原型如何实现继承？ 1）组合继承、寄生组合继承、Class 继承 原文链接：JavaScript 中的原型链和继承 ※ 答✔：Class 如何实现继承？ 1）Class 实现继承主要使用 extends 来明确继承自哪个父类，并且再子类中调用 super，可以将这段代码看做 Parent.call(this,value)。 12345678910111213141516class Parent &#123; constructor(value) &#123; this.val = value &#125; getValue() &#123; console.log(this.val) &#125;&#125;class Child extends Parent &#123; constructor(value) &#123; super(value) &#125;&#125;let child = new Child(1)child.getValue() // 1child instanceof Parent // true ※ 答✔：Class 本质是什么？ 1）js 中并不存在类，Class 只是语法糖，Class 的本质还是函数。 三、模块化 面试题三：为什么使用模块化？都有哪几种方式可以实现模块化，各有什么特点？ ※ 答✔：为什么使用模块化？ 通常一个文件就是一个模块，有自己的作用域，只向外暴露特定的变量和函数。 解决命名冲突 提供复用性 提高代码可维护性 ※ 答✔：都有哪几种方式可以实现模块化？ 1）立即执行函数（IIFE） 立即执行函数中的匿名函数中有独立的 词法作用域，避免了外界访问此作用域的变量。通过函数作用域解决了命名冲突、污染全局作用域的问题 。 123456var result = (function () &#123; var name = "Barry"; return name; &#125;)(); // IIFE 执行后返回的结果：result; // "Barry" 2）AMD 和 CMD 目前很少见，只需了解即可。 AMD AMD 采用异步的加载方式，加载之后不影响它后面语句的运行。require.js 实现 AMD 规范的模块化 ， require.config() 指定引用路径等，用 define() 定义模块，用 require() 加载模块。 CMD CMD 的不同点在于推崇依赖前置、提前执行，CDM 推崇依赖就近、延迟执行。 3）CommonJS ① CommonJS 的规范主要用在 Node.js 中，为模块提供了四个接口：module、exports、require、global。 ② CommonJS 用同步的方式加载模块（服务器端），在浏览器端使用的是异步加载模块。 12345678910// lib.jsvar counter = 3;function incCounter() &#123; counter++;&#125;// 对外暴露接口module.exports = &#123; counter: counter, incCounter: incCounter,&#125;; 1234567// 加载外部模块var mod = require('./lib');console.log(mod.counter); // 3mod.incCounter();// 原始类型的值被缓存，所以就没有被改变（commonJS 不会随着执行而去模块随时调用）console.log(mod.counter); // 3 4）ES6 Module ES6 实现的模块非常简单，用于浏览器和服务器端。mport命令会被 JavaScript 引擎静态分析，在编译时就引入模块代码 .主要有两个命令组成：export和import: export命令用于规定模块的对外接口。 import命令引入其他模块的功能。 123456789101112// 指定指定的值暴露对外的接口export let counter = 3;export function incCounter() &#123; counter++;&#125;// 加载模块中的某个值import &#123; counter, incCounter &#125; from './lib';console.log(counter); // 3incCounter();// ES6 模块不同的是，静态加载完毕之后，每执行到模块中的方法，就去模块内调用（外部的变量总是与模块进行绑定的），而且值不会被缓存。console.log(counter); // 4 5）ES6 模块与 CommonJS 模块的区别 1、CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。 所谓值的拷贝，原始类型的值被缓存，不随模块内部的改变而改变。 ES6 模块是动态引用，不缓存值，模块内外是绑定的，而且是只读引用，不能修改值。ES6 的 js 引擎对脚本静态分析的时候，遇到加载命令模块 import ，就会生成一个只读引用，当真正用到模块里边的值的时候，就会去模块内部去取。 2、CommonJS 模块是运行时加载，ES6 模块是编译时加载输出接口。 运行时加载：CommonJS 模块就是对象；是先加载整个模块，生成一个对象，然后再从这个对象上面读取方法，这种加载称为“运行时加载”。 编译时加载：ES6 模块不是对象，而是通过 export 命令「显式指定输出的代码」。import 时采用静态命令的形式，即在import指定「加载某个输出值」，而「不是加载整个模块」，这种加载称为“编译时加载”。 6）总结 CommonJS 规范主要用于服务端编程，加载模块是同步的，这并不适合在浏览器环境，因为同步意味着阻塞加载，浏览器资源是异步加载的，因此有了AMD CMD解决方案。 AMD 规范在浏览器环境中异步加载模块，而且可以并行加载多个模块。不过，AMD 规范开发成本高，代码的阅读和书写比较困难，模块定义方式的语义不顺畅。 CMD 规范与 AMD 规范很相似，都用于浏览器编程，依赖就近，延迟执行，可以很容易在 Node.js 中运行。不过，依赖 SPM 打包，模块的加载逻辑偏重。 ES6 在语言标准的层面上，实现了模块功能，而且实现得相当简单，完全可以取代 CommonJS 和 AMD 规范，成为浏览器和服务器通用的模块解决方案。 四、Proxy五、map,filter,reduce 面试题：map,filter,reduce 各自有什么作用？ ※ map 有什么作用？ map 的作用是 map 中传入一个函数，该函数会遍历该数组，对每一个元素做变换之后返回新数组。 1）该函数存在三个参数： element : 对应数组的每个元素。 index : 数组元素的下标。 arr : 原数组。 2）代码实现1234let arr = [2,3,4]arr = arr.map(function(element,index,arr)&#123; return arr[index]+1;&#125;) // [3,4,5] ※ filter 有什么作用？ filter 的作用是也是生成一个数组，传入的函数返回值确实布尔类型，返回值为 true 的元素放入新数组，通常来筛选删除不需要的元素。 1）该函数存在三个参数： element : 对应数组的每个元素。 index : 数组元素的下标。 arr : 原数组。 2）代码实现1234let array = [1, 2, 4, 6]let arr = array.filter(function(element)&#123; return element != 6;&#125;)// [1,2,4] ※ reduce 有什么作用？ reduce 可以将数组中的元素通过回调函数最终转换为一个值。 1）传入 reduce 两个参数： 回调函数 accum：累计值(第一次的值代表初始化的值)。 element：当前元素。 index：当前索引。 arr：原数组。 初始值 2）代码实现1234let arr = [1,2,3]let sum = arr.reduce(function(acc,element)&#123; return acc + element;&#125;,0) // 6 2）reduce 的执行过程 初始值为 0 ，该值会传入第一次回调函数。 回到函数接收四个值，第一个值是累计值。 第一次执行回调函数将「初始值」和「当前值」做运算。 然后将结果值传入第二次执行的回调函数。 第二次回调函数会和当前值再做运算。]]></content>
       <categories>
         <category>前端</category>
         <category>ES6</category>
@@ -218,8 +218,8 @@
         <category>前端深入系列</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>前端</tag>
+        <tag>javascript</tag>
         <tag>前端深入系列</tag>
       </tags>
   </entry>
@@ -232,8 +232,8 @@
         <category>javascript</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>前端</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -653,9 +653,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Webpack成神之路之模块【css文件打包】]]></title>
-    <url>%2F2019%2F03%2F11%2FWebpack%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF%E4%B9%8B%E6%A8%A1%E5%9D%97%E3%80%90css%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E3%80%91%2F</url>
-    <content type="text"><![CDATA[将 CSS 文件进行打包！ 一、Loaders Loaders是Webpack最重要的功能之一， Loader 对不同的文件进行处理。 可以把SASS文件的写法转换成CSS，而不在使用其他转换工具。 可以把ES6或者ES7的代码，转换成大多浏览器兼容的JS代码。 可以把React中的JSX转换成JavaScript代码。 1、安装 Loader Loader 有两个解析的 Loader 分别为 style-loader 和 css-loader。 12345//安装style-loadernpm install style-loader --save-dev//安装css-loadernpm install --save-dev css-loader 2、配置 Loader 在 webpack.config.js 进行配置。 1234567891011//直接用usemodule:&#123; rules: [ &#123; //用于匹配处理文件的扩展名的表达式，这个选项是必须进行配置的； test: /\.css$/, //loader名称，就是你要使用模块的名称，这个选项也必须进行配置，否则报错； use: [ 'style-loader', 'css-loader' ] &#125; ]&#125;, 123456789//把use换成loader。module:&#123; rules:[ &#123; test:/\.css$/, loader:[&apos;style-loader&apos;,&apos;css-loader&apos;] &#125; ] &#125;, 123456789101112131415//用use+loader的写法：module:&#123; rules:[ &#123; test:/\.css$/, use: [ &#123; loader: &quot;style-loader&quot; &#125;, &#123; loader: &quot;css-loader&quot; &#125; ] &#125; ] &#125;, test：用于匹配处理文件的扩展名的表达式，这个选项是必须进行配置的； use： loader名称，就是你要使用模块的名称，这个选项也必须进行配置，否则报错； include/exclude: 手动添加必须处理的文件（文件夹）或屏蔽不需要处理的文件（文件夹）（可选）； query：为loaders提供额外的设置选项（可选）。 3、打包 CSS 在 js 文件中引入 css 文件。 1import css from &apos;./src/index.css&apos;; 12//命令进行打包webpack]]></content>
+    <title><![CDATA[Webpack成神之路之模块【css文件打包_05】]]></title>
+    <url>%2F2019%2F03%2F11%2FWebpack%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF%E4%B9%8B%E6%A8%A1%E5%9D%97%E3%80%90css%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85_05%E3%80%91%2F</url>
+    <content type="text"><![CDATA[将 CSS 文件进行打包！ 模块：CSS 文件打包 Webpack 在生产环境中有一个重要的作用就是减少 http 的请求数，就是把多个文件打包到一个 js 里，这样请求数就可以减少好多。 在对 CSS 打包之前，需要进行配置。 一、Loaders Loaders 是 Webpack 最重要的功能之一， Loader 对不同的文件进行处理。 可以把 SASS 文件的写法转换成 CSS，而不在使用其他转换工具。 可以把 ES6 或者 ES7 的代码，转换成大多浏览器兼容的 JS 代码。 可以把 React 中的 JSX 转换成 JavaScript 代码。 1、安装 Loader Loader 有两个解析的 Loader 分别为 style-loader 和 css-loader。 1）style-loader：用来处理 CSS 文件中的 url() 等（https://www.npmjs.com/package/style-loader ）。 2）css-loader：用来将 CSS 插入到页面中的 style 标签中(https://www.npmjs.com/package/css-loader )。 12345//安装style-loadernpm install style-loader --save-dev//安装css-loadernpm install --save-dev css-loader 2、配置 Loader 在 webpack.config.js 进行配置。 test：用于匹配处理文件的扩展名的表达式，这个选项是必须进行配置的； use： loader名称，就是你要使用模块的名称，这个选项也必须进行配置，否则报错； include/exclude: 手动添加必须处理的文件（文件夹）或屏蔽不需要处理的文件（文件夹）（可选）； query：为loaders提供额外的设置选项（可选）。 1234567891011//直接用usemodule:&#123; rules: [ &#123; //用于匹配处理文件的扩展名的表达式，这个选项是必须进行配置的； test: /\.css$/, //loader名称，就是你要使用模块的名称，这个选项也必须进行配置，否则报错； use: [ 'style-loader', 'css-loader' ] &#125; ]&#125;, 123456789//把 use 换成 loader。module:&#123; rules:[ &#123; test:/\.css$/, loader:['style-loader','css-loader'] &#125; ] &#125;, 123456789101112131415//用 use + loader 的写法：module:&#123; rules:[ &#123; test:/\.css$/, use: [ &#123; loader: "style-loader" &#125;, &#123; loader: "css-loader" &#125; ] &#125; ]&#125;, 3、打包 CSS 在 js 文件中引入 css 文件。 1import css from &apos;./src/index.css&apos;; 12//命令进行打包webpack]]></content>
       <categories>
         <category>前端工具</category>
         <category>webpack</category>
@@ -677,14 +677,22 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>%2F2019%2F03%2F10%2FWebpack%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF%E4%B9%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E3%80%90%E6%9C%8D%E5%8A%A1%E5%92%8C%E7%83%AD%E6%9B%B4%E6%96%B0%E3%80%91%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <title><![CDATA[Webpack 成神之路【服务和热更新_04】]]></title>
+    <url>%2F2019%2F03%2F10%2FWebpack%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF%E4%B9%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E3%80%90%E6%9C%8D%E5%8A%A1%E5%92%8C%E7%83%AD%E6%9B%B4%E6%96%B0_04%E3%80%91%2F</url>
+    <content type="text"><![CDATA[服务和热更新配置！ 配置文件：服务和热更新一、设置 webpack-dev-server1、下载 webpack-dev-server1npm install webpack-dev-server –-save-dev 2、配置 devServer 在 webpack.config.js 文件中进行配置。 12345678910devServer:&#123; //设置基本目录结构 contentBase:path.resolve(__dirname,'dist'), //服务器的IP地址，可以使用IP也可以使用localhost host:'localhost', //服务端压缩是否开启 compress:true, //配置服务端口号 port:1717&#125; contentBase:配置服务器基本运行路径，用于找到程序打包地址。 host：服务运行地址，建议使用本机IP，这里为了讲解方便，所以用localhost。 compress：服务器端压缩选型，一般设置为开启，如果你对服务器压缩感兴趣，可以自行学习。 port：服务运行端口，建议不使用80，很容易被占用，这里使用了1717.]]></content>
+      <categories>
+        <category>前端工具</category>
+        <category>webpack</category>
+      </categories>
+      <tags>
+        <tag>前端工具</tag>
+        <tag>webpack</tag>
+      </tags>
   </entry>
   <entry>
-    <title><![CDATA[Webpack 成神之路【配置文件】]]></title>
-    <url>%2F2019%2F03%2F10%2FWebpack%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF%E4%B9%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E3%80%90%E5%A4%9A%E5%85%A5%E5%8F%A3%E5%A4%9A%E5%87%BA%E5%8F%A3%E3%80%91%2F</url>
-    <content type="text"><![CDATA[webpack 配置文件实现多入口多出口！ 一、新建webpack.config.js文件 在根目录新建 webpack.config.js 配置文件,属性如下： 123456789101112module.exports=&#123; //入口文件的配置项 entry:&#123;&#125;, //出口文件的配置项 output:&#123;&#125;, //模块：例如解读CSS,图片如何转换，压缩 module:&#123;&#125;, //插件，用于生产模版和各项功能 plugins:[], //配置webpack开发服务功能 devServer:&#123;&#125;&#125; 二、配置属性信息 添加入口文件和出口文件进行打包。 123456//双入口配置文件entry:&#123; entry:'./src/entry.js', //另一个入口文件 entry2:'./src/entry2.js'&#125;, 出口文件。 123456789//全局const path = require(&apos;path&apos;);//局部 output:&#123; //打包的路径文职，绝对路径 path:path.resolve(__dirname,&apos;dist&apos;), //打包文件名 filename:&apos;[name].js&apos; &#125;, 其中 path.resolve(__dirname,&#39;dist&#39;)获取根目录，然后定位到 dist 目录路径。 三、命令打包 控制台输入 Webpack命令进行打包。 四、全部代码123456789101112131415161718192021222324//node 知识const path = require('path');// 配置文件module.exports=&#123; //入口文件的配置项 entry:&#123; entry:'./src/entry.js', //另一个入口文件 entry2:'./src/entry2.js' &#125;, //出口文件的配置项 output:&#123; //打包的路径文职，绝对路径 path:path.resolve(__dirname,'dist'), //打包文件名(name)表示对应的入口文件名 filename:'[name].js' &#125;, //模块：例如解读CSS,图片如何转换，压缩 module:&#123;&#125;, //插件，用于生产模版和各项功能 plugins:[], //配置webpack开发服务功能 devServer:&#123;&#125;&#125;]]></content>
+    <title><![CDATA[Webpack 成神之路【多入口多出口_03】]]></title>
+    <url>%2F2019%2F03%2F10%2FWebpack%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF%E4%B9%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E3%80%90%E5%A4%9A%E5%85%A5%E5%8F%A3%E5%A4%9A%E5%87%BA%E5%8F%A3_03%E3%80%91%2F</url>
+    <content type="text"><![CDATA[webpack 配置文件实现多入口多出口！ 一、新建 webpack.config.js 文件 webpack.config.js 这是 webpack 自有的配置文件。在根目录新建 webpack.config.js 配置文件,属性如下： 123456789101112module.exports=&#123; //入口文件的配置项 entry:&#123;&#125;, //出口文件的配置项 output:&#123;&#125;, //模块：例如解读 CSS,图片如何转换，压缩 module:&#123;&#125;, //插件，用于生产模版和各项功能 plugins:[], //配置 webpack 开发服务功能 devServer:&#123;&#125;&#125; 1234567891011121314151617const path = require('path')module.exports=&#123; entry:&#123; // 打包文件的路径 entry: '' &#125;, output:&#123; // 打包路径(获取项目的绝对路径) path: path.resolve(__dirname,'dist'), //打包的文件名称 filename: '' &#125;, module:&#123;&#125;, plugins:[], devServer:&#123;&#125;&#125; 二、配置属性信息 添加入口文件和出口文件进行打包。 1234567//双入口配置文件entry:&#123; // 第一个入口文件 entry:'./src/entry.js', //另一个入口文件 entry2:'./src/entry2.js'&#125;, 出口文件修改 [name]。 123456789//全局const path = require('path');//局部 output:&#123; //打包的路径文职，绝对路径 path:path.resolve(__dirname,'dist'), //打包文件名（[name] 根据入口文件的名称作为出口文件名称） filename:'[name].js' &#125;, 三、命令打包 控制台输入 Webpack命令进行打包。 四、全部代码123456789101112131415161718192021222324//node 知识const path = require('path');// 配置文件module.exports=&#123; //入口文件的配置项 entry:&#123; entry:'./src/entry.js', //另一个入口文件 entry2:'./src/entry2.js' &#125;, //出口文件的配置项 output:&#123; //打包的路径文职，绝对路径 path:path.resolve(__dirname,'dist'), //打包文件名(name)表示对应的入口文件名 filename:'[name].js' &#125;, //模块：例如解读CSS,图片如何转换，压缩 module:&#123;&#125;, //插件，用于生产模版和各项功能 plugins:[], //配置webpack开发服务功能 devServer:&#123;&#125;&#125;]]></content>
       <categories>
         <category>前端工具</category>
         <category>webpack</category>
@@ -721,9 +729,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Webpack 成神之路【搭建 Demo】]]></title>
-    <url>%2F2019%2F03%2F08%2FWebpack%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF%E3%80%90%E6%90%AD%E5%BB%BADemo%E3%80%91%2F</url>
-    <content type="text"><![CDATA[Webpack 实现项目打包！ 一、项目基本目录 在根目录下建立两个文件夹，分别是 src 文件夹和 dist 文件夹。 src：用来存放我们编写的javascript代码，可以简单的理解为用JavaScript编写的模块。 dist ：用来存放供浏览器读取的文件，这个是webpack打包成的文件。 二、添加文件 1、在 dist 中我们建立 index.html 的文件并引入 bubdle.js 文件（bubdle.js 是打包后的文件，在这先进行引入）。 2、在 src 下建立源文件 js，也就是我们所说的入口文件 entery.js ，用来编写 js 代码。 三、打包 webpack 4.0+ 在终端使用命令进行打包，命令格式如下： 1webpack [entry file] --output [destination for bundled file] --mode development [entry file] : 入口文件的路径，也就是 js 源文件的路径。 [destination for bundled file] ： 打包后存放的路径。 四、打包完成 运行完上方命令之后，在 dist 打包后的文件夹中出现 bundle.js 打包文件，我们就可以在浏览器中进行预览了。]]></content>
+    <title><![CDATA[Webpack 成神之路【搭建 Demo_02】]]></title>
+    <url>%2F2019%2F03%2F08%2FWebpack%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF%E3%80%90%E6%90%AD%E5%BB%BADemo_02%E3%80%91%2F</url>
+    <content type="text"><![CDATA[Webpack 实现项目打包！ 一、项目基本目录 在根目录下建立两个文件夹，分别是 src 文件夹和 dist 文件夹。 src：用来存放我们编写的 javascript 代码，可以简单的理解为用 JavaScript 编写的模块。 dist ：用来存放供浏览器读取的文件，这个是webpack打包成的文件。 二、添加文件 1）在 dist 中我们建立 index.html 的文件并引入 bubdle.js 文件（bubdle.js是打包后的文件，在这先进行引入）。 2）在 src 下建立源文件 js，也就是我们所说的入口文件 entery.js ，用来编写 js 代码。 三、打包 webpack 4.0+ 在终端使用命令进行打包，命令格式如下： 1234// webpack 3.0+wepack &#123;入口文件路径&#125; &#123;出口文件路径&#125;//webpack 4.0+webpack [入口文件路径] --output [出口文件路径] --mode development 四、打包完成 运行完上方命令之后，在 dist 打包后的文件夹中出现 bundle.js打包文件，我们就可以在浏览器中进行预览了。]]></content>
       <categories>
         <category>前端工具</category>
         <category>webpack</category>
@@ -734,9 +742,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Webpack成神之路【环境搭建】]]></title>
-    <url>%2F2019%2F03%2F08%2FWebpack%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF%E3%80%90%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E3%80%91%2F</url>
-    <content type="text"><![CDATA[一文教你搭建 Webpack 在 VS code 中的环境搭建！ 一、为什么需要webpack? JS 的复杂性和需要很多依赖包，CSS,Less…新增样式的扩展写法的编译工作，所以我们不得不借助Webpack工具来做辅助。 二、什么是Webpack? WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Sass，TypeScript等），并将其转换和打包为合适的格式供浏览器使用。3.0 版本出现了优化的作用。 打包： 可以把多个Javascript文件打包成一个文件，减少服务器压力和下载带宽。(模块 —&gt; 静态优化) 转换： 把拓展语言转换成为普通的JavaScript，让浏览器顺利运行。 优化：前端变的越来越复杂后，性能也会遇到问题，而WebPack也开始肩负起了优化和提升性能的责任。 三、安装 Webpack1、前提 安装 Node.js ，用 npm 来进行安装，进入项目的根目录。 2、初始化项目12//初始化项目npm init 3、安装 webpack,并一路回车 主要目的就是生成 package.json文件(当前项目的依赖模块，自定义的脚本任务等 ) ,自行扩展到 Node相关知识。 1）初始化目录12//初始化目录$ npm init npm终端会问你关于项目的名称，描述等，如果你不考虑发布到npm上，这些内容都不重要， 直接回车初始化，根目录会生成 package.json 文件。 2）安装webpack --save-dev为本地安装。 1$ npm install webpack --save-dev 3）检测版本 如果报错，请检查版本是否错误，或者全局已经安装，本地安装就会报错（需要删除全局安装，然后进行本地安装）。 1webpack -v]]></content>
+    <title><![CDATA[Webpack成神之路【环境搭建_01】]]></title>
+    <url>%2F2019%2F03%2F08%2FWebpack%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF%E3%80%90%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA_01%E3%80%91%2F</url>
+    <content type="text"><![CDATA[一文教你搭建 Webpack 在 VS code 中的环境搭建！ 一、为什么需要webpack? JS 的复杂性和需要很多依赖包，CSS,Less…新增样式的扩展写法的编译工作，所以我们不得不借助Webpack工具来做辅助。 二、什么是Webpack? WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Sass，TypeScript等），并将其转换和打包为合适的格式供浏览器使用。3.0 版本出现了优化的作用。 打包： 可以把多个Javascript文件打包成一个文件，减少服务器压力和下载带宽。(模块 —&gt; 静态优化) 转换： 把拓展语言转换成为普通的JavaScript，让浏览器顺利运行。 优化：前端变的越来越复杂后，性能也会遇到问题，而WebPack也开始肩负起了优化和提升性能的责任。 三、安装 Webpack1、前提 安装 Node.js ，用 npm 来进行安装，进入项目的根目录。 2、初始化项目12//初始化项目npm init 3、安装 webpack,并一路回车 主要目的就是生成 package.json 文件(当前项目的依赖模块，自定义的脚本任务等 ) ,自行扩展到 Node相关知识。 1）初始化目录12//初始化目录$ npm init npm终端会问你关于项目的名称，描述等，如果你不考虑发布到npm上，这些内容都不重要， 直接回车初始化，根目录会生成 package.json 文件。 script 字段： scripts指定了运行脚本命令的 npm 命令行缩写，比如start指定了运行 npm run start时，所要执行的命令。 dependencies 字段：dependencies字段指定了项目发布后运行所依赖的模块。 devDependencies 字段：devDependencies指定项目开发所需要的模块。 2）安装webpack ① --save 将其 webpack 保存到 package.json 中。 ② -dev 是只在开发环境下使用。 1$ npm install webpack（@版本号） -g 3）检测版本 如果报错，请检查版本是否错误，或者全局已经安装，本地安装就会报错（需要删除全局安装，然后进行本地安装）。 12// 查看版本号webpack -v 12// 全局卸载 webpacknpm uninstall webpack -g 四、问题 局部安装的 webpack 失效问题。 1npm install webpack（@版本号） --save-dev]]></content>
       <categories>
         <category>前端工具</category>
         <category>webpack</category>

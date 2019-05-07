@@ -118,18 +118,18 @@
 
 
 
-<meta name="description" content="Webpack 实现项目打包！">
+<meta name="description" content="一文教你搭建 Webpack 在 VS code 中的环境搭建！">
 <meta name="keywords" content="前端工具,webpack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Webpack 成神之路【搭建 Demo】">
-<meta property="og:url" content="http://yoursite.com/2019/03/08/Webpack成神之路【搭建Demo】/index.html">
+<meta property="og:title" content="Webpack成神之路【环境搭建_01】">
+<meta property="og:url" content="http://yoursite.com/2019/03/08/Webpack成神之路【环境搭建_01】/index.html">
 <meta property="og:site_name" content="小鹿的博客">
-<meta property="og:description" content="Webpack 实现项目打包！">
+<meta property="og:description" content="一文教你搭建 Webpack 在 VS code 中的环境搭建！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-10T07:45:26.091Z">
+<meta property="og:updated_time" content="2019-05-07T03:14:51.620Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Webpack 成神之路【搭建 Demo】">
-<meta name="twitter:description" content="Webpack 实现项目打包！">
+<meta name="twitter:title" content="Webpack成神之路【环境搭建_01】">
+<meta name="twitter:description" content="一文教你搭建 Webpack 在 VS code 中的环境搭建！">
 
 
 
@@ -159,13 +159,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/08/Webpack成神之路【搭建Demo】/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/08/Webpack成神之路【环境搭建_01】/"/>
 
 
 
 
 
-  <title>Webpack 成神之路【搭建 Demo】 | 小鹿的博客</title>
+  <title>Webpack成神之路【环境搭建_01】 | 小鹿的博客</title>
   
 
 
@@ -336,7 +336,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/Webpack成神之路【搭建Demo】/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/Webpack成神之路【环境搭建_01】/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小鹿">
@@ -353,7 +353,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Webpack 成神之路【搭建 Demo】</h1>
+          <h1 class="post-title" itemprop="name headline">Webpack成神之路【环境搭建_01】</h1>
         
 
         <div class="post-meta">
@@ -365,7 +365,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-08T19:35:16+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-08T18:39:29+08:00">
                 2019-03-08
               </time>
             
@@ -417,9 +417,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/03/08/Webpack成神之路【搭建Demo】/#comments" itemprop="discussionUrl">
+                <a href="/2019/03/08/Webpack成神之路【环境搭建_01】/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/03/08/Webpack成神之路【搭建Demo】/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2019/03/08/Webpack成神之路【环境搭建_01】/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -441,7 +441,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  274
+                  615
                 </span>
               
 
@@ -457,7 +457,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -478,30 +478,49 @@
       
 
       
-        <p>Webpack 实现项目打包！</p>
+        <p>一文教你搭建 Webpack 在 VS code 中的环境搭建！</p>
 <a id="more"></a>
-<h3 id="一、项目基本目录"><a href="#一、项目基本目录" class="headerlink" title="一、项目基本目录"></a>一、项目基本目录</h3><blockquote>
-<p>在根目录下建立两个文件夹，分别是 src 文件夹和 dist 文件夹。</p>
+<h3 id="一、为什么需要webpack"><a href="#一、为什么需要webpack" class="headerlink" title="一、为什么需要webpack?"></a>一、为什么需要webpack?</h3><blockquote>
+<p>JS 的复杂性和需要很多依赖包，CSS,Less…新增样式的扩展写法的编译工作，所以我们不得不借助Webpack工具来做辅助。</p>
+</blockquote>
+<h3 id="二、什么是Webpack"><a href="#二、什么是Webpack" class="headerlink" title="二、什么是Webpack?"></a>二、什么是Webpack?</h3><blockquote>
+<p>WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Sass，TypeScript等），并将其<strong>转换</strong>和<strong>打包</strong>为合适的格式供浏览器使用。3.0 版本出现了<strong>优化</strong>的作用。</p>
 </blockquote>
 <ul>
-<li><strong>src：</strong>用来存放我们编写的javascript代码，可以简单的理解为用JavaScript编写的模块。</li>
-<li><strong>dist ：</strong>用来存放供浏览器读取的文件，这个是webpack打包成的文件。</li>
+<li><strong>打包： </strong>可以把多个Javascript文件打包成一个文件，减少服务器压力和下载带宽。(模块 —&gt; 静态优化)</li>
+<li><strong>转换： </strong>把<strong>拓展语言</strong>转换成为普通的<strong>JavaScript</strong>，让浏览器顺利运行。</li>
+<li><strong>优化：</strong>前端变的越来越复杂后，性能也会遇到问题，而WebPack也开始肩负起了优化和<strong>提升性能</strong>的责任。</li>
 </ul>
-<h3 id="二、添加文件"><a href="#二、添加文件" class="headerlink" title="二、添加文件"></a>二、添加文件</h3><blockquote>
-<p>1、在 dist 中我们建立 index.html 的文件并引入 bubdle.js 文件（bubdle.js 是打包后的文件，在这先进行引入）。</p>
-<p>2、在 src 下建立源文件 js，也就是我们所说的入口文件 entery.js ，用来编写 js 代码。 </p>
+<h3 id="三、安装-Webpack"><a href="#三、安装-Webpack" class="headerlink" title="三、安装 Webpack"></a>三、安装 Webpack</h3><h4 id="1、前提"><a href="#1、前提" class="headerlink" title="1、前提"></a>1、前提</h4><blockquote>
+<p>安装 Node.js ，用 npm 来进行安装，进入项目的根目录。</p>
 </blockquote>
-<h3 id="三、打包-webpack-4-0"><a href="#三、打包-webpack-4-0" class="headerlink" title="三、打包 webpack 4.0+"></a>三、打包 webpack 4.0+</h3><blockquote>
-<p>在终端使用命令进行打包，命令格式如下：</p>
+<h4 id="2、初始化项目"><a href="#2、初始化项目" class="headerlink" title="2、初始化项目"></a>2、初始化项目</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//初始化项目</span><br><span class="line">npm init</span><br></pre></td></tr></table></figure>
+<h4 id="3、安装-webpack-并一路回车"><a href="#3、安装-webpack-并一路回车" class="headerlink" title="3、安装 webpack,并一路回车"></a>3、安装 webpack,并一路回车</h4><blockquote>
+<p>主要目的就是生成 <code>package.json</code> 文件(当前项目的依赖模块，自定义的脚本任务等 ) ,<a href="">自行扩展到 Node相关知识。</a></p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack [entry file]  --output [destination for bundled file] --mode development</span><br></pre></td></tr></table></figure>
+<h5 id="1）初始化目录"><a href="#1）初始化目录" class="headerlink" title="1）初始化目录"></a>1）初始化目录</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//初始化目录</span><br><span class="line">$ npm init</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>npm终端会问你关于项目的名称，描述等，如果你不考虑发布到npm上，这些内容都不重要， 直接回车初始化，根目录会生成 <code>package.json</code> 文件。</p>
+</blockquote>
 <ul>
-<li><strong>[entry file] : </strong> 入口文件的路径，也就是 js 源文件的路径。</li>
-<li><strong>[destination for bundled file] ： </strong>打包后存放的路径。</li>
+<li><strong>script 字段：</strong> <code>scripts</code>指定了运行脚本命令的 <code>npm</code> 命令行缩写，比如start指定了运行 <code>npm run start</code>时，所要执行的命令。 </li>
+<li><strong>dependencies 字段：</strong><code>dependencies</code>字段指定了项目发布后运行所依赖的模块。 </li>
+<li><strong>devDependencies 字段：</strong><code>devDependencies</code>指定项目开发所需要的模块。</li>
 </ul>
-<h3 id="四、打包完成"><a href="#四、打包完成" class="headerlink" title="四、打包完成"></a>四、打包完成</h3><blockquote>
-<p>运行完上方命令之后，在 dist 打包后的文件夹中出现 bundle.js 打包文件，我们就可以在浏览器中进行预览了。</p>
+<h5 id="2）安装webpack"><a href="#2）安装webpack" class="headerlink" title="2）安装webpack"></a>2）安装webpack</h5><blockquote>
+<p>① <code>--save</code> 将其 <code>webpack</code> 保存到 <code>package.json</code> 中。</p>
+<p>② <code>-dev</code> 是只在开发环境下使用。</p>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install webpack（@版本号） -g</span><br></pre></td></tr></table></figure>
+<h5 id="3）检测版本"><a href="#3）检测版本" class="headerlink" title="3）检测版本"></a>3）检测版本</h5><blockquote>
+<p>如果报错，请检查版本是否错误，或者全局已经安装，本地安装就会报错（需要删除全局安装，然后进行本地安装）。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 查看版本号</span><br><span class="line">webpack -v</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 全局卸载 webpack</span><br><span class="line">npm  uninstall  webpack -g</span><br></pre></td></tr></table></figure>
+<h3 id="四、问题"><a href="#四、问题" class="headerlink" title="四、问题"></a>四、问题</h3><blockquote>
+<p>局部安装的 webpack  失效问题。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack（@版本号） --save-dev</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -546,8 +565,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/08/Webpack成神之路【环境搭建】/" rel="next" title="Webpack成神之路【环境搭建】">
-                <i class="fa fa-chevron-left"></i> Webpack成神之路【环境搭建】
+              <a href="/2019/03/06/重学前端之JavaScript执行(二)9/" rel="next" title="重学前端之JavaScript执行(二)">
+                <i class="fa fa-chevron-left"></i> 重学前端之JavaScript执行(二)
               </a>
             
           </div>
@@ -556,8 +575,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/09/重学前端之JavaScript执行(三)10/" rel="prev" title="重学前端之JavaScript执行(三)">
-                重学前端之JavaScript执行(三) <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/08/Webpack成神之路【搭建Demo_02】/" rel="prev" title="Webpack 成神之路【搭建 Demo_02】">
+                Webpack 成神之路【搭建 Demo_02】 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -767,7 +786,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、项目基本目录"><span class="nav-number">1.</span> <span class="nav-text">一、项目基本目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、添加文件"><span class="nav-number">2.</span> <span class="nav-text">二、添加文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、打包-webpack-4-0"><span class="nav-number">3.</span> <span class="nav-text">三、打包 webpack 4.0+</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、打包完成"><span class="nav-number">4.</span> <span class="nav-text">四、打包完成</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、为什么需要webpack"><span class="nav-number">1.</span> <span class="nav-text">一、为什么需要webpack?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、什么是Webpack"><span class="nav-number">2.</span> <span class="nav-text">二、什么是Webpack?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、安装-Webpack"><span class="nav-number">3.</span> <span class="nav-text">三、安装 Webpack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、前提"><span class="nav-number">3.1.</span> <span class="nav-text">1、前提</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、初始化项目"><span class="nav-number">3.2.</span> <span class="nav-text">2、初始化项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、安装-webpack-并一路回车"><span class="nav-number">3.3.</span> <span class="nav-text">3、安装 webpack,并一路回车</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1）初始化目录"><span class="nav-number">3.3.1.</span> <span class="nav-text">1）初始化目录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2）安装webpack"><span class="nav-number">3.3.2.</span> <span class="nav-text">2）安装webpack</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3）检测版本"><span class="nav-number">3.3.3.</span> <span class="nav-text">3）检测版本</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、问题"><span class="nav-number">4.</span> <span class="nav-text">四、问题</span></a></li></ol></div>
             
 
           </div>
@@ -822,7 +841,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共179.3k字</span>
+  <span class="post-count">博客全站共179.8k字</span>
 </div>
         
 
@@ -958,9 +977,9 @@ var jiathis_config={
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2019/03/08/Webpack成神之路【搭建Demo】/';
-          this.page.identifier = '2019/03/08/Webpack成神之路【搭建Demo】/';
-          this.page.title = 'Webpack 成神之路【搭建 Demo】';
+          this.page.url = 'http://yoursite.com/2019/03/08/Webpack成神之路【环境搭建_01】/';
+          this.page.identifier = '2019/03/08/Webpack成神之路【环境搭建_01】/';
+          this.page.title = 'Webpack成神之路【环境搭建_01】';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
