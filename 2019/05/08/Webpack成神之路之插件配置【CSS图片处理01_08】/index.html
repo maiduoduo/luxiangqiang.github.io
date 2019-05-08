@@ -118,18 +118,18 @@
 
 
 
-<meta name="description" content="打包发布 HTML 文件！">
+<meta name="description" content="webpack 处理 CSS 中的图片！">
 <meta name="keywords" content="前端工具,webpack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Webpack成神之路之插件配置【HTML发布】">
-<meta property="og:url" content="http://yoursite.com/2019/03/11/Webpack成神之路之插件配置【HTML发布】/index.html">
+<meta property="og:title" content="Webpack成神之路之插件配置【CSS 图片处理01_08】">
+<meta property="og:url" content="http://yoursite.com/2019/05/08/Webpack成神之路之插件配置【CSS图片处理01_08】/index.html">
 <meta property="og:site_name" content="小鹿的博客">
-<meta property="og:description" content="打包发布 HTML 文件！">
+<meta property="og:description" content="webpack 处理 CSS 中的图片！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-11T12:16:49.898Z">
+<meta property="og:updated_time" content="2019-05-08T11:32:47.636Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Webpack成神之路之插件配置【HTML发布】">
-<meta name="twitter:description" content="打包发布 HTML 文件！">
+<meta name="twitter:title" content="Webpack成神之路之插件配置【CSS 图片处理01_08】">
+<meta name="twitter:description" content="webpack 处理 CSS 中的图片！">
 
 
 
@@ -159,13 +159,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/11/Webpack成神之路之插件配置【HTML发布】/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/05/08/Webpack成神之路之插件配置【CSS图片处理01_08】/"/>
 
 
 
 
 
-  <title>Webpack成神之路之插件配置【HTML发布】 | 小鹿的博客</title>
+  <title>Webpack成神之路之插件配置【CSS 图片处理01_08】 | 小鹿的博客</title>
   
 
 
@@ -336,7 +336,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/Webpack成神之路之插件配置【HTML发布】/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/08/Webpack成神之路之插件配置【CSS图片处理01_08】/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小鹿">
@@ -353,7 +353,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Webpack成神之路之插件配置【HTML发布】</h1>
+          <h1 class="post-title" itemprop="name headline">Webpack成神之路之插件配置【CSS 图片处理01_08】</h1>
         
 
         <div class="post-meta">
@@ -365,8 +365,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-11T19:54:57+08:00">
-                2019-03-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-08T16:25:02+08:00">
+                2019-05-08
               </time>
             
 
@@ -417,9 +417,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/03/11/Webpack成神之路之插件配置【HTML发布】/#comments" itemprop="discussionUrl">
+                <a href="/2019/05/08/Webpack成神之路之插件配置【CSS图片处理01_08】/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/03/11/Webpack成神之路之插件配置【HTML发布】/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2019/05/08/Webpack成神之路之插件配置【CSS图片处理01_08】/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -441,7 +441,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  318
+                  713
                 </span>
               
 
@@ -457,7 +457,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -478,25 +478,50 @@
       
 
       
-        <p>打包发布 HTML 文件！</p>
-<a id="more"></a>
-<h3 id="一、开发环境和生产环境"><a href="#一、开发环境和生产环境" class="headerlink" title="一、开发环境和生产环境"></a>一、开发环境和生产环境</h3><blockquote>
-<p><strong>注意：两者设置冲突会报错！</strong>在实际开发中，webpack配置文件是分开的，开发环境一个文件，生产环境一个文件 </p>
+        <p>webpack 处理 CSS 中的图片！</p>
+<a id="more"></a> 
+<h2 id="01-CSS-中的图片处理"><a href="#01-CSS-中的图片处理" class="headerlink" title="01|CSS 中的图片处理"></a>01|CSS 中的图片处理</h2><h4 id="1、图片准备"><a href="#1、图片准备" class="headerlink" title="1、图片准备"></a>1、图片准备</h4><blockquote>
+<p>通常我们保存的图片早 <code>src</code> 中的 <code>images</code> 文件夹下。</p>
 </blockquote>
-<p><strong>开发环境：</strong>开发环境中是基本不会对js进行压缩的，在开发预览时需要明确的报错行数和错误信息，所以完全没有必要压缩JavasScript代码。热更新的插件 devServer用于开发环境 。</p>
-<p><strong>生产环境：</strong>生产环境中才会压缩JS代码，用于加快程序的工作效率。</p>
-<h3 id="二、打包-HTML-文件"><a href="#二、打包-HTML-文件" class="headerlink" title="二、打包 HTML 文件"></a>二、打包 HTML 文件</h3><h4 id="1、安装打包插件"><a href="#1、安装打包插件" class="headerlink" title="1、安装打包插件"></a>1、安装打包插件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev html-webpack-plugin</span><br></pre></td></tr></table></figure>
-<h4 id="2、webpack-config-js文件引入html-webpack-plugin插件。"><a href="#2、webpack-config-js文件引入html-webpack-plugin插件。" class="headerlink" title="2、webpack.config.js文件引入html-webpack-plugin插件。"></a>2、webpack.config.js文件引入html-webpack-plugin插件。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const htmlPlugin= require(&apos;html-webpack-plugin&apos;);</span><br></pre></td></tr></table></figure>
-<h4 id="3、webpack-config-js里的plugins里进行插件配置"><a href="#3、webpack-config-js里的plugins里进行插件配置" class="headerlink" title="3、webpack.config.js里的plugins里进行插件配置"></a>3、webpack.config.js里的plugins里进行插件配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">new htmlPlugin(&#123;</span><br><span class="line">           minify:&#123;</span><br><span class="line">               removeAttributeQuotes:true</span><br><span class="line">           &#125;,</span><br><span class="line">           hash:true,</span><br><span class="line">           template:&apos;./src/index.html&apos;</span><br><span class="line">       &#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="2、安装解析图片的-loader"><a href="#2、安装解析图片的-loader" class="headerlink" title="2、安装解析图片的 loader"></a>2、安装解析图片的 loader</h4><blockquote>
+<p>1）当我们直接用 <code>webpack</code> 命令时，就会报错，报错的原因就是无法解析 <code>CSS</code> 中的图片。之前解析 <code>CSS</code> 文件使用的 <code>loader</code> ，所以我们要添加专门解析图片用的 <code>loader</code>。</p>
+<p>2）<code>webpack</code> 打包将各个模块打包成一个文件，所以我们的样式文件 <code>url</code> 是相对于 <code>CSS</code> 文件的，当我们打包成一个文件，<code>url</code>  的路径是相对于 <code>html</code> 而言的，导致原来的 <code>css</code> 文件引入的路径就会导致找不到原来的图片位置。</p>
+<p>3）图片过多，导致有很多的 http 请求，降低页面的性能。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev file-loader url-loader</span><br></pre></td></tr></table></figure>
 <ul>
-<li><strong>minify：</strong>是对html文件进行压缩，removeAttrubuteQuotes是却掉属性的双引号。</li>
-<li><strong>hash：</strong>为了开发中js有缓存效果，所以加入hash，这样可以有效避免缓存JS。</li>
-<li><strong>template： </strong>是要打包的html模版路径和文件名称。</li>
+<li><strong>file-loader：</strong>这个模块主要解决上述 （2）的问题。<code>file-loader</code> 可以解析项目中的 <code>ur</code> l引入（不仅限于 <code>css</code> ），根据我们的配置，将图片拷贝到相应的路径，再根据我们的配置，修改打包后文件引用路径，使之指向正确的文件。</li>
+<li><strong>url-loader：</strong>这个模块主要解决上述 （3）的问题。<code>url-loader</code> 会将引入的图片编码，生成 <code>dataURl</code>。相当于把图片数据翻译成一串字符。再把这串字符打包到文件中，最终只需要引入这个文件就能访问图片了。当然，如果图片较大，编码会消耗性能。因此 <code>url-loader</code> 提供了一个 <code>limit</code> 参数，小于 <code>limit</code> 字节的文件会被转为 <code>DataURl</code>，大于 <code>limit</code> 的还会使用 <code>file-loader</code> 进行 <code>copy</code>.。</li>
 </ul>
-<h4 id="4、webpack-进行打包"><a href="#4、webpack-进行打包" class="headerlink" title="4、webpack 进行打包"></a>4、webpack 进行打包</h4><blockquote>
-<p>HTML 文件里引用的 js 路径可以去掉，打包之后它会自动加上。</p>
+<h4 id="3、配置-loader"><a href="#3、配置-loader" class="headerlink" title="3、配置 loader"></a>3、配置 loader</h4><blockquote>
+<ul>
+<li><code>test:/.(png|jpg|gif)/：</code>是匹配图片文件后缀名称。</li>
+<li><code>use：</code>是指定使用的 <code>loader</code> 和 <code>loader</code> 的配置参数。</li>
+<li><code>imit：</code>是把小于 <code>500000B</code> 的文件打成 <code>Base64</code> 的格式，写入JS。</li>
+</ul>
 </blockquote>
-
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>:&#123;</span><br><span class="line">    rules:[</span><br><span class="line">        &#123;</span><br><span class="line">            test: <span class="regexp">/\.(png|jpg|gif)/</span>,</span><br><span class="line">            use: [&#123;</span><br><span class="line">                loader: <span class="string">'url-loader'</span>,</span><br><span class="line">                options:&#123;</span><br><span class="line">                    options:&#123;</span><br><span class="line">                        limit: <span class="number">500000</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125; </span><br><span class="line">    ]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="4、url-loader-和-file-loader-的关系"><a href="#4、url-loader-和-file-loader-的关系" class="headerlink" title="4、url-loader 和 file-loader 的关系"></a>4、url-loader 和 file-loader 的关系</h4><blockquote>
+<p><code>url-loader</code>封装了 <code>file-loader</code>，配置中的 <code>limit</code> ，<code>url-loader</code> 会调用  <code>file-loader</code>进行处理。</p>
+</blockquote>
+<h2 id="02-CSS分离与图片路径处理"><a href="#02-CSS分离与图片路径处理" class="headerlink" title="02|CSS分离与图片路径处理"></a>02|CSS分离与图片路径处理</h2><blockquote>
+<p>1）把 <code>CSS</code> 从J <code>avasScript</code> 代码中分离出来 。</p>
+<p>2）如何处理分离出来后 <code>CSS</code> 中的图片路径不对问题 。</p>
+</blockquote>
+<h4 id="1、CSS-分离"><a href="#1、CSS-分离" class="headerlink" title="1、CSS 分离"></a>1、CSS 分离</h4><blockquote>
+</blockquote>
+<h4 id="2、安装插件（extract-text-webpack-plugin）"><a href="#2、安装插件（extract-text-webpack-plugin）" class="headerlink" title="2、安装插件（extract-text-webpack-plugin）"></a>2、安装插件（extract-text-webpack-plugin）</h4><blockquote>
+<p>注意版本号，我 webpack3.0 使用的是 2.0.1 版本的插件。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev extract-text-webpack-plugin@<span class="number">2.0</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
+<h4 id="3、配置文件"><a href="#3、配置文件" class="headerlink" title="3、配置文件"></a>3、配置文件</h4><blockquote>
+<p>1）引入插件。</p>
+<p>2）new 出插件对象。</p>
+<p>3）修改 <code>style-loader</code> 和 <code>css-loader</code>。 </p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入插件</span></span><br><span class="line"><span class="keyword">const</span> extractTextPlugin = <span class="built_in">require</span>(<span class="string">'extract-text-webpack-plugin'</span>); </span><br><span class="line"><span class="comment">// 此路径是分离的 CSS 文件路径</span></span><br><span class="line"><span class="keyword">new</span> extractTextPlugin(<span class="string">"/css/index.css"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    test:<span class="regexp">/\.css$/</span>,</span><br><span class="line">        use:extractTextPlugin.extract(&#123;</span><br><span class="line">            fallback: <span class="string">"style-loader"</span>,</span><br><span class="line">            use: <span class="string">"css-loader"</span></span><br><span class="line">        &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="4、路径失效问题"><a href="#4、路径失效问题" class="headerlink" title="4、路径失效问题"></a>4、路径失效问题</h4>
       
     </div>
     
@@ -540,8 +565,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/11/Webpack成神之路之插件配置【js压缩】/" rel="next" title="Webpack成神之路之插件配置【js压缩】">
-                <i class="fa fa-chevron-left"></i> Webpack成神之路之插件配置【js压缩】
+              <a href="/2019/05/06/前端面试之道【CSS常用布局】/" rel="next" title="前端面试之【CSS 常用布局】">
+                <i class="fa fa-chevron-left"></i> 前端面试之【CSS 常用布局】
               </a>
             
           </div>
@@ -550,8 +575,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/16/小学生都能学会的 Git 之【本地仓库】/" rel="prev" title="小学生都能学会的 Git 之【本地仓库】">
-                小学生都能学会的 Git 之【本地仓库】 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/08/吃透 JavaScript 之【完整篇】 /" rel="prev" title="吃透 javascript 之【完整篇】">
+                吃透 javascript 之【完整篇】 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -671,7 +696,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">119</span>
+                  <span class="site-state-item-count">121</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -761,7 +786,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、开发环境和生产环境"><span class="nav-number">1.</span> <span class="nav-text">一、开发环境和生产环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、打包-HTML-文件"><span class="nav-number">2.</span> <span class="nav-text">二、打包 HTML 文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、安装打包插件"><span class="nav-number">2.1.</span> <span class="nav-text">1、安装打包插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、webpack-config-js文件引入html-webpack-plugin插件。"><span class="nav-number">2.2.</span> <span class="nav-text">2、webpack.config.js文件引入html-webpack-plugin插件。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、webpack-config-js里的plugins里进行插件配置"><span class="nav-number">2.3.</span> <span class="nav-text">3、webpack.config.js里的plugins里进行插件配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、webpack-进行打包"><span class="nav-number">2.4.</span> <span class="nav-text">4、webpack 进行打包</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#01-CSS-中的图片处理"><span class="nav-number">1.</span> <span class="nav-text">01|CSS 中的图片处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、图片准备"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、图片准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、安装解析图片的-loader"><span class="nav-number">1.0.2.</span> <span class="nav-text">2、安装解析图片的 loader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、配置-loader"><span class="nav-number">1.0.3.</span> <span class="nav-text">3、配置 loader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、url-loader-和-file-loader-的关系"><span class="nav-number">1.0.4.</span> <span class="nav-text">4、url-loader 和 file-loader 的关系</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-CSS分离与图片路径处理"><span class="nav-number">2.</span> <span class="nav-text">02|CSS分离与图片路径处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、CSS-分离"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、CSS 分离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、安装插件（extract-text-webpack-plugin）"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、安装插件（extract-text-webpack-plugin）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、配置文件"><span class="nav-number">2.0.3.</span> <span class="nav-text">3、配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、路径失效问题"><span class="nav-number">2.0.4.</span> <span class="nav-text">4、路径失效问题</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -816,7 +841,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共179.8k字</span>
+  <span class="post-count">博客全站共190.0k字</span>
 </div>
         
 
@@ -952,9 +977,9 @@ var jiathis_config={
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2019/03/11/Webpack成神之路之插件配置【HTML发布】/';
-          this.page.identifier = '2019/03/11/Webpack成神之路之插件配置【HTML发布】/';
-          this.page.title = 'Webpack成神之路之插件配置【HTML发布】';
+          this.page.url = 'http://yoursite.com/2019/05/08/Webpack成神之路之插件配置【CSS图片处理01_08】/';
+          this.page.identifier = '2019/05/08/Webpack成神之路之插件配置【CSS图片处理01_08】/';
+          this.page.title = 'Webpack成神之路之插件配置【CSS 图片处理01_08】';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
