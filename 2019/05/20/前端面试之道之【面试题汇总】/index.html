@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+
+<script>
+    (function(){
+        if('lxq'){
+            if (prompt('��������������') !== 'lxq'){
+                alert('�������');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*�ϱ߿���ɫ*/
+        border-left-color: #1E92FB;    /*��߿���ɫ*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端,面试," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="小鹿的博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="前端 js、css、vue等面试题解答汇总。">
+<meta name="keywords" content="前端,面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试之道之【面试汇总】">
+<meta property="og:url" content="http://yoursite.com/2019/05/20/前端面试之道之【面试题汇总】/index.html">
+<meta property="og:site_name" content="小鹿的博客">
+<meta property="og:description" content="前端 js、css、vue等面试题解答汇总。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/15/16716dec14421e47?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/15/16717eaf3383aae8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/12/19/167c4a2627fe55f1?imageslim">
+<meta property="og:updated_time" content="2019-05-28T11:43:00.978Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端面试之道之【面试汇总】">
+<meta name="twitter:description" content="前端 js、css、vue等面试题解答汇总。">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/11/15/16716dec14421e47?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/20/前端面试之道之【面试题汇总】/"/>
+
+
+
+
+
+  <title>前端面试之道之【面试汇总】 | 小鹿的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+
+  <div class="container  page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/luxiangqiang"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小鹿的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Ordinary life , Unwilling to be ordinary code farmers</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="https://luxiangqiang.github.io/2018/08/16/%E5%85%B3%E4%BA%8E%E6%88%91/#more" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/20/前端面试之道之【面试题汇总】/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小鹿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小鹿的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端面试之道之【面试汇总】</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-20T16:36:20+08:00">
+                2019-05-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/20/前端面试之道之【面试题汇总】/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/05/20/前端面试之道之【面试题汇总】/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4,880
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  19
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前端 js、css、vue等面试题解答汇总。</p>
+<a id="more"></a>
+<h2 id="一、CSS-篇"><a href="#一、CSS-篇" class="headerlink" title="一、CSS 篇"></a>一、CSS 篇</h2><h4 id="1、介绍一下标准的CSS的盒子模型？与低版本IE的盒子模型有什么不同的？"><a href="#1、介绍一下标准的CSS的盒子模型？与低版本IE的盒子模型有什么不同的？" class="headerlink" title="1、介绍一下标准的CSS的盒子模型？与低版本IE的盒子模型有什么不同的？"></a>1、介绍一下标准的CSS的盒子模型？与低版本IE的盒子模型有什么不同的？</h4><blockquote>
+<p>① 标准盒子模型：宽度 = 内容的宽度<code>（content）+ border + padding + margin</code><br>② 低版本 IE 盒子模型：宽度 = 内容宽度<code>（content+border+padding）+ margin</code></p>
+</blockquote>
+<h4 id="2、-box-sizing属性？"><a href="#2、-box-sizing属性？" class="headerlink" title="2、 box-sizing属性？"></a>2、 box-sizing属性？</h4><blockquote>
+<p>用来控制元素的盒子模型的解析模式，默认为 <code>content-box</code>。</p>
+</blockquote>
+<p>① <code>context-box：</code> W3C 的标准盒子模型，设置元素的 <code>height/width</code> 属性指的是 <code>content</code> 部分的高/宽<br>② <code>border-box：</code> IE 传统盒子模型。设置元素的 <code>height/width</code> 属性指的是 <code>border + padding + content</code> 部分的高/宽</p>
+<h4 id="3、-CSS-选择器有哪些？哪些属性可以继承？"><a href="#3、-CSS-选择器有哪些？哪些属性可以继承？" class="headerlink" title="3、 CSS 选择器有哪些？哪些属性可以继承？"></a>3、 CSS 选择器有哪些？哪些属性可以继承？</h4><p><strong>① 选择器：</strong></p>
+<ul>
+<li><p>ID 选择器、类选择器、标签选择器；</p>
+</li>
+<li><p>相邻选择器（+）、子元素选择器（&gt;）、兄弟选择器（~）、后代选择器（ul li）、通配符选择器（*）；</p>
+</li>
+<li>属性选择器（a[href=”…l”]）；</li>
+<li>伪类选择器（a:hover, li:nth-child）</li>
+</ul>
+<p><strong>② 可继承属性：</strong>font-size、font-family、color。</p>
+<p><strong>③ 不可继承属性：</strong>border、padding、 margin、 width、height</p>
+<p><strong>④ 优先级：</strong>important &gt; 内嵌样式 &gt; ID &gt; 类 &gt; 标签 | 伪类 | 属性选择 &gt; 伪元素 &gt; 继承 &gt; 通配符</p>
+<blockquote>
+<p>注意：important 提高 css 样式的权重，在 IE 中失效。</p>
+</blockquote>
+<h4 id="4、说说你对伪类和伪元素的了解，分别举出五个例子。"><a href="#4、说说你对伪类和伪元素的了解，分别举出五个例子。" class="headerlink" title="4、说说你对伪类和伪元素的了解，分别举出五个例子。"></a>4、说说你对伪类和伪元素的了解，分别举出五个例子。</h4><p><strong>① 伪类和伪元素</strong></p>
+<p>伪类：伪类用于某些<strong>选择器</strong>添加特殊效果。</p>
+<p>伪元素：为某些<strong>元素</strong>添加特殊效果。</p>
+<p><strong>② 两者区别：</strong></p>
+<ul>
+<li>伪元素相当于添加元素设置元素，而伪类是在元素添加效果。两者都不存在于 dom 树中，是文档流之外的东西。</li>
+<li>伪类没有数量上的限制，只要两个伪类不相互排斥，可同时使用在同一元素上。</li>
+</ul>
+<p><strong>③ 伪元素</strong></p>
+<ul>
+<li>:: before</li>
+<li><p>:: after</p>
+</li>
+<li><p>:: first-line</p>
+</li>
+<li>:: first-letter</li>
+<li>:: last-letter</li>
+</ul>
+<p><strong>④ 伪类</strong></p>
+<ul>
+<li>: first-child</li>
+<li>: visitive</li>
+<li>: hover</li>
+<li>: active</li>
+<li>: focus</li>
+<li>: lang</li>
+</ul>
+<p><strong>⑤ CSS3 新增伪类</strong></p>
+<ul>
+<li>p:first-of-type: 选择父元素的首个元素。</li>
+<li>p:last-of-type: 选择属于其父元素的最后一个元素。</li>
+<li>p:nth-child(2): 选择其父元素的第二个子元素。</li>
+<li>p:only-of-type: 选择属于其父元素没有兄弟节点唯一元素。</li>
+<li>p:first-child: p:last-child 选择父元素的第一个元素或最后一个元素</li>
+<li>div:not(div2)  除 div2 的所有元素（否定伪类选择器）。</li>
+<li>:enabled  disabled 表单控件的禁用状态。</li>
+<li>:checkd 单选框或复选框被选中。</li>
+</ul>
+<h4 id="5、-CSS-优先级怎么计算？"><a href="#5、-CSS-优先级怎么计算？" class="headerlink" title="5、 CSS 优先级怎么计算？"></a>5、 CSS 优先级怎么计算？</h4><blockquote>
+<p><strong>特指度：</strong>表示一个 css 选择器表达式的重要程度，<strong>哪个的计算结果大，浏览器就会以哪个为优先。</strong></p>
+</blockquote>
+<p><strong>① 计算方法</strong></p>
+<ul>
+<li><p>通用选择器（*）、子元素选择器（&gt;）、相邻兄弟选择器（+）  +0</p>
+</li>
+<li><p>element 元素选择器：+1；</p>
+</li>
+<li>class 选择器、伪类选择器、属性选择器：+10；</li>
+<li>id 选择器：+100；</li>
+<li>内联样式 +1000</li>
+</ul>
+<p><strong>② 计算规则</strong></p>
+<ul>
+<li>!important 声明的样式优先级最高，如果冲突再进行计算。</li>
+<li>如果优先级相同，则选择最后出现的样式。</li>
+<li>继承得到的样式优先级最低。</li>
+</ul>
+<h4 id="6、-display有哪些值？说明他们的作用"><a href="#6、-display有哪些值？说明他们的作用" class="headerlink" title="6、 display有哪些值？说明他们的作用?"></a>6、 display有哪些值？说明他们的作用?</h4><ul>
+<li><p>inline：内联（默认值）；</p>
+</li>
+<li><p>none：隐藏（不占空间）；</p>
+</li>
+<li><p>block：块显示；</p>
+</li>
+<li><p>block-inline：内联块级元素呈现；</p>
+</li>
+<li><p>table：表格显示。</p>
+</li>
+</ul>
+<h4 id="7、position的值？"><a href="#7、position的值？" class="headerlink" title="7、position的值？"></a>7、position的值？</h4><ul>
+<li>static：（默认）按正常文档流排序；</li>
+<li>relative：相对定位。不脱离文档流，通过静态位置top、left、right、bottom定位；</li>
+<li><p>absolute：绝对定位。参考距其最近一个不为 static 的父级元素通过 top、bottom、left、right 定位。</p>
+</li>
+<li><p>fixed：固定定位。所固定的参照对象是<strong>可视窗口</strong>。</p>
+</li>
+</ul>
+<h4 id="8、纯CSS实现三角形原理"><a href="#8、纯CSS实现三角形原理" class="headerlink" title="8、纯CSS实现三角形原理"></a>8、纯CSS实现三角形原理</h4><blockquote>
+<p>均分原理。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.triangle&#123;</span><br><span class="line">    width: <span class="number">0</span>;</span><br><span class="line">    height: <span class="number">0</span>;</span><br><span class="line">    border-top: <span class="number">40</span>px solid transparent;</span><br><span class="line">    border-left: <span class="number">40</span>px solid transparent;</span><br><span class="line">    border-right: <span class="number">40</span>px solid transparent;</span><br><span class="line">    border-bottom: 40px solid #ff0000;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="9、如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？"><a href="#9、如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？" class="headerlink" title="9、如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？"></a>9、如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？</h4><p>① 如何居中一个 div？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">margin:<span class="number">0</span> auto;</span><br></pre></td></tr></table></figure>
+<p>② 如何居中一个浮动元素？</p>
+<blockquote>
+<p>flexbox 居中</p>
+</blockquote>
+<p>③ 如何让绝对定位的 div 居中？</p>
+<blockquote>
+<p>flexbox 居中</p>
+</blockquote>
+<h4 id="10、谈一下你对-Flexbox-的了解，以及适用场景？"><a href="#10、谈一下你对-Flexbox-的了解，以及适用场景？" class="headerlink" title="10、谈一下你对 Flexbox 的了解，以及适用场景？"></a>10、谈一下你对 Flexbox 的了解，以及适用场景？</h4><blockquote>
+<p>Flex 布局提供了更高效的对容器进行布局、对齐和分配空间。传统的布局，block 垂直从上到下布局；而 inline 布局则是水平方向排列。Flex 没有在方向上的限制，可自由操作。</p>
+</blockquote>
+<h4 id="11、为什么要初始化CSS样式？"><a href="#11、为什么要初始化CSS样式？" class="headerlink" title="11、为什么要初始化CSS样式？"></a>11、为什么要初始化CSS样式？</h4><blockquote>
+<p>由于浏览器的兼容性问题，不同浏览器的某些标签的默认值是不相同的，如果没有对 CSS 初始化，往往会出现浏览器之间的页面显示差异。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 淘宝初始化统一规范</span><br><span class="line"><span class="selector-tag">body</span>, <span class="selector-tag">h1</span>, <span class="selector-tag">h2</span>, <span class="selector-tag">h3</span>, <span class="selector-tag">h4</span>, <span class="selector-tag">h5</span>, <span class="selector-tag">h6</span>, <span class="selector-tag">hr</span>, <span class="selector-tag">p</span>, <span class="selector-tag">blockquote</span>, <span class="selector-tag">dl</span>, <span class="selector-tag">dt</span>, <span class="selector-tag">dd</span>, <span class="selector-tag">ul</span>, <span class="selector-tag">ol</span>, <span class="selector-tag">li</span>, <span class="selector-tag">pre</span>, <span class="selector-tag">form</span>, <span class="selector-tag">fieldset</span>, <span class="selector-tag">legend</span>, <span class="selector-tag">button</span>, <span class="selector-tag">input</span>, <span class="selector-tag">textarea</span>, <span class="selector-tag">th</span>, <span class="selector-tag">td</span> &#123; <span class="attribute">margin</span>:<span class="number">0</span>; <span class="attribute">padding</span>:<span class="number">0</span>; &#125; </span><br><span class="line"><span class="selector-tag">body</span>, <span class="selector-tag">button</span>, <span class="selector-tag">input</span>, <span class="selector-tag">select</span>, <span class="selector-tag">textarea</span> &#123; <span class="attribute">font</span>:<span class="number">12px</span>/<span class="number">1.5</span>tahoma, arial, \<span class="number">5</span>b8b\<span class="number">4</span>f53; &#125; </span><br><span class="line"><span class="selector-tag">h1</span>, <span class="selector-tag">h2</span>, <span class="selector-tag">h3</span>, <span class="selector-tag">h4</span>, <span class="selector-tag">h5</span>, <span class="selector-tag">h6</span>&#123; <span class="attribute">font-size</span>:<span class="number">100%</span>; &#125; </span><br><span class="line"><span class="selector-tag">address</span>, <span class="selector-tag">cite</span>, <span class="selector-tag">dfn</span>, <span class="selector-tag">em</span>, <span class="selector-tag">var</span> &#123; <span class="attribute">font-style</span>:normal; &#125; </span><br><span class="line"><span class="selector-tag">code</span>, <span class="selector-tag">kbd</span>, <span class="selector-tag">pre</span>, <span class="selector-tag">samp</span> &#123; <span class="attribute">font-family</span>:couriernew, courier, monospace; &#125; </span><br><span class="line"><span class="selector-tag">small</span>&#123; <span class="attribute">font-size</span>:<span class="number">12px</span>; &#125; </span><br><span class="line"><span class="selector-tag">ul</span>, <span class="selector-tag">ol</span> &#123; <span class="attribute">list-style</span>:none; &#125; </span><br><span class="line"><span class="selector-tag">a</span> &#123; <span class="attribute">text-decoration</span>:none; &#125; </span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123; <span class="attribute">text-decoration</span>:underline; &#125; </span><br><span class="line"><span class="selector-tag">sup</span> &#123; <span class="attribute">vertical-align</span>:text-top; &#125; </span><br><span class="line"><span class="selector-tag">sub</span>&#123; <span class="attribute">vertical-align</span>:text-bottom; &#125; </span><br><span class="line"><span class="selector-tag">legend</span> &#123; <span class="attribute">color</span>:<span class="number">#000</span>; &#125; </span><br><span class="line"><span class="selector-tag">fieldset</span>, <span class="selector-tag">img</span> &#123; <span class="attribute">border</span>:<span class="number">0</span>; &#125; </span><br><span class="line"><span class="selector-tag">button</span>, <span class="selector-tag">input</span>, <span class="selector-tag">select</span>, <span class="selector-tag">textarea</span> &#123; <span class="attribute">font-size</span>:<span class="number">100%</span>; &#125; </span><br><span class="line"><span class="selector-tag">table</span> &#123; <span class="attribute">border-collapse</span>:collapse; <span class="attribute">border-spacing</span>:<span class="number">0</span>; &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="12、CSS-里的-visibility-属性有个-collapse-属性值？在不同浏览器下以后什么区别？"><a href="#12、CSS-里的-visibility-属性有个-collapse-属性值？在不同浏览器下以后什么区别？" class="headerlink" title="12、CSS 里的 visibility 属性有个 collapse 属性值？在不同浏览器下以后什么区别？"></a>12、CSS 里的 visibility 属性有个 collapse 属性值？在不同浏览器下以后什么区别？</h4><p>① 在谷歌浏览器中，使用 collapse 属性值和使用 hidden 没有区别。</p>
+<p>② 在火狐以及 opera 和  IE 中，使用 collapse 的值和使用 display：none 没有什么区别。 </p>
+<h4 id="13、display-none-与-visibility：hidden-的区别？"><a href="#13、display-none-与-visibility：hidden-的区别？" class="headerlink" title="13、display:none 与 visibility：hidden 的区别？"></a>13、display:none 与 visibility：hidden 的区别？</h4><ul>
+<li>display: none 不显示对应的元素，在文档流中<strong>不分配空间</strong>。（回流+重绘）</li>
+<li>visibility: hidden 隐藏对应元素，在文档中仍然<strong>保留原来的空间</strong>。（重绘）</li>
+</ul>
+<h4 id="14、对-BFC-的理解？"><a href="#14、对-BFC-的理解？" class="headerlink" title="14、对 BFC 的理解？"></a>14、对 BFC 的理解？</h4><blockquote>
+<p>BFC 称为块级格式化上下文，是一个独立的容器，容器里边的内容不会影响到外边的内容，这个隐藏的属性需要被触发。    </p>
+</blockquote>
+<p><strong>①  触发 BFC 的条件：</strong></p>
+<ul>
+<li>根元素（html）;</li>
+<li>float 的值不为 none ;</li>
+<li>overflow 的值不为默认的 visible ;</li>
+<li>display 的值为 inline-block、table-cell、table-caption ;</li>
+<li>position 的值为 absolute 或 fixed。</li>
+</ul>
+<p><strong>② BFC 的规则</strong>‘</p>
+<blockquote>
+<p>1）在一个块级排版上下文中，盒子是从包含块顶部开始，垂直的一个接一个的排列的。每个盒子的左外边是触碰到包含块的左边的（对于从右向左的排版，则相反）。</p>
+<p>2）相邻两个盒子之间的垂直的间距是被 margin属性所决定的，在一个块级排版上下文中相邻的两个块级盒之间的垂直 margin 是折叠的。—— margin 上下折叠问题</p>
+<p>3）BFC 就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。—— margin 高度塌陷</p>
+</blockquote>
+<h4 id="15、浮动带来的问题？以及清除浮动的方式？"><a href="#15、浮动带来的问题？以及清除浮动的方式？" class="headerlink" title="15、浮动带来的问题？以及清除浮动的方式？"></a>15、浮动带来的问题？以及清除浮动的方式？</h4><p><strong>① 浮动问题：</strong></p>
+<ul>
+<li>父容器的高度无法撑开。</li>
+<li>覆盖后边跟随的元素。</li>
+</ul>
+<p><strong>② 清理浮动：</strong></p>
+<ul>
+<li>overflow:hiddle(当子元素超出父元素，就会出现问题)</li>
+<li>clear: both 属性解决。</li>
+<li>利用伪元素（::after）的方法。</li>
+</ul>
+<h4 id="16、上下-margin-重叠问题？margin-塌陷问题？以及怎么解决？"><a href="#16、上下-margin-重叠问题？margin-塌陷问题？以及怎么解决？" class="headerlink" title="16、上下 margin 重叠问题？margin 塌陷问题？以及怎么解决？"></a>16、上下 margin 重叠问题？margin 塌陷问题？以及怎么解决？</h4><p><strong>① margin 折叠问题：</strong></p>
+<blockquote>
+<p>当两个盒子的垂直外边距 margin 是邻接的（相接触的），两个盒子就会使用一个外边距，外边距以高度最大值为准。（同一 BFC 中）</p>
+<ul>
+<li>兄弟元素折叠</li>
+<li>父子元素折叠</li>
+</ul>
+</blockquote>
+<p><strong>解决：</strong>处在不同的 BFC 中。</p>
+<p><strong>1、 兄弟元素折叠解决办法</strong></p>
+<ul>
+<li>将元素设置为浮动 float:left;。 </li>
+<li>在设置 margin-top/bottom 值时统一设置上或下。</li>
+<li>元素的 position 的值为 absolute/fixed。</li>
+</ul>
+<p><strong>2、父子折叠解决办法：将两个 margin 隔离开，不直接相接触。</strong></p>
+<ul>
+<li>父元素设置 border；</li>
+<li>父元素设置 padding；</li>
+<li>父元素设置 overflow（父元素就为BFC，BFC 特性之一为内外不相互影响）；</li>
+</ul>
+<p><strong>② margin 塌陷问题：</strong></p>
+<blockquote>
+<p><strong>高度塌陷：</strong>浮动的子元素无法撑开父元素的高度，导致父元素高度塌陷（浮动元素为一个 BFC ，所以不影响其他 BFC 外元素）。</p>
+<p><strong>嵌套塌陷：</strong>父盒子和子盒子存在嵌套关系的时候，子盒子和父盒子共用一个 margin。</p>
+</blockquote>
+<p><strong>解决：</strong></p>
+<p>1、高度塌陷解决办法：</p>
+<ul>
+<li>清除浮动的方法。</li>
+<li>父元素设置 overflow 属性（此时父元素也为 BFC，让浮动的元素正常溜排列，不能脱离文档流）</li>
+</ul>
+<h4 id="17、移动端的布局用过媒体查询吗？"><a href="#17、移动端的布局用过媒体查询吗？" class="headerlink" title="17、移动端的布局用过媒体查询吗？"></a>17、移动端的布局用过媒体查询吗？</h4><blockquote>
+<p>通过媒介查询可以为不同大小和尺寸的媒体定义不同的 css，适应相应设备上的显示。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、在 head 标签中</span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"xx.css"</span> <span class="attr">media</span>=<span class="string">"only screen and (max-device-width:480px)"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、在 <span class="selector-tag">css</span> 中设置</span><br><span class="line">@<span class="keyword">media</span> only screen and (max-device-width:<span class="number">480px</span>)&#123;</span><br><span class="line">    // css样式</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="18、css-预处理器"><a href="#18、css-预处理器" class="headerlink" title="18、css 预处理器"></a>18、css 预处理器</h4><ul>
+<li>Less 是一个动态 CSS 语言框架，Less 扩展了 CSS 的动态特性。（变量、混入、嵌套、函数）。</li>
+<li>SASS 是一种 CSS 的开发工具，提供了许多便利的写法。</li>
+</ul>
+<h4 id="19、margin-和-padding-分别适合什么场景使用？"><a href="#19、margin-和-padding-分别适合什么场景使用？" class="headerlink" title="19、margin 和 padding 分别适合什么场景使用？"></a>19、margin 和 padding 分别适合什么场景使用？</h4><p>① 什么时候使用 margin?</p>
+<ul>
+<li>需要在 border 外侧添加空白；</li>
+<li>空白处不需要背景颜色；</li>
+<li>上下相连的两个盒子之间的空白，需要相互抵消时。</li>
+</ul>
+<p>② 什么时候使用 padding？</p>
+<ul>
+<li>需要在 border 内侧添加空白</li>
+<li>空白处需要背景颜色</li>
+<li>上下相连的两个盒子的空白，希望为两者之和</li>
+</ul>
+<h4 id="20、display-inline-block-什么时候会显示间隙？"><a href="#20、display-inline-block-什么时候会显示间隙？" class="headerlink" title="20、display:inline-block 什么时候会显示间隙？"></a>20、display:inline-block 什么时候会显示间隙？</h4><ul>
+<li>有空格时候会有间隙解决：移除空格</li>
+<li>margin 正值的时候 解决：margin使用负值</li>
+</ul>
+<h4 id="21、-CSS属性overflow属性定义溢出元素内容区的内容会如何处理"><a href="#21、-CSS属性overflow属性定义溢出元素内容区的内容会如何处理" class="headerlink" title="21、 CSS属性overflow属性定义溢出元素内容区的内容会如何处理?"></a>21、 CSS属性overflow属性定义溢出元素内容区的内容会如何处理?</h4><ul>
+<li>scroll：出现滚动条。</li>
+<li>auto：子元素内容大于父元素内容出现滚动条。</li>
+<li>visible：溢出内容出现在父元素之外。</li>
+<li>hidden：溢出隐藏。</li>
+</ul>
+<h4 id="22、什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的IE？"><a href="#22、什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的IE？" class="headerlink" title="22、什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的IE？"></a>22、什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的IE？</h4><p>① 响应式设计网站是一个网站能够兼容多个终端。</p>
+<p>② 基本原理：通过媒介查询检测不同设备屏幕尺寸做处理。</p>
+<p>③ 兼容 IE：头部必须有 meta 声明的 viewport。</p>
+<h2 id="JavaScript-篇"><a href="#JavaScript-篇" class="headerlink" title="JavaScript 篇"></a>JavaScript 篇</h2><h4 id="1、原始类型"><a href="#1、原始类型" class="headerlink" title="1、原始类型"></a>1、原始类型</h4><blockquote>
+<p>定义：原始类型都是存储的值，没有函数可以调用，共有六种原始类型。</p>
+</blockquote>
+<ul>
+<li>string</li>
+<li>number</li>
+<li>boolean</li>
+<li>undefined</li>
+<li>null</li>
+<li>symbol</li>
+</ul>
+<h4 id="2、关于-null-和-undefined-的区别？"><a href="#2、关于-null-和-undefined-的区别？" class="headerlink" title="2、关于 null 和 undefined 的区别？"></a>2、关于 null 和 undefined 的区别？</h4><p>① <code>null</code> 表示”没有对象”，即该处不应该有值。</p>
+<p>② <code>undefined</code> 表示”缺少值”，就是此处应该有一个值</p>
+<h4 id="3、对象类型和原始类型的不同之处？函数参数是对象会发生什么问题？"><a href="#3、对象类型和原始类型的不同之处？函数参数是对象会发生什么问题？" class="headerlink" title="3、对象类型和原始类型的不同之处？函数参数是对象会发生什么问题？"></a>3、对象类型和原始类型的不同之处？函数参数是对象会发生什么问题？</h4><p>① 原始类型存储的是指针，对象类型存储的是地址。</p>
+<p>② 对象之间的赋值，是地址的赋值，改变对象的值，导致两个变量的值都会发生改变。</p>
+<h4 id="4、typeof-是否能正确判断类型？instanceof-能正确判断对象的原理是什么？"><a href="#4、typeof-是否能正确判断类型？instanceof-能正确判断对象的原理是什么？" class="headerlink" title="4、typeof 是否能正确判断类型？instanceof 能正确判断对象的原理是什么？"></a>4、typeof 是否能正确判断类型？instanceof 能正确判断对象的原理是什么？</h4><p>① <code>typeof</code> 对于原始类型来说，除了 <code>null</code> 都可以显示正确的类型</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="number">1</span>         <span class="comment">// 'number'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">'1'</span>       <span class="comment">// 'string'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span> <span class="comment">// 'undefined'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">true</span>      <span class="comment">// 'boolean'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Symbol</span>()  <span class="comment">// 'symbol'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>      <span class="comment">// 'object'</span></span><br><span class="line"><span class="keyword">typeof</span> &#123;&#125;        <span class="comment">// 'object'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">console</span>.log()<span class="comment">// 'fuction'</span></span><br></pre></td></tr></table></figure>
+<p>② 判断一个对象的正确类型，可以使用 <code>intanceof</code> ，因为内部机制是<strong>通过原型链来判断的</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Person = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Person()</span><br><span class="line">p1 <span class="keyword">instanceof</span> Person <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h4 id="5、类型转换"><a href="#5、类型转换" class="headerlink" title="5、类型转换"></a>5、类型转换</h4><p><img src="https://user-gold-cdn.xitu.io/2018/11/15/16716dec14421e47?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<h4 id="①-转换-Boolean-类型"><a href="#①-转换-Boolean-类型" class="headerlink" title="① 转换 Boolean 类型"></a>① 转换 Boolean 类型</h4><blockquote>
+<p><code>undefined</code>、<code>null</code>、<code>false</code>、<code>NAN</code>、<code>‘ ’</code>、<code>0</code>、<code>-0</code> 值为 false，其他值都为 true。</p>
+</blockquote>
+<h4 id="②-对象转原始类型"><a href="#②-对象转原始类型" class="headerlink" title="② 对象转原始类型"></a>② 对象转原始类型</h4><blockquote>
+<p>对象转换类型的时候，会调用内置的  [[ToPrimitive]]  函数，该函数的逻辑为：</p>
+</blockquote>
+<ul>
+<li>如果为原始类型，就不转换；</li>
+<li><p>需要转字符串，调用  <code>x.toString()</code>  方法。不是字符串类型就用 <code>x.valueOf()</code> 方法。</p>
+</li>
+<li><p>如果都没有返回原始类型，就会报错;</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>补充：</strong>x.toString 和 x.valueOf() 的区别？</p>
+</blockquote>
+<ul>
+<li>x.toString：将转化的类型用字符串表示。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="string">'3'</span>;</span><br><span class="line"><span class="keyword">var</span> c = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> d = &#123;<span class="attr">test</span>:<span class="string">'123'</span>,<span class="attr">example</span>:<span class="number">123</span>&#125;</span><br><span class="line"><span class="keyword">var</span> e = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'example'</span>);&#125;</span><br><span class="line"><span class="keyword">var</span> f = [<span class="string">'test'</span>,<span class="string">'example'</span>];</span><br><span class="line"></span><br><span class="line">a.toString();<span class="comment">// "3"</span></span><br><span class="line">b.toString();<span class="comment">// "3"</span></span><br><span class="line">c.toString();<span class="comment">// "true"</span></span><br><span class="line">d.toString();<span class="comment">// "[object Object]"</span></span><br><span class="line">e.toString();<span class="comment">// "function ()&#123;console.log('example');&#125;"</span></span><br><span class="line">f.toString();<span class="comment">// "test,example"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>x.valueOf：将返回自身的值。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="string">'3'</span>;</span><br><span class="line"><span class="keyword">var</span> c = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> d = &#123;<span class="attr">test</span>:<span class="string">'123'</span>,<span class="attr">example</span>:<span class="number">123</span>&#125;</span><br><span class="line"><span class="keyword">var</span> e = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'example'</span>);&#125;</span><br><span class="line"><span class="keyword">var</span> f = [<span class="string">'test'</span>,<span class="string">'example'</span>];</span><br><span class="line"></span><br><span class="line">a.valueOf();<span class="comment">// 3</span></span><br><span class="line">b.valueOf();<span class="comment">// "3"</span></span><br><span class="line">c.valueOf();<span class="comment">// true</span></span><br><span class="line">d.valueOf();<span class="comment">// &#123;test:'123',example:123&#125;</span></span><br><span class="line">e.valueOf();<span class="comment">// function()&#123;console.log('example');&#125;</span></span><br><span class="line">f.valueOf();<span class="comment">// ['test','example']</span></span><br></pre></td></tr></table></figure>
+<h4 id="6、四则运算符"><a href="#6、四则运算符" class="headerlink" title="6、四则运算符"></a>6、四则运算符</h4><ul>
+<li>其中一个为字符串，另一个就会转化为字符串。</li>
+<li>其中一方不是数字，就会转换字符串。</li>
+<li>除了加法运算外，只要一方为数字，另一方也会转换为数字。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> * [] <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>+ &#39;b&#39;</code> 等于 <code>NaN</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'a'</span> + + <span class="string">'b'</span> <span class="comment">// -&gt; "aNaN"</span></span><br></pre></td></tr></table></figure>
+<h4 id="⑦-比较运算符"><a href="#⑦-比较运算符" class="headerlink" title="⑦ 比较运算符"></a>⑦ 比较运算符</h4><ul>
+<li><p>如果是对象，就通过 valueOf 转化原始类型再比较。</p>
+</li>
+<li><p>如果是字符串，就通过 <code>unicode</code> 字符索引来比较</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">  valueOf() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  toString() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'1'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">a &gt; <span class="number">-1</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h4 id="7、如何正确判断-this？箭头函数的-this-是什么？"><a href="#7、如何正确判断-this？箭头函数的-this-是什么？" class="headerlink" title="7、如何正确判断 this？箭头函数的 this 是什么？"></a>7、如何正确判断 this？箭头函数的 this 是什么？</h4><p>① 三种 this 场景：</p>
+<ul>
+<li>全局调用函数，内部的 this 永远指向 windows 。</li>
+<li>对象调用函数，谁调用 this ，this 就指向谁。</li>
+<li>new 的方式，this 永远绑定在 new 出的对象。</li>
+</ul>
+<p>② 箭头函数中的 this：</p>
+<ul>
+<li>箭头函数中是没有 this 的。</li>
+<li>箭头函数中的 this 是指向包裹箭头函数的第一个函数的。</li>
+</ul>
+<p>③ bind 中的 this：</p>
+<ul>
+<li><code>this</code> 取决于第一个参数，如果第一个参数为空，那么就是 <code>window</code>。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fun.bind(a) <span class="comment">// 函数.bind(参数)</span></span><br></pre></td></tr></table></figure>
+<p>④ 多种规则出现的优先级</p>
+<blockquote>
+<p>箭头函数一旦绑定了 this，就不会被人和方式所改变。</p>
+</blockquote>
+<p>new ——&gt; bind ——&gt; obj.foo() ——&gt; 全局调用。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/11/15/16717eaf3383aae8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<h4 id="8、call-、apply、bind-的区别"><a href="#8、call-、apply、bind-的区别" class="headerlink" title="8、call 、apply、bind 的区别"></a>8、call 、apply、bind 的区别</h4><p>① call 和 apply 方法都是改变上下文（改变函数内部的 this 指向） 。</p>
+<p>②  this 是指向的上下文，call 顺序传参，而 apply 是 数组传参。</p>
+<p>③ bind 的 <code>this</code> 取决于第一个参数，如果第一个参数为空，那么就是 <code>window</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func.call(<span class="keyword">this</span>, arg1, arg2);</span><br><span class="line">func.apply(<span class="keyword">this</span>, [arg1, arg2])</span><br><span class="line">func.bind(参数)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>apply 、 call 、bind 三者都是用来改变函数的 this 对象的指向的；</li>
+<li>apply 、 call 、bind 三者第一个参数都是 this 要指向的对象，也就是想指定的上下文；</li>
+<li>apply 、 call 、bind 三者都可以利用后续参数传参；</li>
+<li>bind 是返回对应函数（<strong>需要加一对花括号进行调用</strong>），便于稍后调用；apply 、call 则是立即调用 。</li>
+</ul>
+<h4 id="10、-和-有什么区别？"><a href="#10、-和-有什么区别？" class="headerlink" title="10、== 和 === 有什么区别？"></a>10、== 和 === 有什么区别？</h4><blockquote>
+<p>== 如果类型不相同，则先进行类型转换。=== 判断两者的<strong>类型和值</strong>是否相同。</p>
+</blockquote>
+<p><strong>① == 比较规则</strong></p>
+<ul>
+<li>若类型相同，则直接比较大小；类型不同，先进行转换。</li>
+<li>判断 null == undefined 返回 true。</li>
+<li>判断 string 和 number 时，将字符换转化为 number。</li>
+<li>判断其中一方为 boolean 值时，将 boolean 转化为 number。</li>
+<li>判断其中一方是否为 <code>object</code> 且另一方为 <code>string</code>、<code>number</code> 或者 <code>symbol</code>，是的话就会把 <code>object</code> 转为原始类型再进行判断。</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2018/12/19/167c4a2627fe55f1?imageslim" alt="img"></p>
+<h4 id="11、闭包有关面试题？"><a href="#11、闭包有关面试题？" class="headerlink" title="11、闭包有关面试题？"></a>11、闭包有关面试题？</h4><blockquote>
+<p>要想完全掌握闭包，一定要清楚函数作用域、内存回收机制、作用域继承</p>
+</blockquote>
+<p><strong>① 什么是闭包？</strong></p>
+<blockquote>
+<p><strong>闭包</strong>是有权限访问其他函数作用域内的变量的一个函数。</p>
+</blockquote>
+<p><strong>② 闭包为什么可以有权访问到？</strong></p>
+<blockquote>
+<p>在 js 中，变量的作用域属于函数域，当函数执行完毕时，作用域就会被清理，内存被回收。但是闭包是建立在一个函数的内部的子函数，可以访问上级作用域，上级函数执行完后，作用域不会销毁，所以闭包可以访问上级作用域的权限，上级函数执行完后作用域内的值也不会销毁。</p>
+</blockquote>
+<p><strong>③ 闭包解决了什么？</strong></p>
+<blockquote>
+<p>由于闭包可以缓存上级作用域，那么就使得函数外部打破了“函数作用域”的束缚，可以访问函数内部的变量。以平时使用的 Ajax 成功回调为例，这里其实就是个闭包，由于上述的特性，回调就拥有了整个上级作用域的访问和操作能力，提高了极大的便利。开发者不用去写钩子函数来操作上级函数作用域内部的变量了。</p>
+</blockquote>
+<p><strong>④ 闭包有哪些应用场景？</strong></p>
+<blockquote>
+<p>闭包随处可见，一个 Ajax 请求的成功回调，一个事件绑定的回调方法，一个 setTimeout 的延时回调，或者一个函数内部返回另一个匿名函数，这些都是闭包。简而言之，无论使用何种方式对函数类型的值进行传递，当函数在别处被调用时都有闭包的身影。</p>
+</blockquote>
+<p><strong>⑤ 经典面试题</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>;i &lt;= <span class="number">5</span>;i++)&#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>)</span>&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(j)&#125;,j*<span class="number">1000</span>)</span><br><span class="line">    &#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="12、立即执行函数"><a href="#12、立即执行函数" class="headerlink" title="12、立即执行函数"></a>12、立即执行函数</h4><p><strong>① 什么是立即执行函数</strong></p>
+<blockquote>
+<p>声明一个匿名函数，并立即执行。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写法一：</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;alert(<span class="string">'我是匿名函数'</span>)&#125;)()</span><br><span class="line"><span class="comment">// 写法二：</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;alert(<span class="string">'我是匿名函数'</span>)&#125;())</span><br></pre></td></tr></table></figure>
+<p><strong>② 立即执行函数有什么作用？</strong></p>
+<blockquote>
+<p>js 没有块级作用域，创建一个独立的作用域，用来隔离作用域避免污染。</p>
+</blockquote>
+<p><strong>③ 经典面试题</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>;i &lt;= <span class="number">5</span>;i++)&#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(j)</span><br><span class="line">    &#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="13、什么是浅拷贝？如何实现浅拷贝？什么是深拷贝？如何实现深拷贝？"><a href="#13、什么是浅拷贝？如何实现浅拷贝？什么是深拷贝？如何实现深拷贝？" class="headerlink" title="13、什么是浅拷贝？如何实现浅拷贝？什么是深拷贝？如何实现深拷贝？"></a>13、什么是浅拷贝？如何实现浅拷贝？什么是深拷贝？如何实现深拷贝？</h4><blockquote>
+<p>对象赋值其实复制了地址，一方改动会导致另一方的值也改动。可以通过浅拷贝来解决这个问题。</p>
+</blockquote>
+<p><strong>① 浅拷贝 </strong></p>
+<h6 id="▉-Object-assign"><a href="#▉-Object-assign" class="headerlink" title="▉ Object.assign()"></a>▉ Object.assign()</h6><blockquote>
+<p>Object.assign()  可以实现一个浅拷贝，将 <code>source</code> 的所有属性值拷贝到 <code>target</code> 新对象中。如果属性是对象的话，拷贝的是地址。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">  age: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">Object</span>.assign(&#123;&#125;, a)</span><br><span class="line">a.age = <span class="number">2</span></span><br><span class="line"><span class="built_in">console</span>.log(b.age) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<h6 id="▉-扩展运算符"><a href="#▉-扩展运算符" class="headerlink" title="▉ ... 扩展运算符"></a>▉ <code>...</code> 扩展运算符</h6><blockquote>
+<p>扩展运算符也可以实现一个浅拷贝。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">  age: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = &#123; ...a &#125;</span><br><span class="line">a.age = <span class="number">2</span></span><br><span class="line"><span class="built_in">console</span>.log(b.age) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<h6 id="▉实现一个浅克隆"><a href="#▉实现一个浅克隆" class="headerlink" title="▉实现一个浅克隆"></a>▉<strong>实现一个浅克隆</strong></h6><blockquote>
+<p>自己实现一个浅拷贝，和上边的两种实现没什么差别。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 实现浅克隆</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shallowClone</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> obj = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> o)&#123;</span><br><span class="line">        obj[i] = o[i]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>② 深克隆</strong></p>
+<blockquote>
+<p>对于多层嵌套的对象，浅克隆就是失去了作用。</p>
+</blockquote>
+<h6 id="▉-序列-反序列化（parse-stringify）"><a href="#▉-序列-反序列化（parse-stringify）" class="headerlink" title="▉ 序列/反序列化（parse/stringify）"></a>▉ 序列/反序列化（parse/stringify）</h6><p><strong>序列化：</strong>把变量从内存中变成可存储或传输的过程称之为序列化。stringify 方法可以将 JS 对象序列化成 JSON 字符串。</p>
+<p><strong>反序列化：</strong>把变量内容从序列化的对象重新读到内存里称之为反序列化。JSON对象parse 方法可以将 JSON 字符串反序列化成 JS 对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> newObj = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(oldObj));</span><br></pre></td></tr></table></figure>
+<p><strong>缺点：</strong></p>
+<p>1、无法实现对函数、RegExp 等特殊对象的克隆。</p>
+<p>2、会抛弃对象的 constructor，所有的构造函数会指向 Object。</p>
+<p>3、对象有循环引用，会报错。</p>
+<h6 id="▉-实现一个深克隆函数"><a href="#▉-实现一个深克隆函数" class="headerlink" title="▉ 实现一个深克隆函数"></a>▉ 实现一个深克隆函数</h6><blockquote>
+<p>序列/反序列化不可能实现了，所以实现一个对象类型判断函数。要面对不同的对象(正则、数组、Date等)要采用不同的处理方式。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isType = <span class="function">(<span class="params">obj, type</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">'object'</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">const</span> typeString = <span class="built_in">Object</span>.prototype.toString.call(obj);</span><br><span class="line">  <span class="keyword">let</span> flag;</span><br><span class="line">  <span class="keyword">switch</span> (type) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'Array'</span>:</span><br><span class="line">      flag = typeString === <span class="string">'[object Array]'</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'Date'</span>:</span><br><span class="line">      flag = typeString === <span class="string">'[object Date]'</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'RegExp'</span>:</span><br><span class="line">      flag = typeString === <span class="string">'[object RegExp]'</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      flag = <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> flag;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr = <span class="built_in">Array</span>.of(<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(isType(arr, <span class="string">'Array'</span>)); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/12/数据结构与算法之递归系列/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/20/前端 CSS 之【响应式】/" rel="prev" title="前端 CSS 之【响应式】">
+                前端 CSS 之【响应式】 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="小鹿" />
+            
+              <p class="site-author-name" itemprop="name">小鹿</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">124</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/luxiangqiang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/5667224360/home?wvr=5&sudaref=graph.qq.com" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_36903042" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="tencent://message/?Menu=yes&uin=1040500646&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-globe"></i>QQ</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、CSS-篇"><span class="nav-number">1.</span> <span class="nav-text">一、CSS 篇</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、介绍一下标准的CSS的盒子模型？与低版本IE的盒子模型有什么不同的？"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、介绍一下标准的CSS的盒子模型？与低版本IE的盒子模型有什么不同的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、-box-sizing属性？"><span class="nav-number">1.0.2.</span> <span class="nav-text">2、 box-sizing属性？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、-CSS-选择器有哪些？哪些属性可以继承？"><span class="nav-number">1.0.3.</span> <span class="nav-text">3、 CSS 选择器有哪些？哪些属性可以继承？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、说说你对伪类和伪元素的了解，分别举出五个例子。"><span class="nav-number">1.0.4.</span> <span class="nav-text">4、说说你对伪类和伪元素的了解，分别举出五个例子。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、-CSS-优先级怎么计算？"><span class="nav-number">1.0.5.</span> <span class="nav-text">5、 CSS 优先级怎么计算？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、-display有哪些值？说明他们的作用"><span class="nav-number">1.0.6.</span> <span class="nav-text">6、 display有哪些值？说明他们的作用?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、position的值？"><span class="nav-number">1.0.7.</span> <span class="nav-text">7、position的值？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、纯CSS实现三角形原理"><span class="nav-number">1.0.8.</span> <span class="nav-text">8、纯CSS实现三角形原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9、如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？"><span class="nav-number">1.0.9.</span> <span class="nav-text">9、如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10、谈一下你对-Flexbox-的了解，以及适用场景？"><span class="nav-number">1.0.10.</span> <span class="nav-text">10、谈一下你对 Flexbox 的了解，以及适用场景？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11、为什么要初始化CSS样式？"><span class="nav-number">1.0.11.</span> <span class="nav-text">11、为什么要初始化CSS样式？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12、CSS-里的-visibility-属性有个-collapse-属性值？在不同浏览器下以后什么区别？"><span class="nav-number">1.0.12.</span> <span class="nav-text">12、CSS 里的 visibility 属性有个 collapse 属性值？在不同浏览器下以后什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13、display-none-与-visibility：hidden-的区别？"><span class="nav-number">1.0.13.</span> <span class="nav-text">13、display:none 与 visibility：hidden 的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14、对-BFC-的理解？"><span class="nav-number">1.0.14.</span> <span class="nav-text">14、对 BFC 的理解？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15、浮动带来的问题？以及清除浮动的方式？"><span class="nav-number">1.0.15.</span> <span class="nav-text">15、浮动带来的问题？以及清除浮动的方式？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16、上下-margin-重叠问题？margin-塌陷问题？以及怎么解决？"><span class="nav-number">1.0.16.</span> <span class="nav-text">16、上下 margin 重叠问题？margin 塌陷问题？以及怎么解决？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17、移动端的布局用过媒体查询吗？"><span class="nav-number">1.0.17.</span> <span class="nav-text">17、移动端的布局用过媒体查询吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18、css-预处理器"><span class="nav-number">1.0.18.</span> <span class="nav-text">18、css 预处理器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19、margin-和-padding-分别适合什么场景使用？"><span class="nav-number">1.0.19.</span> <span class="nav-text">19、margin 和 padding 分别适合什么场景使用？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20、display-inline-block-什么时候会显示间隙？"><span class="nav-number">1.0.20.</span> <span class="nav-text">20、display:inline-block 什么时候会显示间隙？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21、-CSS属性overflow属性定义溢出元素内容区的内容会如何处理"><span class="nav-number">1.0.21.</span> <span class="nav-text">21、 CSS属性overflow属性定义溢出元素内容区的内容会如何处理?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22、什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的IE？"><span class="nav-number">1.0.22.</span> <span class="nav-text">22、什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的IE？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-篇"><span class="nav-number">2.</span> <span class="nav-text">JavaScript 篇</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、原始类型"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、原始类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、关于-null-和-undefined-的区别？"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、关于 null 和 undefined 的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、对象类型和原始类型的不同之处？函数参数是对象会发生什么问题？"><span class="nav-number">2.0.3.</span> <span class="nav-text">3、对象类型和原始类型的不同之处？函数参数是对象会发生什么问题？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、typeof-是否能正确判断类型？instanceof-能正确判断对象的原理是什么？"><span class="nav-number">2.0.4.</span> <span class="nav-text">4、typeof 是否能正确判断类型？instanceof 能正确判断对象的原理是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、类型转换"><span class="nav-number">2.0.5.</span> <span class="nav-text">5、类型转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#①-转换-Boolean-类型"><span class="nav-number">2.0.6.</span> <span class="nav-text">① 转换 Boolean 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#②-对象转原始类型"><span class="nav-number">2.0.7.</span> <span class="nav-text">② 对象转原始类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、四则运算符"><span class="nav-number">2.0.8.</span> <span class="nav-text">6、四则运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#⑦-比较运算符"><span class="nav-number">2.0.9.</span> <span class="nav-text">⑦ 比较运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、如何正确判断-this？箭头函数的-this-是什么？"><span class="nav-number">2.0.10.</span> <span class="nav-text">7、如何正确判断 this？箭头函数的 this 是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、call-、apply、bind-的区别"><span class="nav-number">2.0.11.</span> <span class="nav-text">8、call 、apply、bind 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10、-和-有什么区别？"><span class="nav-number">2.0.12.</span> <span class="nav-text">10、== 和 === 有什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11、闭包有关面试题？"><span class="nav-number">2.0.13.</span> <span class="nav-text">11、闭包有关面试题？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12、立即执行函数"><span class="nav-number">2.0.14.</span> <span class="nav-text">12、立即执行函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13、什么是浅拷贝？如何实现浅拷贝？什么是深拷贝？如何实现深拷贝？"><span class="nav-number">2.0.15.</span> <span class="nav-text">13、什么是浅拷贝？如何实现浅拷贝？什么是深拷贝？如何实现深拷贝？</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-Object-assign"><span class="nav-number">2.0.15.0.1.</span> <span class="nav-text">▉ Object.assign()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-扩展运算符"><span class="nav-number">2.0.15.0.2.</span> <span class="nav-text">▉ ... 扩展运算符</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉实现一个浅克隆"><span class="nav-number">2.0.15.0.3.</span> <span class="nav-text">▉实现一个浅克隆</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-序列-反序列化（parse-stringify）"><span class="nav-number">2.0.15.0.4.</span> <span class="nav-text">▉ 序列/反序列化（parse/stringify）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-实现一个深克隆函数"><span class="nav-number">2.0.15.0.5.</span> <span class="nav-text">▉ 实现一个深克隆函数</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fab fa-android"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小鹿</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>-->
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共201.5k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/05/20/前端面试之道之【面试题汇总】/';
+          this.page.identifier = '2019/05/20/前端面试之道之【面试题汇总】/';
+          this.page.title = '前端面试之道之【面试汇总】';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'm76p6ARzXTmtu8Rr0OHb1xXF-gzGzoHsz',
+        appKey: 'R6Ph6fuUQ3tXXodI0w6Qa3fc',
+        placeholder: 'Just go go',
+        avatar:'��������!',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 13176,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>

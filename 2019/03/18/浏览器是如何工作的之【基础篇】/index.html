@@ -118,24 +118,25 @@
 
 
 
-<meta name="description" content="浏览器是如何工作的目录[TOC] 浏览器工作总流程 1、浏览器使用 HTTP 协议或者 HTTPS 协议，向服务器发送请求。 2、把请求回来的 HTML 代码经过解析，构成 DOM 树； 3、最后根据 CSS 属性对元素进行逐个渲染，得到内存中的位图。 4、一个可选的步骤是对位图进行合成，极大地增加后续绘制的速度。 5、合成之后，再绘制到界面上。  第一阶段：浏览器请求 浏览器使用 HTTP 协议">
+<meta name="description" content="浏览器是如何工作的？">
 <meta name="keywords" content="前端,浏览器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器如何工作的之【基础篇】">
 <meta property="og:url" content="http://yoursite.com/2019/03/18/浏览器是如何工作的之【基础篇】/index.html">
 <meta property="og:site_name" content="小鹿的博客">
-<meta property="og:description" content="浏览器是如何工作的目录[TOC] 浏览器工作总流程 1、浏览器使用 HTTP 协议或者 HTTPS 协议，向服务器发送请求。 2、把请求回来的 HTML 代码经过解析，构成 DOM 树； 3、最后根据 CSS 属性对元素进行逐个渲染，得到内存中的位图。 4、一个可选的步骤是对位图进行合成，极大地增加后续绘制的速度。 5、合成之后，再绘制到界面上。  第一阶段：浏览器请求 浏览器使用 HTTP 协议">
+<meta property="og:description" content="浏览器是如何工作的？">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/3d/a1/3db5e0f362bc276b83c7564430ecb0a1.jpg">
 <meta property="og:image" content="http://yoursite.com/images/构建DOM树.png">
 <meta property="og:image" content="https://coolshell.cn/wp-content/uploads/2013/05/DOM-Tree-01.jpg">
 <meta property="og:image" content="https://coolshell.cn/wp-content/uploads/2013/05/CSS-Rule-Tree-Example.jpg">
 <meta property="og:image" content="http://yoursite.com/images/style-context-tree.png">
 <meta property="og:image" content="http://yoursite.com/images/渲染.png">
-<meta property="og:updated_time" content="2019-04-30T10:45:59.260Z">
+<meta property="og:updated_time" content="2019-05-28T11:40:31.007Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器如何工作的之【基础篇】">
-<meta name="twitter:description" content="浏览器是如何工作的目录[TOC] 浏览器工作总流程 1、浏览器使用 HTTP 协议或者 HTTPS 协议，向服务器发送请求。 2、把请求回来的 HTML 代码经过解析，构成 DOM 树； 3、最后根据 CSS 属性对元素进行逐个渲染，得到内存中的位图。 4、一个可选的步骤是对位图进行合成，极大地增加后续绘制的速度。 5、合成之后，再绘制到界面上。  第一阶段：浏览器请求 浏览器使用 HTTP 协议">
-<meta name="twitter:image" content="http://yoursite.com/images/构建DOM树.png">
+<meta name="twitter:description" content="浏览器是如何工作的？">
+<meta name="twitter:image" content="https://static001.geekbang.org/resource/image/3d/a1/3db5e0f362bc276b83c7564430ecb0a1.jpg">
 
 
 
@@ -447,7 +448,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  960
+                  1,051
                 </span>
               
 
@@ -484,7 +485,9 @@
       
 
       
-        <h1 id="浏览器是如何工作的"><a href="#浏览器是如何工作的" class="headerlink" title="浏览器是如何工作的"></a>浏览器是如何工作的</h1><h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>[TOC]</p>
+        <p>浏览器是如何工作的？</p>
+<a id="more"></a>
+<h1 id="浏览器是如何工作的"><a href="#浏览器是如何工作的" class="headerlink" title="浏览器是如何工作的"></a>浏览器是如何工作的</h1><h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>[TOC]</p>
 <h2 id="浏览器工作总流程"><a href="#浏览器工作总流程" class="headerlink" title="浏览器工作总流程"></a>浏览器工作总流程</h2><blockquote>
 <p>1、浏览器使用 HTTP 协议或者 HTTPS 协议，向服务器发送请求。</p>
 <p>2、把请求回来的 HTML 代码经过解析，<strong>构成 DOM 树</strong>；</p>
@@ -495,6 +498,10 @@
 <h2 id="第一阶段：浏览器请求"><a href="#第一阶段：浏览器请求" class="headerlink" title="第一阶段：浏览器请求"></a>第一阶段：浏览器请求</h2><blockquote>
 <p>浏览器使用 HTTP 协议或者 HTTPS 协议，向服务器发送请求。</p>
 </blockquote>
+<h4 id="3-1-HTTP-协议"><a href="#3-1-HTTP-协议" class="headerlink" title="3.1 HTTP 协议"></a>3.1 HTTP 协议</h4><blockquote>
+<p>超文本传输协议（HTTP）用于传输如 HTML 的超媒体文档应用层协议。 HTTP 是基于 TCP 协议实现的客户端和服务器之间的通信，规定了 Request - Response 的模式，两者之间的通信是由客户端首先发起的。</p>
+</blockquote>
+<h6 id="▉-HTTP-协议格式"><a href="#▉-HTTP-协议格式" class="headerlink" title="▉ HTTP 协议格式"></a>▉ HTTP 协议格式</h6><p><img src="https://static001.geekbang.org/resource/image/3d/a1/3db5e0f362bc276b83c7564430ecb0a1.jpg" alt="img"></p>
 <h2 id="第二阶段：文档解析"><a href="#第二阶段：文档解析" class="headerlink" title="第二阶段：文档解析"></a>第二阶段：文档解析</h2><blockquote>
 <p>第一阶段请求服务器后，服务器通过字符流的方式返回数据，浏览器进行一系列的解析。会被浏览器流式的处理从父到子，从先到后，一个一个节点构造，并且挂载到 DOM 树上。CSS属性也会同步计算。这一过程拿到元素会一次匹配规则，根据规则的优先级进行覆盖和调整。</p>
 </blockquote>
@@ -719,7 +726,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">122</span>
+                  <span class="site-state-item-count">124</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -809,7 +816,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器是如何工作的"><span class="nav-number">1.</span> <span class="nav-text">浏览器是如何工作的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">1.0.1.</span> <span class="nav-text">目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器工作总流程"><span class="nav-number">1.1.</span> <span class="nav-text">浏览器工作总流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一阶段：浏览器请求"><span class="nav-number">1.2.</span> <span class="nav-text">第一阶段：浏览器请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二阶段：文档解析"><span class="nav-number">1.3.</span> <span class="nav-text">第二阶段：文档解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、DOM-解析"><span class="nav-number">1.3.1.</span> <span class="nav-text">一、DOM 解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、第一步：状态机将字符解析成词"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">1、第一步：状态机将字符解析成词</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、第二步：用栈来构建-DOM-树"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">2、第二步：用栈来构建 DOM 树</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、CSS-解析（以-Firefox-为主，webkit-直接用一棵树完成）"><span class="nav-number">1.3.2.</span> <span class="nav-text">二、CSS 解析（以 Firefox 为主，webkit 直接用一棵树完成）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、第三步：根据-CSS-文档建立-CSS-规则树。"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">1、第三步：根据 CSS 文档建立 CSS 规则树。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、第四步：挂载-css-规则树。"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">2、第四步：挂载 css 规则树。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三阶段：渲染"><span class="nav-number">1.4.</span> <span class="nav-text">第三阶段：渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、第一步：排版。"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">1、第一步：排版。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、第二步：渲染"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">2、第二步：渲染</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四阶段：合成"><span class="nav-number">1.5.</span> <span class="nav-text">第四阶段：合成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五阶段：绘制"><span class="nav-number">1.6.</span> <span class="nav-text">第五阶段：绘制</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器是如何工作的"><span class="nav-number">1.</span> <span class="nav-text">浏览器是如何工作的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">1.0.1.</span> <span class="nav-text">目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器工作总流程"><span class="nav-number">1.1.</span> <span class="nav-text">浏览器工作总流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一阶段：浏览器请求"><span class="nav-number">1.2.</span> <span class="nav-text">第一阶段：浏览器请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-HTTP-协议"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">3.1 HTTP 协议</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-HTTP-协议格式"><span class="nav-number">1.2.0.1.0.1.</span> <span class="nav-text">▉ HTTP 协议格式</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二阶段：文档解析"><span class="nav-number">1.3.</span> <span class="nav-text">第二阶段：文档解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、DOM-解析"><span class="nav-number">1.3.1.</span> <span class="nav-text">一、DOM 解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、第一步：状态机将字符解析成词"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">1、第一步：状态机将字符解析成词</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、第二步：用栈来构建-DOM-树"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">2、第二步：用栈来构建 DOM 树</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、CSS-解析（以-Firefox-为主，webkit-直接用一棵树完成）"><span class="nav-number">1.3.2.</span> <span class="nav-text">二、CSS 解析（以 Firefox 为主，webkit 直接用一棵树完成）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、第三步：根据-CSS-文档建立-CSS-规则树。"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">1、第三步：根据 CSS 文档建立 CSS 规则树。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、第四步：挂载-css-规则树。"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">2、第四步：挂载 css 规则树。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三阶段：渲染"><span class="nav-number">1.4.</span> <span class="nav-text">第三阶段：渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、第一步：排版。"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">1、第一步：排版。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、第二步：渲染"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">2、第二步：渲染</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四阶段：合成"><span class="nav-number">1.5.</span> <span class="nav-text">第四阶段：合成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五阶段：绘制"><span class="nav-number">1.6.</span> <span class="nav-text">第五阶段：绘制</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -864,7 +871,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共195.0k字</span>
+  <span class="post-count">博客全站共201.5k字</span>
 </div>
         
 
