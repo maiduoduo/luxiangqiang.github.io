@@ -118,18 +118,18 @@
 
 
 
-<meta name="description" content="CSS语法：除了属性和选择器，你还需要知道这些带@的规则">
+<meta name="description" content="CSS 语法规则，你需要知道的 CSS 知识！">
 <meta name="keywords" content="前端,js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="重学前端之CSS结构5【css语法】">
 <meta property="og:url" content="http://yoursite.com/2019/02/07/重学前端之CSS结构5【css语法】/index.html">
 <meta property="og:site_name" content="小鹿的博客">
-<meta property="og:description" content="CSS语法：除了属性和选择器，你还需要知道这些带@的规则">
+<meta property="og:description" content="CSS 语法规则，你需要知道的 CSS 知识！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-13T09:02:45.978Z">
+<meta property="og:updated_time" content="2019-05-29T12:16:01.839Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="重学前端之CSS结构5【css语法】">
-<meta name="twitter:description" content="CSS语法：除了属性和选择器，你还需要知道这些带@的规则">
+<meta name="twitter:description" content="CSS 语法规则，你需要知道的 CSS 知识！">
 
 
 
@@ -441,7 +441,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  994
+                  1,023
                 </span>
               
 
@@ -478,7 +478,7 @@
       
 
       
-        <p> CSS语法：除了属性和选择器，你还需要知道这些带@的规则</p>
+        <p> CSS 语法规则，你需要知道的 CSS 知识！</p>
 <a id="more"></a>
 <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
 <li>at 规则<ul>
@@ -496,7 +496,11 @@
 </ul>
 </li>
 </ul>
-<h2 id="CSS语法"><a href="#CSS语法" class="headerlink" title="CSS语法"></a>CSS语法</h2><h3 id="一、at-规则"><a href="#一、at-规则" class="headerlink" title="一、at 规则"></a>一、at 规则</h3><ul>
+<h2 id="CSS语法"><a href="#CSS语法" class="headerlink" title="CSS语法"></a>CSS语法</h2><blockquote>
+<p>1、任何的 CSS 的特性都必须通过一定的语法结构表达出来的，所以必须通过语法才会发现大多数 CSS 特性。</p>
+<p>2、CSS 的顶层样式表是由两种规则组成的规则列表构成，一种是 at 规则，另一种是普通规则（qualified rule）。其中普通规则是开发中最常用到的。</p>
+</blockquote>
+<h3 id="一、at-规则"><a href="#一、at-规则" class="headerlink" title="一、at 规则"></a>一、at 规则</h3><ul>
 <li><strong>@ charset :</strong> <a href="https://www.w3.org/TR/css-syntax-3/" target="_blank" rel="noopener">https://www.w3.org/TR/css-syntax-3/</a></li>
 </ul>
 <blockquote>
@@ -557,57 +561,57 @@
 <blockquote>
 <p>用于跟 XML 命名空间配合的一个规则，表示内部的 CSS 选择器全都带上特定命名空间。</p>
 </blockquote>
-<h3 id="二、普通规则"><a href="#二、普通规则" class="headerlink" title="二、普通规则"></a>二、普通规则</h3><h4 id="1、选择器：语法角度（https-www-w3-org-TR-selectors-4-）"><a href="#1、选择器：语法角度（https-www-w3-org-TR-selectors-4-）" class="headerlink" title="1、选择器：语法角度（https://www.w3.org/TR/selectors-4/）"></a>1、选择器：语法角度（<a href="https://www.w3.org/TR/selectors-4/）" target="_blank" rel="noopener">https://www.w3.org/TR/selectors-4/）</a></h4><p>语法结构：</p>
-<ul>
-<li><p>complex-selector（单个元素选择器）</p>
-<ul>
-<li><p>符号选择器</p>
-<ul>
-<li>空格（后代选择器）</li>
-</ul>
-<blockquote>
-<p>整个网页中父节点下的子节点全部选中。</p>
+<h3 id="二、普通规则"><a href="#二、普通规则" class="headerlink" title="二、普通规则"></a>二、普通规则</h3><blockquote>
+<p>普通规则：选择器 + 声明区块（属性 + 值 ）</p>
 </blockquote>
+<h4 id="1、选择器：语法角度"><a href="#1、选择器：语法角度" class="headerlink" title="1、选择器：语法角度"></a>1、选择器：语法角度</h4><p><strong>语法结构：</strong></p>
 <ul>
-<li>> （子代选择器）</li>
-</ul>
-<blockquote>
-<p>只选择父节点下的第一的子节点。</p>
-</blockquote>
-<ul>
-<li>+ (直接后继选择器)</li>
-</ul>
-<blockquote>
-<p>h1 + p {margin-top:50px;} //h1后面的第一个p元素会有 50px 的间距。代表选择紧接在 h1 元素后出现的段落</p>
-</blockquote>
-<ul>
-<li>~ （后继选择器）</li>
-</ul>
-<blockquote>
-<p>p~ul{} :只选择 p 标签下的 ul 。</p>
-</blockquote>
-<ul>
-<li>|| （列选择器）</li>
-</ul>
-<blockquote>
-<p>专门针对表格的选择器。</p>
-</blockquote>
-</li>
-<li><p>属性选择器</p>
-</li>
-<li><p>compound-selector（复合选择器）</p>
-<ul>
-<li>type-selector</li>
-<li>subclass-selector<ul>
-<li>id (#) </li>
-<li>class</li>
-<li>attribute</li>
-<li>pseudo-class</li>
+<li>普通规则<ul>
+<li>选择器</li>
+<li>声明区块<ul>
+<li>属性</li>
+<li>值<ul>
+<li>值的类型</li>
+<li>函数</li>
 </ul>
 </li>
-<li>pseudo-element</li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+<p><strong>语法结构：</strong></p>
+<ul>
+<li>complex-selector（单个元素选择器）<ul>
+<li>combinator   （连接符）<ul>
+<li>空格</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>><ul>
+<li>+</li>
+</ul>
+</li>
+<li><p>~</p>
+<ul>
+<li>||</li>
+</ul>
+<ul>
+<li>compound-selector    （可复合选择器）</li>
+<li>type-selector         （标签选择器）<ul>
+<li>subclass-selector</li>
+<li>id (#)                （ID 选择器）<ul>
+<li>class                （类选择器）</li>
+</ul>
+</li>
+<li>attribute         （属性选择器）<ul>
+<li>pseudo-class （伪类选择器）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>pseudo-element  （伪元素选择器）</li>
 </ul>
 </li>
 </ul>
@@ -924,7 +928,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS语法"><span class="nav-number">2.</span> <span class="nav-text">CSS语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、at-规则"><span class="nav-number">2.1.</span> <span class="nav-text">一、at 规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、普通规则"><span class="nav-number">2.2.</span> <span class="nav-text">二、普通规则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、选择器：语法角度（https-www-w3-org-TR-selectors-4-）"><span class="nav-number">2.2.1.</span> <span class="nav-text">1、选择器：语法角度（https://www.w3.org/TR/selectors-4/）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、声明：属性和值"><span class="nav-number">2.2.2.</span> <span class="nav-text">2、声明：属性和值</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS语法"><span class="nav-number">2.</span> <span class="nav-text">CSS语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、at-规则"><span class="nav-number">2.1.</span> <span class="nav-text">一、at 规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、普通规则"><span class="nav-number">2.2.</span> <span class="nav-text">二、普通规则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、选择器：语法角度"><span class="nav-number">2.2.1.</span> <span class="nav-text">1、选择器：语法角度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、声明：属性和值"><span class="nav-number">2.2.2.</span> <span class="nav-text">2、声明：属性和值</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -979,7 +983,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共201.5k字</span>
+  <span class="post-count">博客全站共202.4k字</span>
 </div>
         
 

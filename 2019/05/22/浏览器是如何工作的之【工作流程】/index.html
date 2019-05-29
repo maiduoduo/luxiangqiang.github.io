@@ -130,7 +130,7 @@
 <meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061505.png">
 <meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061506.png">
 <meta property="og:image" content="c:/Users/10405/AppData/Roaming/Typora/typora-user-images/1559028002988.png">
-<meta property="og:updated_time" content="2019-05-28T11:40:52.883Z">
+<meta property="og:updated_time" content="2019-05-29T12:38:28.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器如何工作的之【工作流程】">
 <meta name="twitter:description" content="浏览器是如何工作的？">
@@ -446,7 +446,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,520
+                  2,100
                 </span>
               
 
@@ -462,7 +462,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  8
                 </span>
               
             </div>
@@ -485,7 +485,10 @@
       
         <p>浏览器是如何工作的？</p>
 <a id="more"></a>
-<h2 id="浏览器的工作原理"><a href="#浏览器的工作原理" class="headerlink" title="浏览器的工作原理"></a>浏览器的工作原理</h2><h3 id="一、整个浏览器的工作流程"><a href="#一、整个浏览器的工作流程" class="headerlink" title="一、整个浏览器的工作流程"></a>一、整个浏览器的工作流程</h3><p>1、DNS 查询。</p>
+<h2 id="浏览器的工作原理"><a href="#浏览器的工作原理" class="headerlink" title="浏览器的工作原理"></a>浏览器的工作原理</h2><h3 id="一、整个浏览器的工作流程"><a href="#一、整个浏览器的工作流程" class="headerlink" title="一、整个浏览器的工作流程"></a>一、整个浏览器的工作流程</h3><blockquote>
+<p>整个过程都是流式处理，同步进行。</p>
+</blockquote>
+<p>1、DNS 查询。</p>
 <p>2、浏览器通过 HTTP 请求服务器。（HTTP 请求的过程是怎么样的？）</p>
 <p>3、构建 DOM 树。（解析 HTML 代码，构建 DOM 树）</p>
 <p>4、计算 CSS属性。（如何将 CSS 属性挂载在 DOM 树）</p>
@@ -572,6 +575,36 @@
 <li>遇到开始标签就入栈一个节点，当前节点就是这个节点的父节点；</li>
 <li>遇到结束标签就出栈一个节点（检查是否匹配）。</li>
 </ul>
+<h4 id="五、计算-CSS-属性"><a href="#五、计算-CSS-属性" class="headerlink" title="五、计算 CSS 属性"></a>五、计算 CSS 属性</h4><blockquote>
+<p>上阶段构造的 DOM 树只有节点和属性，没有包含任何的 CSS 样式。这一节点将 CSS 规则应用到样式中去，为 DOM 树添加 CSS 属性。DOM 树构造到父节点的时候，还不知道它有没有子节点，所以算不出来 CSS。</p>
+</blockquote>
+<h5 id="1、选择器的出现顺序"><a href="#1、选择器的出现顺序" class="headerlink" title="1、选择器的出现顺序"></a>1、选择器的出现顺序</h5><blockquote>
+<p>选择器出现的顺序必定跟 DOM 树的顺序一致，这是 CSS 设计的一个原则。即保证选择器在 DOM 构建到当前节点时，已经可以准确判断是否匹配了，不需要后续节点信息。</p>
+</blockquote>
+<h5 id="2、CSS-分析"><a href="#2、CSS-分析" class="headerlink" title="2、CSS 分析"></a>2、CSS 分析</h5><blockquote>
+<p>① CSS 需经过词法分析和语法分析，变成计算机可以理解的结构（属于编译原理的知识），解析之后变成一颗可用的抽象语法树。</p>
+<p>② 一个 complex-selector 是检查一个元素的规则，一个复合选择器是由数个 complex-selector 通过连接符（combinator）组成。</p>
+</blockquote>
+<h5 id="3、连接符的匹配规则"><a href="#3、连接符的匹配规则" class="headerlink" title="3、连接符的匹配规则"></a>3、连接符的匹配规则</h5><h6 id="▉-后代选择器-——-“空格”"><a href="#▉-后代选择器-——-“空格”" class="headerlink" title="▉ 后代选择器 —— “空格”"></a>▉ 后代选择器 —— “空格”</h6><blockquote>
+<p>① 匹配到 a#b 元素时，开始检查所有的子代是否匹配 .cls。 </p>
+<p>② 当遇到 \ 时，使规则退一步，才会时第三个不会被匹配到。</p>
+<p><strong>※ 总结：</strong>后代选择器的作用范围是父节点的所有子节点，一次规则是在匹配到本地标签的结束时回退的。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-id">#b</span> <span class="selector-class">.cls</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">b</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>1<span class="tag">&lt;<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">cls</span>&gt;</span>2<span class="tag">&lt;<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">cls</span>&gt;</span>3<span class="tag">&lt;<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h6 id="▉-后继选择器-——-“-”"><a href="#▉-后继选择器-——-“-”" class="headerlink" title="▉ 后继选择器 —— “~”"></a>▉ 后继选择器 —— “~”</h6><blockquote>
+<p>后继选择器的匹配规则是不能再使用闭合标签规则，而是带父元素的规则。（带父元素规则，就不会匹配后继的子节点了）</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.cls~* &#123;</span><br><span class="line">    border:solid 1px green;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>1<span class="tag">&lt;<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">cls</span>&gt;</span>2<span class="tag">&lt;<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span></span><br><span class="line">    3</span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>4<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>5<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h6 id="▉-子代选择器-——-“-gt-”"><a href="#▉-子代选择器-——-“-gt-”" class="headerlink" title="▉ 子代选择器 —— “&gt;”"></a>▉ 子代选择器 —— “&gt;”</h6><blockquote>
+<p>也是使用父元素作为约束条件进行匹配。</p>
+</blockquote>
+<h6 id="▉-其他"><a href="#▉-其他" class="headerlink" title="▉ 其他"></a>▉ 其他</h6><blockquote>
+<p>其他选择器包括逗号，表示“或”的关系。编译器当做两条规则来处理。</p>
+</blockquote>
+<h5 id="3、计算-css-完成"><a href="#3、计算-css-完成" class="headerlink" title="3、计算 css 完成"></a>3、计算 css 完成</h5><blockquote>
+<p>CSS 计算把 CSS 规则应用到 DOM 树上，为 DOM 树添加了相关的属性过程，最后得到了一个带有 CSS 属性的树。</p>
+</blockquote>
 
       
     </div>
@@ -833,7 +866,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器的工作原理"><span class="nav-number">1.</span> <span class="nav-text">浏览器的工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、整个浏览器的工作流程"><span class="nav-number">1.1.</span> <span class="nav-text">一、整个浏览器的工作流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、DNS-查询"><span class="nav-number">1.2.</span> <span class="nav-text">二、DNS 查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-查询内容"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 查询内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-DNS-服务器"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 DNS 服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-域名的层级"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 域名的层级</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-域名的层级结构"><span class="nav-number">1.2.3.0.1.</span> <span class="nav-text">▉ 域名的层级结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-根域名服务器"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4 根域名服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-分级查询"><span class="nav-number">1.2.4.0.1.</span> <span class="nav-text">▉ 分级查询</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-DNS-整个查询过程"><span class="nav-number">1.2.5.</span> <span class="nav-text">2.5 DNS 整个查询过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、浏览器通过-HTTP-请求服务器。"><span class="nav-number">1.2.6.</span> <span class="nav-text">三、浏览器通过 HTTP 请求服务器。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、构建-DOM-树。"><span class="nav-number">1.2.7.</span> <span class="nav-text">四、构建 DOM 树。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、状态机解析代码"><span class="nav-number">1.2.7.1.</span> <span class="nav-text">1、状态机解析代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、构建-DOM-树"><span class="nav-number">1.2.7.2.</span> <span class="nav-text">2、构建 DOM 树</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器的工作原理"><span class="nav-number">1.</span> <span class="nav-text">浏览器的工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、整个浏览器的工作流程"><span class="nav-number">1.1.</span> <span class="nav-text">一、整个浏览器的工作流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、DNS-查询"><span class="nav-number">1.2.</span> <span class="nav-text">二、DNS 查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-查询内容"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 查询内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-DNS-服务器"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 DNS 服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-域名的层级"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 域名的层级</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-域名的层级结构"><span class="nav-number">1.2.3.0.1.</span> <span class="nav-text">▉ 域名的层级结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-根域名服务器"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4 根域名服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-分级查询"><span class="nav-number">1.2.4.0.1.</span> <span class="nav-text">▉ 分级查询</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-DNS-整个查询过程"><span class="nav-number">1.2.5.</span> <span class="nav-text">2.5 DNS 整个查询过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、浏览器通过-HTTP-请求服务器。"><span class="nav-number">1.2.6.</span> <span class="nav-text">三、浏览器通过 HTTP 请求服务器。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、构建-DOM-树。"><span class="nav-number">1.2.7.</span> <span class="nav-text">四、构建 DOM 树。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、状态机解析代码"><span class="nav-number">1.2.7.1.</span> <span class="nav-text">1、状态机解析代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、构建-DOM-树"><span class="nav-number">1.2.7.2.</span> <span class="nav-text">2、构建 DOM 树</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、计算-CSS-属性"><span class="nav-number">1.2.8.</span> <span class="nav-text">五、计算 CSS 属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、选择器的出现顺序"><span class="nav-number">1.2.8.1.</span> <span class="nav-text">1、选择器的出现顺序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、CSS-分析"><span class="nav-number">1.2.8.2.</span> <span class="nav-text">2、CSS 分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、连接符的匹配规则"><span class="nav-number">1.2.8.3.</span> <span class="nav-text">3、连接符的匹配规则</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-后代选择器-——-“空格”"><span class="nav-number">1.2.8.3.1.</span> <span class="nav-text">▉ 后代选择器 —— “空格”</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-后继选择器-——-“-”"><span class="nav-number">1.2.8.3.2.</span> <span class="nav-text">▉ 后继选择器 —— “~”</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-子代选择器-——-“-gt-”"><span class="nav-number">1.2.8.3.3.</span> <span class="nav-text">▉ 子代选择器 —— “&gt;”</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-其他"><span class="nav-number">1.2.8.3.4.</span> <span class="nav-text">▉ 其他</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、计算-css-完成"><span class="nav-number">1.2.8.4.</span> <span class="nav-text">3、计算 css 完成</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -888,7 +921,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共201.5k字</span>
+  <span class="post-count">博客全站共202.4k字</span>
 </div>
         
 
