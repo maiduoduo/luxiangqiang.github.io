@@ -126,7 +126,7 @@
 <meta property="og:site_name" content="小鹿的博客">
 <meta property="og:description" content="两者都是（…）三个点，更好的为我们解决参数和对象数组未知情况下的编程，代码更健壮 。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-14T23:58:48.086Z">
+<meta property="og:updated_time" content="2019-05-31T10:45:09.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="玩转 ES6 之【扩展运算符和rest运算符】">
 <meta name="twitter:description" content="两者都是（…）三个点，更好的为我们解决参数和对象数组未知情况下的编程，代码更健壮 。">
@@ -441,7 +441,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  295
+                  564
                 </span>
               
 
@@ -457,7 +457,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -480,14 +480,29 @@
       
         <p>两者都是（…）三个点，更好的为我们解决参数和对象数组未知情况下的编程，代码更健壮 。</p>
 <a id="more"></a>
-<h3 id="一、扩展运算符"><a href="#一、扩展运算符" class="headerlink" title="一、扩展运算符"></a>一、扩展运算符</h3><blockquote>
-<p>可以传入多个值，并且就算方法中引用多了也不会报错。 </p>
+<h3 id="一、扩展运算符"><a href="#一、扩展运算符" class="headerlink" title="一、扩展运算符"></a>一、扩展运算符</h3><h4 id="1、含义"><a href="#1、含义" class="headerlink" title="1、含义"></a>1、含义</h4><blockquote>
+<p>1、扩展运算符可以将数组转化为用逗号分隔的<strong>参数序列</strong>。</p>
+<p>2、该运算符主要用于函数的调用。</p>
+<p>3、注意：只有<strong>函数调用</strong>扩展运算符时才能够放入到圆括号中，否则报错。</p>
+<p>4、扩展运算符代替 apply 方法。</p>
+<p>5、将一个数组拼接到另一个数组后边。</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//扩展运算符</span></span><br><span class="line"><span class="keyword">const</span> xiaolu = <span class="function">(<span class="params">...arg</span>) =&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arg[<span class="number">0</span>]);</span><br><span class="line">    <span class="built_in">console</span>.log(arg[<span class="number">1</span>]);</span><br><span class="line">    <span class="built_in">console</span>.log(arg[<span class="number">2</span>]);</span><br><span class="line">    <span class="built_in">console</span>.log(arg[<span class="number">3</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用</span></span><br><span class="line">xiaolu(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)<span class="comment">//1,2,3,undefined</span></span><br></pre></td></tr></table></figure>
-<h6 id="▉-扩展运算符的应用"><a href="#▉-扩展运算符的应用" class="headerlink" title="▉ 扩展运算符的应用"></a>▉ 扩展运算符的应用</h6><blockquote>
-<p>数组的赋值只改变了对内存堆栈的引用，而不是真正的赋值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])    <span class="comment">// 【1,2,3】</span></span><br><span class="line"><span class="built_in">console</span>.log(...[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]) <span class="comment">//  1 2 3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> numbers = [<span class="number">4</span>, <span class="number">38</span>];</span><br><span class="line">add(...numbers) <span class="comment">// 将数组变为参数序列</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 4</span></span><br><span class="line"><span class="comment">// 求数组中的最大值</span></span><br><span class="line"><span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, [<span class="number">14</span>, <span class="number">3</span>, <span class="number">77</span>]) <span class="comment">// ES5 写法</span></span><br><span class="line"><span class="built_in">Math</span>.max(...[<span class="number">14</span>, <span class="number">3</span>, <span class="number">77</span>])          <span class="comment">// ES6 写法</span></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="built_in">Math</span>.max(<span class="number">14</span>, <span class="number">3</span>, <span class="number">77</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 将一个数组拼接到另一个数组后边</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="built_in">Array</span>.prototype.push.apply(arr1, arr2);<span class="comment">// ES6 的写法</span></span><br><span class="line">arr1.push(...arr2);<span class="comment">// ES6 的写法</span></span><br></pre></td></tr></table></figure>
+<h4 id="2、扩展运算符的应用"><a href="#2、扩展运算符的应用" class="headerlink" title="2、扩展运算符的应用"></a>2、扩展运算符的应用</h4><h5 id="2-1-复制数组"><a href="#2-1-复制数组" class="headerlink" title="2.1 复制数组"></a>2.1 复制数组</h5><blockquote>
+<p>数组是一个 object 类型，复制数组的时候，只复制了数组的地址，会导致牵一发而动千军。</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//扩展运算符的应用</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="string">'xiaolu'</span>,<span class="string">'haha'</span>,<span class="string">'nihao'</span>]</span><br><span class="line"><span class="keyword">let</span> arr2 = arr;</span><br><span class="line">arr.push(<span class="string">'lala'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr2)</span><br><span class="line"><span class="comment">//改进</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="string">'xiaolu'</span>,<span class="string">'haha'</span>,<span class="string">'nihao'</span>]</span><br><span class="line"><span class="keyword">let</span> arr2 = [...arr]<span class="comment">//真正的进行赋值</span></span><br><span class="line">arr.push(<span class="string">'lala'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br><span class="line"><span class="built_in">console</span>.log(arr2)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5 变通的复制数组</span></span><br><span class="line"><span class="keyword">const</span> a1 = [<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line"><span class="keyword">const</span> a2 = a1.concat(); <span class="comment">// 返回原数组的克隆(浅克隆)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6 的修改</span></span><br><span class="line"><span class="keyword">const</span> a1 = [<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line"><span class="keyword">const</span> a2 = [...a1]      <span class="comment">// 浅克隆</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-2-合并数组"><a href="#2-2-合并数组" class="headerlink" title="2.2 合并数组"></a>2.2 合并数组</h5><blockquote>
+<p>这两种方法都是对原数组的引用，如果修改了原数组，同步反映到新数组。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5 合并数组</span></span><br><span class="line">arr1.concat(arr2,arr3)</span><br><span class="line"><span class="comment">// ES6 合并数组(外边为[]，内层的数组序列化开)</span></span><br><span class="line">[...arr1, ...arr2, ...arr3]</span><br></pre></td></tr></table></figure>
+<h5 id="2-3-字符串"><a href="#2-3-字符串" class="headerlink" title="2.3 字符串"></a>2.3 字符串</h5><blockquote>
+<p>将字符串转为真正的数组。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[...<span class="string">'hello'</span>]</span><br><span class="line"><span class="comment">// [ "h", "e", "l", "l", "o" ]</span></span><br></pre></td></tr></table></figure>
 <h3 id="二、rest-运算符"><a href="#二、rest-运算符" class="headerlink" title="二、rest 运算符"></a>二、rest 运算符</h3><blockquote>
 <p>最基本用法。</p>
 </blockquote>
@@ -758,7 +773,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、扩展运算符"><span class="nav-number">1.</span> <span class="nav-text">一、扩展运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-扩展运算符的应用"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">▉ 扩展运算符的应用</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、rest-运算符"><span class="nav-number">2.</span> <span class="nav-text">二、rest 运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-for…of-打印-arg-的值"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">▉ for…of 打印 arg 的值</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、扩展运算符"><span class="nav-number">1.</span> <span class="nav-text">一、扩展运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、含义"><span class="nav-number">1.1.</span> <span class="nav-text">1、含义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、扩展运算符的应用"><span class="nav-number">1.2.</span> <span class="nav-text">2、扩展运算符的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-复制数组"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 复制数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-合并数组"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 合并数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-字符串"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 字符串</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、rest-运算符"><span class="nav-number">2.</span> <span class="nav-text">二、rest 运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-for…of-打印-arg-的值"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">▉ for…of 打印 arg 的值</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -813,7 +828,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共202.4k字</span>
+  <span class="post-count">博客全站共206.6k字</span>
 </div>
         
 
