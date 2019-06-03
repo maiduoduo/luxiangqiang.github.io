@@ -105,7 +105,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="javascript,前端,前端深入系列," />
 
 
 
@@ -118,13 +118,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="小鹿的博客">
-<meta property="og:url" content="http://yoursite.com/categories/前端/ES6/面试/index.html">
+<meta name="description" content="深入浅出 JS 的运行机制！">
+<meta name="keywords" content="javascript,前端,前端深入系列">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端进阶深入系列之【js的运行机制】">
+<meta property="og:url" content="http://yoursite.com/2019/06/02/前端进阶深入系列之【js的运行机制】/index.html">
 <meta property="og:site_name" content="小鹿的博客">
+<meta property="og:description" content="深入浅出 JS 的运行机制！">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-02T07:01:15.732Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小鹿的博客">
+<meta name="twitter:title" content="前端进阶深入系列之【js的运行机制】">
+<meta name="twitter:description" content="深入浅出 JS 的运行机制！">
 
 
 
@@ -154,13 +159,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/前端/ES6/面试/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/06/02/前端进阶深入系列之【js的运行机制】/"/>
 
 
 
 
 
-  <title>分类: 面试 | 小鹿的博客</title>
+  <title>前端进阶深入系列之【js的运行机制】 | 小鹿的博客</title>
   
 
 
@@ -177,7 +182,7 @@
   
   
 
-  <div class="container  ">
+  <div class="container  page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/luxiangqiang"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
     
@@ -317,55 +322,361 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>面试<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/02/前端进阶深入系列之【js的运行机制】/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小鹿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小鹿的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/04/17/前端面试之道【ES6常考点】/" itemprop="url">
-              
-                <span itemprop="name">前端面试之【ES6 常考点】</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">前端进阶深入系列之【js的运行机制】</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-04-17T20:07:23+08:00"
-              content="2019-04-17" >
-          04-17
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-02T14:02:01+08:00">
+                2019-06-02
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/javascript/前端深入系列/" itemprop="url" rel="index">
+                    <span itemprop="name">前端深入系列</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/02/前端进阶深入系列之【js的运行机制】/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/06/02/前端进阶深入系列之【js的运行机制】/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,200
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>深入浅出 JS 的运行机制！</p>
+<a id="more"></a>
+<h3 id="一、区分进程和线程"><a href="#一、区分进程和线程" class="headerlink" title="一、区分进程和线程"></a>一、区分进程和线程</h3><blockquote>
+<p>CPU 的作用是主要是解释计算机的指令以及处理计算机软件中的数据。</p>
+</blockquote>
+<ul>
+<li><p><strong>进程：</strong>进程是 CPU <strong>资源分配</strong>的最小单位，系统会为每个进行分配内存空间。</p>
+</li>
+<li><p><strong>线程：</strong>线程是 CPU <strong>调度</strong>的最小单位（线程是建立在进程的基础上的一次程序运行单位，一个进程由多个线程组成）。</p>
+</li>
+</ul>
+<h3 id="二、浏览器是多进程的"><a href="#二、浏览器是多进程的" class="headerlink" title="二、浏览器是多进程的"></a>二、浏览器是多进程的</h3><blockquote>
+<p>1、浏览器之所以能够运行，是因为系统给它的进程分配了资源（cpu、内存）。</p>
+<p>2、浏览器是多进程的，每打开一个 Tab 页，相当于创建了一个独立的浏览器进程。</p>
+<p>3、浏览器有时可以将多个进程合并，比如打开多个空白页，将这些空白页合成一个进程。</p>
+</blockquote>
+<h4 id="1、浏览器有哪些进程？"><a href="#1、浏览器有哪些进程？" class="headerlink" title="1、浏览器有哪些进程？"></a>1、浏览器有哪些进程？</h4><ul>
+<li><p><strong>Browser 进程：</strong></p>
+<blockquote>
+<p>浏览器的主进程（负责协调、主控），只有一个</p>
+</blockquote>
+<ul>
+<li>负责浏览器界面显示，与用户交互。如前进，后退等；</li>
+<li>负责各个页面的管理，创建和销毁其他进程；</li>
+<li>将Renderer进程得到的内存中的Bitmap，绘制到用户界面上；</li>
+<li>网络资源的管理，下载等</li>
+</ul>
+</li>
+<li><p><strong>第三方插件进程：</strong></p>
+<blockquote>
+<p>每种类型的插件对应一个进程，仅当使用该插件时才创建。</p>
+</blockquote>
+</li>
+<li><p><strong>GPU 进程：</strong></p>
+<blockquote>
+<p>用于 3D 绘制等；</p>
+</blockquote>
+</li>
+<li><p><strong>浏览器渲染进程（浏览器内核）：</strong></p>
+<blockquote>
+<p>默认每个Tab页面一个进程，互不影响。</p>
+</blockquote>
+<ul>
+<li>页面渲染，脚本执行，事件处理等</li>
+</ul>
+</li>
+</ul>
+<h4 id="2、浏览器多进程的优势？"><a href="#2、浏览器多进程的优势？" class="headerlink" title="2、浏览器多进程的优势？"></a>2、浏览器多进程的优势？</h4><blockquote>
+<p>多进程的浏览器资源消耗有点大，难道空间换时间思想。<strong>如果浏览器是单进程，那么某个Tab页崩溃了，就影响了整个浏览器，体验有多差；同理如果是单进程，插件崩溃了也会影响整个浏览器；</strong></p>
+</blockquote>
+<ul>
+<li>避免单个页面崩溃影响整个浏览器；</li>
+<li>避免第三方插件崩溃影响整个浏览器；</li>
+<li>多进程利用多核优势；</li>
+<li>……</li>
+</ul>
+<h4 id="3、重点：浏览器的内核（渲染进程）"><a href="#3、重点：浏览器的内核（渲染进程）" class="headerlink" title="3、重点：浏览器的内核（渲染进程）"></a>3、重点：浏览器的内核（渲染进程）</h4><blockquote>
+<p>前端浏览器最重要的点就是<strong>渲染进程</strong>，而且渲染进程是是多线程的。页面的渲染、js 的执行、时间的想都会在这个进程内进行。</p>
+</blockquote>
+<p>渲染进程包括哪些线程：</p>
+<h5 id="①-GUI-渲染线程"><a href="#①-GUI-渲染线程" class="headerlink" title="① GUI 渲染线程"></a>① GUI 渲染线程</h5><ul>
+<li>负责渲染浏览器界面，解析HTML，CSS，构建 DOM 树和 RenderObject 树，布局和绘制等。</li>
+<li>当界面需要重绘（Repaint）或由于某种操作引发回流(reflow)时，该线程就会执行。</li>
+<li>GUI渲染线程与JS引擎线程是互斥的，当 JS 引擎执行时 GUI 线程会被挂起，GUI 更新会被保存在一个队列中等到 JS 引擎空闲时立即被执行。</li>
+</ul>
+<h5 id="②-JS-引擎线程"><a href="#②-JS-引擎线程" class="headerlink" title="② JS 引擎线程"></a>② JS 引擎线程</h5><ul>
+<li>也称为 JS 内核，负责处理 Javascript 脚本程序（V8 引擎）。</li>
+<li>JS 引擎线程负责解析 Javascript 脚本，运行代码。</li>
+<li>JS引擎一直等待着任务队列中任务的到来，然后加以处理，一个Tab页（renderer进程）中无论什么时候都只有一个 JS 线程在运行 JS 程序。</li>
+<li>GUI 渲染线程与 JS 引擎线程是互斥的，所以如果 JS 执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞。</li>
+</ul>
+<h5 id="③-事件触发线程"><a href="#③-事件触发线程" class="headerlink" title="③ 事件触发线程"></a>③ 事件触发线程</h5><ul>
+<li>属于浏览器的线程而不是 js 引擎，用来控制事件循环。</li>
+<li>当 JS 引擎执行代码块如 setTimeOut 时，会将对应任务添加到事件线程中。</li>
+<li>当对应的事件符合触发条件被触发时，该线程会把事件添加到待处理队列的队尾，等待JS引擎的处理。</li>
+<li>由于JS的单线程关系，所以这些待处理队列中的事件都得排队等待JS引擎处理（当JS引擎空闲时才会去执行）。</li>
+</ul>
+<h5 id="④-定时触发器线程"><a href="#④-定时触发器线程" class="headerlink" title="④ 定时触发器线程"></a>④ 定时触发器线程</h5><ul>
+<li><code>setInterval</code>与<code>setTimeout</code>所在线程。</li>
+<li>浏览器定时计数器并不是由 JavaScript 引擎计数的（因为JavaScript引擎是单线程的, 如果处于阻塞线程状态就会影响记计时的准确）。</li>
+<li>通过单独线程来计时并触发定时（计时完毕后，添加到事件队列中，等待JS引擎空闲后执行）。</li>
+<li>W3C在HTML标准中规定，规定要求 setTimeout 中低于 4ms 的时间间隔算为 4ms。</li>
+</ul>
+<h5 id="⑤-异步-http-请求线程"><a href="#⑤-异步-http-请求线程" class="headerlink" title="⑤ 异步 http 请求线程"></a>⑤ 异步 http 请求线程</h5><ul>
+<li>在 XMLHttpRequest 在连接后是通过浏览器新开一个线程请求。</li>
+<li>将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件，将这个回调再放入事件队列中。再由 JavaScript 引擎执行。</li>
+</ul>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/前端深入系列/" rel="tag"># 前端深入系列</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/22/浏览器是如何工作的之【工作流程】/" rel="next" title="浏览器如何工作的之【工作流程】">
+                <i class="fa fa-chevron-left"></i> 浏览器如何工作的之【工作流程】
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
 
 
           </div>
@@ -373,6 +684,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -395,8 +720,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -415,7 +749,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">124</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -426,7 +760,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -496,6 +830,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、区分进程和线程"><span class="nav-number">1.</span> <span class="nav-text">一、区分进程和线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、浏览器是多进程的"><span class="nav-number">2.</span> <span class="nav-text">二、浏览器是多进程的</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、浏览器有哪些进程？"><span class="nav-number">2.1.</span> <span class="nav-text">1、浏览器有哪些进程？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、浏览器多进程的优势？"><span class="nav-number">2.2.</span> <span class="nav-text">2、浏览器多进程的优势？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、重点：浏览器的内核（渲染进程）"><span class="nav-number">2.3.</span> <span class="nav-text">3、重点：浏览器的内核（渲染进程）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#①-GUI-渲染线程"><span class="nav-number">2.3.1.</span> <span class="nav-text">① GUI 渲染线程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#②-JS-引擎线程"><span class="nav-number">2.3.2.</span> <span class="nav-text">② JS 引擎线程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#③-事件触发线程"><span class="nav-number">2.3.3.</span> <span class="nav-text">③ 事件触发线程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#④-定时触发器线程"><span class="nav-number">2.3.4.</span> <span class="nav-text">④ 定时触发器线程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#⑤-异步-http-请求线程"><span class="nav-number">2.3.5.</span> <span class="nav-text">⑤ 异步 http 请求线程</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -544,7 +894,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共206.6k字</span>
+  <span class="post-count">博客全站共207.0k字</span>
 </div>
         
 
@@ -656,6 +1006,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -673,6 +1027,18 @@
       <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/06/02/前端进阶深入系列之【js的运行机制】/';
+          this.page.identifier = '2019/06/02/前端进阶深入系列之【js的运行机制】/';
+          this.page.title = '前端进阶深入系列之【js的运行机制】';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
@@ -692,6 +1058,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
@@ -1058,6 +1435,23 @@
 
   
   
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 13176,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
 
   
 
