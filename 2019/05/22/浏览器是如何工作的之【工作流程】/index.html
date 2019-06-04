@@ -130,7 +130,7 @@
 <meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061505.png">
 <meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061506.png">
 <meta property="og:image" content="c:/Users/10405/AppData/Roaming/Typora/typora-user-images/1559028002988.png">
-<meta property="og:updated_time" content="2019-05-31T07:44:50.354Z">
+<meta property="og:updated_time" content="2019-06-03T12:28:49.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器如何工作的之【工作流程】">
 <meta name="twitter:description" content="浏览器是如何工作的？">
@@ -446,7 +446,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,535
+                  4,187
                 </span>
               
 
@@ -462,7 +462,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  13
+                  15
                 </span>
               
             </div>
@@ -651,8 +651,8 @@
 <p>浏览器渲染过程主要是将每个元素（Html元素/伪元素）的盒模型变成位图，inline 元素可能占据多行，每个盒对应一张位图。渲染过程分为两大类：</p>
 </blockquote>
 <ul>
-<li>图形渲染</li>
-<li>文字渲染</li>
+<li>图形渲染 </li>
+<li>文字渲染 </li>
 </ul>
 <h6 id="▉-图形渲染"><a href="#▉-图形渲染" class="headerlink" title="▉ 图形渲染"></a>▉ 图形渲染</h6><blockquote>
 <p>盒的背景、边框、SVG元素、阴影等特性，都为绘制的图形类，需要一个底层库的支持。</p>
@@ -670,7 +670,29 @@
 <h4 id="八、合成"><a href="#八、合成" class="headerlink" title="八、合成"></a>八、合成</h4><blockquote>
 <p>合成并非浏览器必要执行的一环，实际上是一个性能的考量。</p>
 </blockquote>
-<h4 id="九、绘制"><a href="#九、绘制" class="headerlink" title="九、绘制"></a>九、绘制</h4>
+<p><strong>合成可以这样理解：</strong>合成的元素的意思是合成之后，通过 js 动态改变其他元素，合成的这部分元素，就不会重新渲染从而提高了性能。</p>
+<h5 id="1、合成的过程"><a href="#1、合成的过程" class="headerlink" title="1、合成的过程"></a>1、合成的过程</h5><p>① 渲染过程不会把子元素渲染到位图上面，合成的过程，就是要创建一个合成层，把一部分子元素渲染到合成的位图上面。 </p>
+<h5 id="2、为哪些元素创建合成后的位图，哪些元素应该渲染到合成层上？"><a href="#2、为哪些元素创建合成后的位图，哪些元素应该渲染到合成层上？" class="headerlink" title="2、为哪些元素创建合成后的位图，哪些元素应该渲染到合成层上？"></a>2、为哪些元素创建合成后的位图，哪些元素应该渲染到合成层上？</h5><blockquote>
+<p>合成的目标是提高性能，建立的原则就是最大限度减少绘制次数原则。好的合成策略是“猜测”可能变化的元素，把他排除到合成之外。</p>
+</blockquote>
+<p>①    主流的浏览器一般根据 position、transform 等属性来决定合成策略，来猜测这些元素未来的变化。</p>
+<p>②    以上猜测的准确性有限，所以新的 CSS 标准中，规定了 will-width 属性，可以由业务代码来提示浏览器的合成策略。</p>
+<h4 id="九、绘制"><a href="#九、绘制" class="headerlink" title="九、绘制"></a>九、绘制</h4><blockquote>
+<p>绘制是把位图绘制到屏幕上，变成肉眼可见的图像的过程。一般最终显示的位图位于显存中，，有的情况只需把内存中的一张位图交给显示驱动或操作系统就 ok，这个将位图合成最终的位图叫做绘制。</p>
+</blockquote>
+<h5 id="1、重排和重绘"><a href="#1、重排和重绘" class="headerlink" title="1、重排和重绘"></a>1、重排和重绘</h5><blockquote>
+<p>所说的“重排”和“重绘”，所谓的重排是排版，重绘则是绘制过程。实际上，“绘制”过程发生的频率非常高，比如：鼠标滑过浏览器的显示区域，鼠标每次移动，都要造成重新绘制，如果不重新绘制，就会产生大量的鼠标残影。</p>
+</blockquote>
+<h5 id="2、怎样减少重绘？"><a href="#2、怎样减少重绘？" class="headerlink" title="2、怎样减少重绘？"></a>2、怎样减少重绘？</h5><blockquote>
+<p>限制绘制面积可以提高性能，如果鼠标只在某个覆盖的区域滑动，我们只需重新绘制这个区域就可以了。</p>
+</blockquote>
+<h5 id="3、解决办法"><a href="#3、解决办法" class="headerlink" title="3、解决办法"></a>3、解决办法</h5><blockquote>
+<p>“脏矩形”算法，把屏幕分成若干个矩形区域。</p>
+</blockquote>
+<p>① 当鼠标移动导致绘制时，只重绘它影响到的几个矩形区域就够了。最小的影响区域只会涉及 4 个矩形，大型元素则覆盖多个矩形。</p>
+<p>② 设置合适的矩形区域大小，可以很好的控制绘制时的消耗。设置过大会造成绘制面积增大，设置过小的矩形会造成计算复杂。</p>
+<p>③ 重新绘制脏矩形区域时，把所有与矩形区域有交集的合成层（位图）的交际部分绘制即可。</p>
+
       
     </div>
     
@@ -935,7 +957,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器的工作原理"><span class="nav-number">1.</span> <span class="nav-text">浏览器的工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、整个浏览器的工作流程"><span class="nav-number">1.1.</span> <span class="nav-text">一、整个浏览器的工作流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、DNS-查询"><span class="nav-number">1.2.</span> <span class="nav-text">二、DNS 查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-查询内容"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 查询内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-DNS-服务器"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 DNS 服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-域名的层级"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 域名的层级</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-域名的层级结构"><span class="nav-number">1.2.3.0.1.</span> <span class="nav-text">▉ 域名的层级结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-根域名服务器"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4 根域名服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-分级查询"><span class="nav-number">1.2.4.0.1.</span> <span class="nav-text">▉ 分级查询</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-DNS-整个查询过程"><span class="nav-number">1.2.5.</span> <span class="nav-text">2.5 DNS 整个查询过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、浏览器通过-HTTP-请求服务器。"><span class="nav-number">1.2.6.</span> <span class="nav-text">三、浏览器通过 HTTP 请求服务器。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、构建-DOM-树。"><span class="nav-number">1.2.7.</span> <span class="nav-text">四、构建 DOM 树。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、状态机解析代码"><span class="nav-number">1.2.7.1.</span> <span class="nav-text">1、状态机解析代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、构建-DOM-树"><span class="nav-number">1.2.7.2.</span> <span class="nav-text">2、构建 DOM 树</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、计算-CSS-属性"><span class="nav-number">1.2.8.</span> <span class="nav-text">五、计算 CSS 属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、选择器的出现顺序"><span class="nav-number">1.2.8.1.</span> <span class="nav-text">1、选择器的出现顺序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、CSS-分析"><span class="nav-number">1.2.8.2.</span> <span class="nav-text">2、CSS 分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、连接符的匹配规则"><span class="nav-number">1.2.8.3.</span> <span class="nav-text">3、连接符的匹配规则</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-后代选择器-——-“空格”"><span class="nav-number">1.2.8.3.1.</span> <span class="nav-text">▉ 后代选择器 —— “空格”</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-后继选择器-——-“-”"><span class="nav-number">1.2.8.3.2.</span> <span class="nav-text">▉ 后继选择器 —— “~”</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-子代选择器-——-“-gt-”"><span class="nav-number">1.2.8.3.3.</span> <span class="nav-text">▉ 子代选择器 —— “&gt;”</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-其他"><span class="nav-number">1.2.8.3.4.</span> <span class="nav-text">▉ 其他</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、计算-css-完成"><span class="nav-number">1.2.8.4.</span> <span class="nav-text">3、计算 css 完成</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六、排版"><span class="nav-number">1.2.9.</span> <span class="nav-text">六、排版</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、基本概念"><span class="nav-number">1.2.9.1.</span> <span class="nav-text">1、基本概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、正常流文字排版"><span class="nav-number">1.2.9.2.</span> <span class="nav-text">2、正常流文字排版</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、正常流中的盒"><span class="nav-number">1.2.9.3.</span> <span class="nav-text">3、正常流中的盒</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、绝对定位元素"><span class="nav-number">1.2.9.4.</span> <span class="nav-text">4、绝对定位元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、浮动元素排版"><span class="nav-number">1.2.9.5.</span> <span class="nav-text">5、浮动元素排版</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、其它排版"><span class="nav-number">1.2.9.6.</span> <span class="nav-text">6、其它排版</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#七、渲染"><span class="nav-number">1.2.10.</span> <span class="nav-text">七、渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、位图"><span class="nav-number">1.2.10.1.</span> <span class="nav-text">1、位图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、渲染过程"><span class="nav-number">1.2.10.2.</span> <span class="nav-text">2、渲染过程</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-图形渲染"><span class="nav-number">1.2.10.2.1.</span> <span class="nav-text">▉ 图形渲染</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-文字渲染"><span class="nav-number">1.2.10.2.2.</span> <span class="nav-text">▉ 文字渲染</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-渲染过程"><span class="nav-number">1.2.10.2.3.</span> <span class="nav-text">▉ 渲染过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#八、合成"><span class="nav-number">1.2.11.</span> <span class="nav-text">八、合成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#九、绘制"><span class="nav-number">1.2.12.</span> <span class="nav-text">九、绘制</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器的工作原理"><span class="nav-number">1.</span> <span class="nav-text">浏览器的工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、整个浏览器的工作流程"><span class="nav-number">1.1.</span> <span class="nav-text">一、整个浏览器的工作流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、DNS-查询"><span class="nav-number">1.2.</span> <span class="nav-text">二、DNS 查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-查询内容"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 查询内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-DNS-服务器"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 DNS 服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-域名的层级"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 域名的层级</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-域名的层级结构"><span class="nav-number">1.2.3.0.1.</span> <span class="nav-text">▉ 域名的层级结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-根域名服务器"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4 根域名服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-分级查询"><span class="nav-number">1.2.4.0.1.</span> <span class="nav-text">▉ 分级查询</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-DNS-整个查询过程"><span class="nav-number">1.2.5.</span> <span class="nav-text">2.5 DNS 整个查询过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、浏览器通过-HTTP-请求服务器。"><span class="nav-number">1.2.6.</span> <span class="nav-text">三、浏览器通过 HTTP 请求服务器。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、构建-DOM-树。"><span class="nav-number">1.2.7.</span> <span class="nav-text">四、构建 DOM 树。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、状态机解析代码"><span class="nav-number">1.2.7.1.</span> <span class="nav-text">1、状态机解析代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、构建-DOM-树"><span class="nav-number">1.2.7.2.</span> <span class="nav-text">2、构建 DOM 树</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、计算-CSS-属性"><span class="nav-number">1.2.8.</span> <span class="nav-text">五、计算 CSS 属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、选择器的出现顺序"><span class="nav-number">1.2.8.1.</span> <span class="nav-text">1、选择器的出现顺序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、CSS-分析"><span class="nav-number">1.2.8.2.</span> <span class="nav-text">2、CSS 分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、连接符的匹配规则"><span class="nav-number">1.2.8.3.</span> <span class="nav-text">3、连接符的匹配规则</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-后代选择器-——-“空格”"><span class="nav-number">1.2.8.3.1.</span> <span class="nav-text">▉ 后代选择器 —— “空格”</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-后继选择器-——-“-”"><span class="nav-number">1.2.8.3.2.</span> <span class="nav-text">▉ 后继选择器 —— “~”</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-子代选择器-——-“-gt-”"><span class="nav-number">1.2.8.3.3.</span> <span class="nav-text">▉ 子代选择器 —— “&gt;”</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-其他"><span class="nav-number">1.2.8.3.4.</span> <span class="nav-text">▉ 其他</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、计算-css-完成"><span class="nav-number">1.2.8.4.</span> <span class="nav-text">3、计算 css 完成</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六、排版"><span class="nav-number">1.2.9.</span> <span class="nav-text">六、排版</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、基本概念"><span class="nav-number">1.2.9.1.</span> <span class="nav-text">1、基本概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、正常流文字排版"><span class="nav-number">1.2.9.2.</span> <span class="nav-text">2、正常流文字排版</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、正常流中的盒"><span class="nav-number">1.2.9.3.</span> <span class="nav-text">3、正常流中的盒</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、绝对定位元素"><span class="nav-number">1.2.9.4.</span> <span class="nav-text">4、绝对定位元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、浮动元素排版"><span class="nav-number">1.2.9.5.</span> <span class="nav-text">5、浮动元素排版</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、其它排版"><span class="nav-number">1.2.9.6.</span> <span class="nav-text">6、其它排版</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#七、渲染"><span class="nav-number">1.2.10.</span> <span class="nav-text">七、渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、位图"><span class="nav-number">1.2.10.1.</span> <span class="nav-text">1、位图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、渲染过程"><span class="nav-number">1.2.10.2.</span> <span class="nav-text">2、渲染过程</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-图形渲染"><span class="nav-number">1.2.10.2.1.</span> <span class="nav-text">▉ 图形渲染</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-文字渲染"><span class="nav-number">1.2.10.2.2.</span> <span class="nav-text">▉ 文字渲染</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-渲染过程"><span class="nav-number">1.2.10.2.3.</span> <span class="nav-text">▉ 渲染过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#八、合成"><span class="nav-number">1.2.11.</span> <span class="nav-text">八、合成</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、合成的过程"><span class="nav-number">1.2.11.1.</span> <span class="nav-text">1、合成的过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、为哪些元素创建合成后的位图，哪些元素应该渲染到合成层上？"><span class="nav-number">1.2.11.2.</span> <span class="nav-text">2、为哪些元素创建合成后的位图，哪些元素应该渲染到合成层上？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#九、绘制"><span class="nav-number">1.2.12.</span> <span class="nav-text">九、绘制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、重排和重绘"><span class="nav-number">1.2.12.1.</span> <span class="nav-text">1、重排和重绘</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、怎样减少重绘？"><span class="nav-number">1.2.12.2.</span> <span class="nav-text">2、怎样减少重绘？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、解决办法"><span class="nav-number">1.2.12.3.</span> <span class="nav-text">3、解决办法</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -990,7 +1012,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共207.0k字</span>
+  <span class="post-count">博客全站共206.6k字</span>
 </div>
         
 
