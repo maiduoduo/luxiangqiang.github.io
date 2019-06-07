@@ -126,7 +126,7 @@
 <meta property="og:site_name" content="小鹿的博客">
 <meta property="og:description" content="JavaScript 所有的异步编程知识点都在这里！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-05T11:46:03.190Z">
+<meta property="og:updated_time" content="2019-06-06T12:22:32.867Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端进阶深入系列之【异步编程】">
 <meta name="twitter:description" content="JavaScript 所有的异步编程知识点都在这里！">
@@ -452,7 +452,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  765
+                  1,260
                 </span>
               
 
@@ -468,7 +468,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  5
                 </span>
               
             </div>
@@ -492,7 +492,8 @@
         <p>JavaScript 所有的异步编程知识点都在这里！</p>
 <a id="more"></a>
 <h3 id="一、为什么-js-会有异步编程？"><a href="#一、为什么-js-会有异步编程？" class="headerlink" title="一、为什么 js 会有异步编程？"></a>一、为什么 js 会有异步编程？</h3><blockquote>
-<p>由于  <code>JavaScript</code> 语言的执行环境是“单线程”的，一次只能执行一个任务，多余的任务需要在后边排队等候。</p>
+<p><strong>原因：</strong>由于  <code>JavaScript</code> 语言的执行环境是“单线程”的，一次只能执行一个任务，多余的任务需要在后边排队等候。</p>
+<p><strong>发展：</strong>异步编程的语法目标，就是怎样让它更像同步编程。</p>
 </blockquote>
 <h4 id="1、单线程的优点"><a href="#1、单线程的优点" class="headerlink" title="1、单线程的优点"></a>1、单线程的优点</h4><blockquote>
 <p>JavaScript 单线程的优点在于实现起来简单，环境相对单纯。</p>
@@ -509,7 +510,7 @@
 <h6 id="▉-异步模式"><a href="#▉-异步模式" class="headerlink" title="▉ 异步模式"></a>▉ 异步模式</h6><p>1、每个任务有一个或多个回调函数（callback）「，每当任务执行完毕，都会执行任务的回调函数，任务的开始和结束互不影响。</p>
 <p>2、在浏览器端，耗时的操作都应该异步执行，避免浏览器失去响应（如：AJAX）。</p>
 <h3 id="二、四种异步编程模式"><a href="#二、四种异步编程模式" class="headerlink" title="二、四种异步编程模式"></a>二、四种异步编程模式</h3><h4 id="1、回调函数"><a href="#1、回调函数" class="headerlink" title="1、回调函数"></a>1、回调函数</h4><blockquote>
-<p>将一个函数作为另一个函数的参数传入，其实传入的函数可以成为回调函数。当前函数执行很耗时的时候，回到函数已经设置好了回调的条件，由同步变成了异步操作。</p>
+<p>将一个函数作为另一个函数的参数传入，传入的函数就是回调函数，当前函数执行完之后，就会调用回调函数。</p>
 </blockquote>
 <h6 id="▉-优点"><a href="#▉-优点" class="headerlink" title="▉ 优点"></a>▉ 优点</h6><blockquote>
 <p>简单、容易理解和部署。</p>
@@ -540,6 +541,24 @@
 <h6 id="▉-缺点-1"><a href="#▉-缺点-1" class="headerlink" title="▉ 缺点"></a>▉ 缺点</h6><blockquote>
 <p>整个程序就会变成事件驱动型，运行的流程会变得不清晰。</p>
 </blockquote>
+<h4 id="3、Generator"><a href="#3、Generator" class="headerlink" title="3、Generator"></a>3、Generator</h4><blockquote>
+<p>ES6 的新语法，特点就是可以交出函数的执行权（可以暂停再执行）。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">gen</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> y = <span class="keyword">yield</span> x + <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">return</span> y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> g = gen(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(g.next()) <span class="comment">// &#123;value: 3, done: false&#125;</span></span><br><span class="line"><span class="comment">// next 传入的参数会作为上阶段异步任务的返回结果，被函数体 y 所接收。</span></span><br><span class="line"><span class="built_in">console</span>.log(g.next(<span class="number">2</span>)) <span class="comment">// &#123;value: 2, done: true&#125;</span></span><br></pre></td></tr></table></figure>
+<h6 id="▉-调用过程"><a href="#▉-调用过程" class="headerlink" title="▉ 调用过程"></a>▉ 调用过程</h6><p>1、调用 Generator 函数不会返回执行结果，而是会返回一个内部指针对象 g。</p>
+<p>2、调用内部指针的对象 g 的 next 方法，就会移动内部的指针（执行异步的第一段），执行第一个 yield 语句。</p>
+<p>3、next 方法主要是分段执行函数，每次调用 next 都会返回一个对象，显示当前信息（value,done）。</p>
+<p>4、value 代表的是 yield 语句后边表达式的值，表示当前阶段的值；done 代表 Generator 是否执行完毕，返回一个布尔值。</p>
+<h6 id="▉-数据交换"><a href="#▉-数据交换" class="headerlink" title="▉ 数据交换"></a>▉ 数据交换</h6><p>1、next 方法返回的值 vaule，是 Generator 函数向外输出的数据；next 的方法还可以接受参数，向 Generator 传递数据。</p>
+<p>2、next 传入的参数会作为上阶段异步任务的返回结果。</p>
+<h6 id="▉-捕获异常"><a href="#▉-捕获异常" class="headerlink" title="▉ 捕获异常"></a>▉ 捕获异常</h6><blockquote>
+<p>Generator 函数内部可以部署错误处理代码，捕获函数体外抛出的错误。出错的代码与处理错误的代码，实现了时间和空间上的分离，这对于异步编程无疑是很重要的</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">gen</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> y = <span class="keyword">yield</span> x + <span class="number">2</span>;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e)&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(e);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> g = gen(<span class="number">1</span>);</span><br><span class="line">g.next();</span><br><span class="line">g.throw（<span class="string">'出错了'</span>）; <span class="comment">// 出错了 将会被捕获 e 的值</span></span><br></pre></td></tr></table></figure>
+<h6 id="▉-实际回调"><a href="#▉-实际回调" class="headerlink" title="▉ 实际回调"></a>▉ 实际回调</h6><blockquote>
+<p>下面的三个都是异步请求，而且每次请求的的结果作为下一请求的参数使用。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>*(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">try</span>&#123;</span><br><span class="line">		<span class="keyword">const</span> n = <span class="keyword">yield</span> getJson(<span class="string">"n.json"</span>);</span><br><span class="line">		<span class="keyword">const</span> m = <span class="keyword">yield</span> getJson(n[<span class="number">0</span>].mUrl);</span><br><span class="line">        <span class="keyword">const</span> w = <span class="keyword">yield</span> getJson(m[<span class="number">0</span>].wUrl);</span><br><span class="line">	&#125;<span class="keyword">catch</span>(e) &#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="3、promise"><a href="#3、promise" class="headerlink" title="3、promise"></a>3、promise</h4>
       
     </div>
@@ -803,7 +822,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、为什么-js-会有异步编程？"><span class="nav-number">1.</span> <span class="nav-text">一、为什么 js 会有异步编程？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、单线程的优点"><span class="nav-number">1.1.</span> <span class="nav-text">1、单线程的优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、单线程的缺点"><span class="nav-number">1.2.</span> <span class="nav-text">2、单线程的缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、新模式（同步-异步）"><span class="nav-number">1.3.</span> <span class="nav-text">3、新模式（同步+异步）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-同步模式"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">▉ 同步模式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-异步模式"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">▉ 异步模式</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、四种异步编程模式"><span class="nav-number">2.</span> <span class="nav-text">二、四种异步编程模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、回调函数"><span class="nav-number">2.1.</span> <span class="nav-text">1、回调函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-优点"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">▉ 优点</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-缺点"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">▉ 缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、事件监听"><span class="nav-number">2.2.</span> <span class="nav-text">2、事件监听</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-思路"><span class="nav-number">2.2.0.1.</span> <span class="nav-text">▉ 思路</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-优点-1"><span class="nav-number">2.2.0.2.</span> <span class="nav-text">▉ 优点</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-缺点-1"><span class="nav-number">2.2.0.3.</span> <span class="nav-text">▉ 缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、promise"><span class="nav-number">2.3.</span> <span class="nav-text">3、promise</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、为什么-js-会有异步编程？"><span class="nav-number">1.</span> <span class="nav-text">一、为什么 js 会有异步编程？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、单线程的优点"><span class="nav-number">1.1.</span> <span class="nav-text">1、单线程的优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、单线程的缺点"><span class="nav-number">1.2.</span> <span class="nav-text">2、单线程的缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、新模式（同步-异步）"><span class="nav-number">1.3.</span> <span class="nav-text">3、新模式（同步+异步）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-同步模式"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">▉ 同步模式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-异步模式"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">▉ 异步模式</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、四种异步编程模式"><span class="nav-number">2.</span> <span class="nav-text">二、四种异步编程模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、回调函数"><span class="nav-number">2.1.</span> <span class="nav-text">1、回调函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-优点"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">▉ 优点</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-缺点"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">▉ 缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、事件监听"><span class="nav-number">2.2.</span> <span class="nav-text">2、事件监听</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-思路"><span class="nav-number">2.2.0.1.</span> <span class="nav-text">▉ 思路</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-优点-1"><span class="nav-number">2.2.0.2.</span> <span class="nav-text">▉ 优点</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-缺点-1"><span class="nav-number">2.2.0.3.</span> <span class="nav-text">▉ 缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、Generator"><span class="nav-number">2.3.</span> <span class="nav-text">3、Generator</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-调用过程"><span class="nav-number">2.3.0.1.</span> <span class="nav-text">▉ 调用过程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-数据交换"><span class="nav-number">2.3.0.2.</span> <span class="nav-text">▉ 数据交换</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-捕获异常"><span class="nav-number">2.3.0.3.</span> <span class="nav-text">▉ 捕获异常</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-实际回调"><span class="nav-number">2.3.0.4.</span> <span class="nav-text">▉ 实际回调</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、promise"><span class="nav-number">2.4.</span> <span class="nav-text">3、promise</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -858,7 +877,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共208.1k字</span>
+  <span class="post-count">博客全站共208.6k字</span>
 </div>
         
 
