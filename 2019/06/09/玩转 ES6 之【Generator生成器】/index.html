@@ -126,7 +126,7 @@
 <meta property="og:site_name" content="小鹿的博客">
 <meta property="og:description" content="使用 ES6 的生成器可以优雅的实现异步操作！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-09T13:01:54.097Z">
+<meta property="og:updated_time" content="2019-06-10T01:30:56.659Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="玩转 ES6 之【Generator生成器】">
 <meta name="twitter:description" content="使用 ES6 的生成器可以优雅的实现异步操作！">
@@ -441,7 +441,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,148
+                  1,723
                 </span>
               
 
@@ -457,7 +457,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  7
                 </span>
               
             </div>
@@ -489,7 +489,7 @@
 <p>2、调用迭代器的 next 方法向生成器请求一个值。</p>
 <p>3、请求的结果返回一个对象，对象中包含一个 value 值和 done 布尔值，告诉我们生成器是否还会生成值。</p>
 <p>4、如果没有可执行的代码，生成器就会返回一个 undefined 值，表示整个生成器已经完成。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">WeaponGenerator</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">"1"</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">"2"</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">"3"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> weapon = WeaponGenerator();</span><br><span class="line"><span class="built_in">console</span>.log(weapon.next());</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">WeaponGenerator</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">"1"</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">"2"</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">"3"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> weapon = WeaponGenerator();</span><br><span class="line"><span class="built_in">console</span>.log(weapon.next());</span><br><span class="line"><span class="built_in">console</span>.log(weapon.next());</span><br><span class="line"><span class="built_in">console</span>.log(weapon.next());</span><br></pre></td></tr></table></figure>
 <h4 id="2-2-生成器的状态"><a href="#2-2-生成器的状态" class="headerlink" title="2.2 生成器的状态"></a>2.2 生成器的状态</h4><p>1、每当代码执行到 yield 属性，就会生成一个中间值，返回一个对象。</p>
 <p>2、每当生成一个值后，生成器就会非阻塞的挂起执行，等待下一次值的请求。</p>
 <p>3、再次调用 next 方法，将生成器从挂起状态唤醒，中断执行的生成器从上次离开的位置继续执行。</p>
@@ -521,7 +521,62 @@
 <p>生成器除了有一个 next 方法，还有一个 throw 方法来抛出异常，当生成器内部发生错误时，我们可以通过抛出异常来抛出错误。抛出的错误就会被 try-catch 捕获。</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">XiaoLuGenerator</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> n = <span class="keyword">yield</span> <span class="string">"4"</span>;</span><br><span class="line">    &#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"抛出错误！"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> weapon = XiaoLuGenerator(<span class="string">"3333"</span>);</span><br><span class="line">weapon.next()</span><br><span class="line">weapon.throw(<span class="string">"错误!"</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="五、生成器的内部结构"><a href="#五、生成器的内部结构" class="headerlink" title="五、生成器的内部结构"></a>五、生成器的内部结构</h3>
+<h3 id="五、生成器的内部结构"><a href="#五、生成器的内部结构" class="headerlink" title="五、生成器的内部结构"></a>五、生成器的内部结构</h3><blockquote>
+<p>生成器更像是一个状态运动的状态机。</p>
+</blockquote>
+<ul>
+<li>挂起开始状态——创建一个生成器处于未执行状态。</li>
+<li>执行状态——生成器的执行状态。</li>
+<li>挂起让渡状态——生成器执行遇到第一个 yield 表达式。</li>
+<li>完成状态——代码执行到 return 全部代码就会进入全部状态。</li>
+</ul>
+<h4 id="1、执行上下文跟踪生成器函数"><a href="#1、执行上下文跟踪生成器函数" class="headerlink" title="1、执行上下文跟踪生成器函数"></a>1、执行上下文跟踪生成器函数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">WeaponGenerator</span>(<span class="params">action</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">"1"</span>+action;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">"2"</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">"3"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> Iterator = WeaponGenerator(<span class="string">"xiaolu"</span>);</span><br><span class="line"><span class="keyword">let</span> result1 = Iterator.next()</span><br><span class="line"><span class="keyword">let</span> result2 = Iterator.next()</span><br><span class="line"><span class="keyword">let</span> result3 = Iterator.next()</span><br></pre></td></tr></table></figure>
+<p>执行过程：</p>
+<p>① 在调用生成器之前的状态——只有全局执行上下文，全局环境中除了生成器变量的引用，其他的变量都为 undefined。</p>
+<p>② 调用生成器并没有执行函数，而是返回一个 Iterator 迭代器对象并指向当前生成器的上下文。</p>
+<p>③ 一般函数调用完成上下文弹出栈，然后被摧毁。当生成器的函数调用完成之后，当前生成器的上下文出栈，但是在全局的迭代器对象还与保持着与生成器执行上下文引用，且生成器的词法环境还存在。</p>
+<p>④ 执行 next 方法，一般的函数会重新创建执行上下文。而生成器会重新激活对应的上下文并推入栈中（这也是为什么标准函数重复调用时，重新从头执行的原因所在。与标准函数相比较，生成器暂时会挂起并将来恢复）。</p>
+<p>⑤ 当遇到 yield 关键字的时候，生成器上下文出栈，但是迭代器还是保持引用，处于非阻塞暂时挂起的状态。</p>
+<p>⑥ 如果遇到 next 指向方法继续在原位置继续 执行，直到遇到 return 语句，并返回值结束生成器的执行，生成器进入结束状态。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">执行上下文栈</th>
+<th style="text-align:center">当前环境</th>
+<th>变量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">全局执行上下文</td>
+<td style="text-align:center">全局环境</td>
+<td>WeaponGenerator:function*(){}<br>Iterator: undefined<br>result1: undefined<br>result2: undefined<br>result3: undefined</td>
+</tr>
+</tbody>
+</table>
+<p>从未执行状态变为执行状态：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">执行上下文栈</th>
+<th style="text-align:center">当前环境</th>
+<th>变量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">全局执行上下文</td>
+<td style="text-align:center">全局环境</td>
+<td>WeaponGenerator:function*(){}<br>Iterator: Iterator<br>result1: undefined<br>result2: undefined<br>result3: undefined</td>
+</tr>
+<tr>
+<td style="text-align:center">WeaponGenerator <br>上下文</td>
+<td style="text-align:center">WeaponGenerator<br>环境</td>
+<td>action: xiaolu</td>
+</tr>
+</tbody>
+</table>
+
       
     </div>
     
@@ -782,7 +837,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、生成器函数"><span class="nav-number">1.</span> <span class="nav-text">一、生成器函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、使用迭代器控制生成器"><span class="nav-number">2.</span> <span class="nav-text">二、使用迭代器控制生成器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-迭代器的使用"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 迭代器的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-生成器的状态"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 生成器的状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-将执行权交给下一个生成器"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 将执行权交给下一个生成器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、生成器的应用"><span class="nav-number">3.</span> <span class="nav-text">三、生成器的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、为对象赋唯一-ID-标识"><span class="nav-number">3.1.</span> <span class="nav-text">1、为对象赋唯一 ID 标识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、遍历-DOM-树"><span class="nav-number">3.2.</span> <span class="nav-text">2、遍历 DOM 树</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、生成器数据交互"><span class="nav-number">4.</span> <span class="nav-text">四、生成器数据交互</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、构造函数的初始化"><span class="nav-number">4.1.</span> <span class="nav-text">1、构造函数的初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、next-方法传递值"><span class="nav-number">4.2.</span> <span class="nav-text">2、next 方法传递值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、抛出异常"><span class="nav-number">4.3.</span> <span class="nav-text">3、抛出异常</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、生成器的内部结构"><span class="nav-number">5.</span> <span class="nav-text">五、生成器的内部结构</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、生成器函数"><span class="nav-number">1.</span> <span class="nav-text">一、生成器函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、使用迭代器控制生成器"><span class="nav-number">2.</span> <span class="nav-text">二、使用迭代器控制生成器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-迭代器的使用"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 迭代器的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-生成器的状态"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 生成器的状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-将执行权交给下一个生成器"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 将执行权交给下一个生成器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、生成器的应用"><span class="nav-number">3.</span> <span class="nav-text">三、生成器的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、为对象赋唯一-ID-标识"><span class="nav-number">3.1.</span> <span class="nav-text">1、为对象赋唯一 ID 标识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、遍历-DOM-树"><span class="nav-number">3.2.</span> <span class="nav-text">2、遍历 DOM 树</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、生成器数据交互"><span class="nav-number">4.</span> <span class="nav-text">四、生成器数据交互</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、构造函数的初始化"><span class="nav-number">4.1.</span> <span class="nav-text">1、构造函数的初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、next-方法传递值"><span class="nav-number">4.2.</span> <span class="nav-text">2、next 方法传递值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、抛出异常"><span class="nav-number">4.3.</span> <span class="nav-text">3、抛出异常</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、生成器的内部结构"><span class="nav-number">5.</span> <span class="nav-text">五、生成器的内部结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、执行上下文跟踪生成器函数"><span class="nav-number">5.1.</span> <span class="nav-text">1、执行上下文跟踪生成器函数</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -837,7 +892,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共210.5k字</span>
+  <span class="post-count">博客全站共211.1k字</span>
 </div>
         
 
