@@ -126,7 +126,7 @@
 <meta property="og:site_name" content="小鹿的博客">
 <meta property="og:description" content="深入闭包以及闭包的应用！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-09T02:30:56.506Z">
+<meta property="og:updated_time" content="2019-06-12T13:05:51.300Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端进阶深入系列之【闭包和作用域】">
 <meta name="twitter:description" content="深入闭包以及闭包的应用！">
@@ -452,7 +452,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,429
+                  1,727
                 </span>
               
 
@@ -468,7 +468,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  6
                 </span>
               
             </div>
@@ -529,7 +529,6 @@
 <h3 id="四、闭包与作用域的关系"><a href="#四、闭包与作用域的关系" class="headerlink" title="四、闭包与作用域的关系"></a>四、闭包与作用域的关系</h3><blockquote>
 <p>闭包和作用域是强相关的，JavaScript 的作用域有一定的规则以及 javaScript 的内部运行机制。</p>
 <p>1）javascript 引擎是如何跟踪函数执行又回到函数的位置？</p>
-<p>2）</p>
 </blockquote>
 <h4 id="1、javaScript-的执行上下文跟踪函数"><a href="#1、javaScript-的执行上下文跟踪函数" class="headerlink" title="1、javaScript 的执行上下文跟踪函数"></a>1、javaScript 的执行上下文跟踪函数</h4><blockquote>
 <p>因为 JavaScript 的运行机制是基于单线程的，某个特定的时刻只能执行特定的代码，所以要通过执行上下文栈来确定函数的执行顺序。</p>
@@ -564,6 +563,16 @@
 </blockquote>
 <h6 id="▉-函数-执行上下文-词法环境的关系"><a href="#▉-函数-执行上下文-词法环境的关系" class="headerlink" title="▉ 函数 - 执行上下文 - 词法环境的关系"></a>▉ 函数 - 执行上下文 - 词法环境的关系</h6><p>1、每个执行上下文都对应一个词法环境（函数的局部作用域）；</p>
 <p>2、每个局部函数中的内部属性 [[Environment]] 与创建的执行上下文相关联（所在当前函数的执行上下文）；</p>
+<h3 id="五、闭包的工作原理"><a href="#五、闭包的工作原理" class="headerlink" title="五、闭包的工作原理"></a>五、闭包的工作原理</h3><h4 id="1、闭包模拟私有变量"><a href="#1、闭包模拟私有变量" class="headerlink" title="1、闭包模拟私有变量"></a>1、闭包模拟私有变量</h4><blockquote>
+<p>闭包模拟 js 的私有变量时，会 new 一个实例对象，实例对象就会通过闭包获取或改变构造函数内的局部变量模拟面向对象。每次调用构造函数，都会创建一个新的词法环境，该词法环境会保持着构造函数内部的局部变量。</p>
+</blockquote>
+<h6 id="▉-内部实现步骤"><a href="#▉-内部实现步骤" class="headerlink" title="▉ 内部实现步骤"></a>▉ 内部实现步骤</h6><blockquote>
+<p>1）new 一个实例对象。</p>
+<p>2）进入构造函数，为<strong>构造函数创建一个新的词法环境</strong>，它始终保持着对局部变量的引用。</p>
+<p>3）然后为空对象添加两个函数，这两个函数 [[Envrionment]] 都保持着对<strong>新创建函数的词法环境</strong>的引用，返回新对象。、</p>
+<p>4）当调用对象的函数时，就会创建新的执行上下文推入执行栈中，这回引起创建的新的词法环境（内部函数）。</p>
+<p>5）js 引擎会检查当前函数的词法环境中有没有想要的变量，如果没有，则会到外部变量（构造函数的词法环境）中去查找，查找到了就返回。</p>
+</blockquote>
 
       
     </div>
@@ -831,7 +840,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、作用域"><span class="nav-number">1.</span> <span class="nav-text">一、作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、理解闭包？"><span class="nav-number">2.</span> <span class="nav-text">二、理解闭包？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、什么是闭包？"><span class="nav-number">2.1.</span> <span class="nav-text">1、什么是闭包？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、如何理解闭包？"><span class="nav-number">2.2.</span> <span class="nav-text">2、如何理解闭包？</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-注意一："><span class="nav-number">2.2.0.1.</span> <span class="nav-text">▉ 注意一：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-注意二："><span class="nav-number">2.2.0.2.</span> <span class="nav-text">▉ 注意二：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、闭包的应用"><span class="nav-number">3.</span> <span class="nav-text">三、闭包的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、应用一：封装私有变量"><span class="nav-number">3.1.</span> <span class="nav-text">1、应用一：封装私有变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、应用二：回调函数"><span class="nav-number">3.2.</span> <span class="nav-text">2、应用二：回调函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、闭包与作用域的关系"><span class="nav-number">4.</span> <span class="nav-text">四、闭包与作用域的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、javaScript-的执行上下文跟踪函数"><span class="nav-number">4.1.</span> <span class="nav-text">1、javaScript 的执行上下文跟踪函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-基本概念"><span class="nav-number">4.1.0.1.</span> <span class="nav-text">▉ 基本概念</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-跟踪过程"><span class="nav-number">4.1.0.2.</span> <span class="nav-text">▉ 跟踪过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、javascript-引擎跟踪词法环境"><span class="nav-number">4.2.</span> <span class="nav-text">2、javascript 引擎跟踪词法环境</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-词法环境的作用"><span class="nav-number">4.2.0.1.</span> <span class="nav-text">▉ 词法环境的作用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-关联性"><span class="nav-number">4.2.0.2.</span> <span class="nav-text">▉ 关联性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-代码嵌套"><span class="nav-number">4.3.</span> <span class="nav-text">2.1 代码嵌套</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-代码嵌套与词法环境的关系"><span class="nav-number">4.4.</span> <span class="nav-text">2.2 代码嵌套与词法环境的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-函数-执行上下文-词法环境的关系"><span class="nav-number">4.4.0.1.</span> <span class="nav-text">▉ 函数 - 执行上下文 - 词法环境的关系</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、作用域"><span class="nav-number">1.</span> <span class="nav-text">一、作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、理解闭包？"><span class="nav-number">2.</span> <span class="nav-text">二、理解闭包？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、什么是闭包？"><span class="nav-number">2.1.</span> <span class="nav-text">1、什么是闭包？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、如何理解闭包？"><span class="nav-number">2.2.</span> <span class="nav-text">2、如何理解闭包？</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-注意一："><span class="nav-number">2.2.0.1.</span> <span class="nav-text">▉ 注意一：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-注意二："><span class="nav-number">2.2.0.2.</span> <span class="nav-text">▉ 注意二：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、闭包的应用"><span class="nav-number">3.</span> <span class="nav-text">三、闭包的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、应用一：封装私有变量"><span class="nav-number">3.1.</span> <span class="nav-text">1、应用一：封装私有变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、应用二：回调函数"><span class="nav-number">3.2.</span> <span class="nav-text">2、应用二：回调函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、闭包与作用域的关系"><span class="nav-number">4.</span> <span class="nav-text">四、闭包与作用域的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、javaScript-的执行上下文跟踪函数"><span class="nav-number">4.1.</span> <span class="nav-text">1、javaScript 的执行上下文跟踪函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-基本概念"><span class="nav-number">4.1.0.1.</span> <span class="nav-text">▉ 基本概念</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-跟踪过程"><span class="nav-number">4.1.0.2.</span> <span class="nav-text">▉ 跟踪过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、javascript-引擎跟踪词法环境"><span class="nav-number">4.2.</span> <span class="nav-text">2、javascript 引擎跟踪词法环境</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-词法环境的作用"><span class="nav-number">4.2.0.1.</span> <span class="nav-text">▉ 词法环境的作用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-关联性"><span class="nav-number">4.2.0.2.</span> <span class="nav-text">▉ 关联性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-代码嵌套"><span class="nav-number">4.3.</span> <span class="nav-text">2.1 代码嵌套</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-代码嵌套与词法环境的关系"><span class="nav-number">4.4.</span> <span class="nav-text">2.2 代码嵌套与词法环境的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-函数-执行上下文-词法环境的关系"><span class="nav-number">4.4.0.1.</span> <span class="nav-text">▉ 函数 - 执行上下文 - 词法环境的关系</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、闭包的工作原理"><span class="nav-number">5.</span> <span class="nav-text">五、闭包的工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、闭包模拟私有变量"><span class="nav-number">5.1.</span> <span class="nav-text">1、闭包模拟私有变量</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-内部实现步骤"><span class="nav-number">5.1.0.1.</span> <span class="nav-text">▉ 内部实现步骤</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -886,7 +895,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共212.1k字</span>
+  <span class="post-count">博客全站共212.4k字</span>
 </div>
         
 
