@@ -126,7 +126,7 @@
 <meta property="og:site_name" content="小鹿的博客">
 <meta property="og:description" content="深入了解 ES6 中的 Promise 的原理 。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-07T12:57:42.030Z">
+<meta property="og:updated_time" content="2019-06-14T10:57:51.225Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="玩转 ES6 之【promise对象】">
 <meta name="twitter:description" content="深入了解 ES6 中的 Promise 的原理 。">
@@ -441,7 +441,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,298
+                  1,612
                 </span>
               
 
@@ -457,7 +457,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  6
                 </span>
               
             </div>
@@ -527,7 +527,18 @@
 <p>2、返回的结果值会打包成一个数组，可以通过数组的下标获取值对返回的结果进行判断。</p>
 <p>3、只有全部请求成功才会进入成功的方法，否则就会调用 catch 抛出异常。</p>
 <p>4、与 Promise.race() 方法不同的是，race 方法只要其中一个返回成功，就会调用成功的方法。</p>
-<h3 id="七、生成器和-Promise-相结合"><a href="#七、生成器和-Promise-相结合" class="headerlink" title="七、生成器和 Promise 相结合"></a>七、生成器和 Promise 相结合</h3>
+<h3 id="七、生成器和-Promise-相结合"><a href="#七、生成器和-Promise-相结合" class="headerlink" title="七、生成器和 Promise 相结合"></a>七、生成器和 Promise 相结合</h3><blockquote>
+<p>生成器和 promise 的结合可以实现更加优雅的异步代码，为了能够解决同步请求导致 UI 阻塞的问题。</p>
+</blockquote>
+<h4 id="1、结合的过程"><a href="#1、结合的过程" class="headerlink" title="1、结合的过程"></a>1、结合的过程</h4><blockquote>
+<p>将一个异步的任务放入到一个生成器中，然后执行生成器函数。每执行到一个异步任务，就创建一个 promise 用于代表异步的执行结果。因为不知道 promise 的承诺什么时候兑现，所以此时的执行权交给生成器，生成器挂起，从而不会导致 UI 阻塞。一旦承诺被兑现，就会立即执行生成器的 next 方法，一直重复执行这个过程。</p>
+</blockquote>
+<h4 id="2、async-函数"><a href="#2、async-函数" class="headerlink" title="2、async 函数"></a>2、async 函数</h4><blockquote>
+<p>生成器和 promise 的结合代码非常的糟糕，所以需要一个函数管理所有 promise 的调用，还要管理向生成器的发出的所有请求。所以 js 在关键字中新增加了两个关键字分别是 async 和 await 。</p>
+</blockquote>
+<p>① async 表明当前的函数依赖一个异步返回的值。</p>
+<p>② 每个异步请求的位置前都要返回一个 await 关键字，告诉浏览器引擎，请在不阻塞应用执行的情况下在这个位置上等待执行结果。</p>
+
       
     </div>
     
@@ -702,7 +713,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">127</span>
+                  <span class="site-state-item-count">128</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -792,7 +803,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、使用-Promise-的原因"><span class="nav-number">1.</span> <span class="nav-text">一、使用 Promise 的原因</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、原因一"><span class="nav-number">1.1.</span> <span class="nav-text">1、原因一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、原因二"><span class="nav-number">1.2.</span> <span class="nav-text">2、原因二</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、简单的-Promise"><span class="nav-number">2.</span> <span class="nav-text">二、简单的 Promise</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、promise-的原理"><span class="nav-number">3.</span> <span class="nav-text">三、promise 的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、promise-的状态"><span class="nav-number">3.1.</span> <span class="nav-text">1、promise 的状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、promise-的拒绝状态"><span class="nav-number">3.2.</span> <span class="nav-text">2、promise 的拒绝状态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、一个-promise-实例"><span class="nav-number">4.</span> <span class="nav-text">四、一个 promise 实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、嵌套处理异步任务"><span class="nav-number">5.</span> <span class="nav-text">五、嵌套处理异步任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、并行处理异步任务"><span class="nav-number">6.</span> <span class="nav-text">六、并行处理异步任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、生成器和-Promise-相结合"><span class="nav-number">7.</span> <span class="nav-text">七、生成器和 Promise 相结合</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、使用-Promise-的原因"><span class="nav-number">1.</span> <span class="nav-text">一、使用 Promise 的原因</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、原因一"><span class="nav-number">1.1.</span> <span class="nav-text">1、原因一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、原因二"><span class="nav-number">1.2.</span> <span class="nav-text">2、原因二</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、简单的-Promise"><span class="nav-number">2.</span> <span class="nav-text">二、简单的 Promise</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、promise-的原理"><span class="nav-number">3.</span> <span class="nav-text">三、promise 的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、promise-的状态"><span class="nav-number">3.1.</span> <span class="nav-text">1、promise 的状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、promise-的拒绝状态"><span class="nav-number">3.2.</span> <span class="nav-text">2、promise 的拒绝状态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、一个-promise-实例"><span class="nav-number">4.</span> <span class="nav-text">四、一个 promise 实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、嵌套处理异步任务"><span class="nav-number">5.</span> <span class="nav-text">五、嵌套处理异步任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、并行处理异步任务"><span class="nav-number">6.</span> <span class="nav-text">六、并行处理异步任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、生成器和-Promise-相结合"><span class="nav-number">7.</span> <span class="nav-text">七、生成器和 Promise 相结合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、结合的过程"><span class="nav-number">7.1.</span> <span class="nav-text">1、结合的过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、async-函数"><span class="nav-number">7.2.</span> <span class="nav-text">2、async 函数</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -847,7 +858,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共212.4k字</span>
+  <span class="post-count">博客全站共213.3k字</span>
 </div>
         
 
