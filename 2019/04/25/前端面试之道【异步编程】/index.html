@@ -126,7 +126,7 @@
 <meta property="og:site_name" content="小鹿的博客">
 <meta property="og:description" content="js 异步常考面试题！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-27T12:55:53.459Z">
+<meta property="og:updated_time" content="2019-06-16T01:17:14.899Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试之【异步编程】">
 <meta name="twitter:description" content="js 异步常考面试题！">
@@ -441,7 +441,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  790
+                  1,856
                 </span>
               
 
@@ -457,7 +457,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  7
                 </span>
               
             </div>
@@ -510,34 +510,92 @@
 <p>4）回调函数不能直接 <code>return</code> 。</p>
 </blockquote>
 <p><strong>※ 答✔：如何解决回调地狱问题？</strong></p>
-<h2 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h2><blockquote>
-<p>面试三：你理解的 Generator 是什么？</p>
+<h2 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h2><p><a href="[http://luxiangqiang.xn--6qq986b3xl/2019/06/09/%E7%8E%A9%E8%BD%AC%20ES6%20%E4%B9%8B%E3%80%90Generator%E7%94%9F%E6%88%90%E5%99%A8%E3%80%91/](http://luxiangqiang.xn--6qq986b3xl/2019/06/09/玩转 ES6 之[Generator生成器]/">点击进入生成器文章</a>)</p>
+<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p><a href="[http://luxiangqiang.xn--6qq986b3xl/2019/03/21/%E7%8E%A9%E8%BD%AC%20ES6%20%E4%B9%8B%E3%80%90promise%E5%AF%B9%E8%B1%A1%E3%80%91/](http://luxiangqiang.xn--6qq986b3xl/2019/03/21/玩转 ES6 之[promise对象]/">点击进入 Promise 文章</a>)</p>
+<h5 id="※-答✔：promise-是什么？promise-的特点是什么？"><a href="#※-答✔：promise-是什么？promise-的特点是什么？" class="headerlink" title="※ 答✔：promise 是什么？promise 的特点是什么？"></a>※ 答✔：promise 是什么？promise 的特点是什么？</h5><blockquote>
+<p>promise 是承诺的意思，在未来会有一个确切的回复，并且该有三种状态：承诺一旦从等待状态变为其他状态就会不更改状态。</p>
 </blockquote>
+<ol>
+<li>等待中（pending）</li>
+<li>完成了 （resolved）</li>
+<li>拒绝了（rejected）</li>
+</ol>
+<h5 id="※-答✔：解决了什么问题？"><a href="#※-答✔：解决了什么问题？" class="headerlink" title="※ 答✔：解决了什么问题？"></a>※ 答✔：解决了什么问题？</h5><blockquote>
+<p>promise 解决了函数回调地狱的问题。</p>
+</blockquote>
+<h5 id="※-答✔：如何使用-promise"><a href="#※-答✔：如何使用-promise" class="headerlink" title="※ 答✔：如何使用 promise ?"></a>※ 答✔：如何使用 promise ?</h5><blockquote>
+<p>通过构造函数创建一个 promise 对象并立即执行，在未来会有一个确切的回复，一旦承诺从等待状态转换为 resolve 或 reject 就不会再更改，通过 then 执行回调函数处理对应的任务。</p>
+</blockquote>
+<p>Promise 的两种使用方法：</p>
+<ul>
+<li>Promise.all() ：将多个请求任务封装数组进行同步请求。</li>
+<li>Promise.race()：race 方法只要其中一个返回成功，就会调用成功的方法。 </li>
+</ul>
+<h5 id="※-答✔：什么是-Promise-链？"><a href="#※-答✔：什么是-Promise-链？" class="headerlink" title="※ 答✔：什么是 Promise 链？"></a>※ 答✔：什么是 Promise 链？</h5><blockquote>
+<p>promise 可以实现链式调用，每次 then 之后返回的都是一个 promise 对象，可以紧接着使用 then 继续处理接下来的任务，这样就实现了链式调用。如果在 then 中使用了 return，那么 return 的值也会被 Promise.resove() 包装。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve(<span class="number">1</span>)</span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res) <span class="comment">// =&gt; 1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> <span class="comment">// 包装成 Promise.resolve(2)</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res) <span class="comment">// =&gt; 2</span></span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="※-答✔：Promise-构造函数执行和-then-函数执行有什么区别？"><a href="#※-答✔：Promise-构造函数执行和-then-函数执行有什么区别？" class="headerlink" title="※ 答✔：Promise 构造函数执行和 then 函数执行有什么区别？"></a>※ 答✔：Promise 构造函数执行和 then 函数执行有什么区别？</h5><blockquote>
+<p>构造函数内部的代码是立即执行的，而 then 是回调之后执行的。</p>
+</blockquote>
+<h5 id="※-答✔：promise-的优缺点是什么？"><a href="#※-答✔：promise-的优缺点是什么？" class="headerlink" title="※ 答✔：promise 的优缺点是什么？"></a>※ 答✔：promise 的优缺点是什么？</h5><blockquote>
+<p>优点：</p>
+<p>1、链式调用。</p>
+<p>2、解决回调地狱的问题。</p>
+<p>3、代码实现简洁优雅。</p>
+<p>缺点：</p>
+<p>1、无法取消promise。</p>
+<p>2、promise 错误需要通过回调函数捕获。</p>
+</blockquote>
+<h5 id="※-答✔：Promise-在事件循环中的执行过程是怎样的？"><a href="#※-答✔：Promise-在事件循环中的执行过程是怎样的？" class="headerlink" title="※ 答✔：Promise 在事件循环中的执行过程是怎样的？"></a>※ 答✔：Promise 在事件循环中的执行过程是怎样的？</h5><h5 id="※-答✔：能不能手写一个-Promise"><a href="#※-答✔：能不能手写一个-Promise" class="headerlink" title="※ 答✔：能不能手写一个 Promise ?"></a>※ 答✔：能不能手写一个 Promise ?</h5><blockquote>
+<p>promise 的执行顺序：</p>
+<p>1、先执行 MyPromise 构造函数；</p>
+<p>2、注册 then 函数；</p>
+<p>3、此时的 promise 挂起，UI 非堵塞，执行其他的同步代码；</p>
+<p>4、执行回调函数。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 三种状态</span></span><br><span class="line"><span class="keyword">const</span> PENDING = <span class="string">"pending"</span>;</span><br><span class="line"><span class="keyword">const</span> RESOLVE = <span class="string">"resolve"</span>;</span><br><span class="line"><span class="keyword">const</span> REJECT = <span class="string">"reject"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// promise 函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyPromise</span>(<span class="params">fn</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> that = <span class="keyword">this</span>;           <span class="comment">// 回调时用于保存正确的 this 对象</span></span><br><span class="line">    that.state = PENDING;        <span class="comment">// 初始化状态</span></span><br><span class="line">    that.value = <span class="literal">null</span>;           <span class="comment">// value 用于保存回调函数(resolve/reject 传递的参数值)</span></span><br><span class="line">    that.resolvedCallbacks = []; <span class="comment">// 用于保存 then 中的回调</span></span><br><span class="line">    that.rejectedCallbacks = [];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// resolve 和 reject 函数 </span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">resolve</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(that.state === PENDING)&#123;</span><br><span class="line">            that.state = <span class="string">'resolve'</span>;</span><br><span class="line">            that.value = value;</span><br><span class="line">            that.resolvedCallbacks.map(<span class="function"><span class="params">cb</span> =&gt;</span> cb(that.value));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">reject</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (that.state === PENDING) &#123;</span><br><span class="line">            that.state = <span class="string">'reject'</span></span><br><span class="line">            that.value = value</span><br><span class="line">            that.rejectedCallbacks.map(<span class="function"><span class="params">cb</span> =&gt;</span> cb(that.value))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 实现如何执行 Promise 中传入的函数</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        fn(resolve, reject)</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        reject(e)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现 then 函数</span></span><br><span class="line">MyPromise.prototype.then = <span class="function"><span class="keyword">function</span>(<span class="params">onResolved, onRejected</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> that = <span class="keyword">this</span>;</span><br><span class="line">    <span class="comment">// 判断两个参数是否为函数类型(如果不是函数，就创建一个函数赋值给对应的参数)</span></span><br><span class="line">    onResolved = <span class="keyword">typeof</span> onResolved === <span class="string">'function'</span> ? onResolved : <span class="function"><span class="params">v</span> =&gt;</span> v;</span><br><span class="line">    onRejected = <span class="keyword">typeof</span> onRejected === <span class="string">'function'</span> ? onRejected : <span class="function"><span class="params">r</span> =&gt;</span> &#123;<span class="keyword">throw</span> r&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 判断当前的状态</span></span><br><span class="line">    <span class="keyword">if</span> (that.state === <span class="string">'pending'</span>) &#123;</span><br><span class="line">        that.resolvedCallbacks.push(onResolved)</span><br><span class="line">        that.rejectedCallbacks.push(onRejected)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (that.state === <span class="string">'resolve'</span>) &#123;</span><br><span class="line">        onResolved(that.value)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (that.state === <span class="string">'reject'</span>) &#123;</span><br><span class="line">        onRejected(that.value)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> MyPromise(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        resolve(<span class="number">1</span>)</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="async-及-await"><a href="#async-及-await" class="headerlink" title="async 及 await"></a>async 及 await</h2><blockquote>
+<p>面试题：async 及 await 的特点，它们的优点和缺点分别是什么？await 原理是什么？</p>
+</blockquote>
+<h5 id="※-答✔：async-的特点？"><a href="#※-答✔：async-的特点？" class="headerlink" title="※ 答✔：async 的特点？"></a>※ 答✔：async 的特点？</h5><blockquote>
+<p>一个函数前加上 async 关键字，就将该函数返回一个 Promise，async  直接将返回值使用 Promise.resolve() 进行包裹（与 then 处理效果相同）。</p>
+</blockquote>
+<h5 id="※-答✔：await-的特点？"><a href="#※-答✔：await-的特点？" class="headerlink" title="※ 答✔：await 的特点？"></a>※ 答✔：await 的特点？</h5><blockquote>
+<p><code>await</code> 只能配套 <code>async</code> 使用，<code>await</code> 内部实现了 <code>generator</code>，<code>await</code> 就是 <code>generator</code> 加上 <code>Promise</code> 的语法糖，且内部实现了自动执行 <code>generator</code>。</p>
+</blockquote>
+<h5 id="※-答✔：async-和-await-的优缺点？"><a href="#※-答✔：async-和-await-的优缺点？" class="headerlink" title="※ 答✔：async  和 await 的优缺点？"></a>※ 答✔：async  和 await 的优缺点？</h5><p><strong>优点：</strong></p>
 <blockquote>
-<p>1）一般 <code>generator</code> 配合 co 库（用于 <code>generator</code> 函数的自动执行 ）去使用。</p>
-<p><code>Generator</code> 最大的特点就是可以控制函数的执行，下面是最容易困惑的点也是难点。</p>
+<p>异步的终极解决方案，相比于直接使用 Promise 说，优势在处理 <code>then</code>的调用链，能够更清晰准确的写出代码，毕竟写一大堆的 then 是非常不优雅的，并且也能优雅地解决回调地狱问题。、</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">foo</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> y = <span class="number">2</span> * (<span class="keyword">yield</span> (x + <span class="number">1</span>));</span><br><span class="line">    <span class="keyword">let</span> z = <span class="keyword">yield</span> (y + <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> y + z;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> f = foo(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(f.next()); =&gt; &#123;<span class="attr">value</span>: <span class="number">2</span>, <span class="attr">done</span>: <span class="literal">false</span>&#125;</span><br><span class="line"><span class="built_in">console</span>.log(f.next(<span class="number">4</span>));=&gt; &#123;<span class="attr">value</span>: <span class="number">10</span>, <span class="attr">done</span>: <span class="literal">false</span>&#125;</span><br><span class="line"><span class="built_in">console</span>.log(f.next(<span class="number">1</span>));=&gt; &#123;<span class="attr">value</span>: <span class="number">9</span>, <span class="attr">done</span>: <span class="literal">false</span>&#125;</span><br></pre></td></tr></table></figure>
-<p>执行过程分析：</p>
-<p>1）<code>generator</code> 函数的调用会返回一个迭代器。</p>
-<p>2）执行第一次 <code>next</code> ，传入的 <code>next</code> 参数会被忽略，执行会停止在第一个 <code>yield</code> 处，返回其值。</p>
-<p>3）执行第二次 <code>next</code> ，传入的参数代表第一个 <code>yield</code> 的返回值，<code>let y = 2 * 4</code> ，所以返回 <code>y + 2 = 8 + 2 = 10</code>  。如果不传入参数，就返回 <code>undefined</code>，打印的值为 <code>NAN</code> 。</p>
-<p>4）执行第三个 <code>next</code>，传入的参数会代表第二个 <code>yield</code> 的返回值，<code>y + z = 8 + 1 = 9</code> 。</p>
+<p><strong>缺点：</strong></p>
 <blockquote>
-<p>我们可以通过 <code>generator</code> 解决回调地狱问题。</p>
+<p>因为 <code>await</code> 将异步代码改造成了同步代码，如果多个异步代码没有依赖性却使用了 <code>await</code> 会导致性能上的降低。</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> *<span class="title">fetch</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">yield</span> ajax(url, () =&gt; &#123;&#125;)</span><br><span class="line">    <span class="keyword">yield</span> ajax(url1, () =&gt; &#123;&#125;)</span><br><span class="line">    <span class="keyword">yield</span> ajax(url2, () =&gt; &#123;&#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> it = fetch()</span><br><span class="line"><span class="keyword">let</span> result1 = it.next()</span><br><span class="line"><span class="keyword">let</span> result2 = it.next()</span><br><span class="line"><span class="keyword">let</span> result3 = it.next()</span><br></pre></td></tr></table></figure>
-<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><blockquote>
-<p>面试四：Promise 的特点是什么？分别有什么优缺点？什么是 Promise 链？Promise 构造函数执行和 then 函数执行有什么区别？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 以下代码没有依赖性的话，完全可以使用 Promise.all 的方式</span></span><br><span class="line">  <span class="comment">// 如果有依赖性的话，其实就是解决回调地狱的例子了</span></span><br><span class="line">  <span class="keyword">await</span> fetch(url)</span><br><span class="line">  <span class="keyword">await</span> fetch(url1)</span><br><span class="line">  <span class="keyword">await</span> fetch(url2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="常用定时器函数"><a href="#常用定时器函数" class="headerlink" title="常用定时器函数"></a>常用定时器函数</h2><blockquote>
+<p>面试题：setTimeout、setInterval、requestAnimationFrame 各有什么特点？</p>
 </blockquote>
-<p>1、了解 Promise 吗？</p>
-<p>2、Promise 解决的痛点是什么？</p>
-<p>3、Promise 解决的痛点还有其他方法可以解决吗？如果有，请列举。</p>
-<p>4、Promise 如何使用？</p>
-<p>5、Promise 常用的方法有哪些？它们的作用是什么？</p>
-<p>6、Promise 在事件循环中的执行过程是怎样的？</p>
-<p>7、Promise 的业界实现都有哪些？</p>
-<p>8、能不能手写一个 Promise 的 polyfill。</p>
+<h5 id="※-答✔：setTimeout-的特点？"><a href="#※-答✔：setTimeout-的特点？" class="headerlink" title="※ 答✔：setTimeout 的特点？"></a>※ 答✔：setTimeout 的特点？</h5><blockquote>
+<p>setTimeout 并不是设置了多久执行就是多久执行，因为 js 是单线程的，如果前边的任务执行的时间长，就会导致<code>setTimeout</code> 不会按期执行。</p>
+</blockquote>
+<h5 id="※-答✔：setInterval的特点？"><a href="#※-答✔：setInterval的特点？" class="headerlink" title="※ 答✔：setInterval的特点？"></a>※ 答✔：setInterval的特点？</h5><blockquote>
+<p>setInterval 该函数是每隔一段时间执行一次回调函数。通常来说不建议使用 <code>setInterval</code>，因为</p>
+</blockquote>
+<ul>
+<li><p>第一，不能保证在预期的时间执行任务。</p>
+</li>
+<li><p>第二，它存在执行累积的问题：如果定时器执行过程中出现了耗时操作，多个回调函数会在耗时操作结束以后同时执行，这样可能就会带来性能上的问题。</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>补充：</strong>如果有循环定时器的需求，其实完全可以通过 <code>requestAnimationFrame</code> 来实现。</p>
+</blockquote>
+<h5 id="※-答✔：requestAnimationFrame-的特点？"><a href="#※-答✔：requestAnimationFrame-的特点？" class="headerlink" title="※ 答✔：requestAnimationFrame  的特点？"></a>※ 答✔：requestAnimationFrame  的特点？</h5><p><a href="https://javascript.ruanyifeng.com/htmlapi/requestanimationframe.html" target="_blank" rel="noopener">点击查看详细教程</a></p>
+<blockquote>
+<p>1、ruestAnimationFrame 是浏览器用于定时循环操作的一个接口，主要用途是按帧对网页进行重绘。设置这个API的目的是为了让各种网页动画效果能够有一个统一IDE刷新机制，节省资源，提高系统的性能。</p>
+<p>2、<code>requestAnimationFrame</code> 自带函数节流功能，基本可以保证在 16.6 毫秒内只执行一次（不掉帧的情况下），并且该函数的延时效果是精确的，没有其他定时器时间不准的问题。</p>
+</blockquote>
 
       
     </div>
@@ -803,7 +861,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#并发和并行"><span class="nav-number">1.</span> <span class="nav-text">并发和并行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回调函数"><span class="nav-number">2.</span> <span class="nav-text">回调函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator"><span class="nav-number">3.</span> <span class="nav-text">Generator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise"><span class="nav-number">4.</span> <span class="nav-text">Promise</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#并发和并行"><span class="nav-number">1.</span> <span class="nav-text">并发和并行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回调函数"><span class="nav-number">2.</span> <span class="nav-text">回调函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator"><span class="nav-number">3.</span> <span class="nav-text">Generator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise"><span class="nav-number">4.</span> <span class="nav-text">Promise</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：promise-是什么？promise-的特点是什么？"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">※ 答✔：promise 是什么？promise 的特点是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：解决了什么问题？"><span class="nav-number">4.0.0.2.</span> <span class="nav-text">※ 答✔：解决了什么问题？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：如何使用-promise"><span class="nav-number">4.0.0.3.</span> <span class="nav-text">※ 答✔：如何使用 promise ?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：什么是-Promise-链？"><span class="nav-number">4.0.0.4.</span> <span class="nav-text">※ 答✔：什么是 Promise 链？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：Promise-构造函数执行和-then-函数执行有什么区别？"><span class="nav-number">4.0.0.5.</span> <span class="nav-text">※ 答✔：Promise 构造函数执行和 then 函数执行有什么区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：promise-的优缺点是什么？"><span class="nav-number">4.0.0.6.</span> <span class="nav-text">※ 答✔：promise 的优缺点是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：Promise-在事件循环中的执行过程是怎样的？"><span class="nav-number">4.0.0.7.</span> <span class="nav-text">※ 答✔：Promise 在事件循环中的执行过程是怎样的？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：能不能手写一个-Promise"><span class="nav-number">4.0.0.8.</span> <span class="nav-text">※ 答✔：能不能手写一个 Promise ?</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#async-及-await"><span class="nav-number">5.</span> <span class="nav-text">async 及 await</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：async-的特点？"><span class="nav-number">5.0.0.1.</span> <span class="nav-text">※ 答✔：async 的特点？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：await-的特点？"><span class="nav-number">5.0.0.2.</span> <span class="nav-text">※ 答✔：await 的特点？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：async-和-await-的优缺点？"><span class="nav-number">5.0.0.3.</span> <span class="nav-text">※ 答✔：async  和 await 的优缺点？</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用定时器函数"><span class="nav-number">6.</span> <span class="nav-text">常用定时器函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：setTimeout-的特点？"><span class="nav-number">6.0.0.1.</span> <span class="nav-text">※ 答✔：setTimeout 的特点？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：setInterval的特点？"><span class="nav-number">6.0.0.2.</span> <span class="nav-text">※ 答✔：setInterval的特点？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：requestAnimationFrame-的特点？"><span class="nav-number">6.0.0.3.</span> <span class="nav-text">※ 答✔：requestAnimationFrame  的特点？</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -858,7 +916,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共213.3k字</span>
+  <span class="post-count">博客全站共214.6k字</span>
 </div>
         
 

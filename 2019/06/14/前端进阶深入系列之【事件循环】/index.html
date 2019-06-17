@@ -126,7 +126,7 @@
 <meta property="og:site_name" content="小鹿的博客">
 <meta property="og:description" content="深入 JS 内部的事件循环机制！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-14T11:56:40.577Z">
+<meta property="og:updated_time" content="2019-06-16T13:05:19.050Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端进阶深入系列之【事件循环】">
 <meta name="twitter:description" content="深入 JS 内部的事件循环机制！">
@@ -452,7 +452,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  530
+                  1,299
                 </span>
               
 
@@ -468,7 +468,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  5
                 </span>
               
             </div>
@@ -494,7 +494,10 @@
 <h3 id="一、为什么会有-EventLoop"><a href="#一、为什么会有-EventLoop" class="headerlink" title="一、为什么会有 EventLoop ?"></a>一、为什么会有 EventLoop ?</h3><blockquote>
 <p>由于 JS 的代码是单线程执行的，所以为了保证 js 代码的执行顺序，以及异步代码的执行顺序，内部引入了事件循环机制。</p>
 </blockquote>
-<h3 id="二、深入事件循环"><a href="#二、深入事件循环" class="headerlink" title="二、深入事件循环"></a>二、深入事件循环</h3><h4 id="1、微观任务和宏观任务"><a href="#1、微观任务和宏观任务" class="headerlink" title="1、微观任务和宏观任务"></a>1、微观任务和宏观任务</h4><blockquote>
+<h3 id="二、深入事件循环"><a href="#二、深入事件循环" class="headerlink" title="二、深入事件循环"></a>二、深入事件循环</h3><blockquote>
+<p>事件循环的执行过程。</p>
+</blockquote>
+<h4 id="1、微观任务和宏观任务"><a href="#1、微观任务和宏观任务" class="headerlink" title="1、微观任务和宏观任务"></a>1、微观任务和宏观任务</h4><blockquote>
 <p><strong>宏观任务：</strong>从浏览器的角度看，宏观任务就是代表一个离散的、独立工作单元。如：各种事件、执行主线程、setTimeout、解析 HTML 等。</p>
 <p><strong>微观任务：</strong>所谓的微观任务就是更小的任务，主要是为了更新应用程序的状态，必须保证它在页面重新渲染 UI 之前执行。如:promise。</p>
 </blockquote>
@@ -514,6 +517,54 @@
 <li>每个微任务都会在下一次渲染 UI 之前执行完成，为了保证渲染前更新应用程序状态。</li>
 <li>浏览器每秒渲染 60 次页面，达到每秒 60 帧的速度，比如动画，所以说必须在 16 ms内执行完单个任务和附带的微观任务，否则会影响平滑流畅度，甚至页面会产生无响应。</li>
 </ul>
+<h4 id="5、事件循环的执行顺序"><a href="#5、事件循环的执行顺序" class="headerlink" title="5、事件循环的执行顺序"></a>5、事件循环的执行顺序</h4><ul>
+<li><p>实例一：仅含宏任务的执行过程</p>
+</li>
+<li><p>实例二：同时含有宏任务和微任务的执行过程</p>
+</li>
+</ul>
+<h3 id="三、两种计时器"><a href="#三、两种计时器" class="headerlink" title="三、两种计时器"></a>三、两种计时器</h3><blockquote>
+<p>延迟计时器可以可以延迟一段代码的执行，可以将长时间运行的任务分解为不阻塞事件循环的小任务，以阻止浏览器渲染，浏览器的过程会使得程序运行缓慢、没有反应。</p>
+</blockquote>
+<ul>
+<li>延迟计时器（setTimeout)</li>
+<li>间隔计时器（setInterval）</li>
+</ul>
+<h4 id="1、延迟计时器（setTimeout）"><a href="#1、延迟计时器（setTimeout）" class="headerlink" title="1、延迟计时器（setTimeout）"></a>1、延迟计时器（setTimeout）</h4><blockquote>
+<p>延迟计时器会在设定的时间内延迟执行回调函数。</p>
+</blockquote>
+<p><strong>注意：</strong></p>
+<p>① 由于 javascript 是单线程执行的，只能控制计时器何时被加入队列，而无法控制计时器何时执行。</p>
+<p>② 使用 0ms 作为超时时间并不代表将在 0 ms 执行回调，这意味着使用 0ms 尽快执行回调，在回调之前可以进行 UI 渲染的。</p>
+<h4 id="2、间隔计时器（setInterval）"><a href="#2、间隔计时器（setInterval）" class="headerlink" title="2、间隔计时器（setInterval）"></a>2、间隔计时器（setInterval）</h4><blockquote>
+<p>每一间隔就会执行一次回调。</p>
+</blockquote>
+<h3 id="四、处理复杂任务"><a href="#四、处理复杂任务" class="headerlink" title="四、处理复杂任务"></a>四、处理复杂任务</h3><blockquote>
+<p>在开发中，js 单线程的特性是最大的问题，因为当 js 忙于执行时，浏览器和用户的交互会变的很迟钝，甚至无响应，这是由于 js 执行任务时，重新更新 UI 渲染就会暂停，导致浏览器出现卡顿现象。可以通过 setTimeout 将大任务分割成小块任务循环渲染 UI 转化为非阻塞的操作。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rowCount = <span class="number">2000</span>; <span class="comment">// 行</span></span><br><span class="line"><span class="keyword">const</span> divdeInto = <span class="number">4</span>;   <span class="comment">// 分 4 个阶段渲染</span></span><br><span class="line"><span class="keyword">const</span> chunkSize = rowCount / divdeInto; <span class="comment">// 每个阶段渲染 500 行</span></span><br><span class="line"><span class="keyword">let</span> iteration = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> table = <span class="built_in">document</span>.querySelectorAll(<span class="string">'tbody'</span>)[<span class="number">0</span>];</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">generateRows</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 计算上次渲染的位置</span></span><br><span class="line">    <span class="keyword">const</span> base = chunkSize * iteration;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; chunkSize; i++)&#123;</span><br><span class="line">        <span class="keyword">const</span> tr = <span class="built_in">document</span>.createElement(<span class="string">"tr"</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> t = <span class="number">0</span>; t &lt; <span class="number">6</span>;t++)&#123;</span><br><span class="line">            <span class="keyword">const</span> td = <span class="built_in">document</span>.createElement(<span class="string">"td"</span>);</span><br><span class="line">            td.appendChild(<span class="built_in">document</span>.createTextNode((i + base) + <span class="string">","</span> + t + <span class="string">","</span> + iteration));</span><br><span class="line">            tr.appendChild(td);</span><br><span class="line">        &#125;</span><br><span class="line">        table.appendChild(tr)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    iteration ++;</span><br><span class="line">    <span class="keyword">if</span>(iteration &lt; divdeInto)&#123;</span><br><span class="line">        setTimeout(generateRows,<span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="五、处理事件"><a href="#五、处理事件" class="headerlink" title="五、处理事件"></a>五、处理事件</h3><p><a href="[http://luxiangqiang.xn--6qq986b3xl/2019/04/28/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E4%B9%8B%E9%81%93%E3%80%90%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E3%80%91/](http://luxiangqiang.xn--6qq986b3xl/2019/04/28/前端面试之道[事件绑定]/">点击查看事件绑定文章</a>)</p>
+<blockquote>
+<p>事件的注册是通过 addEventListener 方法注册单击事件的。</p>
+</blockquote>
+<h4 id="1、注册事件"><a href="#1、注册事件" class="headerlink" title="1、注册事件"></a>1、注册事件</h4><blockquote>
+<p>事件的的注册内部的 this 是指向注册元素的，事件中的 target 属性指的是发生事件的元素。</p>
+</blockquote>
+<h4 id="2、事件代理"><a href="#2、事件代理" class="headerlink" title="2、事件代理"></a>2、事件代理</h4><blockquote>
+<p>事件的处理顺序是根据不同的事件模型来确定的，事件模型分为两种：</p>
+</blockquote>
+<ul>
+<li><strong>事件捕获</strong>（从顶部开始到发生事件的目标元素）</li>
+<li><strong>事件冒泡</strong>（从发生的目标元素到文档对象的顶部）—— 默认事件</li>
+</ul>
+<h5 id="▉-注意："><a href="#▉-注意：" class="headerlink" title="▉ 注意："></a>▉ 注意：</h5><blockquote>
+<p>1、事件注册的元素不一定事件的发生元素。</p>
+<p>2、通过 dom 树的事件代理可以减少编写消耗内存的代码。</p>
+</blockquote>
+<h3 id="六、自定义事件"><a href="#六、自定义事件" class="headerlink" title="六、自定义事件"></a>六、自定义事件</h3><blockquote>
+<p>我们可以通过自定义事件模拟真实的事件。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// target: 事件目标对象</span></span><br><span class="line"><span class="comment">// eventType: 事件类型（自定义）</span></span><br><span class="line"><span class="comment">// eventDetail: 事件信息</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">triggerEvent</span>(<span class="params">target, eventType, eventDetail</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> event = <span class="keyword">new</span> CustomEvent(eventType,&#123;</span><br><span class="line">        detail:eventDetail</span><br><span class="line">    &#125;);</span><br><span class="line">    target.dispathEvent(event)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -777,7 +828,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、为什么会有-EventLoop"><span class="nav-number">1.</span> <span class="nav-text">一、为什么会有 EventLoop ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、深入事件循环"><span class="nav-number">2.</span> <span class="nav-text">二、深入事件循环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、微观任务和宏观任务"><span class="nav-number">2.1.</span> <span class="nav-text">1、微观任务和宏观任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、事件循环队列"><span class="nav-number">2.2.</span> <span class="nav-text">2、事件循环队列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、事件循环的两个原则"><span class="nav-number">2.3.</span> <span class="nav-text">3、事件循环的两个原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、事件循环原理"><span class="nav-number">2.4.</span> <span class="nav-text">4、事件循环原理</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、为什么会有-EventLoop"><span class="nav-number">1.</span> <span class="nav-text">一、为什么会有 EventLoop ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、深入事件循环"><span class="nav-number">2.</span> <span class="nav-text">二、深入事件循环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、微观任务和宏观任务"><span class="nav-number">2.1.</span> <span class="nav-text">1、微观任务和宏观任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、事件循环队列"><span class="nav-number">2.2.</span> <span class="nav-text">2、事件循环队列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、事件循环的两个原则"><span class="nav-number">2.3.</span> <span class="nav-text">3、事件循环的两个原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、事件循环原理"><span class="nav-number">2.4.</span> <span class="nav-text">4、事件循环原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、事件循环的执行顺序"><span class="nav-number">2.5.</span> <span class="nav-text">5、事件循环的执行顺序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、两种计时器"><span class="nav-number">3.</span> <span class="nav-text">三、两种计时器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、延迟计时器（setTimeout）"><span class="nav-number">3.1.</span> <span class="nav-text">1、延迟计时器（setTimeout）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、间隔计时器（setInterval）"><span class="nav-number">3.2.</span> <span class="nav-text">2、间隔计时器（setInterval）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、处理复杂任务"><span class="nav-number">4.</span> <span class="nav-text">四、处理复杂任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、处理事件"><span class="nav-number">5.</span> <span class="nav-text">五、处理事件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、注册事件"><span class="nav-number">5.1.</span> <span class="nav-text">1、注册事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、事件代理"><span class="nav-number">5.2.</span> <span class="nav-text">2、事件代理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#▉-注意："><span class="nav-number">5.2.1.</span> <span class="nav-text">▉ 注意：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、自定义事件"><span class="nav-number">6.</span> <span class="nav-text">六、自定义事件</span></a></li></ol></div>
             
 
           </div>
@@ -832,7 +883,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共213.3k字</span>
+  <span class="post-count">博客全站共214.6k字</span>
 </div>
         
 
