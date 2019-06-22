@@ -126,7 +126,7 @@
 <meta property="og:site_name" content="小鹿的博客">
 <meta property="og:description" content="深入 JS 内部的事件循环机制！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-16T13:05:19.050Z">
+<meta property="og:updated_time" content="2019-06-21T23:39:34.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端进阶深入系列之【事件循环】">
 <meta name="twitter:description" content="深入 JS 内部的事件循环机制！">
@@ -452,7 +452,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,299
+                  1,559
                 </span>
               
 
@@ -468,7 +468,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  6
                 </span>
               
             </div>
@@ -539,6 +539,17 @@
 <h4 id="2、间隔计时器（setInterval）"><a href="#2、间隔计时器（setInterval）" class="headerlink" title="2、间隔计时器（setInterval）"></a>2、间隔计时器（setInterval）</h4><blockquote>
 <p>每一间隔就会执行一次回调。</p>
 </blockquote>
+<h4 id="3、H5-新增定时器"><a href="#3、H5-新增定时器" class="headerlink" title="3、H5 新增定时器"></a>3、H5 新增定时器</h4><blockquote>
+<p>传统的动画是由 setTimeout 或者 setInterval 完成的，但是存在两个问题：</p>
+</blockquote>
+<ul>
+<li>动画的循环时间间隔不好确定，设置过长动画不够平滑，过短不够浏览器重绘达到瓶颈。</li>
+<li>定时器设置的时间只是加入队列的时间，而不是立即执行的时间。</li>
+</ul>
+<p>所以 H5 新增加了 requestAnimationFrame 。</p>
+<h6 id="▉-优点"><a href="#▉-优点" class="headerlink" title="▉ 优点"></a>▉ 优点</h6><p>1、 requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率</p>
+<p>2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的 CPU、GPU 和内存使用量</p>
+<p>3、requestAnimationFrame 是由浏览器专门为动画提供的 API，在运行时浏览器会自动优化方法的调用，并且如果页面不是激活状态下的话，动画会自动暂停，有效节省了 CPU 开销</p>
 <h3 id="四、处理复杂任务"><a href="#四、处理复杂任务" class="headerlink" title="四、处理复杂任务"></a>四、处理复杂任务</h3><blockquote>
 <p>在开发中，js 单线程的特性是最大的问题，因为当 js 忙于执行时，浏览器和用户的交互会变的很迟钝，甚至无响应，这是由于 js 执行任务时，重新更新 UI 渲染就会暂停，导致浏览器出现卡顿现象。可以通过 setTimeout 将大任务分割成小块任务循环渲染 UI 转化为非阻塞的操作。</p>
 </blockquote>
@@ -742,7 +753,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -832,7 +843,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、为什么会有-EventLoop"><span class="nav-number">1.</span> <span class="nav-text">一、为什么会有 EventLoop ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、深入事件循环"><span class="nav-number">2.</span> <span class="nav-text">二、深入事件循环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、微观任务和宏观任务"><span class="nav-number">2.1.</span> <span class="nav-text">1、微观任务和宏观任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、事件循环队列"><span class="nav-number">2.2.</span> <span class="nav-text">2、事件循环队列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、事件循环的两个原则"><span class="nav-number">2.3.</span> <span class="nav-text">3、事件循环的两个原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、事件循环原理"><span class="nav-number">2.4.</span> <span class="nav-text">4、事件循环原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、事件循环的执行顺序"><span class="nav-number">2.5.</span> <span class="nav-text">5、事件循环的执行顺序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、两种计时器"><span class="nav-number">3.</span> <span class="nav-text">三、两种计时器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、延迟计时器（setTimeout）"><span class="nav-number">3.1.</span> <span class="nav-text">1、延迟计时器（setTimeout）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、间隔计时器（setInterval）"><span class="nav-number">3.2.</span> <span class="nav-text">2、间隔计时器（setInterval）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、处理复杂任务"><span class="nav-number">4.</span> <span class="nav-text">四、处理复杂任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、处理事件"><span class="nav-number">5.</span> <span class="nav-text">五、处理事件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、注册事件"><span class="nav-number">5.1.</span> <span class="nav-text">1、注册事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、事件代理"><span class="nav-number">5.2.</span> <span class="nav-text">2、事件代理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#▉-注意："><span class="nav-number">5.2.1.</span> <span class="nav-text">▉ 注意：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、自定义事件"><span class="nav-number">6.</span> <span class="nav-text">六、自定义事件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、为什么会有-EventLoop"><span class="nav-number">1.</span> <span class="nav-text">一、为什么会有 EventLoop ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、深入事件循环"><span class="nav-number">2.</span> <span class="nav-text">二、深入事件循环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、微观任务和宏观任务"><span class="nav-number">2.1.</span> <span class="nav-text">1、微观任务和宏观任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、事件循环队列"><span class="nav-number">2.2.</span> <span class="nav-text">2、事件循环队列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、事件循环的两个原则"><span class="nav-number">2.3.</span> <span class="nav-text">3、事件循环的两个原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、事件循环原理"><span class="nav-number">2.4.</span> <span class="nav-text">4、事件循环原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、事件循环的执行顺序"><span class="nav-number">2.5.</span> <span class="nav-text">5、事件循环的执行顺序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、两种计时器"><span class="nav-number">3.</span> <span class="nav-text">三、两种计时器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、延迟计时器（setTimeout）"><span class="nav-number">3.1.</span> <span class="nav-text">1、延迟计时器（setTimeout）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、间隔计时器（setInterval）"><span class="nav-number">3.2.</span> <span class="nav-text">2、间隔计时器（setInterval）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、H5-新增定时器"><span class="nav-number">3.3.</span> <span class="nav-text">3、H5 新增定时器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-优点"><span class="nav-number">3.3.0.1.</span> <span class="nav-text">▉ 优点</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、处理复杂任务"><span class="nav-number">4.</span> <span class="nav-text">四、处理复杂任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、处理事件"><span class="nav-number">5.</span> <span class="nav-text">五、处理事件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、注册事件"><span class="nav-number">5.1.</span> <span class="nav-text">1、注册事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、事件代理"><span class="nav-number">5.2.</span> <span class="nav-text">2、事件代理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#▉-注意："><span class="nav-number">5.2.1.</span> <span class="nav-text">▉ 注意：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、自定义事件"><span class="nav-number">6.</span> <span class="nav-text">六、自定义事件</span></a></li></ol></div>
             
 
           </div>
@@ -887,7 +898,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共218.3k字</span>
+  <span class="post-count">博客全站共222.2k字</span>
 </div>
         
 
