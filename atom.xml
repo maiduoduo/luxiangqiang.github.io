@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-23T00:01:00.022Z</updated>
+  <updated>2019-06-23T22:56:57.496Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端框架之【Vue全家桶】</title>
+    <link href="http://yoursite.com/2019/06/24/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E4%B9%8B%E3%80%90Vue%E5%85%A8%E5%AE%B6%E6%A1%B6%E3%80%91/"/>
+    <id>http://yoursite.com/2019/06/24/前端框架之【Vue全家桶】/</id>
+    <published>2019-06-23T22:57:09.306Z</published>
+    <updated>2019-06-23T22:56:57.496Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Vue 全家桶（Vue-router、Vuex ）浅入浅出！</p><a id="more"></a><h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><h3 id="一、生命周期"><a href="#一、生命周期" class="headerlink" title="一、生命周期"></a>一、生命周期</h3><h4 id="1、created"><a href="#1、created" class="headerlink" title="1、created"></a>1、created</h4><blockquote><p>一般会在下边这个钩子函数中初始化页面的数据。</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 做服务器请求什么的</span><br><span class="line">created：&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="2、computed"><a href="#2、computed" class="headerlink" title="2、computed"></a>2、computed</h4><blockquote><p>DOM 加载完成进行渲染，计算属性，实时响应，根据data中的值实时做出处理，就用 computed。</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">computed:&#123;</span><br><span class="line">方法（）&#123;</span><br><span class="line">return ； // 通过方法返回值来使页面的数据进行变换</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="二、指令"><a href="#二、指令" class="headerlink" title="二、指令"></a>二、指令</h3><h4 id="1、v-show"><a href="#1、v-show" class="headerlink" title="1、v-show"></a>1、v-show</h4><blockquote><p>用于控制控件的显示。</p></blockquote><h4 id="2、v-model"><a href="#2、v-model" class="headerlink" title="2、v-model"></a>2、v-model</h4><blockquote><p>用于数据双向绑定，一般用于 input。</p></blockquote><h4 id="3、v-for"><a href="#3、v-for" class="headerlink" title="3、v-for"></a>3、v-for</h4><blockquote><p>用于循环渲染数据。</p></blockquote><h4 id="4、-click"><a href="#4、-click" class="headerlink" title="4、@click"></a>4、@click</h4><blockquote><p>用于事件绑定。</p></blockquote><h2 id="Vue-router"><a href="#Vue-router" class="headerlink" title="Vue-router"></a>Vue-router</h2><h2 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h2><blockquote><p>Vuex 可以很好的实现组件间的数据共享。</p></blockquote><h4 id="1、本地安装-vuex"><a href="#1、本地安装-vuex" class="headerlink" title="1、本地安装 vuex"></a>1、本地安装 vuex</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vuex --save</span><br></pre></td></tr></table></figure><h4 id="2、在-src-下新建-store-文件夹以及文件-store-js"><a href="#2、在-src-下新建-store-文件夹以及文件-store-js" class="headerlink" title="2、在 src 下新建 store 文件夹以及文件 store.js"></a>2、在 src 下新建 store 文件夹以及文件 store.js</h4><h4 id="3、在文件中引入-Vuex"><a href="#3、在文件中引入-Vuex" class="headerlink" title="3、在文件中引入 Vuex"></a>3、在文件中引入 Vuex</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import Vuex from &apos;vuex&apos;</span><br></pre></td></tr></table></figure><h4 id="4、使用-Vuex"><a href="#4、使用-Vuex" class="headerlink" title="4、使用 Vuex"></a>4、使用 Vuex</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.use(Vuex)</span><br></pre></td></tr></table></figure><h4 id="5、暴露出-Vuex-实例"><a href="#5、暴露出-Vuex-实例" class="headerlink" title="5、暴露出 Vuex 实例"></a>5、暴露出 Vuex 实例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">export const store = new Vuex.Store(&#123;</span><br><span class="line">    state:&#123;</span><br><span class="line">        // 设置属性</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    getters:&#123;</span><br><span class="line">        // 获取属性的状态</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    mutations:&#123;</span><br><span class="line">        // 改变属性的状态</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    actions:&#123;</span><br><span class="line">        // 应用 mutations</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h4 id="6、在-main-js-全局中的-Vue-实例中导入使用"><a href="#6、在-main-js-全局中的-Vue-实例中导入使用" class="headerlink" title="6、在 main.js 全局中的 Vue 实例中导入使用"></a>6、在 main.js 全局中的 Vue 实例中导入使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123;store&#125; from &apos;./store/store.js&apos;</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  router,</span><br><span class="line">  store,</span><br><span class="line">  components: &#123; App &#125;,</span><br><span class="line">  template: &apos;&lt;App/&gt;&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h4 id="7、必须通过-mutations-改变-state-中的属性"><a href="#7、必须通过-mutations-改变-state-中的属性" class="headerlink" title="7、必须通过 mutations 改变 state 中的属性"></a>7、必须通过 mutations 改变 state 中的属性</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mutations:&#123;</span><br><span class="line">       // 改变属性的状态</span><br><span class="line">       setMenuItem(state,data)&#123;</span><br><span class="line">           state.menuItems = data</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure><h4 id="8、将数据存入-store（存入状态）"><a href="#8、将数据存入-store（存入状态）" class="headerlink" title="8、将数据存入 store（存入状态）"></a>8、将数据存入 store（存入状态）</h4><blockquote><p>通过在组件中调用 mutations  的方法就可以将值传入.</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$store.commit(&quot;setMenuItem&quot;,data) //全局调用 store 中的 commit 方法</span><br></pre></td></tr></table></figure><h4 id="9、在-store-取出数据（取出状态）"><a href="#9、在-store-取出数据（取出状态）" class="headerlink" title="9、在 store 取出数据（取出状态）"></a>9、在 store 取出数据（取出状态）</h4><blockquote><p>在组件中获取状态通过全局调用 store.state 就可以。如果页面响应数据实时变化，可以将方法写在 computed 中。</p></blockquote><h6 id="▉-第一种方式："><a href="#▉-第一种方式：" class="headerlink" title="▉ 第一种方式："></a>▉ 第一种方式：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 这样获取有个缺点，直接将属性暴露在外部了</span><br><span class="line">this.$store.state.menuItems; // 全局获取 store 中的数据</span><br></pre></td></tr></table></figure><h6 id="▉-第二种方式："><a href="#▉-第二种方式：" class="headerlink" title="▉ 第二种方式："></a>▉ 第二种方式：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 通过 getter 获取</span><br><span class="line">this.$store.getters.getMenuItems; // 调用 getters 里边的方法</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Vue 全家桶（Vue-router、Vuex ）浅入浅出！&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端框架" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="前端框架" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>前端面试之道【浏览器渲染原理】</title>
@@ -516,32 +538,6 @@
     <summary type="html">
     
       &lt;p&gt;CSS 中常用的几种布局方式！&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="面试" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95/"/>
-    
-    
-      <category term="前端" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="面试" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端面试之【盒模型】</title>
-    <link href="http://yoursite.com/2019/05/06/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E4%B9%8B%E9%81%93%E3%80%90%E7%9B%92%E6%A8%A1%E5%9E%8B%E3%80%91/"/>
-    <id>http://yoursite.com/2019/05/06/前端面试之道【盒模型】/</id>
-    <published>2019-05-05T23:12:51.565Z</published>
-    <updated>2019-05-05T23:42:55.427Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>盒模型相关知识点！</p><a id="more"></a><h2 id="css-盒模型"><a href="#css-盒模型" class="headerlink" title="css 盒模型"></a>css 盒模型</h2><h3 id="一、盒模型的分类"><a href="#一、盒模型的分类" class="headerlink" title="一、盒模型的分类"></a>一、盒模型的分类</h3><blockquote><p>IE 盒模型和 W3C 标准盒模型。</p></blockquote><h4 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h4><blockquote><p>一个盒子模型是由 外边距（margin）、边框（border）、内边距（padding）、内容（content）四部分组成的。</p></blockquote><h4 id="IE-盒模型"><a href="#IE-盒模型" class="headerlink" title="IE 盒模型"></a>IE 盒模型</h4><blockquote><p>盒子的属性 <code>width</code>  和 <code>height</code> 指的是 <code>content + padding + border</code>。</p></blockquote><h4 id="W3C-标准盒模型"><a href="#W3C-标准盒模型" class="headerlink" title="W3C 标准盒模型"></a>W3C 标准盒模型</h4><blockquote><p>盒子的属性 <code>width</code>  和 <code>height</code> 指的是 <code>content</code>。</p></blockquote><h4 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h4><blockquote><p>1）只有在 IE8 + 版本中可以通过 <code>box-sizing（centent-box 标准盒模型/border-sizing IE 盒模型）</code> 切换 IE 盒模型和 W3C 标准盒模型。其他浏览器需要加上前缀。</p><p>2）在 IE6、IE7、IE8 中添加 <code>&lt;!DOCTYPE&gt;</code> 就会使用 <code>W3C</code> 标准盒模型。否则出现不同浏览器兼容性问题（IE浏览器会将盒子模型解释为 IE 盒子模型，FireFox等会将其解释为 W3C 盒子模型）。</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;盒模型相关知识点！&lt;/p&gt;
     
     </summary>
     
