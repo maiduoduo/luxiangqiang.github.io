@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[前端进阶深入系列之【模块化】]]></title>
+    <url>%2F2019%2F06%2F24%2F%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6%E6%B7%B1%E5%85%A5%E7%B3%BB%E5%88%97%E4%B9%8B%E3%80%90%E6%A8%A1%E5%9D%97%E5%8C%96%E3%80%91%2F</url>
+    <content type="text"><![CDATA[代码实现模块化有哪些方式？ 一、什么是模块化？模块化具备哪些特性？ 定义模块接口，通过接口可以调用模块的功能。 隐藏模块内部实现，使用模块无知关注模块内部的实现细节。也避免了有可能产生的副作用和 bug。 二、使用对象、闭包和立即执行函数实现模块1、隐藏模块内部实现 函数会创建的新的作用域，在此作用域内创建的变量只对当前函数可见，对外部不可见，所以可以选择立即执行函数来作为模块。 2、定义模块接口 有了模块，要想在外部使用模块内部的变量，必须通过接口来实现。一种实现方式是利用对象和闭包，模块内部返回一个对象，该对象内包含模块提供的方法。而这些方法通过闭包保持函数模块内部变量，甚至当模块执行完毕仍然保持模块内部变量。 3、模块扩展 扩展模块是为了更好的扩展模块的功能，调用立即执行函数，并将需要扩展的模块作为参数，然后在函数内部，为模块扩展方法，增加所需要的变量和函数，最后通过公共的两个方法，可以使用模块。 ▉ 模块扩展的缺点 创建的两个模块的功能都有自己独立的作用域，导致扩展的模块无法共享原有模块的内部属性。 三、使用 AMD 和 CommonJs 模块化 两者的主要区别是：AMD 的设计理念是明确基于浏览器，而 CommonJs 的设计是面向通用的 JavaScript 环境的，而不限于浏览器。 1、AMD AMD 很容易指定模块及依赖关系，最流行的实现是 RequireJs 。 define 函数接受一下参数： 新创建模块的 ID。 当前模块依赖的ID列表。 初始化模块的函数。 12345// 具体过程// AMD 首先请求依赖的模块，这个过程是异步的，以免阻塞。下载解析完毕之后，调用函数工厂，并传入依赖的模块。define(&apos;MouseCounterModule&apos;,[&apos;jQuery&apos;],$ =&gt; &#123; ...&#125;) ▉ AMD 的优点 自动处理依赖，无序考虑模块引入的顺序。 异步加载模块，避免阻塞。 在同一个文件中可以定义多个模块。 2、CommonJS CommonJS 是基于 JavaScript 环境的（Node.js），它的使用是基于文件的模块，所以每个文件中只能定义一个模块。通过 module 对象的 exports 方法暴露模块的接口，require 引用接口。 服务器之所以流行的原因： 服务端：服务器加载模块是同步加载，可以访问模块的公共接口； 客户端： 客户端需要远程服务器下载文件，同步加载导致阻塞。 ▉ CommonJS 的优点 语法简单。 CommonJS 是 Node.js 的默认格式。 ▉ CommonJS 的缺点 不显式的支持浏览器，需要对不支持的格式进行打包。 四、ES6 模块 ES6 模块结合了 CommonJS 和 AMD 的优点： ES6 语法简单，是基于文件的； ES6 支持异步模块加载。 ▉ 导入和导出 ES6 引入了两个关键字： export —— 从模块外部指定标识符。 import —— 导入模块标识符。 1234// 导出部分表示符export &#123; message, sayHi&#125;// 默认导出export default class xiaolu&#123;&#125; 123456// 导入部分标识符(花括号是导入指定内容)import &#123;message, sayHi&#125; from 'app.js' // 导入全部标识符 import * as xiaolu from 'app.js' // 导入默认导出的内容import xiaolu from 'app.js' ▉ export 和 import 重命名 当出现重命名是，可以使用关键字 as 设置别名 12export &#123; say as sayHello &#125;import &#123;greet as sayHello&#125; from &apos;Salute.js&apos;]]></content>
+      <categories>
+        <category>前端</category>
+        <category>javascript</category>
+        <category>前端深入系列</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>javascript</tag>
+        <tag>前端深入系列</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[前端框架之【Vue全家桶】]]></title>
     <url>%2F2019%2F06%2F24%2F%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E4%B9%8B%E3%80%90Vue%E5%85%A8%E5%AE%B6%E6%A1%B6%E3%80%91%2F</url>
     <content type="text"><![CDATA[Vue 全家桶（Vue-router、Vuex ）浅入浅出！ Vue一、生命周期1、created 一般会在下边这个钩子函数中初始化页面的数据。 1234// 做服务器请求什么的created：&#123; &#125; 2、computed DOM 加载完成进行渲染，计算属性，实时响应，根据data中的值实时做出处理，就用 computed。 12345computed:&#123; 方法（）&#123; return ； // 通过方法返回值来使页面的数据进行变换 &#125;&#125; 二、指令1、v-show 用于控制控件的显示。 2、v-model 用于数据双向绑定，一般用于 input。 3、v-for 用于循环渲染数据。 4、@click 用于事件绑定。 Vue-routerVuex Vuex 可以很好的实现组件间的数据共享。 1、本地安装 vuex1npm install vuex --save 2、在 src 下新建 store 文件夹以及文件 store.js3、在文件中引入 Vuex12import Vue from &apos;vue&apos;import Vuex from &apos;vuex&apos; 4、使用 Vuex1Vue.use(Vuex) 5、暴露出 Vuex 实例1234567891011121314151617export const store = new Vuex.Store(&#123; state:&#123; // 设置属性 &#125;, getters:&#123; // 获取属性的状态 &#125;, mutations:&#123; // 改变属性的状态 &#125;, actions:&#123; // 应用 mutations &#125;&#125;) 6、在 main.js 全局中的 Vue 实例中导入使用12345678import &#123;store&#125; from &apos;./store/store.js&apos;new Vue(&#123; el: &apos;#app&apos;, router, store, components: &#123; App &#125;, template: &apos;&lt;App/&gt;&apos;&#125;) 7、必须通过 mutations 改变 state 中的属性123456mutations:&#123; // 改变属性的状态 setMenuItem(state,data)&#123; state.menuItems = data &#125; &#125;, 8、将数据存入 store（存入状态） 通过在组件中调用 mutations 的方法就可以将值传入. 1this.$store.commit(&quot;setMenuItem&quot;,data) //全局调用 store 中的 commit 方法 9、在 store 取出数据（取出状态） 在组件中获取状态通过全局调用 store.state 就可以。如果页面响应数据实时变化，可以将方法写在 computed 中。 ▉ 第一种方式：12// 这样获取有个缺点，直接将属性暴露在外部了this.$store.state.menuItems; // 全局获取 store 中的数据 ▉ 第二种方式：12// 通过 getter 获取this.$store.getters.getMenuItems; // 调用 getters 里边的方法]]></content>
@@ -141,7 +156,7 @@
   <entry>
     <title><![CDATA[前端面试之【Event Loop】]]></title>
     <url>%2F2019%2F06%2F05%2F%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E4%B9%8B%E9%81%93%E4%B9%8B%E3%80%90Event%20Loop%E3%80%91%2F</url>
-    <content type="text"><![CDATA[了解前端事件循环！ 一、进程与线程区别？ 进程：进程是 CPU 资源分配的最小单位，系统会为每个进程进行分配内存空间。比如一个 Tab 页面就是一个进程。 线程：线程是 CPU 调度的最小单位（线程是建立在进程的基础上的一次程序运行单位，一个进程由多个线程组成，比如：渲染线程、Js 引擎线程、HTTP 请求线程等）。 二、JS 单线程带来的好处？1、对于 js 引擎线程和渲染线程来说，在 js 运行的时候可能会阻止 UI 渲染，可以得出两个线程是互斥的。 2、如果在 js 修改 DOM 的时候，UI 线程还在渲染，会导致不能安全的渲染 UI。 3、JS 单线程的好处可以达到节省内存空间，节约上下文切换时间，没有锁的问题。 三、什么是执行栈？ 执行栈就是一个存储函数调用的栈结构，具有先进后出的特点。根据这个特定，函数之间的调用会遵循后执行的函数先弹出栈。 四、异步代码执行顺序？1、我们知道 js 代码的调用是在执行栈中的同步执行的，如果遇到了异步代码时，此时就将异步代码挂起加入到 Task 的队列中。 2、当执行栈为空时，Event Loop 就会从 Task 队列中拿出需要执行的异步代码放入到执行栈中，我认为本质上 js 异步还算是一种同步的行为。 3、不同的任务源分配到不同的 Task 队列中，任务源分为微任务（microtask）和宏任务（macrotask），在 ES6 规范中分别叫 jobs，task。 五、解释一下什么是 Event Loop ？]]></content>
+    <content type="text"><![CDATA[了解前端事件循环！ 一、进程与线程区别？ 进程：进程是 CPU 资源分配的最小单位，系统会为每个进程进行分配内存空间。比如一个 Tab 页面就是一个进程。 线程：线程是 CPU 调度的最小单位（线程是建立在进程的基础上的一次程序运行单位，一个进程由多个线程组成，比如：渲染线程、Js 引擎线程、HTTP 请求线程等）。 二、JS 单线程带来的好处？1、对于 js 引擎线程和渲染线程来说，在 js 运行的时候可能会阻止 UI 渲染，可以得出两个线程是互斥的。 2、如果在 js 修改 DOM 的时候，UI 线程还在渲染，会导致不能安全的渲染 UI。 3、JS 单线程的好处可以达到节省内存空间，节约上下文切换时间，没有锁的问题。 三、什么是执行栈？ 执行栈就是一个存储函数调用的栈结构，具有先进后出的特点。根据这个特定，函数之间的调用会遵循后执行的函数先弹出栈。 四、异步代码执行顺序？1、我们知道 js 代码的调用是在执行栈中的同步执行的，如果遇到了异步代码时，此时就将异步代码挂起加入到 Task 的队列中。 2、当执行栈为空时，Event Loop 就会从 Task 队列中拿出需要执行的异步代码放入到执行栈中，我认为本质上 js 异步还算是一种同步的行为。 3、不同的任务源分配到不同的 Task 队列中，任务源分为微任务（microtask）和宏任务（macrotask），在 ES6 规范中分别叫 jobs，task。 五、说下一 js 中的 Event Loop ？JS 的事件循环) 六、Node 中的事件循环 Node.js 是基于事件驱动型、非阻塞的 IO 模型。 1）所谓的事件驱动模型，当服务器接受到请求时，将其关闭进行处理，然后去接受下一个请求。当这个请求执行完成，就会被放到消息队列，当达到队列头部的时候，就会将结果返回给用户。 3）所谓的非阻塞 IO 操作，因为 webserver 一直接受请求而不等待任何读写操作。]]></content>
       <categories>
         <category>前端</category>
         <category>面试</category>

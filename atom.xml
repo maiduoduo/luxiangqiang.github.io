@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-23T22:56:57.496Z</updated>
+  <updated>2019-06-24T12:19:11.359Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端进阶深入系列之【模块化】</title>
+    <link href="http://yoursite.com/2019/06/24/%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6%E6%B7%B1%E5%85%A5%E7%B3%BB%E5%88%97%E4%B9%8B%E3%80%90%E6%A8%A1%E5%9D%97%E5%8C%96%E3%80%91/"/>
+    <id>http://yoursite.com/2019/06/24/前端进阶深入系列之【模块化】/</id>
+    <published>2019-06-24T10:57:15.628Z</published>
+    <updated>2019-06-24T12:19:11.359Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>代码实现模块化有哪些方式？</p><a id="more"></a><h3 id="一、什么是模块化？模块化具备哪些特性？"><a href="#一、什么是模块化？模块化具备哪些特性？" class="headerlink" title="一、什么是模块化？模块化具备哪些特性？"></a>一、什么是模块化？模块化具备哪些特性？</h3><ul><li>定义模块接口，通过接口可以调用模块的功能。</li><li>隐藏模块内部实现，使用模块无知关注模块内部的实现细节。也避免了有可能产生的副作用和 bug。</li></ul><h3 id="二、使用对象、闭包和立即执行函数实现模块"><a href="#二、使用对象、闭包和立即执行函数实现模块" class="headerlink" title="二、使用对象、闭包和立即执行函数实现模块"></a>二、使用对象、闭包和立即执行函数实现模块</h3><h4 id="1、隐藏模块内部实现"><a href="#1、隐藏模块内部实现" class="headerlink" title="1、隐藏模块内部实现"></a>1、隐藏模块内部实现</h4><blockquote><p>函数会创建的新的作用域，在此作用域内创建的变量只对当前函数可见，对外部不可见，所以可以选择立即执行函数来作为模块。</p></blockquote><h4 id="2、定义模块接口"><a href="#2、定义模块接口" class="headerlink" title="2、定义模块接口"></a>2、定义模块接口</h4><blockquote><p>有了模块，要想在外部使用模块内部的变量，必须通过接口来实现。一种实现方式是利用对象和闭包，模块内部返回一个对象，该对象内包含模块提供的方法。而这些方法通过闭包保持函数模块内部变量，甚至当模块执行完毕仍然保持模块内部变量。</p></blockquote><h4 id="3、模块扩展"><a href="#3、模块扩展" class="headerlink" title="3、模块扩展"></a>3、模块扩展</h4><blockquote><p>扩展模块是为了更好的扩展模块的功能，调用立即执行函数，并将需要扩展的模块作为参数，然后在函数内部，为模块扩展方法，增加所需要的变量和函数，最后通过公共的两个方法，可以使用模块。</p></blockquote><h6 id="▉-模块扩展的缺点"><a href="#▉-模块扩展的缺点" class="headerlink" title="▉ 模块扩展的缺点"></a>▉ 模块扩展的缺点</h6><blockquote><p>创建的两个模块的功能都有自己独立的作用域，导致扩展的模块无法共享原有模块的内部属性。</p></blockquote><h3 id="三、使用-AMD-和-CommonJs-模块化"><a href="#三、使用-AMD-和-CommonJs-模块化" class="headerlink" title="三、使用 AMD 和 CommonJs 模块化"></a>三、使用 AMD 和 CommonJs 模块化</h3><blockquote><p>两者的主要区别是：AMD 的设计理念是明确基于浏览器，而 CommonJs 的设计是面向通用的 JavaScript 环境的，而不限于浏览器。</p></blockquote><h4 id="1、AMD"><a href="#1、AMD" class="headerlink" title="1、AMD"></a>1、AMD</h4><blockquote><p>AMD 很容易指定模块及依赖关系，最流行的实现是 RequireJs 。</p></blockquote><p>define 函数接受一下参数：</p><ul><li>新创建模块的 ID。</li><li>当前模块依赖的ID列表。</li><li>初始化模块的函数。</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 具体过程</span><br><span class="line">// AMD 首先请求依赖的模块，这个过程是异步的，以免阻塞。下载解析完毕之后，调用函数工厂，并传入依赖的模块。</span><br><span class="line">define(&apos;MouseCounterModule&apos;,[&apos;jQuery&apos;],$ =&gt; &#123;</span><br><span class="line">...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h6 id="▉-AMD-的优点"><a href="#▉-AMD-的优点" class="headerlink" title="▉ AMD 的优点"></a>▉ AMD 的优点</h6><ul><li>自动处理依赖，无序考虑模块引入的顺序。</li><li>异步加载模块，避免阻塞。</li><li>在同一个文件中可以定义多个模块。</li></ul><h4 id="2、CommonJS"><a href="#2、CommonJS" class="headerlink" title="2、CommonJS"></a>2、CommonJS</h4><blockquote><p>CommonJS 是基于 JavaScript 环境的（Node.js），它的使用是基于文件的模块，所以每个文件中只能定义一个模块。通过 module 对象的 exports 方法暴露模块的接口，require 引用接口。</p><p>服务器之所以流行的原因：</p></blockquote><ul><li><strong>服务端：</strong>服务器加载模块是同步加载，可以访问模块的公共接口；</li><li><strong>客户端：</strong> 客户端需要远程服务器下载文件，同步加载导致阻塞。</li></ul><h6 id="▉-CommonJS-的优点"><a href="#▉-CommonJS-的优点" class="headerlink" title="▉ CommonJS 的优点"></a>▉ CommonJS 的优点</h6><ul><li>语法简单。</li><li>CommonJS 是 Node.js 的默认格式。</li></ul><h6 id="▉-CommonJS-的缺点"><a href="#▉-CommonJS-的缺点" class="headerlink" title="▉ CommonJS 的缺点"></a>▉ CommonJS 的缺点</h6><ul><li>不显式的支持浏览器，需要对不支持的格式进行打包。</li></ul><h3 id="四、ES6-模块"><a href="#四、ES6-模块" class="headerlink" title="四、ES6 模块"></a>四、ES6 模块</h3><blockquote><p>ES6 模块结合了 CommonJS 和 AMD 的优点：</p></blockquote><ul><li>ES6 语法简单，是基于文件的；</li><li>ES6 支持异步模块加载。</li></ul><h6 id="▉-导入和导出"><a href="#▉-导入和导出" class="headerlink" title="▉ 导入和导出"></a>▉ 导入和导出</h6><blockquote><p>ES6 引入了两个关键字：</p></blockquote><ul><li>export —— 从模块外部指定标识符。</li><li>import —— 导入模块标识符。</li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导出部分表示符</span></span><br><span class="line"><span class="keyword">export</span> &#123; message, sayHi&#125;</span><br><span class="line"><span class="comment">// 默认导出</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">xiaolu</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入部分标识符(花括号是导入指定内容)</span></span><br><span class="line"><span class="keyword">import</span> &#123;message, sayHi&#125; <span class="keyword">from</span> <span class="string">'app.js'</span>  </span><br><span class="line"><span class="comment">// 导入全部标识符   </span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> xiaolu <span class="keyword">from</span> <span class="string">'app.js'</span>  </span><br><span class="line"><span class="comment">// 导入默认导出的内容</span></span><br><span class="line"><span class="keyword">import</span> xiaolu <span class="keyword">from</span> <span class="string">'app.js'</span></span><br></pre></td></tr></table></figure><h6 id="▉-export-和-import-重命名"><a href="#▉-export-和-import-重命名" class="headerlink" title="▉ export 和 import 重命名"></a>▉ export 和 import 重命名</h6><blockquote><p>当出现重命名是，可以使用关键字 as 设置别名</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export &#123; say as sayHello &#125;</span><br><span class="line">import &#123;greet as sayHello&#125; from &apos;Salute.js&apos;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;代码实现模块化有哪些方式？&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="javascript" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/javascript/"/>
+    
+      <category term="前端深入系列" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/javascript/%E5%89%8D%E7%AB%AF%E6%B7%B1%E5%85%A5%E7%B3%BB%E5%88%97/"/>
+    
+    
+      <category term="前端" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+      <category term="前端深入系列" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%B7%B1%E5%85%A5%E7%B3%BB%E5%88%97/"/>
+    
+  </entry>
   
   <entry>
     <title>前端框架之【Vue全家桶】</title>
@@ -297,9 +327,9 @@
     <link href="http://yoursite.com/2019/06/05/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E4%B9%8B%E9%81%93%E4%B9%8B%E3%80%90Event%20Loop%E3%80%91/"/>
     <id>http://yoursite.com/2019/06/05/前端面试之道之【Event Loop】/</id>
     <published>2019-06-05T06:52:28.237Z</published>
-    <updated>2019-06-16T01:23:41.347Z</updated>
+    <updated>2019-06-24T00:56:10.299Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>了解前端事件循环！</p><a id="more"></a><h4 id="一、进程与线程区别？"><a href="#一、进程与线程区别？" class="headerlink" title="一、进程与线程区别？"></a>一、进程与线程区别？</h4><ul><li><strong>进程：</strong>进程是 CPU <strong>资源分配</strong>的最小单位，系统会为每个进程进行分配内存空间。比如一个 Tab 页面就是一个进程。</li><li><strong>线程：</strong>线程是 CPU <strong>调度</strong>的最小单位（线程是建立在进程的基础上的一次程序运行单位，一个进程由多个线程组成，比如：渲染线程、Js 引擎线程、HTTP 请求线程等）。</li></ul><h4 id="二、JS-单线程带来的好处？"><a href="#二、JS-单线程带来的好处？" class="headerlink" title="二、JS 单线程带来的好处？"></a>二、JS 单线程带来的好处？</h4><p>1、对于 js 引擎线程和渲染线程来说，在 js 运行的时候可能会阻止 UI 渲染，可以得出两个线程是互斥的。</p><p>2、如果在 js 修改 DOM 的时候，UI 线程还在渲染，会导致不能安全的渲染 UI。</p><p>3、JS 单线程的好处可以达到节省内存空间，节约上下文切换时间，没有锁的问题。</p><h4 id="三、什么是执行栈？"><a href="#三、什么是执行栈？" class="headerlink" title="三、什么是执行栈？"></a>三、什么是执行栈？</h4><blockquote><p>执行栈就是一个存储函数调用的栈结构，具有先进后出的特点。根据这个特定，函数之间的调用会遵循后执行的函数先弹出栈。</p></blockquote><h4 id="四、异步代码执行顺序？"><a href="#四、异步代码执行顺序？" class="headerlink" title="四、异步代码执行顺序？"></a>四、异步代码执行顺序？</h4><p>1、我们知道 js 代码的调用是在执行栈中的同步执行的，如果遇到了异步代码时，此时就将异步代码挂起加入到 <code>Task</code> 的队列中。</p><p>2、当执行栈为空时，<code>Event Loop</code> 就会从 Task 队列中拿出需要执行的异步代码放入到执行栈中，我认为本质上 js 异步还算是一种同步的行为。</p><p>3、不同的任务源分配到不同的 <code>Task</code> 队列中，任务源分为微任务（<code>microtask</code>）和宏任务（<code>macrotask</code>），在 ES6 规范中分别叫 <code>jobs，task</code>。</p><h4 id="五、解释一下什么是-Event-Loop-？"><a href="#五、解释一下什么是-Event-Loop-？" class="headerlink" title="五、解释一下什么是 Event Loop ？"></a>五、解释一下什么是 Event Loop ？</h4>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>了解前端事件循环！</p><a id="more"></a><h4 id="一、进程与线程区别？"><a href="#一、进程与线程区别？" class="headerlink" title="一、进程与线程区别？"></a>一、进程与线程区别？</h4><ul><li><strong>进程：</strong>进程是 CPU <strong>资源分配</strong>的最小单位，系统会为每个进程进行分配内存空间。比如一个 Tab 页面就是一个进程。</li><li><strong>线程：</strong>线程是 CPU <strong>调度</strong>的最小单位（线程是建立在进程的基础上的一次程序运行单位，一个进程由多个线程组成，比如：渲染线程、Js 引擎线程、HTTP 请求线程等）。</li></ul><h4 id="二、JS-单线程带来的好处？"><a href="#二、JS-单线程带来的好处？" class="headerlink" title="二、JS 单线程带来的好处？"></a>二、JS 单线程带来的好处？</h4><p>1、对于 js 引擎线程和渲染线程来说，在 js 运行的时候可能会阻止 UI 渲染，可以得出两个线程是互斥的。</p><p>2、如果在 js 修改 DOM 的时候，UI 线程还在渲染，会导致不能安全的渲染 UI。</p><p>3、JS 单线程的好处可以达到节省内存空间，节约上下文切换时间，没有锁的问题。</p><h4 id="三、什么是执行栈？"><a href="#三、什么是执行栈？" class="headerlink" title="三、什么是执行栈？"></a>三、什么是执行栈？</h4><blockquote><p>执行栈就是一个存储函数调用的栈结构，具有先进后出的特点。根据这个特定，函数之间的调用会遵循后执行的函数先弹出栈。</p></blockquote><h4 id="四、异步代码执行顺序？"><a href="#四、异步代码执行顺序？" class="headerlink" title="四、异步代码执行顺序？"></a>四、异步代码执行顺序？</h4><p>1、我们知道 js 代码的调用是在执行栈中的同步执行的，如果遇到了异步代码时，此时就将异步代码挂起加入到 <code>Task</code> 的队列中。</p><p>2、当执行栈为空时，<code>Event Loop</code> 就会从 Task 队列中拿出需要执行的异步代码放入到执行栈中，我认为本质上 js 异步还算是一种同步的行为。</p><p>3、不同的任务源分配到不同的 <code>Task</code> 队列中，任务源分为微任务（<code>microtask</code>）和宏任务（<code>macrotask</code>），在 ES6 规范中分别叫 <code>jobs，task</code>。</p><h4 id="五、说下一-js-中的-Event-Loop-？"><a href="#五、说下一-js-中的-Event-Loop-？" class="headerlink" title="五、说下一 js 中的 Event Loop ？"></a>五、说下一 js 中的 Event Loop ？</h4><p><a href="[http://luxiangqiang.xn--6qq986b3xl/2019/06/14/%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6%E6%B7%B1%E5%85%A5%E7%B3%BB%E5%88%97%E4%B9%8B%E3%80%90%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E3%80%91/](http://luxiangqiang.xn--6qq986b3xl/2019/06/14/前端进阶深入系列之[事件循环]/">JS 的事件循环</a>)</p><h4 id="六、Node-中的事件循环"><a href="#六、Node-中的事件循环" class="headerlink" title="六、Node 中的事件循环"></a>六、Node 中的事件循环</h4><blockquote><p>Node.js 是基于事件驱动型、非阻塞的 IO 模型。</p><p>1）所谓的事件驱动模型，当服务器接受到请求时，将其关闭进行处理，然后去接受下一个请求。当这个请求执行完成，就会被放到消息队列，当达到队列头部的时候，就会将结果返回给用户。</p><p>3）所谓的非阻塞 IO 操作，因为 webserver 一直接受请求而不等待任何读写操作。</p></blockquote>]]></content>
     
     <summary type="html">
     
@@ -523,32 +553,6 @@
       <category term="前端工具" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/"/>
     
       <category term="webpack" scheme="http://yoursite.com/tags/webpack/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端面试之【CSS 常用布局】</title>
-    <link href="http://yoursite.com/2019/05/06/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E4%B9%8B%E9%81%93%E3%80%90CSS%E5%B8%B8%E7%94%A8%E5%B8%83%E5%B1%80%E3%80%91/"/>
-    <id>http://yoursite.com/2019/05/06/前端面试之道【CSS常用布局】/</id>
-    <published>2019-05-05T23:43:01.094Z</published>
-    <updated>2019-06-19T23:15:02.266Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>CSS 中常用的几种布局方式！</p><a id="more"></a><h2 id="三种最基本的布局方式"><a href="#三种最基本的布局方式" class="headerlink" title="三种最基本的布局方式"></a>三种最基本的布局方式</h2><h3 id="1、流式布局"><a href="#1、流式布局" class="headerlink" title="1、流式布局"></a>1、流式布局</h3><blockquote><p>流动布局模型就是<strong>默认的</strong>网页布局模式。</p></blockquote><ul><li><strong>块级元素</strong>都会在所处的最近父级容器元素内<strong>自上而下</strong>按顺序垂直顺延分布，块元素的宽度一般为 100%，也就是父元素的宽度。</li><li><strong>内联元素</strong>一般<strong>从左到右</strong>依次分布显示。</li></ul><h3 id="2、浮动布局"><a href="#2、浮动布局" class="headerlink" title="2、浮动布局"></a>2、浮动布局</h3><blockquote><p>流式布局的元素基本都是在整个文档流中的，如果使用浮动布局，需要给某一元素设置浮动属性，脱离当前文档流。</p></blockquote><h3 id="3、层级布局"><a href="#3、层级布局" class="headerlink" title="3、层级布局"></a>3、层级布局</h3><blockquote><p>层级布局指的是通过<strong>相对定位</strong>以及<strong>绝对定位</strong>以及<strong>固定定位</strong>的方式来进行布局。</p><p>1）通过设置 top、left、right、bottom 来记性定位元素。</p><p>2）缺点：对于相应式的布局，该布局方式还有很多不便之处。</p></blockquote><ul><li><strong>fixed 定位：</strong>固定定位，相对于浏览器窗口进行定位，不随窗口滚动，可以和其他元素重叠，不占据空间。</li><li><strong>relative 定位：</strong>相对定位，相对于正常位置进行定位，原本的空间不会改变。</li><li><strong>absolute 定位：</strong>绝对定位，是相对于已经定位的父元素进行定位，如果没有父元素，就相当于 <code>&lt;html&gt;</code> ，不占据任何空间，定位元素可以和其他元素进行重叠。</li></ul><h2 id="弹性布局（Flex）"><a href="#弹性布局（Flex）" class="headerlink" title="弹性布局（Flex）"></a>弹性布局（Flex）</h2><h2 id="栅格布局"><a href="#栅格布局" class="headerlink" title="栅格布局"></a>栅格布局</h2><h2 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h2><h2 id="两种自适应布局"><a href="#两种自适应布局" class="headerlink" title="两种自适应布局"></a>两种自适应布局</h2><h3 id="1、双飞翼布局"><a href="#1、双飞翼布局" class="headerlink" title="1、双飞翼布局"></a>1、双飞翼布局</h3><h3 id="2、圣杯布局"><a href="#2、圣杯布局" class="headerlink" title="2、圣杯布局"></a>2、圣杯布局</h3>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;CSS 中常用的几种布局方式！&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="面试" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95/"/>
-    
-    
-      <category term="前端" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="面试" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
