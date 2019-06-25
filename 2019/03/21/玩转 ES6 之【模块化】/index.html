@@ -105,7 +105,7 @@
 
 
 
-  <meta name="keywords" content="前端,ES6," />
+  <meta name="keywords" content="前端,javascript,前端深入系列," />
 
 
 
@@ -118,18 +118,18 @@
 
 
 
-<meta name="description" content="随着前后端分离，前端的业务日渐复杂，ES6为我们增加了模块话操作。">
-<meta name="keywords" content="前端,ES6">
+<meta name="description" content="代码实现模块化有哪些方式？">
+<meta name="keywords" content="前端,javascript,前端深入系列">
 <meta property="og:type" content="article">
-<meta property="og:title" content="玩转 ES6 之【模块化】">
+<meta property="og:title" content="前端进阶深入系列之【模块化】">
 <meta property="og:url" content="http://yoursite.com/2019/03/21/玩转 ES6 之【模块化】/index.html">
 <meta property="og:site_name" content="小鹿的博客">
-<meta property="og:description" content="随着前后端分离，前端的业务日渐复杂，ES6为我们增加了模块话操作。">
+<meta property="og:description" content="代码实现模块化有哪些方式？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-21T12:39:27.377Z">
+<meta property="og:updated_time" content="2019-06-24T12:19:11.359Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="玩转 ES6 之【模块化】">
-<meta name="twitter:description" content="随着前后端分离，前端的业务日渐复杂，ES6为我们增加了模块话操作。">
+<meta name="twitter:title" content="前端进阶深入系列之【模块化】">
+<meta name="twitter:description" content="代码实现模块化有哪些方式？">
 
 
 
@@ -165,7 +165,7 @@
 
 
 
-  <title>玩转 ES6 之【模块化】 | 小鹿的博客</title>
+  <title>前端进阶深入系列之【模块化】 | 小鹿的博客</title>
   
 
 
@@ -353,7 +353,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">玩转 ES6 之【模块化】</h1>
+          <h1 class="post-title" itemprop="name headline">前端进阶深入系列之【模块化】</h1>
         
 
         <div class="post-meta">
@@ -399,8 +399,19 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/ES6/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6</span>
+                  <a href="/categories/前端/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/javascript/前端深入系列/" itemprop="url" rel="index">
+                    <span itemprop="name">前端深入系列</span>
                   </a>
                 </span>
 
@@ -441,7 +452,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  408
+                  970
                 </span>
               
 
@@ -457,7 +468,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -478,25 +489,77 @@
       
 
       
-        <p>随着前后端分离，前端的业务日渐复杂，ES6为我们增加了模块话操作。 </p>
+        <p>代码实现模块化有哪些方式？</p>
 <a id="more"></a>
-<h3 id="1、模块化"><a href="#1、模块化" class="headerlink" title="1、模块化"></a>1、模块化</h3><ul>
-<li>export :负责进行模块化，也是模块的输出。</li>
-<li>import : 负责把模块引，也是模块的引入操作。</li>
+<h3 id="一、什么是模块化？模块化具备哪些特性？"><a href="#一、什么是模块化？模块化具备哪些特性？" class="headerlink" title="一、什么是模块化？模块化具备哪些特性？"></a>一、什么是模块化？模块化具备哪些特性？</h3><ul>
+<li>定义模块接口，通过接口可以调用模块的功能。</li>
+<li>隐藏模块内部实现，使用模块无知关注模块内部的实现细节。也避免了有可能产生的副作用和 bug。</li>
 </ul>
-<h3 id="2、export的用法"><a href="#2、export的用法" class="headerlink" title="2、export的用法"></a>2、export的用法</h3><blockquote>
-<p>export可以让我们把变量，函数，对象进行模块话，提供外部调用接口，让外部进行引用 </p>
+<h3 id="二、使用对象、闭包和立即执行函数实现模块"><a href="#二、使用对象、闭包和立即执行函数实现模块" class="headerlink" title="二、使用对象、闭包和立即执行函数实现模块"></a>二、使用对象、闭包和立即执行函数实现模块</h3><h4 id="1、隐藏模块内部实现"><a href="#1、隐藏模块内部实现" class="headerlink" title="1、隐藏模块内部实现"></a>1、隐藏模块内部实现</h4><blockquote>
+<p>函数会创建的新的作用域，在此作用域内创建的变量只对当前函数可见，对外部不可见，所以可以选择立即执行函数来作为模块。</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//暴露接口</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> a = <span class="string">'xiaolu'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//index.js中以import的形式引入</span></span><br><span class="line"><span class="keyword">import</span> &#123;a&#125; <span class="keyword">from</span> <span class="string">'./temp.js'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
-<h3 id="3、多变量的输出"><a href="#3、多变量的输出" class="headerlink" title="3、多变量的输出"></a>3、<strong>多变量的输出</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//多变量的模块化</span></span><br><span class="line"><span class="keyword">var</span> a =<span class="string">'xiaolu'</span>;</span><br><span class="line"><span class="keyword">var</span> b =<span class="string">'小鹿'</span>;</span><br><span class="line"><span class="keyword">var</span> c = <span class="string">'三本'</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;a,b,c&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数的模块化</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4、as-用法"><a href="#4、as-用法" class="headerlink" title="4、as 用法"></a>4、as 用法</h3><blockquote>
-<p>as的用法 有些时候我们并不想暴露模块里边的变量名称，而给模块起一个更语义话的名称，这时候我们就可以使用as来操作。 </p>
+<h4 id="2、定义模块接口"><a href="#2、定义模块接口" class="headerlink" title="2、定义模块接口"></a>2、定义模块接口</h4><blockquote>
+<p>有了模块，要想在外部使用模块内部的变量，必须通过接口来实现。一种实现方式是利用对象和闭包，模块内部返回一个对象，该对象内包含模块提供的方法。而这些方法通过闭包保持函数模块内部变量，甚至当模块执行完毕仍然保持模块内部变量。</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =<span class="string">'xiaolu'</span>;</span><br><span class="line"><span class="keyword">var</span> b =<span class="string">'小鹿'</span>;</span><br><span class="line"><span class="keyword">var</span> c = <span class="string">'三本'</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    x <span class="keyword">as</span> a,</span><br><span class="line">    y <span class="keyword">as</span> b,</span><br><span class="line">    z <span class="keyword">as</span> c</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="5、默认值-default"><a href="#5、默认值-default" class="headerlink" title="5、默认值 default"></a>5、默认值 default</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//无默认值</span></span><br><span class="line"><span class="comment">//export</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> a =<span class="string">'xiaolu'</span>;</span><br><span class="line"><span class="comment">//对应的导入方式</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//export defalut 方式</span></span><br><span class="line"><span class="comment">//export defalut</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">var</span> a=<span class="string">'xiaolu'</span>;</span><br><span class="line"><span class="comment">//引入方式</span></span><br><span class="line"><span class="keyword">import</span> str <span class="keyword">from</span> <span class="string">'./temp'</span>;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>ES6的模块化不能直接在浏览器中预览，必须要使用Babel进行编译之后正常看到结果。这节课讲完我们ES6的课程就算结束了，你可能觉的没有书上的内容多，那是因为很多东西都归到了ES7中。 </p>
+<h4 id="3、模块扩展"><a href="#3、模块扩展" class="headerlink" title="3、模块扩展"></a>3、模块扩展</h4><blockquote>
+<p>扩展模块是为了更好的扩展模块的功能，调用立即执行函数，并将需要扩展的模块作为参数，然后在函数内部，为模块扩展方法，增加所需要的变量和函数，最后通过公共的两个方法，可以使用模块。</p>
 </blockquote>
+<h6 id="▉-模块扩展的缺点"><a href="#▉-模块扩展的缺点" class="headerlink" title="▉ 模块扩展的缺点"></a>▉ 模块扩展的缺点</h6><blockquote>
+<p>创建的两个模块的功能都有自己独立的作用域，导致扩展的模块无法共享原有模块的内部属性。</p>
+</blockquote>
+<h3 id="三、使用-AMD-和-CommonJs-模块化"><a href="#三、使用-AMD-和-CommonJs-模块化" class="headerlink" title="三、使用 AMD 和 CommonJs 模块化"></a>三、使用 AMD 和 CommonJs 模块化</h3><blockquote>
+<p>两者的主要区别是：AMD 的设计理念是明确基于浏览器，而 CommonJs 的设计是面向通用的 JavaScript 环境的，而不限于浏览器。</p>
+</blockquote>
+<h4 id="1、AMD"><a href="#1、AMD" class="headerlink" title="1、AMD"></a>1、AMD</h4><blockquote>
+<p>AMD 很容易指定模块及依赖关系，最流行的实现是 RequireJs 。</p>
+</blockquote>
+<p>define 函数接受一下参数：</p>
+<ul>
+<li>新创建模块的 ID。</li>
+<li>当前模块依赖的ID列表。</li>
+<li>初始化模块的函数。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 具体过程</span><br><span class="line">// AMD 首先请求依赖的模块，这个过程是异步的，以免阻塞。下载解析完毕之后，调用函数工厂，并传入依赖的模块。</span><br><span class="line">define(&apos;MouseCounterModule&apos;,[&apos;jQuery&apos;],$ =&gt; &#123;</span><br><span class="line">	...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h6 id="▉-AMD-的优点"><a href="#▉-AMD-的优点" class="headerlink" title="▉ AMD 的优点"></a>▉ AMD 的优点</h6><ul>
+<li>自动处理依赖，无序考虑模块引入的顺序。</li>
+<li>异步加载模块，避免阻塞。</li>
+<li>在同一个文件中可以定义多个模块。</li>
+</ul>
+<h4 id="2、CommonJS"><a href="#2、CommonJS" class="headerlink" title="2、CommonJS"></a>2、CommonJS</h4><blockquote>
+<p>CommonJS 是基于 JavaScript 环境的（Node.js），它的使用是基于文件的模块，所以每个文件中只能定义一个模块。通过 module 对象的 exports 方法暴露模块的接口，require 引用接口。</p>
+<p>服务器之所以流行的原因：</p>
+</blockquote>
+<ul>
+<li><strong>服务端：</strong>服务器加载模块是同步加载，可以访问模块的公共接口；</li>
+<li><strong>客户端：</strong> 客户端需要远程服务器下载文件，同步加载导致阻塞。</li>
+</ul>
+<h6 id="▉-CommonJS-的优点"><a href="#▉-CommonJS-的优点" class="headerlink" title="▉ CommonJS 的优点"></a>▉ CommonJS 的优点</h6><ul>
+<li>语法简单。</li>
+<li>CommonJS 是 Node.js 的默认格式。</li>
+</ul>
+<h6 id="▉-CommonJS-的缺点"><a href="#▉-CommonJS-的缺点" class="headerlink" title="▉ CommonJS 的缺点"></a>▉ CommonJS 的缺点</h6><ul>
+<li>不显式的支持浏览器，需要对不支持的格式进行打包。</li>
+</ul>
+<h3 id="四、ES6-模块"><a href="#四、ES6-模块" class="headerlink" title="四、ES6 模块"></a>四、ES6 模块</h3><blockquote>
+<p>ES6 模块结合了 CommonJS 和 AMD 的优点：</p>
+</blockquote>
+<ul>
+<li>ES6 语法简单，是基于文件的；</li>
+<li>ES6 支持异步模块加载。</li>
+</ul>
+<h6 id="▉-导入和导出"><a href="#▉-导入和导出" class="headerlink" title="▉ 导入和导出"></a>▉ 导入和导出</h6><blockquote>
+<p>ES6 引入了两个关键字：</p>
+</blockquote>
+<ul>
+<li>export —— 从模块外部指定标识符。</li>
+<li>import —— 导入模块标识符。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导出部分表示符</span></span><br><span class="line"><span class="keyword">export</span> &#123; message, sayHi&#125;</span><br><span class="line"><span class="comment">// 默认导出</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">xiaolu</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入部分标识符(花括号是导入指定内容)</span></span><br><span class="line"><span class="keyword">import</span> &#123;message, sayHi&#125; <span class="keyword">from</span> <span class="string">'app.js'</span>  </span><br><span class="line"><span class="comment">// 导入全部标识符   </span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> xiaolu <span class="keyword">from</span> <span class="string">'app.js'</span>  </span><br><span class="line"><span class="comment">// 导入默认导出的内容</span></span><br><span class="line"><span class="keyword">import</span> xiaolu <span class="keyword">from</span> <span class="string">'app.js'</span></span><br></pre></td></tr></table></figure>
+<h6 id="▉-export-和-import-重命名"><a href="#▉-export-和-import-重命名" class="headerlink" title="▉ export 和 import 重命名"></a>▉ export 和 import 重命名</h6><blockquote>
+<p>当出现重命名是，可以使用关键字 as 设置别名</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export &#123; say as sayHello &#125;</span><br><span class="line">import &#123;greet as sayHello&#125; from &apos;Salute.js&apos;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -516,7 +579,9 @@
           
             <a href="/tags/前端/" rel="tag"># 前端</a>
           
-            <a href="/tags/ES6/" rel="tag"># ES6</a>
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/前端深入系列/" rel="tag"># 前端深入系列</a>
           
         </div>
       
@@ -672,7 +737,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">133</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -762,7 +827,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、模块化"><span class="nav-number">1.</span> <span class="nav-text">1、模块化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、export的用法"><span class="nav-number">2.</span> <span class="nav-text">2、export的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、多变量的输出"><span class="nav-number">3.</span> <span class="nav-text">3、多变量的输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、as-用法"><span class="nav-number">4.</span> <span class="nav-text">4、as 用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、默认值-default"><span class="nav-number">5.</span> <span class="nav-text">5、默认值 default</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、什么是模块化？模块化具备哪些特性？"><span class="nav-number">1.</span> <span class="nav-text">一、什么是模块化？模块化具备哪些特性？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、使用对象、闭包和立即执行函数实现模块"><span class="nav-number">2.</span> <span class="nav-text">二、使用对象、闭包和立即执行函数实现模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、隐藏模块内部实现"><span class="nav-number">2.1.</span> <span class="nav-text">1、隐藏模块内部实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、定义模块接口"><span class="nav-number">2.2.</span> <span class="nav-text">2、定义模块接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、模块扩展"><span class="nav-number">2.3.</span> <span class="nav-text">3、模块扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-模块扩展的缺点"><span class="nav-number">2.3.0.1.</span> <span class="nav-text">▉ 模块扩展的缺点</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、使用-AMD-和-CommonJs-模块化"><span class="nav-number">3.</span> <span class="nav-text">三、使用 AMD 和 CommonJs 模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、AMD"><span class="nav-number">3.1.</span> <span class="nav-text">1、AMD</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-AMD-的优点"><span class="nav-number">3.1.0.1.</span> <span class="nav-text">▉ AMD 的优点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、CommonJS"><span class="nav-number">3.2.</span> <span class="nav-text">2、CommonJS</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-CommonJS-的优点"><span class="nav-number">3.2.0.1.</span> <span class="nav-text">▉ CommonJS 的优点</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-CommonJS-的缺点"><span class="nav-number">3.2.0.2.</span> <span class="nav-text">▉ CommonJS 的缺点</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、ES6-模块"><span class="nav-number">4.</span> <span class="nav-text">四、ES6 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-导入和导出"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">▉ 导入和导出</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-export-和-import-重命名"><span class="nav-number">4.0.0.2.</span> <span class="nav-text">▉ export 和 import 重命名</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -817,7 +882,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共224.8k字</span>
+  <span class="post-count">博客全站共225.8k字</span>
 </div>
         
 
@@ -955,7 +1020,7 @@ var jiathis_config={
         var disqus_config = function () {
           this.page.url = 'http://yoursite.com/2019/03/21/玩转 ES6 之【模块化】/';
           this.page.identifier = '2019/03/21/玩转 ES6 之【模块化】/';
-          this.page.title = '玩转 ES6 之【模块化】';
+          this.page.title = '前端进阶深入系列之【模块化】';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';

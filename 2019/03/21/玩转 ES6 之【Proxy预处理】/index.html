@@ -118,18 +118,18 @@
 
 
 
-<meta name="description" content="Proxy 预处理的强大之处！">
+<meta name="description" content="了解对象的访问以及监控对象的技术！">
 <meta name="keywords" content="前端,ES6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="玩转 ES6 之【Proxy预处理】">
+<meta property="og:title" content="玩转 ES6 之【对象代理】">
 <meta property="og:url" content="http://yoursite.com/2019/03/21/玩转 ES6 之【Proxy预处理】/index.html">
 <meta property="og:site_name" content="小鹿的博客">
-<meta property="og:description" content="Proxy 预处理的强大之处！">
+<meta property="og:description" content="了解对象的访问以及监控对象的技术！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-21T11:59:14.699Z">
+<meta property="og:updated_time" content="2019-06-25T07:46:34.216Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="玩转 ES6 之【Proxy预处理】">
-<meta name="twitter:description" content="Proxy 预处理的强大之处！">
+<meta name="twitter:title" content="玩转 ES6 之【对象代理】">
+<meta name="twitter:description" content="了解对象的访问以及监控对象的技术！">
 
 
 
@@ -165,7 +165,7 @@
 
 
 
-  <title>玩转 ES6 之【Proxy预处理】 | 小鹿的博客</title>
+  <title>玩转 ES6 之【对象代理】 | 小鹿的博客</title>
   
 
 
@@ -353,7 +353,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">玩转 ES6 之【Proxy预处理】</h1>
+          <h1 class="post-title" itemprop="name headline">玩转 ES6 之【对象代理】</h1>
         
 
         <div class="post-meta">
@@ -441,7 +441,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  511
+                  610
                 </span>
               
 
@@ -457,7 +457,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -478,43 +478,48 @@
       
 
       
-        <p>Proxy 预处理的强大之处！</p>
+        <p>了解对象的访问以及监控对象的技术！</p>
 <a id="more"></a>
-<h3 id="1、钩子函数"><a href="#1、钩子函数" class="headerlink" title="1、钩子函数"></a>1、钩子函数</h3><blockquote>
-<p>当我们在操作一个对象或者方法时会有几种动作，比如：在运行函数前初始化一些数据，在改变对象值后做一些善后处理。这些都算钩子函数，Proxy的存在就可以让我们给函数加上这样的钩子函数，你也可以理解为在执行方法前预处理一些代码。 </p>
-</blockquote>
-<h3 id="2、声明Proxy"><a href="#2、声明Proxy" class="headerlink" title="2、声明Proxy"></a>2、声明Proxy</h3><blockquote>
-<p>基本格式。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Proxy</span>（&#123;&#125;,&#123;&#125;）;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>第一个花括号就相当于方法的主体 。</li>
-<li>第二个花括号是代理处理区域，写钩子函数的地方。</li>
+<li>通过 getter 与 setter 访问属性值有什么好处？-</li>
+<li>代理与 getter 和 setter 的主要区别是什么？</li>
+<li>代理对象常见的问题是什么？</li>
 </ul>
-<h6 id="▉-实例"><a href="#▉-实例" class="headerlink" title="▉ 实例"></a>▉ 实例</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">相当于在方法调用前的钩子函数<span class="keyword">var</span> pro = <span class="keyword">new</span> <span class="built_in">Proxy</span>(&#123;</span><br><span class="line">    add: <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> val + <span class="number">10</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    name: <span class="string">'I am xiaolu'</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">        get:<span class="function"><span class="keyword">function</span>(<span class="params">target,key,property</span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'小鹿'</span>);</span><br><span class="line">            <span class="keyword">return</span> target[key];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(pro.name);<span class="comment">//先打印小鹿，后打印 I am xiaolu ，相当于在方法调用前的钩子函数</span></span><br></pre></td></tr></table></figure>
-<h6 id="▉-get-属性"><a href="#▉-get-属性" class="headerlink" title="▉ get 属性"></a>▉ get 属性</h6><blockquote>
-<p>get属性是在你得到某对象属性值时预处理的方法，他接受三个参数</p>
+<h3 id="一、为什么需要-getter-和-setter-访问？"><a href="#一、为什么需要-getter-和-setter-访问？" class="headerlink" title="一、为什么需要 getter 和 setter 访问？"></a>一、为什么需要 getter 和 setter 访问？</h3><p>1、避免意外的错误发生；</p>
+<p>2、需要记录属性的变化；</p>
+<p>3、数据绑定。 </p>
+<h3 id="二、定义-getter-和-setter"><a href="#二、定义-getter-和-setter" class="headerlink" title="二、定义 getter 和 setter"></a>二、定义 getter 和 setter</h3><blockquote>
+<p>三种定义方法：</p>
 </blockquote>
 <ul>
-<li><strong>target</strong>：得到的目标值</li>
-<li><strong>key：</strong>目标的 key 值，相当于对象的属性</li>
-<li><strong>property：</strong>这个不太常用，用法还在研究中。</li>
+<li>字面量定义</li>
+<li>ES6 中的 Class 定义</li>
+<li>使用 Object.definedProperty 方法</li>
 </ul>
-<h6 id="▉-set属性"><a href="#▉-set属性" class="headerlink" title="▉ set属性"></a>▉ <strong>set属性</strong></h6><blockquote>
-<p>set 属性是值你要改变 Proxy 属性值时，进行的预先处理。它接收四个参数。 </p>
+<h4 id="1、字面量定义-getter-和-setter"><a href="#1、字面量定义-getter-和-setter" class="headerlink" title="1、字面量定义 getter 和 setter"></a>1、字面量定义 getter 和 setter</h4><blockquote>
+<p>对象访问属性通常隐士调用 getter 和 setter 方法，属性自动关联 getter 和 setter 方法。这些都是标准方法，在访问属性的时候都是立即执行的。</p>
 </blockquote>
-<ul>
-<li>target:目标值。</li>
-<li>key：目标的Key值。</li>
-<li>value：要改变的值。</li>
-<li>receiver：改变前的原始值。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//set属性</span></span><br><span class="line"><span class="keyword">var</span> pro = <span class="keyword">new</span> <span class="built_in">Proxy</span>(&#123;</span><br><span class="line">    add:<span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>+val;</span><br><span class="line">    &#125;,</span><br><span class="line">    name:<span class="string">'小鹿'</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    get:<span class="function"><span class="keyword">function</span>(<span class="params">target,key</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"你好"</span>)</span><br><span class="line">        <span class="keyword">return</span> target[key];</span><br><span class="line">    &#125;,</span><br><span class="line">    set:<span class="function"><span class="keyword">function</span>(<span class="params">target,key,val,receiver</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'seting &amp;&#123;k&#125; = $&#123;value&#125;'</span>);</span><br><span class="line">        <span class="keyword">return</span> target[key] =  val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(pro.name);</span><br><span class="line">pro.name = <span class="string">"xiaolu"</span></span><br><span class="line"><span class="built_in">console</span>.log(pro.name)</span><br></pre></td></tr></table></figure>
-<h6 id="▉-apply的使用"><a href="#▉-apply的使用" class="headerlink" title="▉ apply的使用"></a>▉ apply的使用</h6><blockquote>
-<p>apply 的作用是调用内部的方法，它使用在方法体是一个匿名函数时。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> collection = &#123;</span><br><span class="line">	name=<span class="string">'xiaolu'</span>,</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 读取属性</span></span><br><span class="line">	get name()&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 设置属性</span></span><br><span class="line">	set name(value)&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = value;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">collection.name 			<span class="comment">// 隐士调用 getter 方法</span></span><br><span class="line">collection.name = <span class="string">"xiaolu1"</span> <span class="comment">// 隐士调用 setter 方法</span></span><br></pre></td></tr></table></figure>
+<h4 id="2、ES6-Class-定义-getter-和-setter"><a href="#2、ES6-Class-定义-getter-和-setter" class="headerlink" title="2、ES6 Class 定义 getter 和 setter"></a>2、ES6 Class 定义 getter 和 setter</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// calss 定义 setter 和 getter</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Xiaolu</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>()&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = <span class="string">'xiaolu'</span></span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    get firstXiaolu()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'属性已访问'</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    set firstXiaolu(value)&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> x = <span class="keyword">new</span> Xiaolu();</span><br><span class="line">x.firstXiaolu</span><br></pre></td></tr></table></figure>
+<h4 id="3、Object-definedProperty"><a href="#3、Object-definedProperty" class="headerlink" title="3、Object.definedProperty()"></a>3、Object.definedProperty()</h4><blockquote>
+<p>原因：对象的字面量与类、getter 和 setter 方法不是在一同一作用域定义的，因此那些希望作为私有变量属性的标量是无法实现的。</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">get = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'I am xiaolu'</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> handler = &#123;</span><br><span class="line">    apply(target, ctx, args) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'do apply'</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Reflect</span>.apply(...arguments);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pro = <span class="keyword">new</span> <span class="built_in">Proxy</span>(get, handler);</span><br><span class="line"><span class="built_in">console</span>.log(pro());</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Object.definedProperty</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">xiaolu</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(<span class="keyword">this</span>,<span class="string">'skillLevel'</span>,&#123;</span><br><span class="line">        get:<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> count;</span><br><span class="line">        &#125;,</span><br><span class="line">        set:<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">            count = value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 隐士的调用 get 方法</span></span><br><span class="line"><span class="built_in">console</span>.log(xiaolu.count)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>通过 Object.definedProperty() 创建的 get 和 set 方法，与私有的变量处于相同的作用域中，get 和 set 方法分别创建了含有私有变量的闭包。</p>
+</blockquote>
+<h3 id="三、getter-和-setter-的应用"><a href="#三、getter-和-setter-的应用" class="headerlink" title="三、getter 和 setter 的应用"></a>三、getter 和 setter 的应用</h3><h4 id="1、日志记录"><a href="#1、日志记录" class="headerlink" title="1、日志记录"></a>1、日志记录</h4><blockquote>
+<p>当访问属性时，可以在 getter 和 setter 中记录访问日志。</p>
+</blockquote>
+<h4 id="2、校验值"><a href="#2、校验值" class="headerlink" title="2、校验值"></a>2、校验值</h4><blockquote>
+<p>有效的避免指定属性类型错误的发生。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">xiaolu</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(<span class="keyword">this</span>,<span class="string">'skillLevel'</span>,&#123;</span><br><span class="line">        get:<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> count;</span><br><span class="line">        &#125;,</span><br><span class="line">        set:<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(!<span class="built_in">Number</span>.isInteger(value))&#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">"抛出错误"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            count = value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3、定义如何计算属性值"><a href="#3、定义如何计算属性值" class="headerlink" title="3、定义如何计算属性值"></a>3、定义如何计算属性值</h4><blockquote>
+<p>每次访问属性值，都会进行计算属性值。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> collection = &#123;</span><br><span class="line">    name:<span class="string">'xiaolu'</span>,</span><br><span class="line">    age:<span class="string">'2'</span>,</span><br><span class="line">    <span class="comment">// 读取属性</span></span><br><span class="line">    get getName()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name + <span class="string">" "</span>+<span class="keyword">this</span>.age;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 设置属性</span></span><br><span class="line">    set setName(value)&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(collection.getName)</span><br></pre></td></tr></table></figure>
+<h3 id="四、Proxy"><a href="#四、Proxy" class="headerlink" title="四、Proxy"></a>四、Proxy</h3>
       
     </div>
     
@@ -689,7 +694,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">133</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -779,7 +784,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、钩子函数"><span class="nav-number">1.</span> <span class="nav-text">1、钩子函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、声明Proxy"><span class="nav-number">2.</span> <span class="nav-text">2、声明Proxy</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-实例"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">▉ 实例</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-get-属性"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">▉ get 属性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-set属性"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">▉ set属性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#▉-apply的使用"><span class="nav-number">2.0.0.4.</span> <span class="nav-text">▉ apply的使用</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、为什么需要-getter-和-setter-访问？"><span class="nav-number">1.</span> <span class="nav-text">一、为什么需要 getter 和 setter 访问？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、定义-getter-和-setter"><span class="nav-number">2.</span> <span class="nav-text">二、定义 getter 和 setter</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、字面量定义-getter-和-setter"><span class="nav-number">2.1.</span> <span class="nav-text">1、字面量定义 getter 和 setter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、ES6-Class-定义-getter-和-setter"><span class="nav-number">2.2.</span> <span class="nav-text">2、ES6 Class 定义 getter 和 setter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、Object-definedProperty"><span class="nav-number">2.3.</span> <span class="nav-text">3、Object.definedProperty()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、getter-和-setter-的应用"><span class="nav-number">3.</span> <span class="nav-text">三、getter 和 setter 的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、日志记录"><span class="nav-number">3.1.</span> <span class="nav-text">1、日志记录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、校验值"><span class="nav-number">3.2.</span> <span class="nav-text">2、校验值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、定义如何计算属性值"><span class="nav-number">3.3.</span> <span class="nav-text">3、定义如何计算属性值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、Proxy"><span class="nav-number">4.</span> <span class="nav-text">四、Proxy</span></a></li></ol></div>
             
 
           </div>
@@ -834,7 +839,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共224.8k字</span>
+  <span class="post-count">博客全站共225.8k字</span>
 </div>
         
 
@@ -972,7 +977,7 @@ var jiathis_config={
         var disqus_config = function () {
           this.page.url = 'http://yoursite.com/2019/03/21/玩转 ES6 之【Proxy预处理】/';
           this.page.identifier = '2019/03/21/玩转 ES6 之【Proxy预处理】/';
-          this.page.title = '玩转 ES6 之【Proxy预处理】';
+          this.page.title = '玩转 ES6 之【对象代理】';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
