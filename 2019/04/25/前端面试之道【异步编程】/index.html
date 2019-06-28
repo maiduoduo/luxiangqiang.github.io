@@ -126,7 +126,7 @@
 <meta property="og:site_name" content="小鹿的博客">
 <meta property="og:description" content="js 异步常考面试题！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-16T01:17:14.899Z">
+<meta property="og:updated_time" content="2019-06-27T00:03:30.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试之【异步编程】">
 <meta name="twitter:description" content="js 异步常考面试题！">
@@ -441,7 +441,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,856
+                  2,017
                 </span>
               
 
@@ -457,7 +457,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  8
                 </span>
               
             </div>
@@ -516,9 +516,9 @@
 <p>promise 是承诺的意思，在未来会有一个确切的回复，并且该有三种状态：承诺一旦从等待状态变为其他状态就会不更改状态。</p>
 </blockquote>
 <ol>
-<li>等待中（pending）</li>
-<li>完成了 （resolved）</li>
-<li>拒绝了（rejected）</li>
+<li>等待状态 （pending）</li>
+<li>完成状态 （resolved）</li>
+<li>拒绝状态 （rejected）</li>
 </ol>
 <h5 id="※-答✔：解决了什么问题？"><a href="#※-答✔：解决了什么问题？" class="headerlink" title="※ 答✔：解决了什么问题？"></a>※ 答✔：解决了什么问题？</h5><blockquote>
 <p>promise 解决了函数回调地狱的问题。</p>
@@ -566,13 +566,18 @@
 </blockquote>
 <h5 id="※-答✔：async-和-await-的优缺点？"><a href="#※-答✔：async-和-await-的优缺点？" class="headerlink" title="※ 答✔：async  和 await 的优缺点？"></a>※ 答✔：async  和 await 的优缺点？</h5><p><strong>优点：</strong></p>
 <blockquote>
-<p>异步的终极解决方案，相比于直接使用 Promise 说，优势在处理 <code>then</code>的调用链，能够更清晰准确的写出代码，毕竟写一大堆的 then 是非常不优雅的，并且也能优雅地解决回调地狱问题。、</p>
+<p>1、<strong>内置执行器。</strong> Generator 函数的执行必须靠执行器，所以才有了 co 函数库，而 async 函数自带执行器。也就是说，async 函数的执行，与普通函数一模一样，只要一行。</p>
+<p>2、<strong>更好的语义。</strong> async 和 await，比起星号和 yield，语义更清楚了。async 表示函数里有异步操作，await 表示紧跟在后面的表达式需要等待结果。</p>
+<p>3、<strong>更广的适用性。</strong> co 函数库约定，yield 命令后面只能是 Thunk 函数或 Promise 对象，而 async 函数的 await 命令后面，可以跟 Promise 对象和原始类型的值（数值、字符串和布尔值，但这时等同于同步操作）。</p>
 </blockquote>
 <p><strong>缺点：</strong></p>
 <blockquote>
 <p>因为 <code>await</code> 将异步代码改造成了同步代码，如果多个异步代码没有依赖性却使用了 <code>await</code> 会导致性能上的降低。</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 以下代码没有依赖性的话，完全可以使用 Promise.all 的方式</span></span><br><span class="line">  <span class="comment">// 如果有依赖性的话，其实就是解决回调地狱的例子了</span></span><br><span class="line">  <span class="keyword">await</span> fetch(url)</span><br><span class="line">  <span class="keyword">await</span> fetch(url1)</span><br><span class="line">  <span class="keyword">await</span> fetch(url2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="※-答✔：await-原理是什么？"><a href="#※-答✔：await-原理是什么？" class="headerlink" title="※ 答✔：await 原理是什么？"></a>※ 答✔：await 原理是什么？</h5><blockquote>
+<p>async 函数的实现，就是将 Generator 函数和自动执行器，包装在一个函数里。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">spawn</span>(<span class="params">genF</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> gen = genF();</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">step</span>(<span class="params">nextF</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> next = nextF();</span><br><span class="line">      &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">        <span class="keyword">return</span> reject(e); </span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(next.done) &#123;</span><br><span class="line">        <span class="keyword">return</span> resolve(next.value);</span><br><span class="line">      &#125; </span><br><span class="line">      <span class="built_in">Promise</span>.resolve(next.value).then(<span class="function"><span class="keyword">function</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">        step(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> gen.next(v); &#125;);      </span><br><span class="line">      &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        step(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> gen.throw(e); &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    step(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> gen.next(<span class="literal">undefined</span>); &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="常用定时器函数"><a href="#常用定时器函数" class="headerlink" title="常用定时器函数"></a>常用定时器函数</h2><blockquote>
 <p>面试题：setTimeout、setInterval、requestAnimationFrame 各有什么特点？</p>
 </blockquote>
@@ -771,7 +776,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">133</span>
+                  <span class="site-state-item-count">135</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -861,7 +866,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#并发和并行"><span class="nav-number">1.</span> <span class="nav-text">并发和并行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回调函数"><span class="nav-number">2.</span> <span class="nav-text">回调函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator"><span class="nav-number">3.</span> <span class="nav-text">Generator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise"><span class="nav-number">4.</span> <span class="nav-text">Promise</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：promise-是什么？promise-的特点是什么？"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">※ 答✔：promise 是什么？promise 的特点是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：解决了什么问题？"><span class="nav-number">4.0.0.2.</span> <span class="nav-text">※ 答✔：解决了什么问题？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：如何使用-promise"><span class="nav-number">4.0.0.3.</span> <span class="nav-text">※ 答✔：如何使用 promise ?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：什么是-Promise-链？"><span class="nav-number">4.0.0.4.</span> <span class="nav-text">※ 答✔：什么是 Promise 链？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：Promise-构造函数执行和-then-函数执行有什么区别？"><span class="nav-number">4.0.0.5.</span> <span class="nav-text">※ 答✔：Promise 构造函数执行和 then 函数执行有什么区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：promise-的优缺点是什么？"><span class="nav-number">4.0.0.6.</span> <span class="nav-text">※ 答✔：promise 的优缺点是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：Promise-在事件循环中的执行过程是怎样的？"><span class="nav-number">4.0.0.7.</span> <span class="nav-text">※ 答✔：Promise 在事件循环中的执行过程是怎样的？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：能不能手写一个-Promise"><span class="nav-number">4.0.0.8.</span> <span class="nav-text">※ 答✔：能不能手写一个 Promise ?</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#async-及-await"><span class="nav-number">5.</span> <span class="nav-text">async 及 await</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：async-的特点？"><span class="nav-number">5.0.0.1.</span> <span class="nav-text">※ 答✔：async 的特点？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：await-的特点？"><span class="nav-number">5.0.0.2.</span> <span class="nav-text">※ 答✔：await 的特点？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：async-和-await-的优缺点？"><span class="nav-number">5.0.0.3.</span> <span class="nav-text">※ 答✔：async  和 await 的优缺点？</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用定时器函数"><span class="nav-number">6.</span> <span class="nav-text">常用定时器函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：setTimeout-的特点？"><span class="nav-number">6.0.0.1.</span> <span class="nav-text">※ 答✔：setTimeout 的特点？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：setInterval的特点？"><span class="nav-number">6.0.0.2.</span> <span class="nav-text">※ 答✔：setInterval的特点？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：requestAnimationFrame-的特点？"><span class="nav-number">6.0.0.3.</span> <span class="nav-text">※ 答✔：requestAnimationFrame  的特点？</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#并发和并行"><span class="nav-number">1.</span> <span class="nav-text">并发和并行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回调函数"><span class="nav-number">2.</span> <span class="nav-text">回调函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator"><span class="nav-number">3.</span> <span class="nav-text">Generator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise"><span class="nav-number">4.</span> <span class="nav-text">Promise</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：promise-是什么？promise-的特点是什么？"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">※ 答✔：promise 是什么？promise 的特点是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：解决了什么问题？"><span class="nav-number">4.0.0.2.</span> <span class="nav-text">※ 答✔：解决了什么问题？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：如何使用-promise"><span class="nav-number">4.0.0.3.</span> <span class="nav-text">※ 答✔：如何使用 promise ?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：什么是-Promise-链？"><span class="nav-number">4.0.0.4.</span> <span class="nav-text">※ 答✔：什么是 Promise 链？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：Promise-构造函数执行和-then-函数执行有什么区别？"><span class="nav-number">4.0.0.5.</span> <span class="nav-text">※ 答✔：Promise 构造函数执行和 then 函数执行有什么区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：promise-的优缺点是什么？"><span class="nav-number">4.0.0.6.</span> <span class="nav-text">※ 答✔：promise 的优缺点是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：Promise-在事件循环中的执行过程是怎样的？"><span class="nav-number">4.0.0.7.</span> <span class="nav-text">※ 答✔：Promise 在事件循环中的执行过程是怎样的？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：能不能手写一个-Promise"><span class="nav-number">4.0.0.8.</span> <span class="nav-text">※ 答✔：能不能手写一个 Promise ?</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#async-及-await"><span class="nav-number">5.</span> <span class="nav-text">async 及 await</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：async-的特点？"><span class="nav-number">5.0.0.1.</span> <span class="nav-text">※ 答✔：async 的特点？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：await-的特点？"><span class="nav-number">5.0.0.2.</span> <span class="nav-text">※ 答✔：await 的特点？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：async-和-await-的优缺点？"><span class="nav-number">5.0.0.3.</span> <span class="nav-text">※ 答✔：async  和 await 的优缺点？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：await-原理是什么？"><span class="nav-number">5.0.0.4.</span> <span class="nav-text">※ 答✔：await 原理是什么？</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用定时器函数"><span class="nav-number">6.</span> <span class="nav-text">常用定时器函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：setTimeout-的特点？"><span class="nav-number">6.0.0.1.</span> <span class="nav-text">※ 答✔：setTimeout 的特点？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：setInterval的特点？"><span class="nav-number">6.0.0.2.</span> <span class="nav-text">※ 答✔：setInterval的特点？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#※-答✔：requestAnimationFrame-的特点？"><span class="nav-number">6.0.0.3.</span> <span class="nav-text">※ 答✔：requestAnimationFrame  的特点？</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -916,7 +921,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共225.8k字</span>
+  <span class="post-count">博客全站共226.8k字</span>
 </div>
         
 
