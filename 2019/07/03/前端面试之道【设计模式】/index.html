@@ -118,18 +118,18 @@
 
 
 
-<meta name="description" content="了解前端事件循环！">
+<meta name="description" content="前端所用到的设计模式！">
 <meta name="keywords" content="前端,面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端面试之【Event Loop】">
-<meta property="og:url" content="http://yoursite.com/2019/06/05/前端面试之道之【Event Loop】/index.html">
+<meta property="og:title" content="前端面试之道【设计模式】">
+<meta property="og:url" content="http://yoursite.com/2019/07/03/前端面试之道【设计模式】/index.html">
 <meta property="og:site_name" content="小鹿的博客">
-<meta property="og:description" content="了解前端事件循环！">
+<meta property="og:description" content="前端所用到的设计模式！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-24T00:56:10.299Z">
+<meta property="og:updated_time" content="2019-07-03T00:41:11.154Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端面试之【Event Loop】">
-<meta name="twitter:description" content="了解前端事件循环！">
+<meta name="twitter:title" content="前端面试之道【设计模式】">
+<meta name="twitter:description" content="前端所用到的设计模式！">
 
 
 
@@ -159,13 +159,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/05/前端面试之道之【Event Loop】/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/07/03/前端面试之道【设计模式】/"/>
 
 
 
 
 
-  <title>前端面试之【Event Loop】 | 小鹿的博客</title>
+  <title>前端面试之道【设计模式】 | 小鹿的博客</title>
   
 
 
@@ -336,7 +336,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/05/前端面试之道之【Event Loop】/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/03/前端面试之道【设计模式】/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小鹿">
@@ -353,7 +353,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">前端面试之【Event Loop】</h1>
+          <h1 class="post-title" itemprop="name headline">前端面试之道【设计模式】</h1>
         
 
         <div class="post-meta">
@@ -365,8 +365,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-05T14:52:28+08:00">
-                2019-06-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-03T08:07:52+08:00">
+                2019-07-03
               </time>
             
 
@@ -417,9 +417,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/06/05/前端面试之道之【Event Loop】/#comments" itemprop="discussionUrl">
+                <a href="/2019/07/03/前端面试之道【设计模式】/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/06/05/前端面试之道之【Event Loop】/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2019/07/03/前端面试之道【设计模式】/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -441,7 +441,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  595
+                  307
                 </span>
               
 
@@ -457,7 +457,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  1
                 </span>
               
             </div>
@@ -478,26 +478,37 @@
       
 
       
-        <p>了解前端事件循环！</p>
+        <p>前端所用到的设计模式！</p>
 <a id="more"></a>
-<h4 id="一、进程与线程区别？"><a href="#一、进程与线程区别？" class="headerlink" title="一、进程与线程区别？"></a>一、进程与线程区别？</h4><ul>
-<li><strong>进程：</strong>进程是 CPU <strong>资源分配</strong>的最小单位，系统会为每个进程进行分配内存空间。比如一个 Tab 页面就是一个进程。</li>
-<li><strong>线程：</strong>线程是 CPU <strong>调度</strong>的最小单位（线程是建立在进程的基础上的一次程序运行单位，一个进程由多个线程组成，比如：渲染线程、Js 引擎线程、HTTP 请求线程等）。</li>
-</ul>
-<h4 id="二、JS-单线程带来的好处？"><a href="#二、JS-单线程带来的好处？" class="headerlink" title="二、JS 单线程带来的好处？"></a>二、JS 单线程带来的好处？</h4><p>1、对于 js 引擎线程和渲染线程来说，在 js 运行的时候可能会阻止 UI 渲染，可以得出两个线程是互斥的。</p>
-<p>2、如果在 js 修改 DOM 的时候，UI 线程还在渲染，会导致不能安全的渲染 UI。</p>
-<p>3、JS 单线程的好处可以达到节省内存空间，节约上下文切换时间，没有锁的问题。</p>
-<h4 id="三、什么是执行栈？"><a href="#三、什么是执行栈？" class="headerlink" title="三、什么是执行栈？"></a>三、什么是执行栈？</h4><blockquote>
-<p>执行栈就是一个存储函数调用的栈结构，具有先进后出的特点。根据这个特定，函数之间的调用会遵循后执行的函数先弹出栈。</p>
+<h2 id="发布-订阅者模式"><a href="#发布-订阅者模式" class="headerlink" title="发布-订阅者模式"></a>发布-订阅者模式</h2><blockquote>
+<p>发布-订阅者模式也叫做<strong>观察者模式</strong>。这是一种<strong>一对一或一对多</strong>的依赖关系，对象相当于发布方，当对象发生改变时，订阅方都会受到通知。</p>
 </blockquote>
-<h4 id="四、异步代码执行顺序？"><a href="#四、异步代码执行顺序？" class="headerlink" title="四、异步代码执行顺序？"></a>四、异步代码执行顺序？</h4><p>1、我们知道 js 代码的调用是在执行栈中的同步执行的，如果遇到了异步代码时，此时就将异步代码挂起加入到 <code>Task</code> 的队列中。</p>
-<p>2、当执行栈为空时，<code>Event Loop</code> 就会从 Task 队列中拿出需要执行的异步代码放入到执行栈中，我认为本质上 js 异步还算是一种同步的行为。</p>
-<p>3、不同的任务源分配到不同的 <code>Task</code> 队列中，任务源分为微任务（<code>microtask</code>）和宏任务（<code>macrotask</code>），在 ES6 规范中分别叫 <code>jobs，task</code>。</p>
-<h4 id="五、说下一-js-中的-Event-Loop-？"><a href="#五、说下一-js-中的-Event-Loop-？" class="headerlink" title="五、说下一 js 中的 Event Loop ？"></a>五、说下一 js 中的 Event Loop ？</h4><p><a href="[http://luxiangqiang.xn--6qq986b3xl/2019/06/14/%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6%E6%B7%B1%E5%85%A5%E7%B3%BB%E5%88%97%E4%B9%8B%E3%80%90%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E3%80%91/](http://luxiangqiang.xn--6qq986b3xl/2019/06/14/前端进阶深入系列之[事件循环]/">JS 的事件循环</a>)</p>
-<h4 id="六、Node-中的事件循环"><a href="#六、Node-中的事件循环" class="headerlink" title="六、Node 中的事件循环"></a>六、Node 中的事件循环</h4><blockquote>
-<p>Node.js 是基于事件驱动型、非阻塞的 IO 模型。</p>
-<p>1）所谓的事件驱动模型，当服务器接受到请求时，将其关闭进行处理，然后去接受下一个请求。当这个请求执行完成，就会被放到消息队列，当达到队列头部的时候，就会将结果返回给用户。</p>
-<p>3）所谓的非阻塞 IO 操作，因为 webserver 一直接受请求而不等待任何读写操作。</p>
+<h4 id="1、应用"><a href="#1、应用" class="headerlink" title="1、应用"></a>1、应用</h4><blockquote>
+<ul>
+<li>MVC 模型中的 Model 与 View 之间的关系就是观察者模式。</li>
+<li>Vue 中的响应式也是用到了该模式。</li>
+<li>按钮的点击事件也属于该模式。</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=<span class="string">"ul"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">let</span> ul = <span class="built_in">document</span>.querySelector(<span class="string">'#ul'</span>)</span><br><span class="line">    ul.addEventListener(<span class="string">'click'</span>, (event) =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(event.target);</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><blockquote>
+<p>定义一系列的算法，把它们封装起来，并且可以相互替换。</p>
+</blockquote>
+<h4 id="1、由来"><a href="#1、由来" class="headerlink" title="1、由来"></a>1、由来</h4><blockquote>
+<p>在多种算法相似的情况下，使用 if-else 所带来的的复杂和难以维护。</p>
+</blockquote>
+<h4 id="2、适用条件"><a href="#2、适用条件" class="headerlink" title="2、适用条件"></a>2、适用条件</h4><blockquote>
+<p>一个系统有多了类，区分它们的只是直接的行为。</p>
+</blockquote>
+<h4 id="3、优缺点"><a href="#3、优缺点" class="headerlink" title="3、优缺点"></a>3、优缺点</h4><ul>
+<li><strong>优点：</strong>算法自由切换、避免重复使用判断条件、扩展性好</li>
+<li><strong>缺点：</strong>策略类会增多、所有的类都会暴露接口</li>
+</ul>
+<h4 id="4、应用"><a href="#4、应用" class="headerlink" title="4、应用"></a>4、应用</h4><ul>
+<li>MVC 中 View 与 Controller 之间的关系就是策略模式。</li>
+</ul>
+<h4 id="5、实例"><a href="#5、实例" class="headerlink" title="5、实例"></a>5、实例</h4><blockquote>
+<p>计算器的加减乘除运算。</p>
 </blockquote>
 
       
@@ -543,8 +554,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/02/前端进阶深入系列之【浏览器的运行机制】/" rel="next" title="前端进阶深入系列之【浏览器的运行机制】">
-                <i class="fa fa-chevron-left"></i> 前端进阶深入系列之【浏览器的运行机制】
+              <a href="/2019/07/02/前端面试之道之框架【MVVM】/" rel="next" title="前端面试之道之框架【MVC/MVP/MVVM】">
+                <i class="fa fa-chevron-left"></i> 前端面试之道之框架【MVC/MVP/MVVM】
               </a>
             
           </div>
@@ -552,10 +563,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/05/前端进阶深入系列之【异步编程】/" rel="prev" title="前端进阶深入系列之【异步编程】">
-                前端进阶深入系列之【异步编程】 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -674,7 +681,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">137</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -764,7 +771,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、进程与线程区别？"><span class="nav-number">1.</span> <span class="nav-text">一、进程与线程区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、JS-单线程带来的好处？"><span class="nav-number">2.</span> <span class="nav-text">二、JS 单线程带来的好处？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、什么是执行栈？"><span class="nav-number">3.</span> <span class="nav-text">三、什么是执行栈？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、异步代码执行顺序？"><span class="nav-number">4.</span> <span class="nav-text">四、异步代码执行顺序？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、说下一-js-中的-Event-Loop-？"><span class="nav-number">5.</span> <span class="nav-text">五、说下一 js 中的 Event Loop ？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六、Node-中的事件循环"><span class="nav-number">6.</span> <span class="nav-text">六、Node 中的事件循环</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#发布-订阅者模式"><span class="nav-number">1.</span> <span class="nav-text">发布-订阅者模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、应用"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、应用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#策略模式"><span class="nav-number">2.</span> <span class="nav-text">策略模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、由来"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、由来</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、适用条件"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、适用条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、优缺点"><span class="nav-number">2.0.3.</span> <span class="nav-text">3、优缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、应用"><span class="nav-number">2.0.4.</span> <span class="nav-text">4、应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、实例"><span class="nav-number">2.0.5.</span> <span class="nav-text">5、实例</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -819,7 +826,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共228.2k字</span>
+  <span class="post-count">博客全站共228.1k字</span>
 </div>
         
 
@@ -955,9 +962,9 @@ var jiathis_config={
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2019/06/05/前端面试之道之【Event Loop】/';
-          this.page.identifier = '2019/06/05/前端面试之道之【Event Loop】/';
-          this.page.title = '前端面试之【Event Loop】';
+          this.page.url = 'http://yoursite.com/2019/07/03/前端面试之道【设计模式】/';
+          this.page.identifier = '2019/07/03/前端面试之道【设计模式】/';
+          this.page.title = '前端面试之道【设计模式】';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';

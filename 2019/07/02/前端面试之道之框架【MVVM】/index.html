@@ -126,7 +126,7 @@
 <meta property="og:site_name" content="小鹿的博客">
 <meta property="og:description" content="什么是MVC/MVP/MVVM？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-02T00:18:15.503Z">
+<meta property="og:updated_time" content="2019-07-03T00:40:49.909Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试之道之框架【MVC&#x2F;MVP&#x2F;MVVM】">
 <meta name="twitter:description" content="什么是MVC/MVP/MVVM？">
@@ -441,7 +441,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  662
+                  668
                 </span>
               
 
@@ -489,16 +489,16 @@
 <li><code>Controller</code>  是 <code>View</code> 和 <code>Model</code> 之间的连接的枢纽。</li>
 </ul>
 <h4 id="一、Model-模型层"><a href="#一、Model-模型层" class="headerlink" title="一、Model 模型层"></a>一、Model 模型层</h4><blockquote>
-<p>模型层主要封装了应用程序以及业务逻辑所使用到数据和处理数据的方法。Model 和 View 之间使用的是<strong>观察者模式</strong>，View 事先在 Model 上进行注册，一旦 Model 的数据发生改变，就会做出相应的改变。</p>
+<p>模型层主要封装了<strong>应用程序以及业务逻辑</strong>所使用到数据和处理数据的方法。Model 和 View 之间使用的是<strong>观察者模式</strong>，View 事先在 Model 上进行注册，一旦 Model 的数据发生改变，就会做出相应的改变。</p>
 </blockquote>
 <h4 id="二、View-视图层"><a href="#二、View-视图层" class="headerlink" title="二、View 视图层"></a>二、View 视图层</h4><blockquote>
-<p>视图层主要是负责数据的展示。View 和 Controller 之间采用的是<strong>策略模式</strong>，View 引用 Controller 的实例来实现了特定的<strong>响应策略</strong>（比如点击事件）。</p>
+<p>视图层主要是负责数据的展示。View 和 Controller 之间采用的是<strong>策略模式</strong>，不同的 View 引用不同的 Controller 的实例来实现了特定的<strong>响应策略</strong>（比如点击事件）。</p>
 </blockquote>
 <h4 id="三、Controller-控制层"><a href="#三、Controller-控制层" class="headerlink" title="三、Controller 控制层"></a>三、Controller 控制层</h4><blockquote>
-<p>控制层主要用来连接 Model 和 View 。使用控制层来对用户界面的用户输入响应，连接模型层，用于控制对数据的改变，所有的业务逻辑主要集中在控制层。</p>
+<p>控制层主要用来连接 Model 和 View 。<strong>使用控制层来对用户界面的用户输入响应</strong>，连接模型层，用于控制对数据的改变，所有的业务逻辑主要集中在控制层。</p>
 </blockquote>
 <h2 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h2><blockquote>
-<p>MVP 主要让 Model 和 View 更加解耦， View 不能直接获取 Model 层的数据，而是通过 Presenter 提供给 View 接口，负责将 View 和 Model  的数据进行手动同步。</p>
+<p>MVP 主要加大了 Model 和 View 解耦， View 不能直接获取 Model 层的数据，而是通过 Presenter 提供给 View 接口，负责将 View 和 Model  的数据进行手动同步。</p>
 </blockquote>
 <h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2><blockquote>
 <p>MVVM 主要用框架封装了 MVP 中的 Presenter 的手动操作，主要实现了自动化的数据绑定，只要告诉 View 显示的数据是 Model 的哪一部分就可以了。</p>
@@ -518,7 +518,7 @@
 <p>MVVM 中的 View 通过使用模板语法声明式的渲染 DOM，当 ViewModel 对 Model 进行更新的时候，通过数据绑定更新到 View。</p>
 </blockquote>
 <h4 id="3、ViewModel"><a href="#3、ViewModel" class="headerlink" title="3、ViewModel"></a>3、ViewModel</h4><blockquote>
-<p>与 MVP 不同的是，没有了 View 为 Presente 提供的接口，之前由 Presenter 负责的 View 和 Model之间的数据同步交给了 ViewModel 中的<strong>数据绑定</strong>进行处理，当 Model 发生变化，ViewModel 就会自动更新；ViewModel 变化，Model也会更新。</p>
+<p>与 MVP 不同的是，没有了 View 为 Presente 提供的接口，之前由 Presenter 负责的 View 和 Model之间的数据同步交给了 ViewModel 中的<strong>数据绑定</strong>进行处理，当 Model 发生变化，ViewModel 就会自动更新；ViewModel 变化，Model 也会更新。</p>
 </blockquote>
 
       
@@ -573,6 +573,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/03/前端面试之道【设计模式】/" rel="prev" title="前端面试之道【设计模式】">
+                前端面试之道【设计模式】 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -691,7 +695,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">137</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -836,7 +840,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共228.2k字</span>
+  <span class="post-count">博客全站共228.1k字</span>
 </div>
         
 
