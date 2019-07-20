@@ -105,7 +105,7 @@
 
 
 
-  <meta name="keywords" content="前端,javascript,前端深入系列," />
+  <meta name="keywords" content="javascript,前端,前端深入系列," />
 
 
 
@@ -119,14 +119,14 @@
 
 
 <meta name="description" content="AJAX 以及跨域问题完整详细解析，面试、日常项目常用点。">
-<meta name="keywords" content="前端,javascript,前端深入系列">
+<meta name="keywords" content="javascript,前端,前端深入系列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端进阶深入系列之【跨域问题】">
 <meta property="og:url" content="http://yoursite.com/2019/04/10/前端进阶深入系列之【跨域问题】/index.html">
 <meta property="og:site_name" content="小鹿的博客">
 <meta property="og:description" content="AJAX 以及跨域问题完整详细解析，面试、日常项目常用点。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-18T11:51:57.747Z">
+<meta property="og:updated_time" content="2019-07-10T03:18:11.608Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端进阶深入系列之【跨域问题】">
 <meta name="twitter:description" content="AJAX 以及跨域问题完整详细解析，面试、日常项目常用点。">
@@ -452,7 +452,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5,095
+                  5,094
                 </span>
               
 
@@ -517,15 +517,15 @@
 <h5 id="1、不同源获取-Cookie"><a href="#1、不同源获取-Cookie" class="headerlink" title="1、不同源获取 Cookie"></a>1、不同源获取 Cookie</h5><blockquote>
 <p>同源策略导致不同源的页面是不可以获取 Cookie 值的，如果有存在不同源的两个页面（一级域名相同，二级域名不同），想要共享 Cookie ，怎么做呢？</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//假设两个共享 Cookie 的网址</span></span><br><span class="line">A 网址：http:<span class="comment">//v1.xiaolu.com/index.html</span></span><br><span class="line">B 网址：http:<span class="comment">//v2.xiaolu.com/index.html</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法一：通过设置两个页面的 domain 值相同，就可以共享 Cookie</span></span><br><span class="line"><span class="comment">// 注意：只是适用于二级域名不同 Cookie 和 iframe,对于 LocalStorage 和 IndexDB 不适用。 </span></span><br><span class="line"><span class="built_in">document</span>.domain = <span class="string">'.xiaolu.com'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//方法二：服务器设置 Cookie 的时候，指定 Cookie 所属一级域名，上述如果一级域名不同也不会存在限制</span></span><br><span class="line"><span class="built_in">Set</span>-Cookie: key=value; domain=.xiaolu.com; path=<span class="regexp">/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//假设两个共享 Cookie 的网址</span></span><br><span class="line">A 网址：http:<span class="comment">//v1.xiaolu.com/index.html</span></span><br><span class="line">B 网址：http:<span class="comment">//v2.xiaolu.com/index.html</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 同源策略导致不同源的页面是不可以获取 Cookie 值的</span></span><br><span class="line"><span class="comment">// 注意：只是适用于二级域名不同 Cookie 和 iframe,对于 LocalStorage 和 IndexDB 不适用。 </span></span><br><span class="line"><span class="built_in">document</span>.domain = <span class="string">'.xiaolu.com'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//方法二：服务器设置 Cookie 的时候，指定 Cookie 所属一级域名，上述如果一级域名不同也不会存在限制</span></span><br><span class="line"><span class="built_in">Set</span>-Cookie: key=value; domain=.xiaolu.com; path=<span class="regexp">/</span></span><br></pre></td></tr></table></figure>
 <h2 id="二、AJAX-跨域共享"><a href="#二、AJAX-跨域共享" class="headerlink" title="二、AJAX 跨域共享"></a>二、AJAX 跨域共享</h2><h3 id="2-1-架设代理服务器"><a href="#2-1-架设代理服务器" class="headerlink" title="2.1 架设代理服务器"></a>2.1 架设代理服务器</h3><blockquote>
 <p>同源域名下架设代理服务器，JavaScript负责把请求发送到代理服务器，代理服务器将结果返回，准守了浏览器的同源策略。</p>
 <p><strong>缺点：需要额外的服务器做开发</strong></p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;/proxy?url=http://www.baidu.com.cn&apos;</span><br></pre></td></tr></table></figure>
 <h3 id="2-2-domain"><a href="#2-2-domain" class="headerlink" title="2.2 domain"></a>2.2 domain</h3><blockquote>
-<p>同一主域的不同子域可以设置document.domain为主域来让他们同域,并且子域的协议和端口都要一致。</p>
-<p>document.domain只能设置往上设置域名,需要载入iframe来相互操作。</p>
+<p>同一主域的不同子域可以设置 document.domain 为主域来让他们同域,并且子域的协议和端口都要一致。</p>
+<p>document.domain 只能设置往上设置域名,需要载入 iframe 来相互操作。</p>
 </blockquote>
 <h3 id="2-3-JSONP"><a href="#2-3-JSONP" class="headerlink" title="2.3 JSONP"></a>2.3 JSONP</h3><blockquote>
 <p>一些带 src 的 html 标签都可以实现跨域，link、font-face、img、video、audio、script等。 </p>
@@ -542,10 +542,10 @@
 <h4 id="4、基本流程"><a href="#4、基本流程" class="headerlink" title="4、基本流程"></a>4、基本流程</h4><blockquote>
 <p>JSONP 通常以函数的形式返回，需要在页面写好返回的函数，页面动态的添加一个<code>&lt;script&gt;</code>节点，动态读取外域的 javascript 资源，然接受回调。（在外域的 javascript 文件中返回一个函数，函数中有我们需要的数据，我们在本地触发该函数就可以完成跨域）。</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">addScriptTag</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">      script.setAttribute(<span class="string">"type"</span>,<span class="string">"text/javascript"</span>);</span><br><span class="line">      script.src = src;</span><br><span class="line">      <span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      addScriptTag(<span class="string">'http://ip.jsontest.com/?callback=ip'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">ip</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">      alert(data.ip);</span><br><span class="line">    &#125;;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">addScriptTag</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">      script.setAttribute(<span class="string">"type"</span>,<span class="string">"text/javascript"</span>);</span><br><span class="line">      script.src = src;</span><br><span class="line">      <span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      addScriptTag(<span class="string">'http://ip.jsontest.com/?callback=ip'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 触发外域函数</span></span><br><span class="line">    ip();</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 <h4 id="5、安全性"><a href="#5、安全性" class="headerlink" title="5、安全性"></a>5、安全性</h4><blockquote>
 <p>当这个接口没有验证Referer头的时候,就存在JSONP劫持漏洞,即在任何域下都能窃取到传输的数据。</p>
-<p>当接口返回的是一些敏感数据时(如CSRF TOKEN,用户个人信息等),危害是很大的。</p>
+<p>当接口返回的是一些敏感数据时(如 CSRF TOKEN,用户个人信息等),危害是很大的。</p>
 </blockquote>
 <h3 id="2-4-WebSocket"><a href="#2-4-WebSocket" class="headerlink" title="2.4 WebSocket"></a>2.4 WebSocket</h3><h4 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h4><blockquote>
 <p>WebSocket是一种通信协议，使用<code>ws://</code>（非加密）和<code>wss://</code>（加密）作为协议前缀。该协议不实行同源政策，<strong>只要服务器支持</strong>，就可以通过它进行跨源通信。 </p>
@@ -590,7 +590,7 @@
 <p>请求到达服务器，服务器提取 <code>Origin</code>信息，看是谁给我发来的请求信息，判断 <code>Origin</code> 是否为之前在服务器设置好的 <code>Origin</code> 字段信息，如果没有此信息，就返回一个正常的 HTTP 响应。如果有此信息，就在 HTTP 回应的头部添加几个字段，让浏览器根据服务器添加的几个字段再判断此次跨域请求是否同意了。</p>
 </blockquote>
 <p>如果此次请求被允许，HTTP 响应的头部添加一下几个字段：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1)用来让浏览器判断该信息服务器是否允许了此次请求。</span></span><br><span class="line"><span class="comment">// 2)如果值为 * ，表示服务器可以接收任意域名的请求。</span></span><br><span class="line"><span class="comment">// 3）否则，代表服务器之允许设置好的域名进行跨域请求。</span></span><br><span class="line">Access-Control-Allow-Origin:  http:<span class="comment">//xiaolu.com </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1）该字段表示浏览器是否可以向服务器发送 Cookie，默认情况 Cookie 不存在 CORS 请求中的。</span></span><br><span class="line"><span class="comment">// 2) 设置为 true，允许 Cookie 信息包含在请求中的。</span></span><br><span class="line"><span class="comment">// 3) 如果服务器不要浏览器发送Cookie，删除该字段即可</span></span><br><span class="line">Access-Control-Allow-Credentials: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1）如果不设置此字段，浏览器接受到请求之后，只能通过 XMLHttpRequest 对象的 getResponseHeader()拿到最基本的 6 个字段。</span></span><br><span class="line"><span class="comment">// 2）如果想要拿到其他字段，需要在下面字段中指定。(下面设置了允许获取取 name 字段信息,通过 getResponseHeader('FooBar') 获取字段的值)</span></span><br><span class="line">Access-Control-Expose-Headers: name</span><br><span class="line"></span><br><span class="line"><span class="comment">//1）响应类型和字符编码</span></span><br><span class="line">Content-Type: text/html; charset=utf<span class="number">-8</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1) 用来让浏览器判断该信息服务器是否允许了此次请求。</span></span><br><span class="line"><span class="comment">// 2) 如果值为 * ，表示服务器可以接收任意域名的请求。</span></span><br><span class="line"><span class="comment">// 3）否则，代表服务器之允许设置好的域名进行跨域请求。</span></span><br><span class="line">Access-Control-Allow-Origin:  http:<span class="comment">//xiaolu.com </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1）该字段表示浏览器是否可以向服务器发送 Cookie，默认情况 Cookie 不存在 CORS 请求中的。</span></span><br><span class="line"><span class="comment">// 2) 设置为 true，允许 Cookie 信息包含在请求中的。</span></span><br><span class="line"><span class="comment">// 3) 如果服务器不要浏览器发送Cookie，删除该字段即可</span></span><br><span class="line">Access-Control-Allow-Credentials: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1）如果不设置此字段，浏览器接受到请求之后，只能通过 XMLHttpRequest 对象的 getResponseHeader()拿到最基本的 6 个字段。</span></span><br><span class="line"><span class="comment">// 2）如果想要拿到其他字段，需要在下面字段中指定。(下面设置了允许获取取 name 字段信息,通过 getResponseHeader('FooBar') 获取字段的值)</span></span><br><span class="line">Access-Control-Expose-Headers: name</span><br><span class="line"></span><br><span class="line"><span class="comment">//1）响应类型和字符编码</span></span><br><span class="line">Content-Type: text/html; charset=utf<span class="number">-8</span></span><br></pre></td></tr></table></figure>
 <h6 id="▉-客户端（AJAX-请求端）"><a href="#▉-客户端（AJAX-请求端）" class="headerlink" title="▉ 客户端（AJAX 请求端）"></a>▉ 客户端（AJAX 请求端）</h6><blockquote>
 <p>当浏览器接收到服务器的响应信息后，判断响应头中是否包含 <code>Access-Control-Allow-Origin</code> 字段，如果没有包含，浏览器就不会将响应信息让开发人员做处理，直接抛出一个错误，回调 <code>XMLHttpRequest</code>的<code>onerror</code> 方法（虽然服务器返回的状态码可能是 200，但是被浏览器拦截了，就会被 onerror 所捕获）。</p>
 </blockquote>
@@ -723,9 +723,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/前端/" rel="tag"># 前端</a>
-          
             <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
           
             <a href="/tags/前端深入系列/" rel="tag"># 前端深入系列</a>
           
@@ -883,7 +883,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">137</span>
+                  <span class="site-state-item-count">141</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -894,7 +894,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -905,7 +905,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1028,7 +1028,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共228.1k字</span>
+  <span class="post-count">博客全站共231.2k字</span>
 </div>
         
 
