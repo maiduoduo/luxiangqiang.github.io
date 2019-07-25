@@ -128,7 +128,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/27/167542b09875a74a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/27/167542a9af5f193f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
-<meta property="og:updated_time" content="2019-06-23T00:01:00.022Z">
+<meta property="og:updated_time" content="2019-07-25T01:49:27.141Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试之道【浏览器渲染原理】">
 <meta name="twitter:description" content="浏览器的渲染原理！">
@@ -444,7 +444,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,060
+                  2,061
                 </span>
               
 
@@ -491,7 +491,7 @@
 <p>② 浏览器将接收到的字节数据转化为字符串。</p>
 <p>③ 转化为字符串之后，浏览器再将这些字符串通过词法分析转化为标记（token）—— 代码的最小单位,这一过程叫做标记化。</p>
 <p>④ 结束标记化后，将这些标记转化为 Node 结点，浏览器根据不同的结点构建为一棵 DOM 树。</p>
-<h3 id="2、构建-CSSOM-树"><a href="#2、构建-CSSOM-树" class="headerlink" title="2、构建 CSSOM 树"></a>2、构建 CSSOM 树</h3><p><img src="https://user-gold-cdn.xitu.io/2018/11/27/167542a9af5f193f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<h3 id="2、CSSOM-树的构建"><a href="#2、CSSOM-树的构建" class="headerlink" title="2、CSSOM 树的构建"></a>2、CSSOM 树的构建</h3><p><img src="https://user-gold-cdn.xitu.io/2018/11/27/167542a9af5f193f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
 <p>① 将 CSS 文件转化为 CSSOM 树。这个过程和上述过程是类似的，但是有一点不同，浏览器为了确定结点的样式，这个过程是非常耗时的。</p>
 <p>② 浏览器通过递归的方式 DOM 树为结点设置样式。通过过先找到具体的标签，然后递归找到设置的上级标签，最后确定选择器选择的所选标签的样式。</p>
 <p>③ 所以应该避免书写过于具体的 CSS 选择器，少一些添加无意义的 HTML 标签，有利于提高习页面的性能。</p>
@@ -626,8 +626,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/24/前端框架之【Vue全家桶】/" rel="prev" title="前端框架之【Vue全家桶】">
-                前端框架之【Vue全家桶】 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/26/前端面试之道【浏览器知识汇总】/" rel="prev" title="前端面试之道之【浏览器知识汇总】">
+                前端面试之道之【浏览器知识汇总】 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -747,7 +747,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">141</span>
+                  <span class="site-state-item-count">145</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -837,7 +837,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、浏览器的渲染原理"><span class="nav-number">1.</span> <span class="nav-text">一、浏览器的渲染原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、DOM-树的构建"><span class="nav-number">1.1.</span> <span class="nav-text">1、DOM 树的构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、构建-CSSOM-树"><span class="nav-number">1.2.</span> <span class="nav-text">2、构建 CSSOM 树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、DOM-CSSOM-生成渲染树"><span class="nav-number">1.3.</span> <span class="nav-text">3、DOM + CSSOM 生成渲染树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、浏览器的渲染流程"><span class="nav-number">2.</span> <span class="nav-text">二、浏览器的渲染流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、渲染帧的流程"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、渲染帧的流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、耗时的-JS-会阻塞渲染"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、耗时的 JS 会阻塞渲染</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、为什么操作-DOM-慢"><span class="nav-number">3.</span> <span class="nav-text">三、为什么操作 DOM 慢</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、插入几万-DOM-怎么实现页面不卡顿？"><span class="nav-number">3.0.1.</span> <span class="nav-text">1、插入几万 DOM 怎么实现页面不卡顿？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、两种实现方式"><span class="nav-number">3.0.2.</span> <span class="nav-text">2、两种实现方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、什么情况阻塞渲染"><span class="nav-number">4.</span> <span class="nav-text">四、什么情况阻塞渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、阻塞的原因"><span class="nav-number">4.0.1.</span> <span class="nav-text">1、阻塞的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、减少阻塞"><span class="nav-number">4.0.2.</span> <span class="nav-text">2、减少阻塞</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、重绘（Repaint）和回流-Reflow"><span class="nav-number">5.</span> <span class="nav-text">五、重绘（Repaint）和回流(Reflow)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、重绘"><span class="nav-number">5.0.1.</span> <span class="nav-text">1、重绘</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、回流"><span class="nav-number">5.0.2.</span> <span class="nav-text">2、回流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、重绘-回流与EventLoop"><span class="nav-number">5.0.3.</span> <span class="nav-text">3、重绘/回流与EventLoop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、如何减少重绘和回流"><span class="nav-number">5.0.4.</span> <span class="nav-text">4、如何减少重绘和回流</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、浏览器的渲染原理"><span class="nav-number">1.</span> <span class="nav-text">一、浏览器的渲染原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、DOM-树的构建"><span class="nav-number">1.1.</span> <span class="nav-text">1、DOM 树的构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、CSSOM-树的构建"><span class="nav-number">1.2.</span> <span class="nav-text">2、CSSOM 树的构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、DOM-CSSOM-生成渲染树"><span class="nav-number">1.3.</span> <span class="nav-text">3、DOM + CSSOM 生成渲染树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、浏览器的渲染流程"><span class="nav-number">2.</span> <span class="nav-text">二、浏览器的渲染流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、渲染帧的流程"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、渲染帧的流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、耗时的-JS-会阻塞渲染"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、耗时的 JS 会阻塞渲染</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、为什么操作-DOM-慢"><span class="nav-number">3.</span> <span class="nav-text">三、为什么操作 DOM 慢</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、插入几万-DOM-怎么实现页面不卡顿？"><span class="nav-number">3.0.1.</span> <span class="nav-text">1、插入几万 DOM 怎么实现页面不卡顿？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、两种实现方式"><span class="nav-number">3.0.2.</span> <span class="nav-text">2、两种实现方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、什么情况阻塞渲染"><span class="nav-number">4.</span> <span class="nav-text">四、什么情况阻塞渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、阻塞的原因"><span class="nav-number">4.0.1.</span> <span class="nav-text">1、阻塞的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、减少阻塞"><span class="nav-number">4.0.2.</span> <span class="nav-text">2、减少阻塞</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、重绘（Repaint）和回流-Reflow"><span class="nav-number">5.</span> <span class="nav-text">五、重绘（Repaint）和回流(Reflow)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、重绘"><span class="nav-number">5.0.1.</span> <span class="nav-text">1、重绘</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、回流"><span class="nav-number">5.0.2.</span> <span class="nav-text">2、回流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、重绘-回流与EventLoop"><span class="nav-number">5.0.3.</span> <span class="nav-text">3、重绘/回流与EventLoop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、如何减少重绘和回流"><span class="nav-number">5.0.4.</span> <span class="nav-text">4、如何减少重绘和回流</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -892,7 +892,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共231.2k字</span>
+  <span class="post-count">博客全站共233.6k字</span>
 </div>
         
 
